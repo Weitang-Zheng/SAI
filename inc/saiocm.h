@@ -1,0 +1,312 @@
+/**
+ * Copyright (c) 2021 Alibaba Group.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License"); you may
+ *    not use this file except in compliance with the License. You may obtain
+ *    a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR
+ *    CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ *    LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ *    FOR A PARTICULAR PURPOSE, MERCHANTABILITY OR NON-INFRINGEMENT.
+ *
+ *    See the Apache Version 2.0 License for specific language governing
+ *    permissions and limitations under the License.
+ *
+ * @file    saiocm.h
+ * @brief   This module defines the OCM for the SAI
+ */
+
+#if !defined (__SAIOCM_H_)
+#define __SAIOCM_H_
+
+#include <saitypes.h>
+
+/**
+ * @defgroup SAIOCM SAI - OCM specific API definitions
+ *
+ * @{
+ */
+
+/**
+ * @brief OCM attribute IDs
+ */
+typedef enum _sai_ocm_attr_t
+{
+    /**
+     * @brief Start of attributes
+     */
+    SAI_OCM_ATTR_START,
+
+    /**
+     * @brief Id
+     *
+     * @type sai_uint32_t
+     * @flags MANDATORY_ON_CREATE | CREATE_ONLY
+     */
+    SAI_OCM_ATTR_ID = SAI_OCM_ATTR_START,
+
+    /**
+     * @brief Scan
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_OCM_ATTR_SCAN,
+
+    /**
+     * @brief Frequency granularity in MHz
+     *
+     * @type sai_uint64_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_OCM_ATTR_FREQUENCY_GRANULARITY,
+
+    /**
+     * @brief Serial No
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_SERIAL_NO,
+
+    /**
+     * @brief Part no
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_PART_NO,
+
+    /**
+     * @brief Manufacture name
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_MFG_NAME,
+
+    /**
+     * @brief Manufacture date
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_MFG_DATE,
+
+    /**
+     * @brief Hardware version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_HARDWARE_VERSION,
+
+    /**
+     * @brief The operational state of the OCM
+     *
+     * @type sai_oper_status_t
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_OPER_STATUS,
+
+    /**
+     * @brief Whether the OCM is present or not
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_EMPTY,
+
+    /**
+     * @brief Whether the OCM is removable
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_REMOVABLE,
+
+    /**
+     * @brief Software version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_SOFTWARE_VERSION,
+
+    /**
+     * @brief Firmware version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_FIRMWARE_VERSION,
+
+    /**
+     * @brief Insertion loss to panel port
+     *
+     * @type sai_double_t
+     * @flags READ_ONLY
+     */
+    SAI_OCM_ATTR_INSERTION_LOSS_TO_PANEL_PORT,
+
+    /**
+     * @brief End of attributes
+     */
+    SAI_OCM_ATTR_END,
+
+    /** Custom range base value */
+    SAI_OCM_ATTR_CUSTOM_RANGE_START = 0x10000000,
+
+    /** End of custom range base */
+    SAI_OCM_ATTR_CUSTOM_RANGE_END
+
+} sai_ocm_attr_t;
+
+/**
+ * @brief OCM stat IDs
+ *
+ * @flags Contains flags
+ */
+typedef enum _sai_ocm_stat_t
+{
+    /**
+     * @brief Start of statistics
+     */
+    SAI_OCM_STAT_START,
+
+    /**
+     * @brief A placeholder
+     *
+     * @type sai_uint64_t
+     */
+    SAI_OCM_STAT_NOT_USE = SAI_OCM_STAT_START,
+
+    /**
+     * @brief End of statistics
+     */
+    SAI_OCM_STAT_END,
+
+} sai_ocm_stat_t;
+
+/**
+ * @brief Create OCM.
+ *
+ * Allocates and initializes a OCM.
+ *
+ * @param[out] ocm_id OCM id
+ * @param[in] linecard_id Linecard id on which the OCM exists
+ * @param[in] attr_count Number of attributes
+ * @param[in] attr_list Array of attributes
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_create_ocm_fn)(
+        _Out_ sai_object_id_t *ocm_id,
+        _In_ sai_object_id_t linecard_id,
+        _In_ uint32_t attr_count,
+        _In_ const sai_attribute_t *attr_list);
+
+/**
+ * @brief Remove OCM
+ *
+ * @param[in] ocm_id OCM id
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_remove_ocm_fn)(
+        _In_ sai_object_id_t ocm_id);
+
+/**
+ * @brief Set OCM attribute
+ *
+ * @param[in] ocm_id OCM id
+ * @param[in] attr Attribute
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_set_ocm_attribute_fn)(
+        _In_ sai_object_id_t ocm_id,
+        _In_ const sai_attribute_t *attr);
+
+/**
+ * @brief Get OCM attribute
+ *
+ * @param[in] ocm_id OCM id
+ * @param[in] attr_count Number of attributes
+ * @param[inout] attr_list Array of attributes
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_get_ocm_attribute_fn)(
+        _In_ sai_object_id_t ocm_id,
+        _In_ uint32_t attr_count,
+        _Inout_ sai_attribute_t *attr_list);
+
+/**
+ * @brief Get OCM statistics.
+ *
+ * @param[in] ocm_id OCM id
+ * @param[in] number_of_counters Number of counters in the array
+ * @param[in] counter_ids Specifies the array of counter ids
+ * @param[out] counters Array of resulting counter values.
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_get_ocm_stats_fn)(
+        _In_ sai_object_id_t ocm_id,
+        _In_ uint32_t number_of_counters,
+        _In_ const sai_stat_id_t *counter_ids,
+        _Out_ sai_stat_value_t *counters);
+
+/**
+ * @brief Get OCM statistics extended.
+ *
+ * @param[in] ocm_id OCM id
+ * @param[in] number_of_counters Number of counters in the array
+ * @param[in] counter_ids Specifies the array of counter ids
+ * @param[in] mode Statistics mode
+ * @param[out] counters Array of resulting counter values.
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_get_ocm_stats_ext_fn)(
+        _In_ sai_object_id_t ocm_id,
+        _In_ uint32_t number_of_counters,
+        _In_ const sai_stat_id_t *counter_ids,
+        _In_ sai_stats_mode_t mode,
+        _Out_ sai_stat_value_t *counters);
+
+/**
+ * @brief Clear OCM statistics counters.
+ *
+ * @param[in] ocm_id OCM id
+ * @param[in] number_of_counters Number of counters in the array
+ * @param[in] counter_ids Specifies the array of counter ids
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+typedef sai_status_t (*sai_clear_ocm_stats_fn)(
+        _In_ sai_object_id_t ocm_id,
+        _In_ uint32_t number_of_counters,
+        _In_ const sai_stat_id_t *counter_ids);
+
+/**
+ * @brief Routing interface methods table retrieved with sai_api_query()
+ */
+typedef struct _sai_ocm_api_t
+{
+    sai_create_ocm_fn                create_ocm;
+    sai_remove_ocm_fn                remove_ocm;
+    sai_set_ocm_attribute_fn         set_ocm_attribute;
+    sai_get_ocm_attribute_fn         get_ocm_attribute;
+    sai_get_ocm_stats_fn             get_ocm_stats;
+    sai_get_ocm_stats_ext_fn         get_ocm_stats_ext;
+    sai_clear_ocm_stats_fn           clear_ocm_stats;
+} sai_ocm_api_t;
+
+/**
+ * @}
+ */
+#endif /** __SAIOCM_H_ */

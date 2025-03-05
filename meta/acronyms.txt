@@ -1,15 +1,20 @@
 # this file defines acronyms, one acronym per line
 ACL - Access Control List
 AES - Advanced Encryption Standard
+ALS - Automatic Laser Shutdown
 AN - Association Number
 AN - Auto Negotiation
 API - Application Program Interface
+APR - Automatic Power Reduction
+APS - Automatic Protection Switching
+APSPORT - Automatic Protection Switching Port
 ARP - Address Resolution Protocol
 ARS - Adaptiver Routing and Switching
 ASIC - Application Specific Integrated Circuit
 BFD - Bidirectional Forwarding Detection
 BFDV6 - Bidirectional Forwarding Detection for IPv6
 BGP - Border Gateway Protocol
+BIP - Bit Interleaved Parity
 BMTOR - Behavioral Model Top-of-Rack
 BOS - Bottom Of Stack
 BW - Bandwidth
@@ -25,8 +30,10 @@ CMIS - Common Management Interface Specification
 CPLD - Complex programmable logic device
 CPU - Central Processing Unit
 CRC - Cyclic Redundancy Code
+DCO - Digital Coherent Optical
 DHCP - Dynamic Host Configuration Protocol
 DHCPV6 - Dynamic Host Configuration Protocol for IPv6
+DGD - Differential Group Delay
 DLD - Dead Lock Detection
 DLDR - Dead Lock Detection and Recovery
 DLL - Dynamic Link Library
@@ -53,6 +60,7 @@ FD - File Descriptor
 FDB - Forwarding Data Base
 FEC - Forward Error Correction
 FPGA - Field Programmable Gate Array
+FGA - Fixed Gain Amplifier
 FW  - Firmware
 GCM - Galois Counter Mode
 GENETLINK - Generic Nelink
@@ -102,7 +110,9 @@ NRZ - Non Return to Zero
 NTPCLIENT - Network Time Protocol Client
 NTPSERVER - Network Time Protocol Server
 NVGRE - Network Virtualization using Generic Routing Encapsulation
+OA - Optical Amplifier
 OAM - Operations Administration and Maintenance
+OMD - Optical Mux and Demux
 OUI - Organizationally Unique Identifier
 P4RT - Programming Protocol-independent Packet Processors Runtime
 PAM4 - Pulse Amplitude Modulation 4-level
@@ -123,9 +133,14 @@ PSE - Power Sourcing Equipment
 PSP - Penultimate Segment Pop
 PTP - Precision time protocol
 QOS - Quality of Service
+OPU - Optical Pickup Unit
+OTU - Optical Transport Unit
 RARP - Reverse Address Resolution Protocol
+RDI - Remote Defect Indication
 RFC - Request For Comment
 RPC - Remote Procedure Call
+RMON - Remote Monitoring
+ROADM - Reconfigurable Optical Add-Drop Multiplexer
 RPF - Reverse Path Forwarding
 RPN - Reverse Polish Notation
 RSPAN - Remote Span
@@ -135,6 +150,9 @@ SAK - Secure Association Key
 SC - Secure Channel
 SCI - Secure Channel Identifier
 SDK - Software Development Kit
+SDH - Synchronous Digital Hierarchy
+SNCP - Subnetwork Connection Protection
+SONET - Synchronous Optical Network
 SFI - SerDes Framer Interface
 SFLOW - Sampled Flow
 SG - (S,G) Source-specific multicast
@@ -152,6 +170,10 @@ SSCI - Short Secure Channel Identifier
 SSH - Secure Shell
 SSL - Secure Socket Layer
 STP - Spanning Tree Protocol
+ODU - Optical channel Data Unit
+OSC - Optical Supervisory Channel
+OTN - Optical Transport Network
+PMD - Physical Medium Dependent
 TC - Traffic Control
 TCAM - Ternary Content Addressable Memory
 TCP - Transmission Control Protocol
@@ -160,6 +182,8 @@ TLS - Transport Layer Security
 TOS - Type Of Service
 TPID - Tag Protocol Identifier
 TTL - Time to Leave
+TTI - Trail Trace Identifier
+TFF - Thin Film Filter
 TWAMP - Two-Way Active Measurement Protocol
 UART - Universal Asynchronous Receiver/Transmitter
 UDF - User-Defined Field
@@ -185,6 +209,14 @@ XFI - 10 Gbps Chip to Chip Interface
 XG - (*,G) Any-source Multicast4
 XGMII - 10 Gbps Media Independent Interface
 XLAUI - 40 Gbps Attachment Unit Interface
-XOFF - Transmitter Off
-XON - Transmitter On
-XPN - Extended Packet Number
+FW  - Firmware
+MDIO - Management Data Input/Output
+I2C - I squared C
+CPLD - Complex programmable logic device
+EEPROM - Electrically erasable programmable read-only memory
+PRBS - Pseudorandom Binary Sequence
+EDFA - Erbium Doped Fiber Amplifer
+VOA - Variable Optical Attenuator
+WSS - Wavelength Selective Switch
+OCM - Optical Channel Monitor
+OTDR - Optical Time Domain Reflectometer

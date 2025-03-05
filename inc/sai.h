@@ -150,6 +150,24 @@ typedef enum _sai_api_t
     SAI_API_TWAMP            = 50, /**< sai_twamp_api_t */
     SAI_API_POE              = 51, /**< sai_poe_api_t */
     SAI_API_ICMP_ECHO        = 52, /**< sai_icmp_echo_api_t */
+    SAI_API_TRANSCEIVER      = 53, /**< otai_transceiver_api_t */
+    SAI_API_LOGICALCHANNEL   = 54, /**< otai_logicalchannel_api_t */
+    SAI_API_OTN              = 55, /**< otai_otn_api_t */
+    SAI_API_ETHERNET         = 56, /**< otai_ethernet_api_t */
+    SAI_API_PHYSICALCHANNEL  = 57, /**< otai_physicalchannel_api_t */
+    SAI_API_OCH              = 58, /**< otai_och_api_t */
+    SAI_API_LLDP             = 59, /**< otai_lldp_api_t */
+    SAI_API_ASSIGNMENT       = 60, /**< otai_assignment_api_t */
+    SAI_API_INTERFACE        = 61, /**< otai_interface_api_t */
+    SAI_API_OA               = 62, /**< otai_oa_api_t */
+    SAI_API_OSC              = 63, /**< otai_osc_api_t */
+    SAI_API_APS              = 64, /**< otai_aps_api_t */
+    SAI_API_APSPORT          = 65, /**< otai_apsport_api_t */
+    SAI_API_ATTENUATOR       = 66, /**< otai_attenuator_api_t */
+    SAI_API_WSS              = 67, /**< otai_wss_api_t */
+    SAI_API_MEDIACHANNEL     = 68, /**< otai_mediachannel_api_t */
+    SAI_API_OCM              = 69, /**< otai_ocm_api_t */
+    SAI_API_OTDR             = 70, /**< otai_otdr_api_t */
     SAI_API_MAX,                   /**< total number of APIs */
 
     /**
@@ -288,7 +306,18 @@ sai_object_id_t sai_switch_id_query(
         _In_ sai_object_id_t object_id);
 
 /**
- * @brief Generate dump file. The dump file may include SAI state information and vendor SDK information.
+ * @brief Link check.
+ *
+ * @param[out] up Whether link is up or not.
+ *
+ * @return #SAI_STATUS_SUCCESS on success, failure status code on error
+ */
+sai_status_t sai_link_check(
+        _Out_ bool *up);
+
+/**
+ * @brief Generate dump file. The dump file may include OTAI state information
+ *        and vendor SDK information.
  *
  * @param[in] dump_file_name Full path for dump file
  *

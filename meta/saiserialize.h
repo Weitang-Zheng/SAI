@@ -44,7 +44,7 @@
  *
  * Defines size of char data inside sai_attribute_value_t union.
  */
-#define SAI_CHARDATA_LENGTH 32
+#define SAI_CHARDATA_LENGTH 512
 
 /**
  * @brief Is char allowed.
@@ -336,6 +336,33 @@ int sai_serialize_int64(
 int sai_deserialize_int64(
         _In_ const char *buffer,
         _Out_ int64_t *s64);
+		
+/**
+ * @brief Serialize double.
+ *
+ * @param[out] buffer Output buffer for serialized value.
+ * @param[in] d64 Double to be serialized.
+ *
+ * @return Number of characters written to buffer excluding '\0',
+ * or #SAI_SERIALIZE_ERROR on error.
+ */
+int sai_serialize_double(
+        _Out_ char *buffer,
+        _In_ sai_double_t d64);
+
+/**
+ * @brief Deserialize double.
+ *
+ * @param[in] buffer Input buffer to be examined.
+ * @param[out] d64 Deserialized value.
+ *
+ * @return Number of characters consumed from the buffer,
+ * or #SAI_SERIALIZE_ERROR on error.
+ */
+int sai_deserialize_double(
+        _In_ const char *buffer,
+        _Out_ sai_double_t *d64);
+
 
 /**
  * @brief Serialize sai_size_t.

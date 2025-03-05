@@ -663,6 +663,20 @@ int sai_deserialize_macsec_salt(
     return SAI_SERIALIZE_ERROR;
 }
 
+int sai_serialize_double(
+        _Out_ char *buffer,
+        _In_ sai_double_t d64)
+{
+    return sprintf(buffer, "%.2lf", d64);
+}
+
+int sai_deserialize_double(
+        _In_ const char *buffer,
+        _Out_ sai_double_t *d64)
+{
+    return sscanf(buffer, "%lf", d64);
+}
+
 int sai_serialize_enum(
         _Out_ char *buffer,
         _In_ const sai_enum_metadata_t *meta,

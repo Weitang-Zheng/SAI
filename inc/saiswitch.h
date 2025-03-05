@@ -413,6 +413,106 @@ typedef enum _sai_tunnel_decap_ecn_mode_t
 } sai_tunnel_decap_ecn_mode_t;
 
 /**
+ * @brief Power admin state of the switch
+ */
+typedef enum _sai_switch_power_admin_state_t
+{
+    SAI_SWITCH_POWER_ADMIN_STATE_ENABLED,
+    SAI_SWITCH_POWER_ADMIN_STATE_DISABLED,
+    SAI_SWITCH_POWER_ADMIN_STATE_MAX,
+} sai_switch_power_admin_state_t;
+
+/**
+ * @brief The reset type of the switch
+ */
+typedef enum _sai_switch_reset_t
+{
+    SAI_SWITCH_RESET_WARM,
+    SAI_SWITCH_RESET_COLD,
+    SAI_SWITCH_RESET_FORCE,
+    SAI_SWITCH_RESET_MAX,
+} sai_switch_reset_t;
+
+/**
+ * @brief Linecard upgrade state
+ */
+typedef enum _sai_switch_upgrade_state_t
+{
+    SAI_SWITCH_UPGRADE_STATE_IDLE,
+    SAI_SWITCH_UPGRADE_STATE_DOWNLOADING,
+    SAI_SWITCH_UPGRADE_STATE_DOWNLOAD_FINISH,
+    SAI_SWITCH_UPGRADE_STATE_COMMITING,
+    SAI_SWITCH_UPGRADE_STATE_COMMIT_FINISH,
+    SAI_SWITCH_UPGRADE_STATE_REBOOTING,
+    SAI_SWITCH_UPGRADE_STATE_COMMIT_PAUSE,
+    SAI_SWITCH_UPGRADE_STATE_ROLLBACKING,
+    SAI_SWITCH_UPGRADE_STATE_COMMIT_ERROR,
+    SAI_SWITCH_UPGRADE_STATE_REBOOT_ERROR,
+    SAI_SWITCH_UPGRADE_STATE_COMMIT_STOP,
+    SAI_SWITCH_UPGRADE_STATE_MAX,
+
+} sai_switch_upgrade_state_t;
+
+/**
+ * @brief Linecard baud rate
+ */
+typedef enum _sai_switch_baud_rate_t
+{
+    SAI_SWITCH_BAUD_RATE_9600,
+    SAI_SWITCH_BAUD_RATE_19200,
+    SAI_SWITCH_BAUD_RATE_38400,
+    SAI_SWITCH_BAUD_RATE_57600,
+    SAI_SWITCH_BAUD_RATE_115200,
+} sai_switch_baud_rate_t;
+
+/**
+ * @brief Linecard operational state change notification
+ *
+ * @param[in] switch_id Linecard Id
+ * @param[in] switch_oper_status New switch operational state
+ */
+typedef void (*sai_switch_state_change_notification_fn)(
+        _In_ sai_object_id_t switch_id,
+        _In_ sai_oper_status_t switch_oper_status);
+
+/**
+ * @brief Linecard alarm notification
+ *
+ * @param[in] switch_id Linecard Id
+ * @param[in] alarm_type Alarm type
+ * @param[in] alarm_info Alarm info
+ */
+typedef void (*sai_switch_alarm_notification_fn)(
+        _In_ sai_object_id_t switch_id,
+        _In_ sai_alarm_type_t alarm_type,
+        _In_ sai_alarm_info_t alarm_info);
+
+/**
+ * @brief Linecard OCM spectrum power notification
+ *
+ * @param[in] switch_id Linecard Id
+ * @param[in] ocm_id OCM Id
+ * @param[in] ocm_result OCM Result
+ */
+typedef void (*sai_switch_ocm_spectrum_power_notification_fn)(
+        _In_ sai_object_id_t switch_id,
+        _In_ sai_object_id_t ocm_id,
+        _In_ sai_spectrum_power_list_t ocm_result);
+
+/**
+ * @brief Linecard OTDR report result
+ *
+ * @param[in] switch_id Linecard Id
+ * @param[in] otdr_id OTDR Id
+ * @param[in] otdr_result OTDR result
+ */
+typedef void (*sai_switch_otdr_result_notification_fn)(
+        _In_ sai_object_id_t switch_id,
+        _In_ sai_object_id_t otdr_id,
+        _In_ sai_otdr_result_t otdr_result);
+
+
+/**
  * @brief Defines tunnel attributes at switch level.
  * SAI_OBJECT_TYPE_SWITCH_TUNNEL object provides
  * per tunnel type global configuration.
@@ -3056,6 +3156,464 @@ typedef enum _sai_switch_attr_t
     /** Custom range base value */
     SAI_SWITCH_ATTR_CUSTOM_RANGE_START = 0x10000000,
 
+    /**
+     * @brief Linecard type
+     *
+     * @type char
+     * @flags MANDATORY_ON_CREATE | CREATE_AND_SET
+     */
+    OTAI_SWITCH_ATTR_SWITCH_TYPE,
+
+    /**
+     * @brief The admin state of the switch
+     *
+     * @type sai_admin_state_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_ADMIN_STATE,
+
+    /**
+     * @brief The board mode of the switch
+     *
+     * @type char
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_BOARD_MODE,
+
+    /**
+     * @brief The operational state of the switch
+     *
+     * @type sai_oper_status_t
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_OPER_STATUS,
+
+    /**
+     * @brief Relay
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_RELAY,
+
+    /**
+     * @brief Whether the switch is present or not
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_EMPTY,
+
+    /**
+     * @brief Whether the switch is removable
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_REMOVABLE,
+
+    /**
+     * @brief The reset type of the switch
+     *
+     * @type sai_switch_reset_t
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_RESET,
+
+    /**
+     * @brief The power admin state of the switch
+     *
+     * @type sai_switch_power_admin_state_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_POWER_ADMIN_STATE,
+
+    /**
+     * @brief Host name
+     *
+     * @type char
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_HOSTNAME,
+
+    /**
+     * @brief Serial number
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_SERIAL_NO,
+
+    /**
+     * @brief Part number
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_PART_NO,
+
+    /**
+     * @brief Hardware version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_HARDWARE_VERSION,
+
+    /**
+     * @brief Software version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_SOFTWARE_VERSION,
+
+    /**
+     * @brief CPLD version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_CPLD_VERSION,
+
+    /**
+     * @brief Script version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_SCRIPT_VERSION,
+
+    /**
+     * @brief Manufacture date
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_MFG_DATE,
+
+    /**
+     * @brief Manufacture name
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_MFG_NAME,
+
+    /**
+     * @brief Set to switch initialization or connect to switch.
+     *
+     * TRUE - Initialize switch.
+     * FALSE - Connect to initialized switch.
+     *
+     * @type bool
+     * @flags CREATE_ONLY
+     */
+    SAI_SWITCH_ATTR_INIT_SWITCH,
+
+    /**
+     * @brief Linecard alarm notification
+     *
+     * @type sai_pointer_t sai_switch_alarm_notification_fn
+     * @flags CREATE_ONLY
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_SWITCH_ALARM_NOTIFY,
+
+    /**
+     * @brief Spectrum power notification
+     *
+     * @type sai_pointer_t sai_switch_ocm_spectrum_power_notification_fn
+     * @flags CREATE_ONLY
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_SWITCH_OCM_SPECTRUM_POWER_NOTIFY,
+
+    /**
+     * @brief OTDR result notification
+     *
+     * @type sai_pointer_t sai_switch_otdr_result_notification_fn
+     * @flags CREATE_ONLY
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_SWITCH_OTDR_RESULT_NOTIFY,
+
+    /**
+     * @brief Collect switch alarm.
+     *
+     * @type bool
+     * @flags SET_ONLY
+     */
+    SAI_SWITCH_ATTR_COLLECT_SWITCH_ALARM,
+
+    /**
+     * @brief Collect switch log.
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_COLLECT_SWITCH_LOG,
+
+    /**
+     * @brief Linecard operational state change notification
+     *
+     * @type sai_pointer_t sai_switch_state_change_notification_fn
+     * @flags CREATE_ONLY
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_SWITCH_STATE_CHANGE_NOTIFY,
+
+    /**
+     * @brief Led mode
+     *
+     * @type sai_led_mode_t
+     * @flags CREATE_AND_SET
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_LED_MODE,
+
+    /**
+     * @brief Led flash interval
+     *
+     * @type sai_uint16_t
+     * @flags CREATE_AND_SET
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_LED_FLASH_INTERVAL,
+
+    /**
+     * @brief Led color
+     *
+     * @type sai_led_color_t
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_LED_COLOR,
+
+    /**
+     * @brief Baud rate
+     *
+     * @type sai_switch_baud_rate_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_BAUD_RATE,
+
+    /**
+     * @brief Host IPv4 address
+     *
+     * @type sai_uint32_t
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_HOST_IP,
+
+    /**
+     * @brief User name
+     *
+     * @type char
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_USER_NAME,
+
+    /**
+     * @brief User password
+     *
+     * @type char
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_USER_PASSWORD,
+
+    /**
+     * @brief Linecard upgrade file name
+     *
+     * @type char
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_UPGRADE_FILE_NAME,
+
+    /**
+     * @brief Linecard upgrade file path
+     *
+     * @type char
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_UPGRADE_FILE_PATH,
+
+    /**
+     * @brief Upgrade download
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_UPGRADE_DOWNLOAD,
+
+    /**
+     * @brief Upgrade commit
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_UPGRADE_COMMIT,
+
+    /**
+     * @brief Upgrade commit pause
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_UPGRADE_COMMIT_PAUSE,
+
+    /**
+     * @brief Upgrade commit resume
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_UPGRADE_COMMIT_RESUME,
+
+    /**
+     * @brief Upgrade rollback
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_UPGRADE_ROLLBACK,
+
+    /**
+     * @brief Upgrade reboot
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_UPGRADE_REBOOT,
+
+    /**
+     * @brief Upgrade auto
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_UPGRADE_AUTO,
+
+    /**
+     * @brief Upgrade state
+     *
+     * @type sai_switch_upgrade_state_t
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_UPGRADE_STATE,
+
+    /**
+     * @brief FPGA version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_FPGA_VERSION,
+
+    /**
+     * @brief UCD version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_UCD_VERSION,
+
+    /**
+     * @brief Temperature high alarm threshold
+     *
+     * @type sai_double_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_TEMP_HIGH_ALARM_THRESHOLD,
+
+    /**
+     * @brief Temperature high warn threshold
+     *
+     * @type sai_double_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_TEMP_HIGH_WARN_THRESHOLD,
+
+    /**
+     * @brief Temperature low alarm threshold
+     *
+     * @type sai_double_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_TEMP_LOW_ALARM_THRESHOLD,
+
+    /**
+     * @brief Temperature low warn threshold
+     *
+     * @type sai_double_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_TEMP_LOW_WARN_THRESHOLD,
+
+    /**
+     * @brief Slot id
+     *
+     * @type sai_int32_t
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_SLOT_ID,
+
+    /**
+     * @brief Equipment failure
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_EQUIPMENT_FAILURE,
+
+    /**
+     * @brief Equipment mismatch
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_EQUIPMENT_MISMATCH,
+
+    /**
+     * @brief Start Pre-configuration
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_START_PRE_CONFIGURATION,
+
+    /**
+     * @brief Stop Pre-configuration
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_STOP_PRE_CONFIGURATION,
+
+    /**
+     * @brief Led name
+     *
+     * @type char
+     * @flags CREATE_AND_SET
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_LED_NAME,
+
     /** End of custom range base */
     SAI_SWITCH_ATTR_CUSTOM_RANGE_END,
 
@@ -3187,6 +3745,30 @@ typedef enum _sai_switch_stat_t
     /** Switch stat fabric drop reasons range end */
     SAI_SWITCH_STAT_FABRIC_DROP_REASON_RANGE_END = 0x00003fff,
 
+    /**
+     * @brief Memory utilized
+     *
+     * @type SAI_uint64_t
+     * @iscounter false
+     */
+    SAI_SWITCH_STAT_MEMORY_UTILIZED,
+
+    /**
+     * @brief CPU utilization
+     *
+     * @type SAI_uint32_t
+     * @iscounter false
+     */
+    SAI_SWITCH_STAT_CPU_UTILIZATION,
+
+    /**
+     * @brief Temperature
+     *
+     * @type SAI_double_t
+     * @precision precision2
+     * @iscounter false
+     */
+    SAI_SWITCH_STAT_TEMPERATURE,
 } sai_switch_stat_t;
 
 /**

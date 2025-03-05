@@ -50,6 +50,11 @@ typedef enum _sai_port_type_t
     /** Recycle Port */
     SAI_PORT_TYPE_RECYCLE,
 
+    SAI_PORT_TYPE_ADD,
+    SAI_PORT_TYPE_DROP,
+    SAI_PORT_TYPE_MONITOR,
+    SAI_PORT_TYPE_TERMINAL_CLIENT,
+    SAI_PORT_TYPE_TERMINAL_LINE,
 } sai_port_type_t;
 
 /**
@@ -2539,6 +2544,79 @@ typedef enum _sai_port_attr_t
     /** End of custom range base */
     SAI_PORT_ATTR_CUSTOM_RANGE_END,
 
+    /**
+     * @brief Empty
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_EMPTY,
+
+    /**
+     * @brief Removable
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_REMOVABLE,
+
+    /**
+     * @brief Equipment failure
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_EQUIPMENT_FAILURE,
+
+    /**
+     * @brief Equipment mismatch
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_EQUIPMENT_MISMATCH,
+
+    /**
+     * @brief Low threshold
+     *
+     * @type SAI_double_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_PORT_ATTR_LOW_THRESHOLD,
+
+    /**
+     * @brief High threshold
+     *
+     * @type SAI_double_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_PORT_ATTR_HIGH_THRESHOLD,
+
+    /**
+     * @brief Input offset
+     *
+     * @type SAI_double_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_INPUT_OFFSET,
+
+    /**
+     * @brief Output offset
+     *
+     * @type SAI_double_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_OUTPUT_OFFSET,
+
+    /**
+     * @brief Led name
+     *
+     * @type char
+     * @flags CREATE_AND_SET
+     * @isrecoverable false
+     */
+    SAI_PORT_ATTR_LED_NAME,
+
     /** Extensions range base */
     SAI_PORT_ATTR_EXTENSIONS_RANGE_BASE = 0x20000000
 
@@ -3268,6 +3346,14 @@ typedef enum _sai_port_stat_t
 
     /** Port stat range end */
     SAI_PORT_STAT_END,
+
+    OTAI_PORT_STAT_INPUT_POWER, 
+
+    OTAI_PORT_STAT_OUTPUT_POWER,
+
+    OTAI_PORT_STAT_OSC_INPUT_POWER,
+
+    OTAI_PORT_STAT_OSC_OUTPUT_POWER,
 
     /** Extensions range base */
     SAI_PORT_STAT_EXTENSIONS_RANGE_BASE = 0x20000000
