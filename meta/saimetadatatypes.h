@@ -310,7 +310,7 @@ typedef enum _sai_attr_value_type_t
      * @brief Attribute value is ACL action 32 bit signed integer.
      */
     SAI_ATTR_VALUE_TYPE_ACL_ACTION_DATA_INT32,
-	
+
     /**
      * @brief Attribute value is ACL action MAC address.
      */
@@ -1346,11 +1346,6 @@ typedef struct _sai_attr_metadata_t
     bool                                        isreadonly;
 
     /**
-     * @brief Determines whether attribute is set only
-     */
-    bool                                        issetonly;
-
-    /**
      * @brief Determines whether attribute is key
      */
     bool                                        iskey;
@@ -1439,6 +1434,18 @@ typedef struct _sai_attr_metadata_t
      * to be passed to create function is condition is not met.
      */
     bool                                        isconditionrelaxed;
+	
+    /**
+     * @brief Indicates whether attribute is custom attribute.
+     *
+     * Custom attribute values begins with SAI_XXX_ATTR_CUSTOM_RANGE_START.
+     */
+    bool                                        iscustom;
+
+    /**
+     * @brief Determines whether attribute is set only
+     */
+    bool                                        issetonly;
 
     /**
      * @brief Specifies kebab name for this object type.
@@ -1452,14 +1459,6 @@ typedef struct _sai_attr_metadata_t
      * db for warm-reboot (or cold-reboot) flow to recover this configuration.
      */
     bool                                        isrecoverable;
-	
-    /**
-     * @brief Indicates whether attribute is custom attribute.
-     *
-     * Custom attribute values begins with SAI_XXX_ATTR_CUSTOM_RANGE_START.
-     */
-    bool                                        iscustom;
-
 } sai_attr_metadata_t;
 
 /*

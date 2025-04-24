@@ -74,24 +74,6 @@ bool sai_metadata_is_allowed_enum_value(
     return false;
 }
 
-const sai_stat_metadata_t* sai_metadata_get_stat_metadata(
-    _In_ sai_object_type_t objecttype,
-    _In_ sai_stat_id_t statid)
-{
-    if (sai_metadata_is_object_type_valid(objecttype))
-    {
-        const sai_stat_metadata_t* const* const md = sai_metadata_stat_by_object_type[objecttype];
-
-        const sai_object_type_info_t* oi = sai_metadata_all_object_type_infos[objecttype];
-        if (statid < oi->statenum->valuescount)
-        {
-            return md[statid];
-        }
-    }
-
-    return NULL;
-}
-
 const sai_attr_metadata_t* sai_metadata_get_attr_metadata(
         _In_ sai_object_type_t objecttype,
         _In_ sai_attr_id_t attrid)
@@ -162,46 +144,6 @@ const sai_attr_metadata_t* sai_metadata_get_attr_metadata_by_attr_id_name(
             /* found */
 
             return sai_metadata_attr_sorted_by_id_name[middle];
-        }
-    }
-
-    /* not found */
-
-    return NULL;
-}
-
-const sai_stat_metadata_t* sai_metadata_get_stat_metadata_by_stat_id_name(
-    _In_ const char *stat_id_name)
-{
-    if (stat_id_name == NULL)
-    {
-        return NULL;
-    }
-
-    /* use binary search */
-
-    ssize_t first = 0;
-    ssize_t last = (ssize_t)(sai_metadata_stat_sorted_by_id_name_count - 1);
-
-    while (first <= last)
-    {
-        ssize_t middle = (first + last) / 2;
-
-        int res = strcmp(stat_id_name, sai_metadata_stat_sorted_by_id_name[middle]->statidname);
-
-        if (res > 0)
-        {
-            first = middle + 1;
-        }
-        else if (res < 0)
-        {
-            last = middle - 1;
-        }
-        else
-        {
-            /* found */
-
-            return sai_metadata_stat_sorted_by_id_name[middle];
         }
     }
 
