@@ -185,19 +185,19 @@ sub ProcessTagType
         return $val;
     }
 
-    if ($val =~ /^otai_pointer_t (otai_aps_\w+_fn)$/)
+    if ($val =~ /^sai_pointer_t (sai_aps_\w+_fn)$/)
     {
         $ATTR_TO_CALLBACK{$value} = $1;
         return $val;
     }
 
-    if ($val =~ /^otai_pointer_t (otai_otdr_\w+_fn)$/)
+    if ($val =~ /^sai_pointer_t (sai_otdr_\w+_fn)$/)
     {
         $ATTR_TO_CALLBACK{$value} = $1;
         return $val;
     }
 
-    if ($val =~ /^otai_pointer_t (otai_ocm_\w+_fn)$/)
+    if ($val =~ /^sai_pointer_t (sai_ocm_\w+_fn)$/)
     {
         $ATTR_TO_CALLBACK{$value} = $1;
         return $val;
@@ -784,9 +784,9 @@ sub ProcessEnumSection
         }
 		
 		
-        $OTAI_ENUMS{$enumtypename}{values} = \@values;
+        $SAI_ENUMS{$enumtypename}{values} = \@values;
 
-        if ($enumtypename =~ /^(otai_(\w+)_stat_)t$/)
+        if ($enumtypename =~ /^(sai_(\w+)_stat_)t$/)
         {
             my $prefix = uc$1;
             for my $ev (@{ $memberdef->{enumvalue} })
@@ -1532,12 +1532,12 @@ sub ProcessStatUnit
     my ($stat, $unit) = @_;
     if (not defined $unit)
     {
-        return "OTAI_STAT_VALUE_UNIT_NORMAL";
+        return "SAI_STAT_VALUE_UNIT_NORMAL";
     }
-    return "OTAI_STAT_VALUE_UNIT_DBM" if $unit eq "dBm";
-    return "OTAI_STAT_VALUE_UNIT_DB" if $unit eq "dB";
+    return "SAI_STAT_VALUE_UNIT_DBM" if $unit eq "dBm";
+    return "SAI_STAT_VALUE_UNIT_DB" if $unit eq "dB";
 
-    return "OTAI_STAT_VALUE_UNIT_NORMAL";
+    return "SAI_STAT_VALUE_UNIT_NORMAL";
 }
 
 sub ProcessStatPrecision
@@ -1545,13 +1545,13 @@ sub ProcessStatPrecision
     my ($stat, $precision) = @_;
     if (not defined $precision)
     {
-        return "OTAI_STAT_VALUE_PRECISION_2";
+        return "SAI_STAT_VALUE_PRECISION_2";
     }
-    return "OTAI_STAT_VALUE_PRECISION_1" if $precision eq "precision1";
-    return "OTAI_STAT_VALUE_PRECISION_2" if $precision eq "precision2";
-    return "OTAI_STAT_VALUE_PRECISION_18" if $precision eq "precision18";
+    return "SAI_STAT_VALUE_PRECISION_1" if $precision eq "precision1";
+    return "SAI_STAT_VALUE_PRECISION_2" if $precision eq "precision2";
+    return "SAI_STAT_VALUE_PRECISION_18" if $precision eq "precision18";
 
-    return "OTAI_STAT_VALUE_PRECISION_2";
+    return "SAI_STAT_VALUE_PRECISION_2";
 }
 
 sub ProcessStatIsCounter
@@ -1573,14 +1573,14 @@ sub ProcessStatType
         return "";
     }
 
-    if ($type =~ /^(otai_\w+_t)$/)
+    if ($type =~ /^(sai_\w+_t)$/)
     {
-        my $prefix = "OTAI_STAT_VALUE_TYPE";
+        my $prefix = "SAI_STAT_VALUE_TYPE";
 
-        return "OTAI_STAT_VALUE_TYPE_DOUBLE" if $1 eq "otai_double_t";
+        return "SAI_STAT_VALUE_TYPE_DOUBLE" if $1 eq "sai_double_t";
         return "${prefix}_$VALUE_TYPES_TO_VT{$1}" if defined $VALUE_TYPES_TO_VT{$1};
 
-        if (not defined $OTAI_ENUMS{$1})
+        if (not defined $SAI_ENUMS{$1})
         {
             LogError "invalid enum specified '$type' on $stat";
             return "";
@@ -1605,7 +1605,7 @@ sub ProcessStatKebabName
     my ($stat, $type) = @_;
     my $kebab;
 
-    if ($stat =~ /^(OTAI_\w+_STAT_)(\w+)$/) {
+    if ($stat =~ /^(SAI_\w+_STAT_)(\w+)$/) {
         $kebab = lc $2;
         $kebab =~ s/_/-/g;
     }
@@ -1618,7 +1618,7 @@ sub ProcessStatCamelName
     my ($stat, $type) = @_;
     my $camel;
 
-    if ($stat =~ /^(OTAI_\w+_STAT_)(\w+)$/) {
+    if ($stat =~ /^(SAI_\w+_STAT_)(\w+)$/) {
         $camel = lc $2;
         $camel =~ s/(_|^)(.)/\u$2/g;
     }
@@ -2289,7 +2289,7 @@ sub ProcessAttrKebabName
     my ($attr, $type) = @_;
     my $kebabname;
 
-    if ($attr =~ /^(OTAI_\w+_ATTR_)(\w+)$/) {
+    if ($attr =~ /^(SAI_\w+_ATTR_)(\w+)$/) {
         $kebabname = lc $2;
         $kebabname =~ s/_/-/g;
     }
@@ -2520,7 +2520,7 @@ sub ProcessSingleObjectTypeStat
 {
     my ($typedef, $objecttype) = @_;
 
-    my $enum = $OTAI_ENUMS{$typedef};
+    my $enum = $SAI_ENUMS{$typedef};
 
     my @values = @{ $enum->{values} };
 
@@ -2544,7 +2544,7 @@ sub ProcessSingleObjectTypeStat
         my $kebabname       = ProcessStatKebabName($stat, $meta{type});
         my $camelname       = ProcessStatCamelName($stat, $meta{type});
 
-        WriteSource "const otai_stat_metadata_t otai_metadata_stat_$stat = {";
+        WriteSource "const sai_stat_metadata_t sai_metadata_stat_$stat = {";
 
         WriteSource ".objecttype                    = $objecttype,";
         WriteSource ".statid                        = $stat,";
@@ -2777,55 +2777,55 @@ sub ProcessSaiStatus
 
 sub CreateMetadataForStatistics
 {
-    my @objects = @{ $OTAI_ENUMS{otai_object_type_t}{values} };
+    my @objects = @{ $SAI_ENUMS{sai_object_type_t}{values} };
 
     for my $ot (@objects)
     {
 
-        if (not $ot =~ /^OTAI_OBJECT_TYPE_(\w+)$/)
+        if (not $ot =~ /^SAI_OBJECT_TYPE_(\w+)$/)
         {
             LogError "invalid obejct type '$ot'";
             next;
         }
 
-        my $type = "otai_" . lc($1) . "_stat_t";
+        my $type = "sai_" . lc($1) . "_stat_t";
 
-        if (not defined $OTAI_ENUMS{$type})
+        if (not defined $SAI_ENUMS{$type})
         {
             my @empty = ();
 
-            $OTAI_ENUMS{$type}{values} = \@empty;
+            $SAI_ENUMS{$type}{values} = \@empty;
         }
 
-        WriteSource "const otai_stat_metadata_t* const otai_metadata_stat_object_type_$type\[\] = {";
+        WriteSource "const sai_stat_metadata_t* const sai_metadata_stat_object_type_$type\[\] = {";
 
-        my @values = @{ $OTAI_ENUMS{$type}{values} };
+        my @values = @{ $SAI_ENUMS{$type}{values} };
 
         for my $value (@values)
         {
             next if defined $METADATA{$type}{$value}{ignore};
 
-            WriteSource "&otai_metadata_stat_$value,";
+            WriteSource "&sai_metadata_stat_$value,";
         }
 
         WriteSource "NULL";
         WriteSource "};";
     }
 
-    WriteHeader "extern const otai_stat_metadata_t* const* const otai_metadata_stat_by_object_type[];";
-    WriteSource "const otai_stat_metadata_t* const* const otai_metadata_stat_by_object_type[] = {";
+    WriteHeader "extern const sai_stat_metadata_t* const* const sai_metadata_stat_by_object_type[];";
+    WriteSource "const sai_stat_metadata_t* const* const sai_metadata_stat_by_object_type[] = {";
 
     for my $ot (@objects)
     {
-        if (not $ot =~ /^OTAI_OBJECT_TYPE_(\w+)$/)
+        if (not $ot =~ /^SAI_OBJECT_TYPE_(\w+)$/)
         {
             LogError "invalid obejct type '$ot'";
             next;
         }
 
-        my $type = "otai_" . lc($1) . "_stat_t";
+        my $type = "sai_" . lc($1) . "_stat_t";
 
-        WriteSource "otai_metadata_stat_object_type_$type,";
+        WriteSource "sai_metadata_stat_object_type_$type,";
     }
 
     WriteSource "NULL";
@@ -2833,8 +2833,8 @@ sub CreateMetadataForStatistics
 
     my $count = @objects;
 
-    WriteHeader "extern const size_t otai_metadata_stat_by_object_type_count;";
-    WriteSource "const size_t otai_metadata_stat_by_object_type_count = $count;";
+    WriteHeader "extern const size_t sai_metadata_stat_by_object_type_count;";
+    WriteSource "const size_t sai_metadata_stat_by_object_type_count = $count;";
 }
 
 sub CreateMetadataForAttributes
@@ -4245,9 +4245,9 @@ sub ProcessAlarmEnum
 {
     my $shortot = shift;
 
-    my $alarmenumname = "otai_${shortot}_alarm_type_t";
+    my $alarmenumname = "sai_${shortot}_alarm_type_t";
 
-    return "&otai_metadata_enum_$alarmenumname" if defined $OTAI_ENUMS{$alarmenumname};
+    return "&sai_metadata_enum_$alarmenumname" if defined $SAI_ENUMS{$alarmenumname};
 
     return "NULL";
 }
@@ -4532,13 +4532,13 @@ sub GetHashOfAllStatistics
 {
     my %STATISTICS = ();
 
-    for my $key (sort keys %OTAI_ENUMS)
+    for my $key (sort keys %SAI_ENUMS)
     {
-        next if not $key =~ /^(otai_(\w+)_stat_t)$/;
+        next if not $key =~ /^(sai_(\w+)_stat_t)$/;
 
         my $typedef = $1;
 
-        my $enum = $OTAI_ENUMS{$typedef};
+        my $enum = $SAI_ENUMS{$typedef};
 
         my @values = @{ $enum->{values} };
 
@@ -4563,14 +4563,14 @@ sub CreateListOfAllStatistics
 
     my %STATISTICS = GetHashOfAllStatistics();
 
-    WriteHeader "extern const otai_stat_metadata_t* const otai_metadata_stat_sorted_by_id_name[];";
-    WriteSource "const otai_stat_metadata_t* const otai_metadata_stat_sorted_by_id_name[] = {";
+    WriteHeader "extern const sai_stat_metadata_t* const sai_metadata_stat_sorted_by_id_name[];";
+    WriteSource "const sai_stat_metadata_t* const sai_metadata_stat_sorted_by_id_name[] = {";
 
     my @keys = sort keys %STATISTICS;
 
     for my $stat (@keys)
     {
-        WriteSource "&otai_metadata_stat_$stat,"
+        WriteSource "&sai_metadata_stat_$stat,"
     }
 
     my $count = @keys;
@@ -4578,8 +4578,8 @@ sub CreateListOfAllStatistics
     WriteSource "NULL";
     WriteSource "};";
 
-    WriteSource "const size_t otai_metadata_stat_sorted_by_id_name_count = $count;";
-    WriteHeader "extern const size_t otai_metadata_stat_sorted_by_id_name_count;";
+    WriteSource "const size_t sai_metadata_stat_sorted_by_id_name_count = $count;";
+    WriteHeader "extern const size_t sai_metadata_stat_sorted_by_id_name_count;";
 }
 sub CheckApiStructNames
 {
