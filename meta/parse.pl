@@ -77,10 +77,6 @@ my $ENUM_FLAGS_TYPES = "(none|strict|mixed|ranges|free)";
 # TAGS HANDLERS
 
 my %ATTR_TAGS = (
-        "unit"           , \&ProcessTagUnit,
-        "precision"      , \&ProcessTagPrecision,
-        "iscounter"      , \&ProcessTagIsCounter,
-        "isrecoverable"  , \&ProcessTagIsRecoverable,
         "type"           , \&ProcessTagType,
         "flags"          , \&ProcessTagFlags,
         "objects"        , \&ProcessTagObjects,
@@ -96,6 +92,10 @@ my %ATTR_TAGS = (
         "relaxed"        , \&ProcessTagRelaxed,
         "isresourcetype" , \&ProcessTagIsRecourceType,
         "deprecated"     , \&ProcessTagDeprecated,
+        "unit"           , \&ProcessTagUnit,
+        "precision"      , \&ProcessTagPrecision,
+        "iscounter"      , \&ProcessTagIsCounter,
+        "isrecoverable"  , \&ProcessTagIsRecoverable,
         );
 
 my %options = ();
@@ -128,13 +128,19 @@ my %CAPABILITIES = ();
 sub ProcessTagUnit
 {
     my ($unit, $value, $val) = @_;
-    return $val;
+    return $val if $val =~ /^(dBm|dB)$/i;
+
+    LogError "unit tag value '$val', expected dBm/dB";
+    return undef;
 }
 
 sub ProcessTagPrecision
 {
     my ($precision, $value, $val) = @_;
-    return $val;
+    return $val if $val =~ /^(precision1|precision2|precision18|)$/i;
+
+    LogError "precision tag value '$val', expected precision1/precision2/precision18";
+    return undef;
 }
 
 sub ProcessTagIsCounter
@@ -593,7 +599,7 @@ sub ProcessDescription
 
     return if scalar@order == 0;
 
-    my $rightOrder = 'type:flags(:isrecoverable)?(:objects)?(:allownull)?(:allowempty)?(:isvlan)?(:default)?(:range)?(:condition|:validonly)?(:relaxed)?(:isresourcetype)?(:deprecated)?';
+    my $rightOrder = 'type:flags(:objects)?(:allownull)?(:allowempty)?(:isvlan)?(:default)?(:range)?(:condition|:validonly)?(:relaxed)?(:isresourcetype)?(:deprecated)?(:isrecoverable)?';
 
     my $order = join(":",@order);
 
