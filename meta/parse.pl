@@ -1527,6 +1527,8 @@ sub CreateMetadataHeaderAndSource
 
     WriteSource "-1";
     WriteSource "};";
+}
+
 sub ProcessStatUnit
 {
     my ($stat, $unit) = @_;
@@ -1759,6 +1761,8 @@ sub ProcessAllowNull
     return $allownull if defined $allownull;
 
     return "false";
+}
+
 sub ProcessIsRecoverable
 {
     my ($value,$isrecoverable) = @_;
@@ -2284,6 +2288,8 @@ sub ProcessAttrName
     my ($attr, $type) = @_;
 
     return "\"$attr\"";
+}
+
 sub ProcessAttrKebabName
 {
     my ($attr, $type) = @_;
