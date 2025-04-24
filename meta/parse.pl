@@ -1539,13 +1539,13 @@ sub ProcessStatPrecision
     my ($stat, $precision) = @_;
     if (not defined $precision)
     {
-        return "OTAI_STAT_VALUE_PRECISION_0";
+        return "OTAI_STAT_VALUE_PRECISION_2";
     }
     return "OTAI_STAT_VALUE_PRECISION_1" if $precision eq "precision1";
     return "OTAI_STAT_VALUE_PRECISION_2" if $precision eq "precision2";
     return "OTAI_STAT_VALUE_PRECISION_18" if $precision eq "precision18";
 
-    return "OTAI_STAT_VALUE_PRECISION_0";
+    return "OTAI_STAT_VALUE_PRECISION_2";
 }
 
 sub ProcessStatIsCounter

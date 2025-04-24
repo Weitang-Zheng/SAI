@@ -39,20 +39,20 @@ typedef enum _sai_physicalchannel_attr_t
     SAI_PHYSICALCHANNEL_ATTR_START,
 
     /**
-     * @brief Client port or line port.
-     *
-     * @type sai_port_type_t
-     * @flags MANDATORY_ON_CREATE | CREATE_ONLY
-     */
-    SAI_PHYSICALCHANNEL_ATTR_PORT_TYPE = SAI_PHYSICALCHANNEL_ATTR_START,
-
-    /**
      * @brief Port ID.
      *
      * @type sai_uint32_t
      * @flags MANDATORY_ON_CREATE | CREATE_ONLY
      */
-    SAI_PHYSICALCHANNEL_ATTR_PORT_ID,
+    SAI_PHYSICALCHANNEL_ATTR_PORT_ID = SAI_PHYSICALCHANNEL_ATTR_START,
+
+    /**
+     * @brief Optical port type
+     *
+     * @type sai_optical_port_type_t
+     * @flags MANDATORY_ON_CREATE | CREATE_ONLY
+     */
+    SAI_PHYSICALCHANNEL_ATTR_PORT_TYPE,
 
     /**
      * @brief Lane ID.
@@ -108,7 +108,6 @@ typedef enum _sai_physicalchannel_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_PHYSICALCHANNEL_STAT_OUTPUT_POWER = SAI_PHYSICALCHANNEL_STAT_START,
@@ -118,7 +117,6 @@ typedef enum _sai_physicalchannel_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_PHYSICALCHANNEL_STAT_INPUT_POWER,
@@ -127,7 +125,6 @@ typedef enum _sai_physicalchannel_stat_t
      * @brief Laser bias current
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_PHYSICALCHANNEL_STAT_LASER_BIAS_CURRENT,

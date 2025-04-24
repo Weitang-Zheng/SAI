@@ -127,7 +127,6 @@ typedef enum _sai_apsport_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_APSPORT_STAT_OPTICAL_POWER = SAI_APSPORT_STAT_START,
@@ -137,7 +136,6 @@ typedef enum _sai_apsport_stat_t
      *
      * @type sai_double_t
      * @unit dB
-     * @precision precision2
      * @iscounter false
      */
     SAI_APSPORT_STAT_ATTENUATION,

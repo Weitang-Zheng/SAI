@@ -27,30 +27,7 @@
   *
   * @{
   */
- typedef enum _sai_optical_port_type_t
- {
-    /** Ingress port Port Type */
-    SAI_OPTICAL_PORT_TYPE_INGRESS,
 
-    /** Egress port Port Type */
-    SAI_OPTICAL_PORT_TYPE_EGRESS,
-
-    /** Add port at WSS Port Type */
-    SAI_OPTICAL_PORT_TYPE_ADD,
-
-    /** Drop port at WSS Port Type */
-    SAI_OPTICAL_PORT_TYPE_DROP,
-
-    /** Monitor port at OCM Port Type */
-    SAI_OPTICAL_PORT_TYPE_MONITOR,
-
-    /** Client-facing port Port Type */
-    SAI_OPTICAL_PORT_TYPE_TERMINAL_CLIENT,
-
-    /** Line-facing port Port Type */
-    SAI_OPTICAL_PORT_TYPE_TERMINAL_LINE
- } sai_optical_port_type_t;
- 
  /**
   * @brief Optical Port attribute IDs
   */
@@ -246,8 +223,7 @@
       *
       * @type sai_double_t
       * @unit dBm
-      * @precision precision2
-      * @iscounter false
+       * @iscounter false
       */
      SAI_OPTICAL_PORT_STAT_INPUT_POWER = SAI_OPTICAL_PORT_STAT_START,
  
@@ -256,8 +232,7 @@
       *
       * @type sai_double_t
       * @unit dBm
-      * @precision precision2
-      * @iscounter false
+       * @iscounter false
       */
      SAI_OPTICAL_PORT_STAT_OUTPUT_POWER,
  
@@ -266,8 +241,7 @@
       *
       * @type sai_double_t
       * @unit dBm
-      * @precision precision2
-      * @iscounter false
+       * @iscounter false
       */
      SAI_OPTICAL_PORT_STAT_OSC_INPUT_POWER,
  
@@ -276,8 +250,7 @@
       *
       * @type sai_double_t
       * @unit dBm
-      * @precision precision2
-      * @iscounter false
+       * @iscounter false
       */
      SAI_OPTICAL_PORT_STAT_OSC_OUTPUT_POWER,
  

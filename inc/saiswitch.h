@@ -3765,7 +3765,6 @@ typedef enum _sai_switch_stat_t
      * @brief Temperature
      *
      * @type SAI_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_SWITCH_STAT_TEMPERATURE,

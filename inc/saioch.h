@@ -119,7 +119,6 @@ typedef enum _sai_och_stat_t
      * @brief Group delay
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_GROUP_DELAY = SAI_OCH_STAT_START,
@@ -129,7 +128,6 @@ typedef enum _sai_och_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_INPUT_POWER,
@@ -138,7 +136,6 @@ typedef enum _sai_och_stat_t
      * @brief Chromatic dispersion
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_CHROMATIC_DISPERSION,
@@ -147,7 +144,6 @@ typedef enum _sai_och_stat_t
      * @brief Output power
      *
      * @type sai_double_t
-     * @precision precision2
      * @unit dBm
      * @iscounter false
      */
@@ -157,7 +153,6 @@ typedef enum _sai_och_stat_t
      * @brief Laser bias current
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_LASER_BIAS_CURRENT,
@@ -166,7 +161,6 @@ typedef enum _sai_och_stat_t
      * @brief Second ORDER polarization mode dispersion
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_SECOND_ORDER_POLARIZATION_MODE_DISPERSION,
@@ -175,7 +169,6 @@ typedef enum _sai_och_stat_t
      * @brief Polarization mode dispersion
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_POLARIZATION_MODE_DISPERSION,
@@ -185,7 +178,6 @@ typedef enum _sai_och_stat_t
      *
      * @type sai_double_t
      * @unit dB
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_OSNR,
@@ -194,7 +186,6 @@ typedef enum _sai_och_stat_t
      * @brief SOP Vector S1
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_SOP_VECTOR_S1,
@@ -203,7 +194,6 @@ typedef enum _sai_och_stat_t
      * @brief SOP Vector S2
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_SOP_VECTOR_S2,
@@ -212,7 +202,6 @@ typedef enum _sai_och_stat_t
      * @brief SOP Vector S3
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_SOP_VECTOR_S3,
@@ -238,7 +227,6 @@ typedef enum _sai_och_stat_t
      *
      * @type sai_double_t
      * @unit dB
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_POLARIZATION_DEPENDENT_LOSS,
@@ -248,7 +236,6 @@ typedef enum _sai_och_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_INPUT_SIGNAL_POWER,
@@ -257,7 +244,6 @@ typedef enum _sai_och_stat_t
      * @brief EDFA bias current
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_EDFA_BIAS_CURRENT,

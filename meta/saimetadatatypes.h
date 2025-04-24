@@ -110,11 +110,6 @@ typedef enum _sai_attr_value_type_t
      * @brief Attribute value is 64 bit signed integer.
      */
     SAI_ATTR_VALUE_TYPE_INT64,
-	
-	/**
-     * @brief Attribute value is double.
-     */
-    SAI_ATTR_VALUE_TYPE_DOUBLE,
 
     /**
      * @brief Attribute value is pointer address.
@@ -316,21 +311,6 @@ typedef enum _sai_attr_value_type_t
      */
     SAI_ATTR_VALUE_TYPE_ACL_ACTION_DATA_INT32,
 	
-	/**
-     * @brief Statistics value is 64 bit signed integer.
-     */
-    SAI_STAT_VALUE_TYPE_INT64,
-
-    /**
-     * @brief Statistics value is 64 bit unsigned integer.
-     */
-    SAI_STAT_VALUE_TYPE_UINT64,
-  
-    /**
-     * @brief Statistics value is double.
-     */
-    SAI_STAT_VALUE_TYPE_DOUBLE,
-	
     /**
      * @brief Attribute value is ACL action MAC address.
      */
@@ -516,11 +496,48 @@ typedef enum _sai_attr_value_type_t
      */
     SAI_ATTR_VALUE_TYPE_POE_PORT_POWER_CONSUMPTION,
 	
+    /**
+     * @brief Attribute value is double.
+     */
+    SAI_ATTR_VALUE_TYPE_DOUBLE,
+
 	/**
 	* @brief Attribute value is spectrum power list.
      */
     SAI_ATTR_VALUE_TYPE_SPECTRUM_POWER_LIST,
 } sai_attr_value_type_t;
+
+/**
+ * @brief Defines statistics value type.
+ */
+typedef enum _sai_stat_value_type_t
+{
+    /**
+     * @brief Statistics value is 32 bit signed integer.
+     */
+    SAI_STAT_VALUE_TYPE_INT32,
+
+    /**
+     * @brief Statistics value is 32 bit unsigned integer.
+     */
+    SAI_STAT_VALUE_TYPE_UINT32,
+
+    /**
+     * @brief Statistics value is 64 bit signed integer.
+     */
+    SAI_STAT_VALUE_TYPE_INT64,
+
+    /**
+     * @brief Statistics value is 64 bit unsigned integer.
+     */
+    SAI_STAT_VALUE_TYPE_UINT64,
+
+    /**
+     * @brief Statistics value is double.
+     */
+    SAI_STAT_VALUE_TYPE_DOUBLE,
+
+} sai_stat_value_type_t;
 
 /**
  * @brief Defines statistics value unit.
@@ -549,11 +566,6 @@ typedef enum _sai_stat_value_unit_t
  */
 typedef enum _sai_stat_value_precision_t
 {
-    /**
-     * @brief Value with 0 decimal precision.
-     */
-    SAI_STAT_VALUE_PRECISION_0,
-
     /**
      * @brief Value with 1 decimal precision.
      */

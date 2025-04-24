@@ -260,7 +260,6 @@ typedef enum _sai_otn_stat_t
      *
      * @type sai_double_t
      * @unit dB
-     * @precision precision2
      * @iscounter false
      */
     SAI_OTN_STAT_ESNR,
@@ -279,7 +278,6 @@ typedef enum _sai_otn_stat_t
      *
      * @type sai_double_t
      * @unit dB
-     * @precision precision2
      * @iscounter false
      */
     SAI_OTN_STAT_Q_VALUE,
@@ -322,7 +320,6 @@ typedef enum _sai_otn_stat_t
      *
      * @type sai_double_t
      * @unit dB
-     * @precision precision2
      * @iscounter false
      */
     SAI_OTN_STAT_Q_MARGIN,

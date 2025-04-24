@@ -218,9 +218,9 @@ typedef enum _sai_transceiver_attr_t
     SAI_TRANSCEIVER_ATTR_START,
 
     /**
-     * @brief Client port or line port.
+     * @brief Optical port type.
      *
-     * @type sai_port_type_t
+     * @type sai_optical_port_type_t
      * @flags MANDATORY_ON_CREATE | CREATE_ONLY
      */
     SAI_TRANSCEIVER_ATTR_PORT_TYPE = SAI_TRANSCEIVER_ATTR_START,
@@ -918,7 +918,6 @@ typedef enum _sai_transceiver_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_INPUT_POWER,
@@ -928,7 +927,6 @@ typedef enum _sai_transceiver_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_OUTPUT_POWER,
@@ -937,7 +935,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Laser bias current
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_LASER_BIAS_CURRENT,
@@ -973,7 +970,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief EDFA bias current
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_EDFA_BIAS_CURRENT,
@@ -982,7 +978,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Laser bias voltage
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_LASER_BIAS_VOLTAGE,
@@ -1000,7 +995,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Power consumption
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_POWER_CONSUMPTION,
@@ -1009,7 +1003,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias XI
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_XI,
@@ -1018,7 +1011,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias XQ
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_XQ,
@@ -1027,7 +1019,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias YI
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_YI,
@@ -1036,7 +1027,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias YQ
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_YQ,
@@ -1045,7 +1035,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias XPH
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_XPH,
@@ -1054,7 +1043,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias YPH
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_YPH,

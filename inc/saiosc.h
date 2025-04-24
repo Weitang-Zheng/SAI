@@ -98,7 +98,7 @@ typedef enum _sai_osc_attr_t
      * @brief Admin state
      *
      * @type sai_admin_state_t
-     * @flags READ_ONLY
+     * @flags CREATE_AND_SET
      */
     SAI_OSC_ATTR_ADMIN_STATE,
 
@@ -228,7 +228,6 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_INPUT_POWER = SAI_OSC_STAT_START,
@@ -247,7 +246,6 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_OUTPUT_POWER,
@@ -256,7 +254,6 @@ typedef enum _sai_osc_stat_t
      * @brief Input offset primary-line rx
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_INPUT_OFFSET_LINEP_RX,
@@ -265,7 +262,6 @@ typedef enum _sai_osc_stat_t
      * @brief Output offset primary-line tx
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_OUTPUT_OFFSET_LINEP_TX,
@@ -274,7 +270,6 @@ typedef enum _sai_osc_stat_t
      * @brief Input offset secondary-line rx
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_INPUT_OFFSET_LINES_RX,
@@ -283,7 +278,6 @@ typedef enum _sai_osc_stat_t
      * @brief Output offset secondary-line tx
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_OUTPUT_OFFSET_LINES_TX,
@@ -292,7 +286,6 @@ typedef enum _sai_osc_stat_t
      * @brief Laser bias current
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_LASER_BIAS_CURRENT,
@@ -302,7 +295,6 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_PANEL_INPUT_POWER_LINEP_RX,
@@ -312,7 +304,6 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_PANEL_OUTPUT_POWER_LINEP_TX,
@@ -322,7 +313,6 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_PANEL_INPUT_POWER_LINES_RX,
@@ -332,7 +322,6 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OSC_STAT_PANEL_OUTPUT_POWER_LINES_TX,

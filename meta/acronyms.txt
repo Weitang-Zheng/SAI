@@ -209,6 +209,9 @@ XFI - 10 Gbps Chip to Chip Interface
 XG - (*,G) Any-source Multicast4
 XGMII - 10 Gbps Media Independent Interface
 XLAUI - 40 Gbps Attachment Unit Interface
+XOFF - Transmitter Off
+XON - Transmitter On
+XPN - Extended Packet Number
 FW  - Firmware
 MDIO - Management Data Input/Output
 I2C - I squared C

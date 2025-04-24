@@ -308,29 +308,31 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_POE_PSE                  = 109,
     SAI_OBJECT_TYPE_POE_PORT                 = 110,
     SAI_OBJECT_TYPE_ICMP_ECHO_SESSION        = 111,
-    SAI_OBJECT_TYPE_TRANSCEIVER              = 203,
-    SAI_OBJECT_TYPE_LOGICALCHANNEL           = 204,
-    SAI_OBJECT_TYPE_OTN                      = 205,
-    SAI_OBJECT_TYPE_ETHERNET                 = 206,
-    SAI_OBJECT_TYPE_PHYSICALCHANNEL          = 207,
-    SAI_OBJECT_TYPE_OCH                      = 208,
-    SAI_OBJECT_TYPE_LLDP                     = 209,
-    SAI_OBJECT_TYPE_ASSIGNMENT               = 210,
-    SAI_OBJECT_TYPE_INTERFACE                = 211,
-    SAI_OBJECT_TYPE_OA                       = 212,
-    SAI_OBJECT_TYPE_OSC                      = 213,
-    SAI_OBJECT_TYPE_APS                      = 214,
-    SAI_OBJECT_TYPE_APSPORT                  = 215,
-    SAI_OBJECT_TYPE_ATTENUATOR               = 216,
-    SAI_OBJECT_TYPE_WSS                      = 217,
-    SAI_OBJECT_TYPE_MEDIACHANNEL             = 218,
-    SAI_OBJECT_TYPE_OCM                      = 219,
-    SAI_OBJECT_TYPE_OTDR                     = 220,
 
     /** Must remain in last position */
     SAI_OBJECT_TYPE_MAX,
 
     SAI_OBJECT_TYPE_EXTENSIONS_RANGE_BASE = 0x20000000,
+    SAI_OBJECT_TYPE_OTN_RANGE_BASE           = 0x40000000,
+    SAI_OBJECT_TYPE_TRANSCEIVER              = 0x40000001,
+    SAI_OBJECT_TYPE_LOGICALCHANNEL           = 0x40000002,
+    SAI_OBJECT_TYPE_OTN                      = 0x40000003,
+    SAI_OBJECT_TYPE_ETHERNET                 = 0x40000004,
+    SAI_OBJECT_TYPE_PHYSICALCHANNEL          = 0x40000005,
+    SAI_OBJECT_TYPE_OCH                      = 0x40000006,
+    SAI_OBJECT_TYPE_LLDP                     = 0x40000007,
+    SAI_OBJECT_TYPE_ASSIGNMENT               = 0x40000008,
+    SAI_OBJECT_TYPE_INTERFACE                = 0x40000009,
+    SAI_OBJECT_TYPE_OPTICALPORT              = 0x40000009,
+    SAI_OBJECT_TYPE_OA                       = 0x40000012,
+    SAI_OBJECT_TYPE_OSC                      = 0x40000013,
+    SAI_OBJECT_TYPE_APS                      = 0x40000014,
+    SAI_OBJECT_TYPE_APSPORT                  = 0x40000015,
+    SAI_OBJECT_TYPE_ATTENUATOR               = 0x40000016,
+    SAI_OBJECT_TYPE_WSS                      = 0x40000017,
+    SAI_OBJECT_TYPE_MEDIACHANNEL             = 0x40000018,
+    SAI_OBJECT_TYPE_OCM                      = 0x40000019,
+    SAI_OBJECT_TYPE_OTDR                     = 0x40000020,
 } sai_object_type_t;
 
 typedef struct _sai_u8_list_t
@@ -1884,40 +1886,30 @@ typedef enum _sai_admin_state_t
     SAI_ADMIN_STATE_MAINT,
 } sai_admin_state_t;
 
-/** @brief Admin status */
-typedef enum _sai_admin_status_t
-{
-    SAI_ADMIN_STATUS_ENABLED,
-    SAI_ADMIN_STATUS_DISABLED,
-    SAI_ADMIN_STATUS_MAINT,
-} sai_admin_status_t;
+typedef enum _sai_optical_port_type_t
+ {
+    /** Ingress port Port Type */
+    SAI_OPTICAL_PORT_TYPE_INGRESS,
 
-/**
- * @brief The type of the port
- */
-typedef enum _sai_port_type_t
-{
-    SAI_PORT_TYPE_INVALID,
-    SAI_PORT_TYPE_CLIENT,
-    SAI_PORT_TYPE_LINE,
-    SAI_PORT_TYPE_LINE_IN,
-    SAI_PORT_TYPE_LINE_OUT,
-    SAI_PORT_TYPE_EDFA_IN,
-    SAI_PORT_TYPE_EDFA_OUT,
-    SAI_PORT_TYPE_MD_IN,
-    SAI_PORT_TYPE_MD_OUT,
-    SAI_PORT_TYPE_MD_EXP_IN,
-    SAI_PORT_TYPE_MD_EXP_OUT,
-    SAI_PORT_TYPE_OLP_PRI_IN,
-    SAI_PORT_TYPE_OLP_PRI_OUT,
-    SAI_PORT_TYPE_OLP_SEC_IN,
-    SAI_PORT_TYPE_OLP_SEC_OUT,
-    SAI_PORT_TYPE_OLP_COM_IN,
-    SAI_PORT_TYPE_OLP_COM_OUT,
-    SAI_PORT_TYPE_CLIENT_IN,
-    SAI_PORT_TYPE_CLIENT_OUT,
-} sai_port_type_t;
+    /** Egress port Port Type */
+    SAI_OPTICAL_PORT_TYPE_EGRESS,
 
+    /** Add port at WSS Port Type */
+    SAI_OPTICAL_PORT_TYPE_ADD,
+
+    /** Drop port at WSS Port Type */
+    SAI_OPTICAL_PORT_TYPE_DROP,
+
+    /** Monitor port at OCM Port Type */
+    SAI_OPTICAL_PORT_TYPE_MONITOR,
+
+    /** Client-facing port Port Type */
+    SAI_OPTICAL_PORT_TYPE_TERMINAL_CLIENT,
+
+    /** Line-facing port Port Type */
+    SAI_OPTICAL_PORT_TYPE_TERMINAL_LINE
+ } sai_optical_port_type_t;
+ 
 /**
  * @brief Led mode
  */

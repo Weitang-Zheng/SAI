@@ -142,7 +142,7 @@ typedef enum _sai_oa_attr_t
      * @brief Admin state
      *
      * @type sai_admin_state_t
-     * @flags READ_ONLY
+     * @flags CREATE_AND_SET
      */
     SAI_OA_ATTR_ADMIN_STATE,
 
@@ -482,7 +482,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_ACTUAL_GAIN,
@@ -492,7 +491,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_ACTUAL_GAIN_TILT,
@@ -502,7 +500,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_INPUT_POWER_TOTAL,
@@ -512,7 +509,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_INPUT_POWER_C_BAND,
@@ -522,7 +518,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_INPUT_POWER_L_BAND,
@@ -532,7 +527,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_OUTPUT_POWER_TOTAL,
@@ -542,7 +536,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_OUTPUT_POWER_C_BAND,
@@ -552,7 +545,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_OUTPUT_POWER_L_BAND,
@@ -561,7 +553,6 @@ typedef enum _sai_oa_stat_t
      * @brief Laser bias current
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_LASER_BIAS_CURRENT,
@@ -571,7 +562,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_OPTICAL_RETURN_LOSS,
@@ -580,7 +570,6 @@ typedef enum _sai_oa_stat_t
      * @brief Laser temperature
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_LASER_TEMPERATURE,
@@ -590,7 +579,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_PANEL_INPUT_POWER_LINEP_RX,
@@ -600,7 +588,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_PANEL_OUTPUT_POWER_LINEP_TX,
@@ -610,7 +597,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_PANEL_INPUT_POWER_LINES_RX,
@@ -620,7 +606,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_PANEL_OUTPUT_POWER_LINES_TX,
@@ -629,7 +614,6 @@ typedef enum _sai_oa_stat_t
      * @brief Laser TEC current
      *
      * @type sai_double_t
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_LASER_TEC_CURRENT,
@@ -639,7 +623,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dB
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_INGRESS_VOA_ATTEN,
@@ -649,7 +632,6 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_OA_STAT_MON_OUTPUT_POWER,

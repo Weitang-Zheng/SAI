@@ -76,10 +76,10 @@ typedef enum _sai_mediachannel_attr_t
     /**
      * @brief Admin status
      *
-     * @type sai_admin_status_t
+     * @type sai_admin_state_t
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_ADMIN_STATUS,
+    SAI_MEDIACHANNEL_ATTR_ADMIN_STATE,
 
     /**
      * @brief Super channel
@@ -183,7 +183,6 @@ typedef enum _sai_mediachannel_stat_t
      *
      * @type sai_double_t
      * @unit dB
-     * @precision precision2
      * @iscounter false
      */
     SAI_MEDIACHANNEL_STAT_ACTUAL_ATTENUATION = SAI_ATTENUATOR_STAT_START,
@@ -193,7 +192,6 @@ typedef enum _sai_mediachannel_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_MEDIACHANNEL_STAT_INPUT_POWER,
@@ -203,7 +201,6 @@ typedef enum _sai_mediachannel_stat_t
      *
      * @type sai_double_t
      * @unit dBm
-     * @precision precision2
      * @iscounter false
      */
     SAI_MEDIACHANNEL_STAT_OUTPUT_POWER,

@@ -183,7 +183,7 @@ typedef enum _sai_aps_attr_t
      * @brief Admin state
      *
      * @type sai_admin_state_t
-     * @flags READ_ONLY
+     * @flags CREATE_AND_SET
      */
     SAI_APS_ATTR_ADMIN_STATE,
 
