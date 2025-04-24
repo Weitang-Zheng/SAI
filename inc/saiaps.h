@@ -22,6 +22,12 @@
 
 #include <saitypes.h>
 
+/**
+ * @defgroup SAIAPS SAI - APS specific API definitions
+ *
+ * @{
+ */
+
 /** @brief APS type */
 typedef enum _sai_aps_type_t
 {
@@ -41,77 +47,7 @@ typedef enum _sai_aps_active_path_t
 {
     SAI_APS_ACTIVE_PATH_PRIMARY,
     SAI_APS_ACTIVE_PATH_SECONDARY,
-
 } sai_aps_active_path_t;
-
-typedef enum _sai_olp_switch_reason_t
-{
-    SAI_OLP_SWITCH_REASON_AUTO_ABSOLUTE,
-    SAI_OLP_SWITCH_REASON_AUTO_RELATIVE,
-    SAI_OLP_SWITCH_REASON_MANUAL_CMD,
-    SAI_OLP_SWITCH_REASON_FORCE_CMD,
-    SAI_OLP_SWITCH_REASON_BUTTON_TRIGGER,
-
-} sai_olp_switch_reason_t;
-
-typedef enum _sai_olp_switch_operate_t
-{
-    SAI_OLP_SWITCH_OPERATE_PRIMARY_TO_SECONDARY,
-    SAI_OLP_SWITCH_OPERATE_SECONDARY_TO_PRIMARY,
-
-} sai_olp_switch_operate_t;
-
-typedef enum _sai_olp_switch_interval_t
-{
-    SAI_OLP_SWITCH_INTERVAL_1MS,
-    SAI_OLP_SWITCH_INTERVAL_2MS,
-    SAI_OLP_SWITCH_INTERVAL_10MS,
-
-} sai_olp_switch_interval_t;
-
-typedef struct _sai_olp_switch_power_info_t
-{
-    sai_double_t common_out;
-    sai_double_t primary_in;
-    sai_double_t secondary_in;
-} sai_olp_switch_power_info_t;
-
-typedef struct _sai_olp_switch_info_t
-{
-    sai_uint16_t index;
-    sai_olp_switch_reason_t reason;
-    sai_olp_switch_operate_t operate;
-    sai_uint64_t time_stamp;
-    sai_olp_switch_power_info_t before[40];
-    sai_olp_switch_power_info_t switching;
-    sai_olp_switch_power_info_t after[40];
-} sai_olp_switch_info_t;
-
-typedef struct _sai_olp_switch_t
-{
-    sai_uint8_t num;
-    sai_uint8_t type;
-    sai_uint8_t interval;
-    sai_uint16_t pointers;
-    sai_uint8_t channel_id;
-    sai_olp_switch_info_t info[10];
-} sai_olp_switch_t;
-
-/**
- * @brief APS report switch info notification
- *
- * @param[in] aps_id APS Id
- * @param[in] switch_info Switch info
- */
-typedef void (*sai_aps_report_switch_info_fn)(
-        _In_ sai_object_id_t aps_id,
-        _In_ sai_olp_switch_t switch_info);
-
-/**
- * @defgroup SAIAPS SAI - APS specific API definitions
- *
- * @{
- */
 
 /**
  * @brief APS attribute IDs
@@ -331,24 +267,6 @@ typedef enum _sai_aps_attr_t
      * @flags CREATE_AND_SET
      */
     SAI_APS_ATTR_ALARM_HYSTERESIS,
-
-    /**
-     * @brief Switch info notify
-     *
-     * @type sai_pointer_t sai_aps_report_switch_info_fn
-     * @flags CREATE_ONLY
-     * @default NULL
-     */
-    SAI_APS_ATTR_SWITCH_INFO_NOTIFY,
-
-    /**
-     * @brief Collect switch info
-     *
-     * @type bool
-     * @flags SET_ONLY
-     * @isrecoverable false
-     */
-    SAI_APS_ATTR_COLLECT_SWITCH_INFO,
 
     /**
      * @brief End of attributes
