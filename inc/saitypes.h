@@ -127,7 +127,6 @@ typedef uint16_t sai_uint16_t;
 typedef int16_t sai_int16_t;
 typedef uint8_t sai_uint8_t;
 typedef int8_t sai_int8_t;
-typedef float sai_float_t;
 typedef double sai_double_t;
 typedef size_t sai_size_t;
 typedef uint64_t sai_object_id_t;

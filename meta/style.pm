@@ -244,7 +244,7 @@ sub CheckGaugesFunction
     my @paramtypes = $fn =~ /_(?:In|Out|Inout)_\s*(.+?)\s*(?:\w+?)\s*[,\)]/gis;
     my $ptypes = "@paramtypes";
 
-    if (not $ptypes =~ /^sai_object_id_t uint32_t const sai_gauge_id_t \*( sai_float_t \*)?$/)
+    if (not $ptypes =~ /^sai_object_id_t uint32_t const sai_gauge_id_t \*( sai_double_t \*)?$/)
     {
         LogWarning "invalid gauge function $fname param types: $ptypes";
     }
@@ -1285,7 +1285,7 @@ sub CheckHeadersStyle
             next if $line =~ /^ {4}[{}]/;           # start or end of union
             next if $line =~ /^ {4}(u?int)/;        # union entries
             next if $line =~ /^ {4}(char|bool)/;    # union entries
-            next if $line =~ /^ {4}float/;          # union entries
+            next if $line =~ /^ {4}double/;          # union entries
             next if $line =~ /^ {4}void/;           # union entries
             next if $line =~ /^ {8}bool booldata/;  # union bool
             next if $line =~ /^ {4}(true|false)/;   # bool definition
