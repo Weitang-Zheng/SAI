@@ -28,6 +28,7 @@
 #include <errno.h>
 #include <inttypes.h>
 #include <limits.h>
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -667,14 +668,31 @@ int sai_serialize_double(
         _Out_ char *buffer,
         _In_ sai_double_t d64)
 {
-    return sprintf(buffer, "%.2lf", d64);
+    if (isnan(d64)) {
+        return sprintf(buffer, "NaN");
+    } else if (isinf(d64)) {
+        return sprintf(buffer, "%sInfinity", (d64 > 0) ? "" : "-");
+    } else {
+        return sprintf(buffer, "%.2lf", d64);
+    }
 }
 
 int sai_deserialize_double(
         _In_ const char *buffer,
         _Out_ sai_double_t *d64)
 {
-    return sscanf(buffer, "%lf", d64);
+    if (strcmp(buffer, "NaN") == 0) {
+        *d64 = NAN;
+        return 3;
+    } else if (strcmp(buffer, "Infinity") == 0) {
+        *d64 = INFINITY;
+        return 8；
+    } else if (strcmp(buffer, "-Infinity") == 0) {
+        *d64 = -INFINITY;
+        return 9;
+    } else {
+        return sscanf(buffer, "%lf", d64);
+    }
 }
 
 int sai_serialize_enum(
