@@ -231,9 +231,9 @@ sub CheckGaugesFunction
 {
     my ($fname,$fn,$fnparams) = @_;
 
-    if (not $fname =~ /^otai_(get|clear)_(\w+)_gauges_fn$/)
+    if (not $fname =~ /^sai_(get|clear)_(\w+)_gauges_fn$/)
     {
-        LogWarning "wrong gauge function name: $fname, expected: otai_(get|clear)_\\w+_gauges_fn";
+        LogWarning "wrong gauge function name: $fname, expected: sai_(get|clear)_\\w+_gauges_fn";
     }
 
     if (not $fnparams =~ /^\w+_id number_of_gauges gauge_ids( gauges)?$/)
@@ -244,7 +244,7 @@ sub CheckGaugesFunction
     my @paramtypes = $fn =~ /_(?:In|Out|Inout)_\s*(.+?)\s*(?:\w+?)\s*[,\)]/gis;
     my $ptypes = "@paramtypes";
 
-    if (not $ptypes =~ /^otai_object_id_t uint32_t const otai_gauge_id_t \*( otai_float_t \*)?$/)
+    if (not $ptypes =~ /^sai_object_id_t uint32_t const sai_gauge_id_t \*( sai_float_t \*)?$/)
     {
         LogWarning "invalid gauge function $fname param types: $ptypes";
     }
@@ -344,7 +344,7 @@ sub CheckFunctionsParams
             CheckStatsFunction($fname,$fn,$fnparams);
         }
 		
-		if ($fname =~ /^otai_\w+_gauges_/)
+		if ($fname =~ /^sai_\w+_gauges_/)
         {
             CheckGaugesFunction($fname,$fn,$fnparams);
         }
