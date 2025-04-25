@@ -163,7 +163,7 @@ typedef enum _sai_wss_stat_t
  * Allocates and initializes a WSS.
  *
  * @param[out] wss_id WSS id
- * @param[in] linecard_id Linecard id on which the WSS exists
+ * @param[in] switch_id switch id on which the WSS exists
  * @param[in] attr_count Number of attributes
  * @param[in] attr_list Array of attributes
  *
@@ -171,7 +171,7 @@ typedef enum _sai_wss_stat_t
  */
 typedef sai_status_t (*sai_create_wss_fn)(
         _Out_ sai_object_id_t *wss_id,
-        _In_ sai_object_id_t linecard_id,
+        _In_ sai_object_id_t switch_id,
         _In_ uint32_t attr_count,
         _In_ const sai_attribute_t *attr_list);
 
