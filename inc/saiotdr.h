@@ -280,6 +280,15 @@ typedef enum _sai_otdr_attr_t
     SAI_OTDR_ATTR_FIRMWARE_VERSION,
 
     /**
+     * @brief OTDR result notification
+     *
+     * @type sai_pointer_t sai_switch_otdr_result_notification_fn
+     * @flags CREATE_ONLY
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_SWITCH_OTDR_RESULT_NOTIFY,
+
+    /**
      * @brief End of attributes
      */
     SAI_OTDR_ATTR_END,
@@ -317,6 +326,18 @@ typedef enum _sai_otdr_stat_t
     SAI_OTDR_STAT_END,
 
 } sai_otdr_stat_t;
+
+/**
+ * @brief Switch OTDR report result
+ *
+ * @param[in] switch_id switch Id
+ * @param[in] otdr_id OTDR Id
+ * @param[in] otdr_result OTDR result
+ */
+typedef void (*sai_switch_otdr_result_notification_fn)(
+        _In_ sai_object_id_t switch_id,
+        _In_ sai_object_id_t otdr_id,
+        _In_ sai_otdr_result_t otdr_result);
 
 /**
  * @brief Create OTDR.

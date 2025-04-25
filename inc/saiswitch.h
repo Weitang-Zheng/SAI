@@ -434,7 +434,7 @@ typedef enum _sai_switch_reset_t
 } sai_switch_reset_t;
 
 /**
- * @brief Linecard upgrade state
+ * @brief Switch upgrade state
  */
 typedef enum _sai_switch_upgrade_state_t
 {
@@ -454,7 +454,7 @@ typedef enum _sai_switch_upgrade_state_t
 } sai_switch_upgrade_state_t;
 
 /**
- * @brief Linecard baud rate
+ * @brief Switch baud rate
  */
 typedef enum _sai_switch_baud_rate_t
 {
@@ -466,19 +466,9 @@ typedef enum _sai_switch_baud_rate_t
 } sai_switch_baud_rate_t;
 
 /**
- * @brief Linecard operational state change notification
+ * @brief Switch alarm notification
  *
- * @param[in] switch_id Linecard Id
- * @param[in] switch_oper_status New switch operational state
- */
-typedef void (*sai_switch_state_change_notification_fn)(
-        _In_ sai_object_id_t switch_id,
-        _In_ sai_oper_status_t switch_oper_status);
-
-/**
- * @brief Linecard alarm notification
- *
- * @param[in] switch_id Linecard Id
+ * @param[in] switch_id Switch Id
  * @param[in] alarm_type Alarm type
  * @param[in] alarm_info Alarm info
  */
@@ -486,31 +476,6 @@ typedef void (*sai_switch_alarm_notification_fn)(
         _In_ sai_object_id_t switch_id,
         _In_ sai_alarm_type_t alarm_type,
         _In_ sai_alarm_info_t alarm_info);
-
-/**
- * @brief Linecard OCM spectrum power notification
- *
- * @param[in] switch_id Linecard Id
- * @param[in] ocm_id OCM Id
- * @param[in] ocm_result OCM Result
- */
-typedef void (*sai_switch_ocm_spectrum_power_notification_fn)(
-        _In_ sai_object_id_t switch_id,
-        _In_ sai_object_id_t ocm_id,
-        _In_ sai_spectrum_power_list_t ocm_result);
-
-/**
- * @brief Linecard OTDR report result
- *
- * @param[in] switch_id Linecard Id
- * @param[in] otdr_id OTDR Id
- * @param[in] otdr_result OTDR result
- */
-typedef void (*sai_switch_otdr_result_notification_fn)(
-        _In_ sai_object_id_t switch_id,
-        _In_ sai_object_id_t otdr_id,
-        _In_ sai_otdr_result_t otdr_result);
-
 
 /**
  * @brief Defines tunnel attributes at switch level.
@@ -3156,8 +3121,17 @@ typedef enum _sai_switch_attr_t
     /** Custom range base value */
     SAI_SWITCH_ATTR_CUSTOM_RANGE_START = 0x10000000,
 
+    /** End of custom range base */
+    SAI_SWITCH_ATTR_CUSTOM_RANGE_END,
+
+    /** Extensions range base */
+    SAI_SWITCH_ATTR_EXTENSIONS_RANGE_BASE = 0x20000000,
+
+    /** OTN range base value */
+    SAI_SWITCH_ATTR_OTN_RANGE_START = 0x30000000,
+
     /**
-     * @brief Linecard type
+     * @brief Switch type
      *
      * @type char
      * @flags MANDATORY_ON_CREATE | CREATE_AND_SET
@@ -3179,22 +3153,6 @@ typedef enum _sai_switch_attr_t
      * @flags CREATE_AND_SET
      */
     SAI_SWITCH_ATTR_BOARD_MODE,
-
-    /**
-     * @brief The operational state of the switch
-     *
-     * @type sai_oper_status_t
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_OPER_STATUS,
-
-    /**
-     * @brief Relay
-     *
-     * @type bool
-     * @flags CREATE_AND_SET
-     */
-    SAI_SWITCH_ATTR_RELAY,
 
     /**
      * @brief Whether the switch is present or not
@@ -3302,42 +3260,13 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_MFG_NAME,
 
     /**
-     * @brief Set to switch initialization or connect to switch.
-     *
-     * TRUE - Initialize switch.
-     * FALSE - Connect to initialized switch.
-     *
-     * @type bool
-     * @flags CREATE_ONLY
-     */
-    SAI_SWITCH_ATTR_INIT_SWITCH,
-
-    /**
-     * @brief Linecard alarm notification
+     * @brief Switch alarm notification
      *
      * @type sai_pointer_t sai_switch_alarm_notification_fn
      * @flags CREATE_ONLY
      * @default NULL
      */
     SAI_SWITCH_ATTR_SWITCH_ALARM_NOTIFY,
-
-    /**
-     * @brief Spectrum power notification
-     *
-     * @type sai_pointer_t sai_switch_ocm_spectrum_power_notification_fn
-     * @flags CREATE_ONLY
-     * @default NULL
-     */
-    SAI_SWITCH_ATTR_SWITCH_OCM_SPECTRUM_POWER_NOTIFY,
-
-    /**
-     * @brief OTDR result notification
-     *
-     * @type sai_pointer_t sai_switch_otdr_result_notification_fn
-     * @flags CREATE_ONLY
-     * @default NULL
-     */
-    SAI_SWITCH_ATTR_SWITCH_OTDR_RESULT_NOTIFY,
 
     /**
      * @brief Collect switch alarm.
@@ -3357,13 +3286,13 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_COLLECT_SWITCH_LOG,
 
     /**
-     * @brief Linecard operational state change notification
+     * @brief Led name
      *
-     * @type sai_pointer_t sai_switch_state_change_notification_fn
-     * @flags CREATE_ONLY
-     * @default NULL
+     * @type char
+     * @flags CREATE_AND_SET
+     * @isrecoverable false
      */
-    SAI_SWITCH_ATTR_SWITCH_STATE_CHANGE_NOTIFY,
+    SAI_SWITCH_ATTR_LED_NAME,
 
     /**
      * @brief Led mode
@@ -3427,7 +3356,7 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_USER_PASSWORD,
 
     /**
-     * @brief Linecard upgrade file name
+     * @brief Switch upgrade file name
      *
      * @type char
      * @flags SET_ONLY
@@ -3436,7 +3365,7 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_UPGRADE_FILE_NAME,
 
     /**
-     * @brief Linecard upgrade file path
+     * @brief Switch upgrade file path
      *
      * @type char
      * @flags SET_ONLY
@@ -3524,14 +3453,6 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_FPGA_VERSION,
 
     /**
-     * @brief UCD version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_UCD_VERSION,
-
-    /**
      * @brief Temperature high alarm threshold
      *
      * @type sai_double_t
@@ -3564,14 +3485,6 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_TEMP_LOW_WARN_THRESHOLD,
 
     /**
-     * @brief Slot id
-     *
-     * @type sai_int32_t
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_SLOT_ID,
-
-    /**
      * @brief Equipment failure
      *
      * @type bool
@@ -3588,38 +3501,24 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_EQUIPMENT_MISMATCH,
 
     /**
-     * @brief Start Pre-configuration
+     * @brief Start configuration
      *
      * @type bool
      * @flags SET_ONLY
      * @isrecoverable false
      */
-    SAI_SWITCH_ATTR_START_PRE_CONFIGURATION,
+    SAI_SWITCH_ATTR_START_CONFIGURATION,
 
     /**
-     * @brief Stop Pre-configuration
+     * @brief Stop configuration
      *
      * @type bool
      * @flags SET_ONLY
      * @isrecoverable false
      */
-    SAI_SWITCH_ATTR_STOP_PRE_CONFIGURATION,
+    SAI_SWITCH_ATTR_STOP_CONFIGURATION,
 
-    /**
-     * @brief Led name
-     *
-     * @type char
-     * @flags CREATE_AND_SET
-     * @isrecoverable false
-     */
-    SAI_SWITCH_ATTR_LED_NAME,
-
-    /** End of custom range base */
-    SAI_SWITCH_ATTR_CUSTOM_RANGE_END,
-
-    /** Extensions range base */
-    SAI_SWITCH_ATTR_EXTENSIONS_RANGE_BASE = 0x20000000
-
+    SAI_SWITCH_ATTR_OTN_RANGE_END
 } sai_switch_attr_t;
 
 /**

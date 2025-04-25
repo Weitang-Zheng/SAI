@@ -2015,7 +2015,7 @@ typedef struct _sai_otdr_result_t
 } sai_otdr_result_t;
 
 /**
- * @brief Alarm type of the linecard
+ * @brief Alarm type of the switch
  */
 typedef enum _sai_alarm_type_t
 {
