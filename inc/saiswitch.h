@@ -26,6 +26,7 @@
 #define __SAISWITCH_H_
 
 #include <saitypes.h>
+#include <saialarmtypes.h>
 
 /**
  * @defgroup SAISWITCH SAI - Switch specific API definitions

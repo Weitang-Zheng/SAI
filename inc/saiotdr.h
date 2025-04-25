@@ -29,6 +29,93 @@
  */
 
 /**
+ * @brief Enum defining OTDR event types.
+ */
+typedef enum _sai_otdr_event_type_t
+{
+    SAI_OTDR_EVENT_TYPE_START,
+    SAI_OTDR_EVENT_TYPE_END,
+    SAI_OTDR_EVENT_TYPE_REFLECTION,
+    SAI_OTDR_EVENT_TYPE_NON_REFLECTION,
+    SAI_OTDR_EVENT_TYPE_FIBER_SECTION,
+    SAI_OTDR_EVENT_TYPE_UNKOWN,
+} sai_otdr_event_type_t;
+
+/** @brief Scanning status */
+typedef enum _sai_scanning_status_t
+{
+    SAI_SCANNING_STATUS_ACTIVE,
+    SAI_SCANNING_STATUS_INACTIVE,
+} sai_scanning_status_t;
+
+typedef struct _sai_otdr_event_t
+{
+    sai_otdr_event_type_t type;
+
+    /** Event distance or fiber section length in km */
+    sai_double_t length;
+
+    /** Event loss in dB */
+    sai_double_t loss;
+
+    /** Event reflection in dB */
+    sai_double_t reflection;
+
+    /** Accumulated loss at the event point */
+    sai_double_t accumulate_loss;
+
+} sai_otdr_event_t;
+
+typedef struct _sai_otdr_event_list_t
+{
+    uint32_t count;
+    sai_otdr_event_t *list;
+} sai_otdr_event_list_t;
+
+typedef struct _sai_otdr_events_t
+{
+    /** Total length in km */
+    sai_double_t span_distance;
+
+    /** Total loss in dB */
+    sai_double_t span_loss;
+
+    sai_otdr_event_list_t events;
+
+} sai_otdr_events_t;
+
+typedef struct _sai_otdr_scanning_profile_t
+{
+    sai_uint64_t scan_time;
+
+    /** Distance range in km */
+    sai_uint32_t distance_range;
+
+    /** Pulse width in nanosecond */
+    sai_uint32_t pulse_width;
+
+    /** Average time of each scanning in second */
+    sai_uint32_t average_time;
+
+    /** The output frequency in MHz of the OTDR */
+    sai_uint64_t output_frequency;
+
+} sai_otdr_scanning_profile_t;
+
+typedef struct _sai_otdr_result_trace_t
+{
+    sai_uint64_t update_time;
+    sai_u8_list_t data;
+} sai_otdr_result_trace_t;
+
+typedef struct _sai_otdr_result_t
+{
+    sai_otdr_scanning_profile_t scanning_profile;
+    sai_otdr_events_t events;
+    sai_otdr_result_trace_t trace;
+} sai_otdr_result_t;
+
+/**
  * @brief OTDR attribute IDs
  */
 typedef enum _sai_otdr_attr_t

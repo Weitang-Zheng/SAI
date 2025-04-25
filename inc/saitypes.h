@@ -133,13 +133,6 @@ typedef uint64_t sai_object_id_t;
 typedef void *sai_pointer_t;
 typedef uint64_t sai_api_version_t;
 
-typedef struct _sai_spectrum_power_t
-{
-    sai_uint64_t lower_frequency;
-    sai_uint64_t upper_frequency;
-    sai_double_t power;
-} sai_spectrum_power_t;
-
 typedef struct _sai_timespec_t
 {
     uint64_t tv_sec;
@@ -312,6 +305,7 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_MAX,
 
     SAI_OBJECT_TYPE_EXTENSIONS_RANGE_BASE = 0x20000000,
+
     SAI_OBJECT_TYPE_OTN_RANGE_BASE           = 0x40000000,
     SAI_OBJECT_TYPE_TRANSCEIVER              = 0x40000001,
     SAI_OBJECT_TYPE_LOGICALCHANNEL           = 0x40000002,
@@ -322,16 +316,16 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_LLDP                     = 0x40000007,
     SAI_OBJECT_TYPE_ASSIGNMENT               = 0x40000008,
     SAI_OBJECT_TYPE_INTERFACE                = 0x40000009,
-    SAI_OBJECT_TYPE_OPTICALPORT              = 0x40000009,
-    SAI_OBJECT_TYPE_OA                       = 0x40000012,
-    SAI_OBJECT_TYPE_OSC                      = 0x40000013,
-    SAI_OBJECT_TYPE_APS                      = 0x40000014,
-    SAI_OBJECT_TYPE_APSPORT                  = 0x40000015,
-    SAI_OBJECT_TYPE_ATTENUATOR               = 0x40000016,
-    SAI_OBJECT_TYPE_WSS                      = 0x40000017,
-    SAI_OBJECT_TYPE_MEDIACHANNEL             = 0x40000018,
-    SAI_OBJECT_TYPE_OCM                      = 0x40000019,
-    SAI_OBJECT_TYPE_OTDR                     = 0x40000020,
+    SAI_OBJECT_TYPE_OPTICALPORT              = 0x4000000a,
+    SAI_OBJECT_TYPE_OA                       = 0x4000000b,
+    SAI_OBJECT_TYPE_OSC                      = 0x4000000c,
+    SAI_OBJECT_TYPE_APS                      = 0x4000000d,
+    SAI_OBJECT_TYPE_APSPORT                  = 0x4000000e,
+    SAI_OBJECT_TYPE_ATTENUATOR               = 0x4000000f,
+    SAI_OBJECT_TYPE_WSS                      = 0x40000010,
+    SAI_OBJECT_TYPE_MEDIACHANNEL             = 0x40000011,
+    SAI_OBJECT_TYPE_OCM                      = 0x40000012,
+    SAI_OBJECT_TYPE_OTDR                     = 0x40000013,
 } sai_object_type_t;
 
 typedef struct _sai_u8_list_t
@@ -374,12 +368,6 @@ typedef struct _sai_s32_list_t
     uint32_t count;
     int32_t *list;
 } sai_s32_list_t;
-
-typedef struct _sai_spectrum_power_list_t
-{
-    uint32_t count;
-    sai_spectrum_power_t *list;
-} sai_spectrum_power_list_t;
 
 typedef struct _sai_u32_range_t
 {
@@ -1656,8 +1644,6 @@ typedef union _sai_attribute_value_t
     /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_POE_PORT_POWER_CONSUMPTION */
     sai_poe_port_power_consumption_t portpowerconsumption;
 
-    /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_SPECTRUM_POWER_LIST */
-    sai_spectrum_power_list_t spectrumpowerlist;
 } sai_attribute_value_t;
 
 /**
@@ -1870,13 +1856,6 @@ typedef enum _sai_oper_status_t
     SAI_OPER_STATUS_DISABLED,
 } sai_oper_status_t;
 
-/** @brief Scanning status */
-typedef enum _sai_scanning_status_t
-{
-    SAI_SCANNING_STATUS_ACTIVE,
-    SAI_SCANNING_STATUS_INACTIVE,
-} sai_scanning_status_t;
-
 /** @brief Admin state */
 typedef enum _sai_admin_state_t
 {
@@ -1933,372 +1912,6 @@ typedef enum _sai_led_color_t
     SAI_LED_COLOR_ABNORMAL,
     SAI_LED_COLOR_YELLOW_FLASH,
 } sai_led_color_t;
-
-/**
- * @brief Enum defining OTDR event types.
- */
-typedef enum _sai_otdr_event_type_t
-{
-    SAI_OTDR_EVENT_TYPE_START,
-    SAI_OTDR_EVENT_TYPE_END,
-    SAI_OTDR_EVENT_TYPE_REFLECTION,
-    SAI_OTDR_EVENT_TYPE_NON_REFLECTION,
-    SAI_OTDR_EVENT_TYPE_FIBER_SECTION,
-    SAI_OTDR_EVENT_TYPE_UNKOWN,
-} sai_otdr_event_type_t;
-
-typedef struct _sai_otdr_event_t
-{
-    sai_otdr_event_type_t type;
-
-    /** Event distance or fiber section length in km */
-    sai_double_t length;
-
-    /** Event loss in dB */
-    sai_double_t loss;
-
-    /** Event reflection in dB */
-    sai_double_t reflection;
-
-    /** Accumulated loss at the event point */
-    sai_double_t accumulate_loss;
-
-} sai_otdr_event_t;
-
-typedef struct _sai_otdr_event_list_t
-{
-    uint32_t count;
-    sai_otdr_event_t *list;
-} sai_otdr_event_list_t;
-
-typedef struct _sai_otdr_events_t
-{
-    /** Total length in km */
-    sai_double_t span_distance;
-
-    /** Total loss in dB */
-    sai_double_t span_loss;
-
-    sai_otdr_event_list_t events;
-
-} sai_otdr_events_t;
-
-typedef struct _sai_otdr_scanning_profile_t
-{
-    sai_uint64_t scan_time;
-
-    /** Distance range in km */
-    sai_uint32_t distance_range;
-
-    /** Pulse width in nanosecond */
-    sai_uint32_t pulse_width;
-
-    /** Average time of each scanning in second */
-    sai_uint32_t average_time;
-
-    /** The output frequency in MHz of the OTDR */
-    sai_uint64_t output_frequency;
-
-} sai_otdr_scanning_profile_t;
-
-typedef struct _sai_otdr_result_trace_t
-{
-    sai_uint64_t update_time;
-    sai_u8_list_t data;
-} sai_otdr_result_trace_t;
-
-typedef struct _sai_otdr_result_t
-{
-    sai_otdr_scanning_profile_t scanning_profile;
-    sai_otdr_events_t events;
-    sai_otdr_result_trace_t trace;
-} sai_otdr_result_t;
-
-/**
- * @brief Alarm type of the switch
- */
-typedef enum _sai_alarm_type_t
-{
-    SAI_ALARM_TYPE_BOARD_INIT,
-    SAI_ALARM_TYPE_BOARD_LOAD_FILE_FAILED,
-    SAI_ALARM_TYPE_BOARD_LOADING,
-    SAI_ALARM_TYPE_BOARD_LOAD_FAILED,
-    SAI_ALARM_TYPE_BOARD_LOAD_ACTIVE,
-    SAI_ALARM_TYPE_BOARD_MIN_FPGA_MISSING,
-    SAI_ALARM_TYPE_BOARD_READY,
-    SAI_ALARM_TYPE_BOARD_NEED_POWER_CYCLE,
-    SAI_ALARM_TYPE_BOARD_MAX_FPGA_MISSING,
-    SAI_ALARM_TYPE_BOARD_BOOT_FAILED,
-    SAI_ALARM_TYPE_BOARD_CLEAN_UP_FOLDER,
-    SAI_ALARM_TYPE_BOARD_RESET_CONSOLE,
-    SAI_ALARM_TYPE_HARD_BAD,
-    SAI_ALARM_TYPE_FPGA_MAX_TEMPERATURE_HIGH_ALARM,
-    SAI_ALARM_TYPE_FPGA_MAX_TEMPERATURE_HIGH_WARN,
-    SAI_ALARM_TYPE_FPGA_MAX_TEMPERATURE_LOW_WARN,
-    SAI_ALARM_TYPE_FPGA_MAX_TEMPERATURE_LOW_ALARM,
-    SAI_ALARM_TYPE_BOARD_MODE_SWITCH,
-    SAI_ALARM_TYPE_BOARD_UPGRADE_DONE,
-    SAI_ALARM_TYPE_AC1200_MISSING,
-    SAI_ALARM_TYPE_AC1200_COMMUNICATION_FAILED,
-    SAI_ALARM_TYPE_HIGH_TEMPERATURE_ALARM,
-    SAI_ALARM_TYPE_LOW_TEMPERATURE_ALARM,
-    SAI_ALARM_TYPE_HIGH_TEMPERATURE_WARN,
-    SAI_ALARM_TYPE_LOW_TEMPERATURE_WARN,
-    SAI_ALARM_TYPE_WL5E_FAULT,
-    SAI_ALARM_TYPE_WL5E_ABNORMAL,
-    SAI_ALARM_TYPE_LOOPBACK_TERMINAL,
-    SAI_ALARM_TYPE_LOOPBACK_FACILITY,
-    SAI_ALARM_TYPE_TRANSCEIVER_FAILED,
-    SAI_ALARM_TYPE_RX_LOS,
-    SAI_ALARM_TYPE_RX_LOL,
-    SAI_ALARM_TYPE_TX_FAIL,
-    SAI_ALARM_TYPE_TX_LOS,
-    SAI_ALARM_TYPE_TX_PWR_LOW,
-    SAI_ALARM_TYPE_TX_PWR_HIGH,
-    SAI_ALARM_TYPE_RX_PWR_LOW,
-    SAI_ALARM_TYPE_RX_PWR_HIGH,
-    SAI_ALARM_TYPE_PORT_INIT,
-    SAI_ALARM_TYPE_XCVR_MISSING,
-    SAI_ALARM_TYPE_XCVR_UNSUPPORTED,
-    SAI_ALARM_TYPE_XCVR_MISMATCH,
-    SAI_ALARM_TYPE_XCVR_COMMUNICATION_FAILED,
-    SAI_ALARM_TYPE_INVALID_CROSS_BAR,
-    SAI_ALARM_TYPE_INVALID_WORKING_MODE,
-    SAI_ALARM_TYPE_VENDOR_MISMATCH,
-    SAI_ALARM_TYPE_FLEXO_RX_SM_BIP8,
-    SAI_ALARM_TYPE_FLEXO_RX_SM_BEI,
-    SAI_ALARM_TYPE_FLEXO_RX_OTN_LOF,
-    SAI_ALARM_TYPE_FLEXO_RX_OTN_OOF,
-    SAI_ALARM_TYPE_FLEXO_RX_OTN_LOM,
-    SAI_ALARM_TYPE_FLEXO_RX_OTN_OOM,
-    SAI_ALARM_TYPE_FLEXO_RX_SM_BDI,
-    SAI_ALARM_TYPE_FLEXO_RX_ODU_AIS,
-    SAI_ALARM_TYPE_FLEXO_RX_ODU_LCK,
-    SAI_ALARM_TYPE_FLEXO_RX_FEC_UNCORRECT,
-    SAI_ALARM_TYPE_FLEXO_RX_FEC_SD,
-    SAI_ALARM_TYPE_FLEXO_RX_FEC_SF,
-    SAI_ALARM_TYPE_FLEXO_TX_FEC_SD,
-    SAI_ALARM_TYPE_FLEXO_TX_FEC_SF,
-    SAI_ALARM_TYPE_FLEXO_RX_ALGNMENT_ERR,
-    SAI_ALARM_TYPE_FLEXO_RX_CD_DEG,
-    SAI_ALARM_TYPE_FLEXO_RX_PDL_DEG,
-    SAI_ALARM_TYPE_FLEXO_RX_PMD_DEG,
-    SAI_ALARM_TYPE_FLEXO_RX_FOFF_DEG,
-    SAI_ALARM_TYPE_FLEXO_RX_SOP_CHANGE_RATE_DEG,
-    SAI_ALARM_TYPE_FLEXO_TX_FORCE_AIS,
-    SAI_ALARM_TYPE_FLEXO_TX_FORCE_LCK,
-    SAI_ALARM_TYPE_FLEXO_ABNORMAL_STATE,
-    SAI_ALARM_TYPE_FLEXO_LINE_PRBS_ENABLE,
-    SAI_ALARM_TYPE_FLEXO_LINE_RX_TTI_MISMATCH,
-    SAI_ALARM_TYPE_FLEXO_TX_FORCE_OCI,
-    SAI_ALARM_TYPE_FLEXO_RX_BER_FDD,
-    SAI_ALARM_TYPE_FLEXO_RX_BER_FED,
-    SAI_ALARM_TYPE_FLEXO_RX_GIDM,
-    SAI_ALARM_TYPE_FLEXO_RX_LDI_LD,
-    SAI_ALARM_TYPE_FLEXO_RX_LDI_RD,
-    SAI_ALARM_TYPE_FLEXO_RX_LOFLOM,
-    SAI_ALARM_TYPE_FLEXO_RX_PMM,
-    SAI_ALARM_TYPE_FLEXO_RX_RPF,
-    SAI_ALARM_TYPE_RX_DISPERSION_POST_COMP_OOR,
-    SAI_ALARM_TYPE_CLIENT_LASER_OFF_BY_ALS,
-    SAI_ALARM_TYPE_CLIENT_LASER_OFF_BY_DISABLED,
-    SAI_ALARM_TYPE_CLIENT_POWER_MODE_ERROR,
-    SAI_ALARM_TYPE_CLIENT_QSFP28_PNCODE_ERR,
-    SAI_ALARM_TYPE_CLIENT_RX_PLL_FLT,
-    SAI_ALARM_TYPE_CLIENT_SERDES_PRBS_ENABLE,
-    SAI_ALARM_TYPE_CRYPT_KEY_ID,
-    SAI_ALARM_TYPE_CLIENT_MODULE_HOST_PRBS_ENABLE,
-    SAI_ALARM_TYPE_CLIENT_MODULE_MEDIA_PRBS_ENABLE,
-    SAI_ALARM_TYPE_CLIENT_MODULE_HOST_LOOPBACK,
-    SAI_ALARM_TYPE_CLIENT_MODULE_MEDIA_LOOPBACK,
-    SAI_ALARM_TYPE_CLIENT_RX_FEC_BER_SD_ALARM,
-    SAI_ALARM_TYPE_CLIENT_RX_FEC_BER_SF_ALARM,
-    SAI_ALARM_TYPE_GE_TX_FORCE_LF,
-    SAI_ALARM_TYPE_GE_TX_FORCE_RF,
-    SAI_ALARM_TYPE_GE_TX_FORCE_IDLE,
-    SAI_ALARM_TYPE_GE_RX_NO_PACKET,
-    SAI_ALARM_TYPE_GE_RX_LF,
-    SAI_ALARM_TYPE_GE_TX_LF,
-    SAI_ALARM_TYPE_GE_RX_RF,
-    SAI_ALARM_TYPE_GE_TX_RF,
-    SAI_ALARM_TYPE_GE_RX_BLK_LCK_FLT,
-    SAI_ALARM_TYPE_GE_RX_AM_LCK_FLT,
-    SAI_ALARM_TYPE_GE_TX_BLK_LCK_FLT,
-    SAI_ALARM_TYPE_GE_TX_AM_LCK_FLT,
-    SAI_ALARM_TYPE_GE_RX_PCS_ERR_FLT,
-    SAI_ALARM_TYPE_GE_RX_PCS_BIP_FLT,
-    SAI_ALARM_TYPE_GE_TX_PCS_ERR_FLT,
-    SAI_ALARM_TYPE_GE_TX_PCS_BIP_FLT,
-    SAI_ALARM_TYPE_GE_RX_PCS_LOA,
-    SAI_ALARM_TYPE_GE_TX_PCS_LOA,
-    SAI_ALARM_TYPE_GE_RX_PCS_HI_BER,
-    SAI_ALARM_TYPE_GE_RX_LOSS_OF_SYNC,
-    SAI_ALARM_TYPE_GE_TX_LOSS_OF_SYNC,
-    SAI_ALARM_TYPE_OTUCN_IAE,
-    SAI_ALARM_TYPE_OTUCN_LOFLOM,
-    SAI_ALARM_TYPE_OTUCN_ODU_AIS,
-    SAI_ALARM_TYPE_OTUCN_ODU_LCK,
-    SAI_ALARM_TYPE_OTUCN_ODU_OCI,
-    SAI_ALARM_TYPE_OTUCN_ODU_SD,
-    SAI_ALARM_TYPE_OTUCN_OOF,
-    SAI_ALARM_TYPE_OTUCN_OOM,
-    SAI_ALARM_TYPE_OTUCN_OPU_AIS,
-    SAI_ALARM_TYPE_OTUCN_OPU_CRC5,
-    SAI_ALARM_TYPE_OTUCN_OPU_CRC8,
-    SAI_ALARM_TYPE_OTUCN_OPU_CSF,
-    SAI_ALARM_TYPE_OTUCN_OPU_LOCM,
-    SAI_ALARM_TYPE_OTUCN_OPU_PLM,
-    SAI_ALARM_TYPE_OTUCN_OTU_SD,
-    SAI_ALARM_TYPE_OTUCN_PM_BDI,
-    SAI_ALARM_TYPE_OTUCN_PM_BEI_ALARM,
-    SAI_ALARM_TYPE_OTUCN_PM_BIP8_ALARM,
-    SAI_ALARM_TYPE_OTUCN_PM_SSF,
-    SAI_ALARM_TYPE_OTUCN_PM_TSF,
-    SAI_ALARM_TYPE_OTUCN_SM_BDI,
-    SAI_ALARM_TYPE_OTUCN_SM_BEI_ALARM,
-    SAI_ALARM_TYPE_OTUCN_SM_BIAE,
-    SAI_ALARM_TYPE_OTUCN_SM_BIP8_ALARM,
-    SAI_ALARM_TYPE_OTUCN_SM_SSF,
-    SAI_ALARM_TYPE_OTUCN_SM_TSF,
-    SAI_ALARM_TYPE_OTN_AM_SF_0,
-    SAI_ALARM_TYPE_OTN_AM_SF_2,
-    SAI_ALARM_TYPE_OTN_ASSERTING_AM_SF_1,
-    SAI_ALARM_TYPE_OTN_IAE,
-    SAI_ALARM_TYPE_OTN_LOFLOM,
-    SAI_ALARM_TYPE_OTN_LRC,
-    SAI_ALARM_TYPE_OTN_ODU_AIS,
-    SAI_ALARM_TYPE_OTN_ODU_LCK,
-    SAI_ALARM_TYPE_OTN_ODU_OCI,
-    SAI_ALARM_TYPE_OTN_ODU_SD,
-    SAI_ALARM_TYPE_OTN_OOF,
-    SAI_ALARM_TYPE_OTN_OOM,
-    SAI_ALARM_TYPE_OTN_OPU_AIS,
-    SAI_ALARM_TYPE_OTN_OPU_CRC5,
-    SAI_ALARM_TYPE_OTN_OPU_CRC8,
-    SAI_ALARM_TYPE_OTN_OPU_CSF,
-    SAI_ALARM_TYPE_OTN_OPU_LOCM,
-    SAI_ALARM_TYPE_OTN_OPU_PLM,
-    SAI_ALARM_TYPE_OTN_OTU_SD,
-    SAI_ALARM_TYPE_OTN_PM_BDI,
-    SAI_ALARM_TYPE_OTN_PM_BEI_ALARM,
-    SAI_ALARM_TYPE_OTN_PM_BIP8_ALARM,
-    SAI_ALARM_TYPE_OTN_PM_SSF,
-    SAI_ALARM_TYPE_OTN_PM_TSF,
-    SAI_ALARM_TYPE_OTN_RECEIVE_CDL_1,
-    SAI_ALARM_TYPE_OTN_SM_BDI,
-    SAI_ALARM_TYPE_OTN_SM_BEI_ALARM,
-    SAI_ALARM_TYPE_OTN_SM_BIAE,
-    SAI_ALARM_TYPE_OTN_SM_BIP8_ALARM,
-    SAI_ALARM_TYPE_OTN_SM_SSF,
-    SAI_ALARM_TYPE_OTN_SM_TSF,
-    SAI_ALARM_TYPE_OLP_SWITCH_TO_PRIMARY,
-    SAI_ALARM_TYPE_OLP_SWITCH_TO_SECONDARY,
-    SAI_ALARM_TYPE_OLP_FORCE_TO_PRIMARY,
-    SAI_ALARM_TYPE_OLP_FORCE_TO_SECONDARY,
-    SAI_ALARM_TYPE_EDFA_SATURATED,
-    SAI_ALARM_TYPE_EDFA_GAIN_LOW,
-    SAI_ALARM_TYPE_OTDR_LOS_CHANGE,
-    SAI_ALARM_TYPE_OTDR_TEST_FAILURE,
-    SAI_ALARM_TYPE_OTDR_REPORT_IN,
-    SAI_ALARM_TYPE_OTDR_LENGTH_BENEATH,
-    SAI_ALARM_TYPE_OTDR_LOSS_EXCEED,
-    SAI_ALARM_TYPE_WSS_TRIB_INPUT_LOS,
-    SAI_ALARM_TYPE_WSS_TRIB_OUTPUT_LOS,
-    SAI_ALARM_TYPE_WSS_TRIB_INPUT_LOW,
-    SAI_ALARM_TYPE_WSS_TRIB_INPUT_HIGH,
-    SAI_ALARM_TYPE_WSS_PORT_MISMATCH,
-    SAI_ALARM_TYPE_MEDIACHANNEL_TARGETPOWER_OUTOFREACH,
-    SAI_ALARM_TYPE_MEDIACHANNEL_INPUT_LOS,
-    SAI_ALARM_TYPE_ASE_TARGET_PSD_NOT_REACHABLE,
-    SAI_ALARM_TYPE_CRD_REBOOT,
-    SAI_ALARM_TYPE_TRANS_FAIL,
-    SAI_ALARM_TYPE_UPGRADE_IP,
-    SAI_ALARM_TYPE_UPGRADE_FAIL,
-    SAI_ALARM_TYPE_UPGRADE_ACTIVE,
-    SAI_ALARM_TYPE_CRD_READY,
-    SAI_ALARM_TYPE_SLOT_COMM_FAIL,
-    SAI_ALARM_TYPE_TX_PWR_NOT_MATCH,
-    SAI_ALARM_TYPE_EDFA_CURRENT_TOO_HIGH,
-    SAI_ALARM_TYPE_MODULE_ABSENT,
-    SAI_ALARM_TYPE_PLUGGABLE_BIASCURRENT_TOO_HIGH,
-    SAI_ALARM_TYPE_PLUGGABLE_BIASCURRENT_TOO_LOW,
-    SAI_ALARM_TYPE_PLUGGABLE_FAIL,
-    SAI_ALARM_TYPE_PLUGGABLE_VCC_TOO_HIGH,
-    SAI_ALARM_TYPE_PLUGGABLE_VCC_TOO_LOW,
-    SAI_ALARM_TYPE_PUMP_TEMP_ABNORMAL,
-    SAI_ALARM_TYPE_APR_TRIGGER,
-    SAI_ALARM_TYPE_APR_INSTATIN_TRIGGER,
-    SAI_ALARM_TYPE_TARGET_POWER_NOT_REACHABLE,
-    SAI_ALARM_TYPE_MC_ASE_LOAD,
-    SAI_ALARM_TYPE_OTDR_TSET_FAILED,
-    SAI_ALARM_TYPE_OTDR_REPORT_IN_BASELINE,
-    SAI_ALARM_TYPE_OTDR_SPAN_DISTANCE_CHANGE,
-    SAI_ALARM_TYPE_OTDR_SPAN_DISTANCE_CHANGE_BASELINE,
-    SAI_ALARM_TYPE_OTDR_SPAN_LOSS_CHANGE,
-    SAI_ALARM_TYPE_OTDR_SPAN_LOSS_CHANGE_BASELINE,
-    SAI_ALARM_TYPE_PLUG_IN,
-    SAI_ALARM_TYPE_PLUG_OFF,
-
-    SAI_ALARM_TYPE_MAX,
-} sai_alarm_type_t;
-
-/**
- * @brief Alarm status
- */
-typedef enum _sai_alarm_status_t
-{
-    SAI_ALARM_STATUS_ACTIVE,          /**< Alarm is active */
-    SAI_ALARM_STATUS_INACTIVE,        /**< Alarm is inactive */
-    SAI_ALARM_STATUS_TRANSIENT,       /**< Alarm is transient */
-    SAI_ALARM_STATUS_MAX,             /**< Number of alarm states */
-} sai_alarm_status_t;
-
-/**
- * @brief Alarm severity
- */
-typedef enum _sai_alarm_severity_t
-{
-    SAI_ALARM_SEVERITY_UNKNOWN,          /**< Unknown */
-    SAI_ALARM_SEVERITY_NOT_ALARMED,      /**< Not alarmed */
-    SAI_ALARM_SEVERITY_CLEARED,          /**< Cleared */
-    SAI_ALARM_SEVERITY_NOT_REPORT,       /**< Not report */
-    SAI_ALARM_SEVERITY_MINOR,            /**< Minor */
-    SAI_ALARM_SEVERITY_WARNING,          /**< Warning */
-    SAI_ALARM_SEVERITY_MAJOR,            /**< Major */
-    SAI_ALARM_SEVERITY_CRITICAL,         /**< Critical */
-} sai_alarm_severity_t;
-
-/**
- * @brief Structure for alarm info
- */
-typedef struct _sai_alarm_info_t
-{
-    /**
-     * @brief Status
-     */
-    sai_alarm_status_t status;
-
-    /**
-     * @brief Time created
-     */
-    uint64_t time_created;
-
-    /**
-     * @brief Text
-     */
-    sai_s8_list_t text;
-
-    /**
-     * @brief Resource object id
-     */
-    sai_object_id_t resource_oid;
-
-    /**
-     * @brief Severity
-     */
-    sai_alarm_severity_t severity;
-
-} sai_alarm_info_t;
 
 /**
  * @}

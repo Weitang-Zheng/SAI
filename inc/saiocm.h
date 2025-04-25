@@ -28,6 +28,19 @@
  * @{
  */
 
+typedef struct _sai_spectrum_power_t
+{
+    sai_uint64_t lower_frequency;
+    sai_uint64_t upper_frequency;
+    sai_double_t power;
+} sai_spectrum_power_t;
+
+typedef struct _sai_spectrum_power_list_t
+{
+    uint32_t count;
+    sai_spectrum_power_t *list;
+} sai_spectrum_power_list_t;
+
 /**
  * @brief OCM attribute IDs
  */
