@@ -3137,7 +3137,7 @@ typedef enum _sai_switch_attr_t
      * @type char
      * @flags MANDATORY_ON_CREATE | CREATE_AND_SET
      */
-    OTAI_SWITCH_ATTR_SWITCH_TYPE,
+    SAI_SWITCH_ATTR_SWITCH_TYPE,
 
     /**
      * @brief The admin state of the switch
