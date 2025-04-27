@@ -31,23 +31,23 @@
 /**
  * @brief The attenuation control modes on a media channel.
  */
-typedef enum _sai_mediachannel_attenuation_control_mode_t
+typedef enum _sai_media_channel_attenuation_control_mode_t
 {
-    SAI_MEDIACHANNEL_ATTENUATION_CONTROL_MODE_ATTENUATION_FIXED_LOSS,
-    SAI_MEDIACHANNEL_ATTENUATION_CONTROL_MODE_ATTENUATION_DYNAMIC_LOSS,
-    SAI_MEDIACHANNEL_ATTENUATION_CONTROL_MODE_ATTENUATION_DYNAMIC_LOSS_DAMPED,
-    SAI_MEDIACHANNEL_ATTENUATION_CONTROL_MODE_MAX,
-} sai_mediachannel_attenuation_control_mode_t;
+    SAI_MEDIA_CHANNEL_ATTENUATION_CONTROL_MODE_ATTENUATION_FIXED_LOSS,
+    SAI_MEDIA_CHANNEL_ATTENUATION_CONTROL_MODE_ATTENUATION_DYNAMIC_LOSS,
+    SAI_MEDIA_CHANNEL_ATTENUATION_CONTROL_MODE_ATTENUATION_DYNAMIC_LOSS_DAMPED,
+    SAI_MEDIA_CHANNEL_ATTENUATION_CONTROL_MODE_MAX,
+} sai_media_channel_attenuation_control_mode_t;
 
 /**
  * @brief Media channel attribute IDs
  */
-typedef enum _sai_mediachannel_attr_t
+typedef enum _sai_media_channel_attr_t
 {
     /**
      * @brief Start of attributes
      */
-    SAI_MEDIACHANNEL_ATTR_START,
+    SAI_MEDIA_CHANNEL_ATTR_START,
 
     /**
      * @brief ID
@@ -55,7 +55,7 @@ typedef enum _sai_mediachannel_attr_t
      * @type sai_uint32_t
      * @flags MANDATORY_ON_CREATE | CREATE_ONLY
      */
-    SAI_MEDIACHANNEL_ATTR_ID = SAI_MEDIACHANNEL_ATTR_START,
+    SAI_MEDIA_CHANNEL_ATTR_ID = SAI_MEDIA_CHANNEL_ATTR_START,
 
     /**
      * @brief Lower frequency
@@ -63,7 +63,7 @@ typedef enum _sai_mediachannel_attr_t
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_LOWER_FREQUENCY,
+    SAI_MEDIA_CHANNEL_ATTR_LOWER_FREQUENCY,
 
     /**
      * @brief Upper frequency
@@ -71,7 +71,7 @@ typedef enum _sai_mediachannel_attr_t
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_UPPER_FREQUENCY,
+    SAI_MEDIA_CHANNEL_ATTR_UPPER_FREQUENCY,
 
     /**
      * @brief Admin status
@@ -79,7 +79,7 @@ typedef enum _sai_mediachannel_attr_t
      * @type sai_admin_state_t
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_ADMIN_STATE,
+    SAI_MEDIA_CHANNEL_ATTR_ADMIN_STATE,
 
     /**
      * @brief Super channel
@@ -87,7 +87,7 @@ typedef enum _sai_mediachannel_attr_t
      * @type bool
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_SUPER_CHANNEL,
+    SAI_MEDIA_CHANNEL_ATTR_SUPER_CHANNEL,
 
     /**
      * @brief Super channel parent
@@ -95,15 +95,15 @@ typedef enum _sai_mediachannel_attr_t
      * @type sai_uint32_t
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_SUPER_CHANNEL_PARENT,
+    SAI_MEDIA_CHANNEL_ATTR_SUPER_CHANNEL_PARENT,
 
     /**
      * @brief Attenuation control mode
      *
-     * @type sai_mediachannel_attenuation_control_mode_t
+     * @type sai_media_channel_attenuation_control_mode_t
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_ATTENUATION_CONTROL_MODE,
+    SAI_MEDIA_CHANNEL_ATTR_ATTENUATION_CONTROL_MODE,
 
     /**
      * @brief Source port name
@@ -111,7 +111,7 @@ typedef enum _sai_mediachannel_attr_t
      * @type char
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_SOURCE_PORT_NAME,
+    SAI_MEDIA_CHANNEL_ATTR_SOURCE_PORT_NAME,
 
     /**
      * @brief Destination port name
@@ -119,7 +119,7 @@ typedef enum _sai_mediachannel_attr_t
      * @type char
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_DEST_PORT_NAME,
+    SAI_MEDIA_CHANNEL_ATTR_DEST_PORT_NAME,
 
     /**
      * @brief Operational state
@@ -127,7 +127,7 @@ typedef enum _sai_mediachannel_attr_t
      * @type sai_oper_status_t
      * @flags READ_ONLY
      */
-    SAI_MEDIACHANNEL_ATTR_OPER_STATUS,
+    SAI_MEDIA_CHANNEL_ATTR_OPER_STATUS,
 
     /**
      * @brief Attenuation value
@@ -135,7 +135,7 @@ typedef enum _sai_mediachannel_attr_t
      * @type sai_double_t
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_ATTENUATION_VALUE,
+    SAI_MEDIA_CHANNEL_ATTR_ATTENUATION_VALUE,
 
     /**
      * @brief Wait to restore time
@@ -143,7 +143,7 @@ typedef enum _sai_mediachannel_attr_t
      * @type sai_uint32_t
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_WAIT_TO_RESTORE_TIME,
+    SAI_MEDIA_CHANNEL_ATTR_WAIT_TO_RESTORE_TIME,
 
     /**
      * @brief Target power
@@ -151,32 +151,32 @@ typedef enum _sai_mediachannel_attr_t
      * @type sai_double_t
      * @flags CREATE_AND_SET
      */
-    SAI_MEDIACHANNEL_ATTR_TARGET_POWER,
+    SAI_MEDIA_CHANNEL_ATTR_TARGET_POWER,
 
     /**
      * @brief End of attributes
      */
-    SAI_MEDIACHANNEL_ATTR_END,
+    SAI_MEDIA_CHANNEL_ATTR_END,
 
     /** Custom range base value */
-    SAI_MEDIACHANNEL_ATTR_CUSTOM_RANGE_START = 0x10000000,
+    SAI_MEDIA_CHANNEL_ATTR_CUSTOM_RANGE_START = 0x10000000,
 
     /** End of custom range base */
-    SAI_MEDIACHANNEL_ATTR_CUSTOM_RANGE_END
+    SAI_MEDIA_CHANNEL_ATTR_CUSTOM_RANGE_END
 
-} sai_mediachannel_attr_t;
+} sai_media_channel_attr_t;
 
 /**
  * @brief Media channel stat IDs
  *
  * @flags Contains flags
  */
-typedef enum _sai_mediachannel_stat_t
+typedef enum _sai_media_channel_stat_t
 {
     /**
      * @brief Start of statistics
      */
-    SAI_MEDIACHANNEL_STAT_START,
+    SAI_MEDIA_CHANNEL_STAT_START,
 
     /**
      * @brief Actual attenuation
@@ -185,7 +185,7 @@ typedef enum _sai_mediachannel_stat_t
      * @unit dB
      * @iscounter false
      */
-    SAI_MEDIACHANNEL_STAT_ACTUAL_ATTENUATION = SAI_ATTENUATOR_STAT_START,
+    SAI_MEDIA_CHANNEL_STAT_ACTUAL_ATTENUATION = SAI_MEDIA_CHANNEL_STAT_START,
 
     /**
      * @brief Input power
@@ -194,7 +194,7 @@ typedef enum _sai_mediachannel_stat_t
      * @unit dBm
      * @iscounter false
      */
-    SAI_MEDIACHANNEL_STAT_INPUT_POWER,
+    SAI_MEDIA_CHANNEL_STAT_INPUT_POWER,
 
     /**
      * @brief Output power
@@ -203,29 +203,29 @@ typedef enum _sai_mediachannel_stat_t
      * @unit dBm
      * @iscounter false
      */
-    SAI_MEDIACHANNEL_STAT_OUTPUT_POWER,
+    SAI_MEDIA_CHANNEL_STAT_OUTPUT_POWER,
 
     /**
      * @brief End of statistics
      */
-    SAI_MEDIACHANNEL_STAT_END,
+    SAI_MEDIA_CHANNEL_STAT_END,
 
-} sai_mediachannel_stat_t;
+} sai_media_channel_stat_t;
 
 /**
  * @brief Create media channel.
  *
  * Allocates and initializes a media channel.
  *
- * @param[out] mediachannel_id Media channel id
+ * @param[out] media_channel_id Media channel id
  * @param[in] switch_id switch id on which the media channel exists
  * @param[in] attr_count Number of attributes
  * @param[in] attr_list Array of attributes
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_create_mediachannel_fn)(
-        _Out_ sai_object_id_t *mediachannel_id,
+typedef sai_status_t (*sai_create_media_channel_fn)(
+        _Out_ sai_object_id_t *media_channel_id,
         _In_ sai_object_id_t switch_id,
         _In_ uint32_t attr_count,
         _In_ const sai_attribute_t *attr_list);
@@ -233,51 +233,51 @@ typedef sai_status_t (*sai_create_mediachannel_fn)(
 /**
  * @brief Remove media channel
  *
- * @param[in] mediachannel_id Media channel id
+ * @param[in] media_channel_id Media channel id
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_remove_mediachannel_fn)(
-        _In_ sai_object_id_t mediachannel_id);
+typedef sai_status_t (*sai_remove_media_channel_fn)(
+        _In_ sai_object_id_t media_channel_id);
 
 /**
  * @brief Set media channel attribute
  *
- * @param[in] mediachannel_id Media channel id
+ * @param[in] media_channel_id Media channel id
  * @param[in] attr Attribute
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_set_mediachannel_attribute_fn)(
-        _In_ sai_object_id_t mediachannel_id,
+typedef sai_status_t (*sai_set_media_channel_attribute_fn)(
+        _In_ sai_object_id_t media_channel_id,
         _In_ const sai_attribute_t *attr);
 
 /**
  * @brief Get media channel attribute
  *
- * @param[in] mediachannel_id Media channel id
+ * @param[in] media_channel_id Media channel id
  * @param[in] attr_count Number of attributes
  * @param[inout] attr_list Array of attributes
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_get_mediachannel_attribute_fn)(
-        _In_ sai_object_id_t mediachannel_id,
+typedef sai_status_t (*sai_get_media_channel_attribute_fn)(
+        _In_ sai_object_id_t media_channel_id,
         _In_ uint32_t attr_count,
         _Inout_ sai_attribute_t *attr_list);
 
 /**
  * @brief Get media channel statistics.
  *
- * @param[in] mediachannel_id Media channel id
+ * @param[in] media_channel_id Media channel id
  * @param[in] number_of_counters Number of counters in the array
  * @param[in] counter_ids Specifies the array of counter ids
  * @param[out] counters Array of resulting counter values.
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_get_mediachannel_stats_fn)(
-        _In_ sai_object_id_t mediachannel_id,
+typedef sai_status_t (*sai_get_media_channel_stats_fn)(
+        _In_ sai_object_id_t media_channel_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids,
         _Out_ sai_stat_value_t *counters);
@@ -285,7 +285,7 @@ typedef sai_status_t (*sai_get_mediachannel_stats_fn)(
 /**
  * @brief Get media channel statistics extended.
  *
- * @param[in] mediachannel_id Media channel id
+ * @param[in] media_channel_id Media channel id
  * @param[in] number_of_counters Number of counters in the array
  * @param[in] counter_ids Specifies the array of counter ids
  * @param[in] mode Statistics mode
@@ -293,8 +293,8 @@ typedef sai_status_t (*sai_get_mediachannel_stats_fn)(
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_get_mediachannel_stats_ext_fn)(
-        _In_ sai_object_id_t mediachannel_id,
+typedef sai_status_t (*sai_get_media_channel_stats_ext_fn)(
+        _In_ sai_object_id_t media_channel_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids,
         _In_ sai_stats_mode_t mode,
@@ -303,30 +303,30 @@ typedef sai_status_t (*sai_get_mediachannel_stats_ext_fn)(
 /**
  * @brief Clear media channel statistics counters.
  *
- * @param[in] mediachannel_id Media channel id
+ * @param[in] media_channel_id Media channel id
  * @param[in] number_of_counters Number of counters in the array
  * @param[in] counter_ids Specifies the array of counter ids
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_clear_mediachannel_stats_fn)(
-        _In_ sai_object_id_t mediachannel_id,
+typedef sai_status_t (*sai_clear_media_channel_stats_fn)(
+        _In_ sai_object_id_t media_channel_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids);
 
 /**
  * @brief Routing interface methods table retrieved with sai_api_query()
  */
-typedef struct _sai_mediachannel_api_t
+typedef struct _sai_media_channel_api_t
 {
-    sai_create_mediachannel_fn                create_mediachannel;
-    sai_remove_mediachannel_fn                remove_mediachannel;
-    sai_set_mediachannel_attribute_fn         set_mediachannel_attribute;
-    sai_get_mediachannel_attribute_fn         get_mediachannel_attribute;
-    sai_get_mediachannel_stats_fn             get_mediachannel_stats;
-    sai_get_mediachannel_stats_ext_fn         get_mediachannel_stats_ext;
-    sai_clear_mediachannel_stats_fn           clear_mediachannel_stats;
-} sai_mediachannel_api_t;
+    sai_create_media_channel_fn                create_media_channel;
+    sai_remove_media_channel_fn                remove_media_channel;
+    sai_set_media_channel_attribute_fn         set_media_channel_attribute;
+    sai_get_media_channel_attribute_fn         get_media_channel_attribute;
+    sai_get_media_channel_stats_fn             get_media_channel_stats;
+    sai_get_media_channel_stats_ext_fn         get_media_channel_stats_ext;
+    sai_clear_media_channel_stats_fn           clear_media_channel_stats;
+} sai_media_channel_api_t;
 
 /**
  * @}

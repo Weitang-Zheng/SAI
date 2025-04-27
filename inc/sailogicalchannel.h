@@ -29,132 +29,132 @@
  */
 
 /** @brief The loopback mode */
-typedef enum _sai_logicalchannel_loopback_mode_t
+typedef enum _sai_logical_channel_loopback_mode_t
 {
-    SAI_LOGICALCHANNEL_LOOPBACK_MODE_NONE,
-    SAI_LOGICALCHANNEL_LOOPBACK_MODE_FACILITY,
-    SAI_LOGICALCHANNEL_LOOPBACK_MODE_TERMINAL,
-    SAI_LOGICALCHANNEL_LOOPBACK_MODE_MAX
-} sai_logicalchannel_loopback_mode_t;
+    SAI_LOGICAL_CHANNEL_LOOPBACK_MODE_NONE,
+    SAI_LOGICAL_CHANNEL_LOOPBACK_MODE_FACILITY,
+    SAI_LOGICAL_CHANNEL_LOOPBACK_MODE_TERMINAL,
+    SAI_LOGICAL_CHANNEL_LOOPBACK_MODE_MAX
+} sai_logical_channel_loopback_mode_t;
 
 /** @brief The logical channel type */
-typedef enum _sai_logicalchannel_type_t
+typedef enum _sai_logical_channel_type_t
 {
-    SAI_LOGICALCHANNEL_TYPE_PROT_OTN,
-    SAI_LOGICALCHANNEL_TYPE_PROT_ETHERNET,
-    SAI_LOGICALCHANNEL_TYPE_MAX
-} sai_logicalchannel_type_t;
+    SAI_LOGICAL_CHANNEL_TYPE_PROT_OTN,
+    SAI_LOGICAL_CHANNEL_TYPE_PROT_ETHERNET,
+    SAI_LOGICAL_CHANNEL_TYPE_MAX
+} sai_logical_channel_type_t;
 
 /** @brief Rate class */
-typedef enum _sai_logicalchannel_rate_class_t
+typedef enum _sai_logical_channel_rate_class_t
 {
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1G,       /**< 1G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_2_5G,     /**< 2.5G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_10G,      /**< 10G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_40G,      /**< 40G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_100G,     /**< 100G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_150G,     /**< 150G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_200G,     /**< 200G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_250G,     /**< 250G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_300G,     /**< 300G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_350G,     /**< 350G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_400G,     /**< 400G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_450G,     /**< 450G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_500G,     /**< 500G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_550G,     /**< 550G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_600G,     /**< 600G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_650G,     /**< 650G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_700G,     /**< 700G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_750G,     /**< 750G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_800G,     /**< 800G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_850G,     /**< 850G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_900G,     /**< 900G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_950G,     /**< 9500G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1000G,     /**< 1000G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1050G,     /**< 1050G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1100G,     /**< 1100G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1150G,     /**< 1150G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1200G,     /**< 1200G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1250G,     /**< 1250G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1300G,     /**< 1300G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1350G,     /**< 13500G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1400G,     /**< 1400G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1450G,     /**< 14500G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1500G,     /**< 1500G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1550G,     /**< 15500G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_1600G,     /**< 1600G tributary signal rate */
-    SAI_LOGICALCHANNEL_RATE_CLASS_TRIB_RATE_MAX
-} sai_logicalchannel_rate_class_t;
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1G,       /**< 1G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_2_5G,     /**< 2.5G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_10G,      /**< 10G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_40G,      /**< 40G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_100G,     /**< 100G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_150G,     /**< 150G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_200G,     /**< 200G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_250G,     /**< 250G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_300G,     /**< 300G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_350G,     /**< 350G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_400G,     /**< 400G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_450G,     /**< 450G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_500G,     /**< 500G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_550G,     /**< 550G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_600G,     /**< 600G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_650G,     /**< 650G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_700G,     /**< 700G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_750G,     /**< 750G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_800G,     /**< 800G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_850G,     /**< 850G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_900G,     /**< 900G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_950G,     /**< 9500G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1000G,     /**< 1000G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1050G,     /**< 1050G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1100G,     /**< 1100G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1150G,     /**< 1150G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1200G,     /**< 1200G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1250G,     /**< 1250G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1300G,     /**< 1300G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1350G,     /**< 13500G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1400G,     /**< 1400G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1450G,     /**< 14500G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1500G,     /**< 1500G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1550G,     /**< 15500G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_1600G,     /**< 1600G tributary signal rate */
+    SAI_LOGICAL_CHANNEL_RATE_CLASS_TRIB_RATE_MAX
+} sai_logical_channel_rate_class_t;
 
 /** @brief Tributary protocol type */
-typedef enum _sai_logicalchannel_trib_protocol_t
+typedef enum _sai_logical_channel_trib_protocol_t
 {
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_1GE,          /**< 1G Ethernet protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_OC48,         /**< OC48 protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_STM16,        /**< STM 16 protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_10GE_LAN,     /**< 10G Ethernet LAN protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_10GE_WAN,     /**< 10G Ethernet WAN protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_OC192,        /**< OC 192 (9.6GB) port protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_STM64,        /**< STM 64 protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_OTU2,         /**< OTU 2 protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_OTU2E,        /**< OTU 2e protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_OTU1E,        /**< OTU 1e protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_ODU2,         /**< ODU 2 protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_ODU2E,        /**< ODU 2e protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_40GE,         /**< 40G Ethernet port protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_OC768,        /**< OC 768 protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_STM256,       /**< STM 256 protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_OTU3,         /**< OTU 3 protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_ODU3,         /**< ODU 3 protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_100GE,        /**< 100G Ethernet protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_100G_MLG,     /**< 100G MLG protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_OTU4,         /**< OTU4 signal protocol (112G) protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_OTUCN,        /**< OTU Cn protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_ODUCN,        /**< ODU Cn protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_ODU4,         /**< ODU 4 protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_400GE,        /**< 400G Ethernet protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_OTSIG,        /**< Optical tributary signal group protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_ODUFLEX_CBR,  /**< ODU Flex with CBR protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_ODUFLEX_GFP,  /**< ODU Flex with GFP protocol */
-    SAI_LOGICALCHANNEL_TRIB_PROTOCOL_PROT_200GE,        /**< 200G Ethernet protocol */
-} sai_logicalchannel_trib_protocol_t;
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_1GE,          /**< 1G Ethernet protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_OC48,         /**< OC48 protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_STM16,        /**< STM 16 protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_10GE_LAN,     /**< 10G Ethernet LAN protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_10GE_WAN,     /**< 10G Ethernet WAN protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_OC192,        /**< OC 192 (9.6GB) port protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_STM64,        /**< STM 64 protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_OTU2,         /**< OTU 2 protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_OTU2E,        /**< OTU 2e protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_OTU1E,        /**< OTU 1e protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_ODU2,         /**< ODU 2 protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_ODU2E,        /**< ODU 2e protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_40GE,         /**< 40G Ethernet port protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_OC768,        /**< OC 768 protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_STM256,       /**< STM 256 protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_OTU3,         /**< OTU 3 protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_ODU3,         /**< ODU 3 protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_100GE,        /**< 100G Ethernet protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_100G_MLG,     /**< 100G MLG protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_OTU4,         /**< OTU4 signal protocol (112G) protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_OTUCN,        /**< OTU Cn protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_ODUCN,        /**< ODU Cn protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_ODU4,         /**< ODU 4 protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_400GE,        /**< 400G Ethernet protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_OTSIG,        /**< Optical tributary signal group protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_ODUFLEX_CBR,  /**< ODU Flex with CBR protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_ODUFLEX_GFP,  /**< ODU Flex with GFP protocol */
+    SAI_LOGICAL_CHANNEL_TRIB_PROTOCOL_PROT_200GE,        /**< 200G Ethernet protocol */
+} sai_logical_channel_trib_protocol_t;
 
 /** @brief Link state of the Ethernet protocol on the logical channel, SONET / SDH framed signal, etc. */
-typedef enum _sai_logicalchannel_link_state_t
+typedef enum _sai_logical_channel_link_state_t
 {
     /**< Logical channel is operationally up */
-    SAI_LOGICALCHANNEL_LINK_STATE_UP,
+    SAI_LOGICAL_CHANNEL_LINK_STATE_UP,
 
     /**< Logical channel is operationally down */
-    SAI_LOGICALCHANNEL_LINK_STATE_DOWN,
+    SAI_LOGICAL_CHANNEL_LINK_STATE_DOWN,
 
     /**< Logical channel is under test as a result of  enabling test-signal */
-    SAI_LOGICALCHANNEL_LINK_STATE_TESTING,
-} sai_logicalchannel_link_state_t;
+    SAI_LOGICAL_CHANNEL_LINK_STATE_TESTING,
+} sai_logical_channel_link_state_t;
 
-typedef enum _sai_logicalchannel_test_signal_pattern_t
+typedef enum _sai_logical_channel_test_signal_pattern_t
 {
-    SAI_LOGICALCHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E7,
-    SAI_LOGICALCHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E9,
-    SAI_LOGICALCHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E15,
-    SAI_LOGICALCHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E23,
-    SAI_LOGICALCHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E31,
-    SAI_LOGICALCHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_31Q,
-    SAI_LOGICALCHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_13Q,
-    SAI_LOGICALCHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E11,
-    SAI_LOGICALCHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E13,
-    SAI_LOGICALCHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_NONE,
-} sai_logicalchannel_test_signal_pattern_t;
+    SAI_LOGICAL_CHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E7,
+    SAI_LOGICAL_CHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E9,
+    SAI_LOGICAL_CHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E15,
+    SAI_LOGICAL_CHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E23,
+    SAI_LOGICAL_CHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E31,
+    SAI_LOGICAL_CHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_31Q,
+    SAI_LOGICAL_CHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_13Q,
+    SAI_LOGICAL_CHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E11,
+    SAI_LOGICAL_CHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_2E13,
+    SAI_LOGICAL_CHANNEL_TEST_SIGNAL_PATTERN_PRBS_PATTERN_TYPE_NONE,
+} sai_logical_channel_test_signal_pattern_t;
 
 /**
  * @brief Logical channel attribute IDs
  */
-typedef enum _sai_logicalchannel_attr_t
+typedef enum _sai_logical_channel_attr_t
 {
     /**
      * @brief Start of attributes
      */
-    SAI_LOGICALCHANNEL_ATTR_START,
+    SAI_LOGICAL_CHANNEL_ATTR_START,
 
     /**
      * @brief Logical channel ID
@@ -162,39 +162,39 @@ typedef enum _sai_logicalchannel_attr_t
      * @type sai_uint32_t
      * @flags MANDATORY_ON_CREATE | CREATE_ONLY
      */
-    SAI_LOGICALCHANNEL_ATTR_CHANNEL_ID = SAI_LOGICALCHANNEL_ATTR_START,
+    SAI_LOGICAL_CHANNEL_ATTR_CHANNEL_ID = SAI_LOGICAL_CHANNEL_ATTR_START,
 
     /**
      * @brief Logical channel type
      *
-     * @type sai_logicalchannel_type_t
+     * @type sai_logical_channel_type_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_LOGICAL_CHANNEL_TYPE,
+    SAI_LOGICAL_CHANNEL_ATTR_LOGICAL_CHANNEL_TYPE,
 
     /**
      * @brief Loopback mode
      *
-     * @type sai_logicalchannel_loopback_mode_t
+     * @type sai_logical_channel_loopback_mode_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_LOOPBACK_MODE,
+    SAI_LOGICAL_CHANNEL_ATTR_LOOPBACK_MODE,
 
     /**
      * @brief Rate class
      *
-     * @type sai_logicalchannel_rate_class_t
+     * @type sai_logical_channel_rate_class_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_RATE_CLASS,
+    SAI_LOGICAL_CHANNEL_ATTR_RATE_CLASS,
 
     /**
      * @brief Tributary protocol type
      *
-     * @type sai_logicalchannel_trib_protocol_t
+     * @type sai_logical_channel_trib_protocol_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_TRIB_PROTOCOL,
+    SAI_LOGICAL_CHANNEL_ATTR_TRIB_PROTOCOL,
 
     /**
      * @brief Test signal
@@ -202,7 +202,7 @@ typedef enum _sai_logicalchannel_attr_t
      * @type bool
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_TEST_SIGNAL,
+    SAI_LOGICAL_CHANNEL_ATTR_TEST_SIGNAL,
 
     /**
      * @brief Admin state
@@ -210,15 +210,15 @@ typedef enum _sai_logicalchannel_attr_t
      * @type sai_admin_state_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_ADMIN_STATE,
+    SAI_LOGICAL_CHANNEL_ATTR_ADMIN_STATE,
 
     /**
      * @brief Link state
      *
-     * @type sai_logicalchannel_link_state_t
+     * @type sai_logical_channel_link_state_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_LINK_STATE,
+    SAI_LOGICAL_CHANNEL_ATTR_LINK_STATE,
 
     /**
      * @brief Link down delay mode
@@ -226,7 +226,7 @@ typedef enum _sai_logicalchannel_attr_t
      * @type bool
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_LINK_DOWN_DELAY_MODE,
+    SAI_LOGICAL_CHANNEL_ATTR_LINK_DOWN_DELAY_MODE,
 
     /**
      * @brief Link down delay hold off
@@ -234,31 +234,31 @@ typedef enum _sai_logicalchannel_attr_t
      * @type sai_uint32_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_LINK_DOWN_DELAY_HOLD_OFF,
+    SAI_LOGICAL_CHANNEL_ATTR_LINK_DOWN_DELAY_HOLD_OFF,
 
     /**
      * @brief Test signal pattern
      *
-     * @type sai_logicalchannel_test_signal_pattern_t
+     * @type sai_logical_channel_test_signal_pattern_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_TEST_SIGNAL_PATTERN,
+    SAI_LOGICAL_CHANNEL_ATTR_TEST_SIGNAL_PATTERN,
 
     /**
      * @brief Tx test signal pattern
      *
-     * @type sai_logicalchannel_test_signal_pattern_t
+     * @type sai_logical_channel_test_signal_pattern_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_TX_TEST_SIGNAL_PATTERN,
+    SAI_LOGICAL_CHANNEL_ATTR_TX_TEST_SIGNAL_PATTERN,
 
     /**
      * @brief Rx test signal pattern
      *
-     * @type sai_logicalchannel_test_signal_pattern_t
+     * @type sai_logical_channel_test_signal_pattern_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_RX_TEST_SIGNAL_PATTERN,
+    SAI_LOGICAL_CHANNEL_ATTR_RX_TEST_SIGNAL_PATTERN,
 
     /**
      * @brief Link up delay mode
@@ -266,7 +266,7 @@ typedef enum _sai_logicalchannel_attr_t
      * @type bool
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_LINK_UP_DELAY_MODE,
+    SAI_LOGICAL_CHANNEL_ATTR_LINK_UP_DELAY_MODE,
 
     /**
      * @brief Link up delay hold off
@@ -274,7 +274,7 @@ typedef enum _sai_logicalchannel_attr_t
      * @type sai_uint32_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_LINK_UP_DELAY_HOLD_OFF,
+    SAI_LOGICAL_CHANNEL_ATTR_LINK_UP_DELAY_HOLD_OFF,
 
     /**
      * @brief Link up delay active threshold
@@ -282,61 +282,61 @@ typedef enum _sai_logicalchannel_attr_t
      * @type sai_uint32_t
      * @flags CREATE_AND_SET
      */
-    SAI_LOGICALCHANNEL_ATTR_LINK_UP_DELAY_ACTIVE_THRESHOLD,
+    SAI_LOGICAL_CHANNEL_ATTR_LINK_UP_DELAY_ACTIVE_THRESHOLD,
 
     /**
      * @brief End of attributes
      */
-    SAI_LOGICALCHANNEL_ATTR_END,
+    SAI_LOGICAL_CHANNEL_ATTR_END,
 
     /** Custom range base value */
-    SAI_LOGICALCHANNEL_ATTR_CUSTOM_RANGE_START = 0x10000000,
+    SAI_LOGICAL_CHANNEL_ATTR_CUSTOM_RANGE_START = 0x10000000,
 
     /** End of custom range base */
-    SAI_LOGICALCHANNEL_ATTR_CUSTOM_RANGE_END
+    SAI_LOGICAL_CHANNEL_ATTR_CUSTOM_RANGE_END
 
-} sai_logicalchannel_attr_t;
+} sai_logical_channel_attr_t;
 
 /**
- * @brief Logical channel counter IDs in sai_get_logicalchannel_stats() call
+ * @brief Logical channel counter IDs in sai_get_logical_channel_stats() call
  *
  * @flags Contains flags
  */
-typedef enum _sai_logicalchannel_stat_t
+typedef enum _sai_logical_channel_stat_t
 {
     /**
      * @brief Start of statistics
      */
-    SAI_LOGICALCHANNEL_STAT_START,
+    SAI_LOGICAL_CHANNEL_STAT_START,
 
     /**
      * @brief A placeholder
      *
      * @type sai_uint64_t
      */
-    SAI_LOGICALCHANNEL_STAT_NOT_USE = SAI_LOGICALCHANNEL_STAT_START,
+    SAI_LOGICAL_CHANNEL_STAT_NOT_USE = SAI_LOGICAL_CHANNEL_STAT_START,
 
     /**
      * @brief End of statistics
      */
-    SAI_LOGICALCHANNEL_STAT_END,
+    SAI_LOGICAL_CHANNEL_STAT_END,
 
-} sai_logicalchannel_stat_t;
+} sai_logical_channel_stat_t;
 
 /**
  * @brief Create logical channel.
  *
  * Allocates and initializes a logical channel.
  *
- * @param[out] logicalchannel_id Logical channel id
+ * @param[out] logical_channel_id Logical channel id
  * @param[in] switch_id switch id on which the logical channel exists
  * @param[in] attr_count Number of attributes
  * @param[in] attr_list Array of attributes
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_create_logicalchannel_fn)(
-        _Out_ sai_object_id_t *logicalchannel_id,
+typedef sai_status_t (*sai_create_logical_channel_fn)(
+        _Out_ sai_object_id_t *logical_channel_id,
         _In_ sai_object_id_t switch_id,
         _In_ uint32_t attr_count,
         _In_ const sai_attribute_t *attr_list);
@@ -344,51 +344,51 @@ typedef sai_status_t (*sai_create_logicalchannel_fn)(
 /**
  * @brief Remove logical channel
  *
- * @param[in] logicalchannel_id Logical channel id
+ * @param[in] logical_channel_id Logical channel id
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_remove_logicalchannel_fn)(
-        _In_ sai_object_id_t logicalchannel_id);
+typedef sai_status_t (*sai_remove_logical_channel_fn)(
+        _In_ sai_object_id_t logical_channel_id);
 
 /**
  * @brief Set logical channel attribute
  *
- * @param[in] logicalchannel_id Logical channel id
+ * @param[in] logical_channel_id Logical channel id
  * @param[in] attr Attribute
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_set_logicalchannel_attribute_fn)(
-        _In_ sai_object_id_t logicalchannel_id,
+typedef sai_status_t (*sai_set_logical_channel_attribute_fn)(
+        _In_ sai_object_id_t logical_channel_id,
         _In_ const sai_attribute_t *attr);
 
 /**
  * @brief Get logical channel attribute
  *
- * @param[in] logicalchannel_id Logical channel id
+ * @param[in] logical_channel_id Logical channel id
  * @param[in] attr_count Number of attributes
  * @param[inout] attr_list Array of attributes
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_get_logicalchannel_attribute_fn)(
-        _In_ sai_object_id_t logicalchannel_id,
+typedef sai_status_t (*sai_get_logical_channel_attribute_fn)(
+        _In_ sai_object_id_t logical_channel_id,
         _In_ uint32_t attr_count,
         _Inout_ sai_attribute_t *attr_list);
 
 /**
  * @brief Get logical channel counters. Deprecated for backward compatibility.
  *
- * @param[in] logicalchannel_id Logical channel id
+ * @param[in] logical_channel_id Logical channel id
  * @param[in] number_of_counters Number of counters in the array
  * @param[in] counter_ids Specifies the array of counter ids
  * @param[out] counters Array of resulting counter values.
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_get_logicalchannel_stats_fn)(
-        _In_ sai_object_id_t logicalchannel_id,
+typedef sai_status_t (*sai_get_logical_channel_stats_fn)(
+        _In_ sai_object_id_t logical_channel_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids,
         _Out_ sai_stat_value_t *counters);
@@ -396,7 +396,7 @@ typedef sai_status_t (*sai_get_logicalchannel_stats_fn)(
 /**
  * @brief Get logical channel statistics counters extended.
  *
- * @param[in] logicalchannel_id Logical channel id
+ * @param[in] logical_channel_id Logical channel id
  * @param[in] number_of_counters Number of counters in the array
  * @param[in] counter_ids Specifies the array of counter ids
  * @param[in] mode Statistics mode
@@ -404,8 +404,8 @@ typedef sai_status_t (*sai_get_logicalchannel_stats_fn)(
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_get_logicalchannel_stats_ext_fn)(
-        _In_ sai_object_id_t logicalchannel_id,
+typedef sai_status_t (*sai_get_logical_channel_stats_ext_fn)(
+        _In_ sai_object_id_t logical_channel_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids,
         _In_ sai_stats_mode_t mode,
@@ -414,30 +414,30 @@ typedef sai_status_t (*sai_get_logicalchannel_stats_ext_fn)(
 /**
  * @brief Clear logical channel statistics counters.
  *
- * @param[in] logicalchannel_id Logical channel id
+ * @param[in] logical_channel_id Logical channel id
  * @param[in] number_of_counters Number of counters in the array
  * @param[in] counter_ids Specifies the array of counter ids
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_clear_logicalchannel_stats_fn)(
-        _In_ sai_object_id_t logicalchannel_id,
+typedef sai_status_t (*sai_clear_logical_channel_stats_fn)(
+        _In_ sai_object_id_t logical_channel_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids);
 
 /**
  * @brief Logical channel methods table retrieved with sai_api_query()
  */
-typedef struct _sai_logicalchannel_api_t
+typedef struct _sai_logical_channel_api_t
 {
-    sai_create_logicalchannel_fn          create_logicalchannel;
-    sai_remove_logicalchannel_fn          remove_logicalchannel;
-    sai_set_logicalchannel_attribute_fn   set_logicalchannel_attribute;
-    sai_get_logicalchannel_attribute_fn   get_logicalchannel_attribute;
-    sai_get_logicalchannel_stats_fn       get_logicalchannel_stats;
-    sai_get_logicalchannel_stats_ext_fn   get_logicalchannel_stats_ext;
-    sai_clear_logicalchannel_stats_fn     clear_logicalchannel_stats;
-} sai_logicalchannel_api_t;
+    sai_create_logical_channel_fn          create_logical_channel;
+    sai_remove_logical_channel_fn          remove_logical_channel;
+    sai_set_logical_channel_attribute_fn   set_logical_channel_attribute;
+    sai_get_logical_channel_attribute_fn   get_logical_channel_attribute;
+    sai_get_logical_channel_stats_fn       get_logical_channel_stats;
+    sai_get_logical_channel_stats_ext_fn   get_logical_channel_stats_ext;
+    sai_clear_logical_channel_stats_fn     clear_logical_channel_stats;
+} sai_logical_channel_api_t;
 
 /**
  * @}

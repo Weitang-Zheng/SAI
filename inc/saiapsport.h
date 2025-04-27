@@ -14,7 +14,7 @@
  *    permissions and limitations under the License.
  *
  * @file    saiapsport.h
- * @brief   This module defines the APSPORT for the SAI
+ * @brief   This module defines the APS port for the SAI
  */
 
 #if !defined (__SAIAPSPORT_H_)
@@ -23,31 +23,31 @@
 #include <saitypes.h>
 
 /**
- * @defgroup SAIAPSPORT SAI - APSPORT specific API definitions
+ * @defgroup SAIAPSPORT SAI - APS Port specific API definitions
  *
  * @{
  */
 
-/** @brief APSPORT port type */
-typedef enum _sai_apsport_port_type_t
+/** @brief APS port type */
+typedef enum _sai_aps_port_type_t
 {
-    SAI_APSPORT_PORT_TYPE_LINE_PRIMARY_IN,
-    SAI_APSPORT_PORT_TYPE_LINE_SECONDARY_IN,
-    SAI_APSPORT_PORT_TYPE_COMMON_IN,
-    SAI_APSPORT_PORT_TYPE_LINE_PRIMARY_OUT,
-    SAI_APSPORT_PORT_TYPE_LINE_SECONDARY_OUT,
-    SAI_APSPORT_PORT_TYPE_COMMON_OUTPUT
-} sai_apsport_port_type_t;
+    SAI_APS_PORT_TYPE_LINE_PRIMARY_IN,
+    SAI_APS_PORT_TYPE_LINE_SECONDARY_IN,
+    SAI_APS_PORT_TYPE_COMMON_IN,
+    SAI_APS_PORT_TYPE_LINE_PRIMARY_OUT,
+    SAI_APS_PORT_TYPE_LINE_SECONDARY_OUT,
+    SAI_APS_PORT_TYPE_COMMON_OUTPUT
+} sai_aps_port_type_t;
 
 /**
- * @brief APSPORT attribute IDs
+ * @brief APS port attribute IDs
  */
-typedef enum _sai_apsport_attr_t
+typedef enum _sai_aps_port_attr_t
 {
     /**
      * @brief Start of attributes
      */
-    SAI_APSPORT_ATTR_START,
+    SAI_APS_PORT_ATTR_START,
 
     /**
      * @brief ID
@@ -55,15 +55,15 @@ typedef enum _sai_apsport_attr_t
      * @type sai_uint32_t
      * @flags MANDATORY_ON_CREATE | CREATE_ONLY
      */
-    SAI_APSPORT_ATTR_ID = SAI_APSPORT_ATTR_START,
+    SAI_APS_PORT_ATTR_ID = SAI_APS_PORT_ATTR_START,
 
     /**
      * @brief Port type
      *
-     * @type sai_apsport_port_type_t
+     * @type sai_aps_port_type_t
      * @flags MANDATORY_ON_CREATE | CREATE_ONLY
      */
-    SAI_APSPORT_ATTR_PORT_TYPE,
+    SAI_APS_PORT_ATTR_PORT_TYPE,
 
     /**
      * @brief Power LOS threshold
@@ -71,7 +71,7 @@ typedef enum _sai_apsport_attr_t
      * @type sai_double_t
      * @flags READ_ONLY
      */
-    SAI_APSPORT_ATTR_POWER_LOS_THRESHOLD,
+    SAI_APS_PORT_ATTR_POWER_LOS_THRESHOLD,
 
     /**
      * @brief Power low threshold
@@ -79,7 +79,7 @@ typedef enum _sai_apsport_attr_t
      * @type sai_double_t
      * @flags CREATE_AND_SET
      */
-    SAI_APSPORT_ATTR_POWER_LOW_THRESHOLD,
+    SAI_APS_PORT_ATTR_POWER_LOW_THRESHOLD,
 
     /**
      * @brief Enabled
@@ -87,7 +87,7 @@ typedef enum _sai_apsport_attr_t
      * @type bool
      * @flags CREATE_AND_SET
      */
-    SAI_APSPORT_ATTR_ENABLED,
+    SAI_APS_PORT_ATTR_ENABLED,
 
     /**
      * @brief Target attenuation
@@ -95,32 +95,32 @@ typedef enum _sai_apsport_attr_t
      * @type sai_double_t
      * @flags CREATE_AND_SET
      */
-    SAI_APSPORT_ATTR_TARGET_ATTENUATION,
+    SAI_APS_PORT_ATTR_TARGET_ATTENUATION,
 
     /**
      * @brief End of attributes
      */
-    SAI_APSPORT_ATTR_END,
+    SAI_APS_PORT_ATTR_END,
 
     /** Custom range base value */
-    SAI_APSPORT_ATTR_CUSTOM_RANGE_START = 0x10000000,
+    SAI_APS_PORT_ATTR_CUSTOM_RANGE_START = 0x10000000,
 
     /** End of custom range base */
-    SAI_APSPORT_ATTR_CUSTOM_RANGE_END
+    SAI_APS_PORT_ATTR_CUSTOM_RANGE_END
 
-} sai_apsport_attr_t;
+} sai_aps_port_attr_t;
 
 /**
- * @brief APSPORT stat IDs
+ * @brief APS port stat IDs
  *
  * @flags Contains flags
  */
-typedef enum _sai_apsport_stat_t
+typedef enum _sai_aps_port_stat_t
 {
     /**
      * @brief Start of statistics
      */
-    SAI_APSPORT_STAT_START,
+    SAI_APS_PORT_STAT_START,
 
     /**
      * @brief Optical power
@@ -129,7 +129,7 @@ typedef enum _sai_apsport_stat_t
      * @unit dBm
      * @iscounter false
      */
-    SAI_APSPORT_STAT_OPTICAL_POWER = SAI_APSPORT_STAT_START,
+    SAI_APS_PORT_STAT_OPTICAL_POWER = SAI_APS_PORT_STAT_START,
 
     /**
      * @brief Attenuation
@@ -138,89 +138,89 @@ typedef enum _sai_apsport_stat_t
      * @unit dB
      * @iscounter false
      */
-    SAI_APSPORT_STAT_ATTENUATION,
+    SAI_APS_PORT_STAT_ATTENUATION,
 
     /**
      * @brief End of statistics
      */
-    SAI_APSPORT_STAT_END,
+    SAI_APS_PORT_STAT_END,
 
-} sai_apsport_stat_t;
+} sai_aps_port_stat_t;
 
 /**
- * @brief Create APSPORT.
+ * @brief Create APS port.
  *
- * Allocates and initializes a APSPORT.
+ * Allocates and initializes a APS port.
  *
- * @param[out] apsport_id APSPORT id
- * @param[in] switch_id switch id on which the APSPORT exists
+ * @param[out] aps_port_id APS port id
+ * @param[in] switch_id switch id on which the APS port exists
  * @param[in] attr_count Number of attributes
  * @param[in] attr_list Array of attributes
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_create_apsport_fn)(
-        _Out_ sai_object_id_t *apsport_id,
+typedef sai_status_t (*sai_create_aps_port_fn)(
+        _Out_ sai_object_id_t *aps_port_id,
         _In_ sai_object_id_t switch_id,
         _In_ uint32_t attr_count,
         _In_ const sai_attribute_t *attr_list);
 
 /**
- * @brief Remove APSPORT
+ * @brief Remove APS port
  *
- * @param[in] apsport_id APSPORT id
+ * @param[in] aps_port_id APS port id
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_remove_apsport_fn)(
-        _In_ sai_object_id_t apsport_id);
+typedef sai_status_t (*sai_remove_aps_port_fn)(
+        _In_ sai_object_id_t aps_port_id);
 
 /**
- * @brief Set APSPORT attribute
+ * @brief Set APS port attribute
  *
- * @param[in] apsport_id APSPORT id
+ * @param[in] aps_port_id APS port id
  * @param[in] attr Attribute
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_set_apsport_attribute_fn)(
-        _In_ sai_object_id_t apsport_id,
+typedef sai_status_t (*sai_set_aps_port_attribute_fn)(
+        _In_ sai_object_id_t aps_port_id,
         _In_ const sai_attribute_t *attr);
 
 /**
- * @brief Get APSPORT attribute
+ * @brief Get APS port attribute
  *
- * @param[in] apsport_id APSPORT id
+ * @param[in] aps_port_id APS port id
  * @param[in] attr_count Number of attributes
  * @param[inout] attr_list Array of attributes
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_get_apsport_attribute_fn)(
-        _In_ sai_object_id_t apsport_id,
+typedef sai_status_t (*sai_get_aps_port_attribute_fn)(
+        _In_ sai_object_id_t aps_port_id,
         _In_ uint32_t attr_count,
         _Inout_ sai_attribute_t *attr_list);
 
 /**
- * @brief Get APSPORT statistics.
+ * @brief Get APS port statistics.
  *
- * @param[in] apsport_id APSPORT id
+ * @param[in] aps_port_id APS port id
  * @param[in] number_of_counters Number of counters in the array
  * @param[in] counter_ids Specifies the array of counter ids
  * @param[out] counters Array of resulting counter values.
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_get_apsport_stats_fn)(
-        _In_ sai_object_id_t apsport_id,
+typedef sai_status_t (*sai_get_aps_port_stats_fn)(
+        _In_ sai_object_id_t aps_port_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids,
         _Out_ sai_stat_value_t *counters);
 
 /**
- * @brief Get APSPORT statistics extended.
+ * @brief Get APS port statistics extended.
  *
- * @param[in] apsport_id APSPORT id
+ * @param[in] aps_port_id APS port id
  * @param[in] number_of_counters Number of counters in the array
  * @param[in] counter_ids Specifies the array of counter ids
  * @param[in] mode Statistics mode
@@ -228,40 +228,40 @@ typedef sai_status_t (*sai_get_apsport_stats_fn)(
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_get_apsport_stats_ext_fn)(
-        _In_ sai_object_id_t apsport_id,
+typedef sai_status_t (*sai_get_aps_port_stats_ext_fn)(
+        _In_ sai_object_id_t aps_port_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids,
         _In_ sai_stats_mode_t mode,
         _Out_ sai_stat_value_t *counters);
 
 /**
- * @brief Clear APSPORT statistics counters.
+ * @brief Clear APS port statistics counters.
  *
- * @param[in] apsport_id APSPORT id
+ * @param[in] aps_port_id APS port id
  * @param[in] number_of_counters Number of counters in the array
  * @param[in] counter_ids Specifies the array of counter ids
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-typedef sai_status_t (*sai_clear_apsport_stats_fn)(
-        _In_ sai_object_id_t apsport_id,
+typedef sai_status_t (*sai_clear_aps_port_stats_fn)(
+        _In_ sai_object_id_t aps_port_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids);
 
 /**
  * @brief Routing interface methods table retrieved with sai_api_query()
  */
-typedef struct _sai_apsport_api_t
+typedef struct _sai_aps_port_api_t
 {
-    sai_create_apsport_fn                create_apsport;
-    sai_remove_apsport_fn                remove_apsport;
-    sai_set_apsport_attribute_fn         set_apsport_attribute;
-    sai_get_apsport_attribute_fn         get_apsport_attribute;
-    sai_get_apsport_stats_fn             get_apsport_stats;
-    sai_get_apsport_stats_ext_fn         get_apsport_stats_ext;
-    sai_clear_apsport_stats_fn           clear_apsport_stats;
-} sai_apsport_api_t;
+    sai_create_aps_port_fn                create_aps_port;
+    sai_remove_aps_port_fn                remove_aps_port;
+    sai_set_aps_port_attribute_fn         set_aps_port_attribute;
+    sai_get_aps_port_attribute_fn         get_aps_port_attribute;
+    sai_get_aps_port_stats_fn             get_aps_port_stats;
+    sai_get_aps_port_stats_ext_fn         get_aps_port_stats_ext;
+    sai_clear_aps_port_stats_fn           clear_aps_port_stats;
+} sai_aps_port_api_t;
 
 /**
  * @}

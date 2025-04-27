@@ -167,21 +167,21 @@ typedef enum _sai_api_t
 
     SAI_API_CUSTOM_OTN_RANGE_BASE = 0x30000000,
     SAI_API_TRANSCEIVER           = 0x30000001, /**< sai_transceiver_api_t */
-    SAI_API_LOGICALCHANNEL        = 0x30000002, /**< sai_logicalchannel_api_t */
+    SAI_API_LOGICAL_CHANNEL       = 0x30000002, /**< sai_logical_channel_api_t */
     SAI_API_OTN                   = 0x30000003, /**< sai_otn_api_t */
     SAI_API_ETHERNET              = 0x30000004, /**< sai_ethernet_api_t */
-    SAI_API_PHYSICALCHANNEL       = 0x30000005, /**< sai_physicalchannel_api_t */
+    SAI_API_PHYSICAL_CHANNEL      = 0x30000005, /**< sai_physical_channel_api_t */
     SAI_API_OCH                   = 0x30000006, /**< sai_och_api_t */
     SAI_API_LLDP                  = 0x30000007, /**< sai_lldp_api_t */
-    SAI_API_ASSIGNMENT            = 0x30000008, /**< sai_assignment_api_t */
-    SAI_API_INTERFACE             = 0x30000009, /**< sai_interface_api_t */
+    SAI_API_INTERFACE             = 0x30000008, /**< sai_interface_api_t */
+    SAI_API_OPTICAL_PORT          = 0x30000009, /**< sai_optical_port_api_t */
     SAI_API_OA                    = 0x3000000a, /**< sai_oa_api_t */
     SAI_API_OSC                   = 0x3000000b, /**< sai_osc_api_t */
     SAI_API_APS                   = 0x3000000c, /**< sai_aps_api_t */
-    SAI_API_APSPORT               = 0x3000000d, /**< sai_apsport_api_t */
+    SAI_API_APS_PORT              = 0x3000000d, /**< sai_aps_port_api_t */
     SAI_API_ATTENUATOR            = 0x3000000e, /**< sai_attenuator_api_t */
     SAI_API_WSS                   = 0x3000000f, /**< sai_wss_api_t */
-    SAI_API_MEDIACHANNEL          = 0x30000010, /**< sai_mediachannel_api_t */
+    SAI_API_MEDIA_CHANNEL         = 0x30000010, /**< sai_media_channel_api_t */
     SAI_API_OCM                   = 0x30000011, /**< sai_ocm_api_t */
     SAI_API_OTDR                  = 0x30000012, /**< sai_otdr_api_t */
 } sai_api_t;

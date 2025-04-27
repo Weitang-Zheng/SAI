@@ -375,7 +375,7 @@
      sai_get_optical_port_stats_fn       get_optical_port_stats;
      sai_get_optical_port_stats_ext_fn   get_optical_port_stats_ext;
      sai_clear_optical_port_stats_fn     clear_optical_port_stats;
- } sai_optical_optical_port_api_t;
+ } sai_optical_port_api_t;
  
  /**
   * @}
