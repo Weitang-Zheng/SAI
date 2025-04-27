@@ -158,8 +158,6 @@ typedef enum _sai_otn_attr_t
 
 /**
  * @brief OTN counter IDs in sai_get_otn_stats() call
- *
- * @flags Contains flags
  */
 typedef enum _sai_otn_stat_t
 {

@@ -98,7 +98,7 @@
      /**
       * @brief Led flash interval
       *
-      * @type sai_uint16_t
+      * @type sai_uint32_t
       * @flags CREATE_AND_SET
       * @isrecoverable false
       */
@@ -208,8 +208,6 @@
  
  /**
   * @brief Optical port stat IDs
-  *
-  * @flags Contains flags
   */
  typedef enum _sai_optical_port_stat_t
  {

@@ -105,8 +105,6 @@ typedef enum _sai_och_attr_t
 
 /**
  * @brief Optical channel counter IDs in sai_get_och_stats() call
- *
- * @flags Contains flags
  */
 typedef enum _sai_och_stat_t
 {

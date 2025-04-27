@@ -124,8 +124,6 @@ typedef enum _sai_attenuator_attr_t
 
 /**
  * @brief ATTENUATOR stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_attenuator_stat_t
 {

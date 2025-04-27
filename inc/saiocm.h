@@ -168,11 +168,11 @@ typedef enum _sai_ocm_attr_t
     /**
      * @brief Spectrum power notification
      *
-     * @type sai_pointer_t sai_switch_ocm_spectrum_power_notification_fn
+     * @type sai_pointer_t sai_ocm_spectrum_power_notification_fn
      * @flags CREATE_ONLY
      * @default NULL
      */
-    SAI_SWITCH_ATTR_SWITCH_OCM_SPECTRUM_POWER_NOTIFY,
+    SAI_OCM_ATTR_SPECTRUM_POWER_NOTIFY,
 
     /**
      * @brief End of attributes
@@ -189,8 +189,6 @@ typedef enum _sai_ocm_attr_t
 
 /**
  * @brief OCM stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_ocm_stat_t
 {
@@ -220,7 +218,7 @@ typedef enum _sai_ocm_stat_t
  * @param[in] ocm_id OCM Id
  * @param[in] ocm_result OCM Result
  */
-typedef void (*sai_switch_ocm_spectrum_power_notification_fn)(
+typedef void (*sai_ocm_spectrum_power_notification_fn)(
         _In_ sai_object_id_t switch_id,
         _In_ sai_object_id_t ocm_id,
         _In_ sai_spectrum_power_list_t ocm_result);

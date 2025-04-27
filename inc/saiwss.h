@@ -133,8 +133,6 @@ typedef enum _sai_wss_attr_t
 
 /**
  * @brief WSS stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_wss_stat_t
 {

@@ -458,8 +458,6 @@ typedef enum _sai_oa_attr_t
 
 /**
  * @brief OA stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_oa_stat_t
 {

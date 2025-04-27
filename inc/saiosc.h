@@ -213,8 +213,6 @@ typedef enum _sai_osc_attr_t
 
 /**
  * @brief OSC stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_osc_stat_t
 {

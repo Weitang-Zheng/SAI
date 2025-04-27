@@ -3575,7 +3575,7 @@ typedef enum _sai_switch_attr_t
     /**
      * @brief Led flash interval
      *
-     * @type sai_uint16_t
+     * @type sai_uint32_t
      * @flags CREATE_AND_SET
      * @isrecoverable false
      */
@@ -3916,7 +3916,7 @@ typedef enum _sai_switch_stat_t
     /**
      * @brief Memory utilized
      *
-     * @type SAI_uint64_t
+     * @type sai_uint64_t
      * @iscounter false
      */
     SAI_SWITCH_STAT_MEMORY_UTILIZED,
@@ -3924,7 +3924,7 @@ typedef enum _sai_switch_stat_t
     /**
      * @brief CPU utilization
      *
-     * @type SAI_uint32_t
+     * @type sai_uint32_t
      * @iscounter false
      */
     SAI_SWITCH_STAT_CPU_UTILIZATION,
@@ -3932,7 +3932,7 @@ typedef enum _sai_switch_stat_t
     /**
      * @brief Temperature
      *
-     * @type SAI_double_t
+     * @type sai_double_t
      * @iscounter false
      */
     SAI_SWITCH_STAT_TEMPERATURE,

@@ -283,8 +283,6 @@ typedef enum _sai_aps_attr_t
 
 /**
  * @brief APS stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_aps_stat_t
 {

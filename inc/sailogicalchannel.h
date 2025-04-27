@@ -299,8 +299,6 @@ typedef enum _sai_logical_channel_attr_t
 
 /**
  * @brief Logical channel counter IDs in sai_get_logical_channel_stats() call
- *
- * @flags Contains flags
  */
 typedef enum _sai_logical_channel_stat_t
 {

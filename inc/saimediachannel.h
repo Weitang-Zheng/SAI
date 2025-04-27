@@ -168,8 +168,6 @@ typedef enum _sai_media_channel_attr_t
 
 /**
  * @brief Media channel stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_media_channel_stat_t
 {

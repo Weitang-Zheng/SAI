@@ -112,8 +112,6 @@ typedef enum _sai_aps_port_attr_t
 
 /**
  * @brief APS port stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_aps_port_stat_t
 {

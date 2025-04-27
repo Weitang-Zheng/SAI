@@ -95,8 +95,6 @@ typedef enum _sai_interface_attr_t
 
 /**
  * @brief INTERFACE stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_interface_stat_t
 {

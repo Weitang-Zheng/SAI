@@ -114,7 +114,7 @@ typedef enum _sai_ethernet_attr_t
      * @type sai_ethernet_client_als_t
      * @flags CREATE_AND_SET
      */
-    SAI_ETHERNET_ATTR_CLIENT_RX_ALS,
+    SAI_ETHERNET_ATTR_RX_CLIENT_ALS,
 
     /**
      * @brief Client rx ALS delay
@@ -148,8 +148,6 @@ typedef enum _sai_ethernet_attr_t
 
 /**
  * @brief Ethernet counter IDs in sai_get_ethernet_stats() call
- *
- * @flags Contains flags
  */
 typedef enum _sai_ethernet_stat_t
 {

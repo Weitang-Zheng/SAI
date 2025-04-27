@@ -218,12 +218,6 @@ XLAUI - 40 Gbps Attachment Unit Interface
 XOFF - Transmitter Off
 XON - Transmitter On
 XPN - Extended Packet Number
-FW  - Firmware
-MDIO - Management Data Input/Output
-I2C - I squared C
-CPLD - Complex programmable logic device
-EEPROM - Electrically erasable programmable read-only memory
-PRBS - Pseudorandom Binary Sequence
 EDFA - Erbium Doped Fiber Amplifer
 VOA - Variable Optical Attenuator
 WSS - Wavelength Selective Switch

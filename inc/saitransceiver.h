@@ -223,7 +223,7 @@ typedef enum _sai_transceiver_attr_t
      * @type sai_optical_port_type_t
      * @flags MANDATORY_ON_CREATE | CREATE_ONLY
      */
-    SAI_TRANSCEIVER_ATTR_PORT_TYPE = SAI_TRANSCEIVER_ATTR_START,
+    SAI_TRANSCEIVER_ATTR_OPTICAL_PORT_TYPE = SAI_TRANSCEIVER_ATTR_START,
 
     /**
      * @brief Port ID.
@@ -363,14 +363,6 @@ typedef enum _sai_transceiver_attr_t
      * @flags READ_ONLY
      */
     SAI_TRANSCEIVER_ATTR_ETHERNET_PMD,
-
-    /**
-     * @brief Pre-configuring a port/transceiver with the expected PMD
-     *
-     * @type sai_transceiver_ethernet_pmd_t
-     * @flags CREATE_AND_SET
-     */
-    SAI_TRANSCEIVER_ATTR_ETHERNET_PMD_PRECONF,
 
     /**
      * @brief Indicates if a fault condition exists in the transceiver
@@ -895,8 +887,6 @@ typedef enum _sai_transceiver_attr_t
 
 /**
  * @brief Transceiver counter IDs in sai_get_transceiver_stats() call
- *
- * @flags Contains flags
  */
 typedef enum _sai_transceiver_stat_t
 {

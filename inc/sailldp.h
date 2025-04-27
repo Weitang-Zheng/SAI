@@ -189,8 +189,6 @@ typedef enum _sai_lldp_attr_t
 
 /**
  * @brief LLDP stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_lldp_stat_t
 {

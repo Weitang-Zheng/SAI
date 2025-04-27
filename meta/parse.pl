@@ -797,8 +797,7 @@ sub ProcessEnumSection
         {
             LogError "NON sai Enum $enumtypename";
         }
-		
-		
+
         $SAI_ENUMS{$enumtypename}{values} = \@values;
 
         if ($enumtypename =~ /^(sai_(\w+)_stat_)t$/)

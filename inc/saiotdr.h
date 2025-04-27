@@ -367,13 +367,13 @@ typedef enum _sai_otdr_attr_t
     SAI_OTDR_ATTR_FIRMWARE_VERSION,
 
     /**
-     * @brief OTDR result notification
+     * @brief OTDR scab result notification
      *
-     * @type sai_pointer_t sai_switch_otdr_result_notification_fn
+     * @type sai_pointer_t sai_otdr_scan_result_notification_fn
      * @flags CREATE_ONLY
      * @default NULL
      */
-    SAI_SWITCH_ATTR_SWITCH_OTDR_RESULT_NOTIFY,
+    SAI_OTDR_ATTR_SCAN_RESULT_NOTIFY,
 
     /**
      * @brief End of attributes
@@ -390,8 +390,6 @@ typedef enum _sai_otdr_attr_t
 
 /**
  * @brief OTDR stat IDs
- *
- * @flags Contains flags
  */
 typedef enum _sai_otdr_stat_t
 {
@@ -415,13 +413,13 @@ typedef enum _sai_otdr_stat_t
 } sai_otdr_stat_t;
 
 /**
- * @brief Switch OTDR report result
+ * @brief OTDR scan result notification
  *
  * @param[in] switch_id switch Id
  * @param[in] otdr_id OTDR Id
  * @param[in] otdr_result OTDR result
  */
-typedef void (*sai_switch_otdr_result_notification_fn)(
+typedef void (*sai_otdr_scan_result_notification_fn)(
         _In_ sai_object_id_t switch_id,
         _In_ sai_object_id_t otdr_id,
         _In_ sai_otdr_result_t otdr_result);

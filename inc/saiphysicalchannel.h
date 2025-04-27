@@ -52,7 +52,7 @@ typedef enum _sai_physical_channel_attr_t
      * @type sai_optical_port_type_t
      * @flags MANDATORY_ON_CREATE | CREATE_ONLY
      */
-    SAI_PHYSICAL_CHANNEL_ATTR_PORT_TYPE,
+    SAI_PHYSICAL_CHANNEL_ATTR_OPTICAL_PORT_TYPE,
 
     /**
      * @brief Lane ID.
@@ -93,8 +93,6 @@ typedef enum _sai_physical_channel_attr_t
 
 /**
  * @brief Physical channel stat IDs in sai_get_physical_channel_stats() call
- *
- * @flags Contains flags
  */
 typedef enum _sai_physical_channel_stat_t
 {
