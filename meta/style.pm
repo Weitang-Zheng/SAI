@@ -215,7 +215,10 @@ sub CheckStatsFunction
 
     if (not $fnparams =~ /^\w+_id number_of_counters counter_ids( (mode )?counters)?$/)
     {
-        LogWarning "invalid stat function $fname params names: $fnparams";
+        if (not $fnparams =~ /^\w+_entry number_of_counters counter_ids( (mode )?counters)?$/)
+        {
+            LogWarning "invalid stat function $fname params names: $fnparams";
+        }
     }
 
     my @paramtypes = $fn =~ /_(?:In|Out|Inout)_\s*(.+?)\s*(?:\w+?)\s*[,\)]/gis;
@@ -223,7 +226,10 @@ sub CheckStatsFunction
 
     if (not $ptypes =~ /^sai_object_id_t uint32_t const sai_stat_id_t \*( (sai_stats_mode_t )?uint64_t \*)?$/)
     {
-        LogWarning "invalid stat function $fname param types: $ptypes";
+        if (not $ptypes =~ /^const \w+_entry_t \* uint32_t const sai_stat_id_t \*( (sai_stats_mode_t )?uint64_t \*)?$/)
+        {
+            LogWarning "invalid stat function $fname param types: $ptypes";
+        }
     }
 }
 
@@ -715,6 +721,7 @@ sub CheckMetadataSourceFiles
         next if $file eq "saimetadata.c";
         next if $file eq "saimetadatatest.c";
         next if $file eq "saimetadatasize.h";
+        next if $file eq "saiattrversion.h";
         next if $file eq "sai_rpc_server.cpp";
 
         next if $file =~ /swig|wrap/;
@@ -937,6 +944,7 @@ sub CheckHeadersStyle
     {
         next if $header eq "saimetadata.h"; # skip auto generated header
         next if $header eq "saimetadatasize.h"; # skip auto generated header
+        next if $header eq "saiattrversion.h"; # skip auto generated header
 
         my $data = ReadHeaderFile($header);
 

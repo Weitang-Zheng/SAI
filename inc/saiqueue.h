@@ -259,6 +259,28 @@ typedef enum _sai_queue_attr_t
     SAI_QUEUE_ATTR_PFC_CONTINUOUS_DEADLOCK_STATE,
 
     /**
+     * @brief Set queue statistics counting mode
+     *
+     * @type sai_stats_count_mode_t
+     * @flags CREATE_AND_SET
+     * @default SAI_STATS_COUNT_MODE_PACKET_AND_BYTE
+     */
+    SAI_QUEUE_ATTR_STATS_COUNT_MODE,
+
+    /**
+     * @brief Attach counter object list
+     *
+     * Counter object should be of type Selective.
+     * Fill (#SAI_COUNTER_ATTR_TYPE with #SAI_COUNTER_TYPE_SELECTIVE).
+     *
+     * @type sai_object_list_t
+     * @flags CREATE_AND_SET
+     * @objects SAI_OBJECT_TYPE_COUNTER
+     * @default empty
+     */
+    SAI_QUEUE_ATTR_SELECTIVE_COUNTER_LIST,
+
+    /**
      * @brief End of attributes
      */
     SAI_QUEUE_ATTR_END,
@@ -395,6 +417,21 @@ typedef enum _sai_queue_stat_t
 
     /** Queue delay watermark in nanoseconds [uint64_t] */
     SAI_QUEUE_STAT_DELAY_WATERMARK_NS = 0x00000027,
+
+    /** Packets trimmed due to failed admission [uint64_t] */
+    SAI_QUEUE_STAT_TRIM_PACKETS = 0x00000028,
+
+    /** Get current queue occupancy in cells [uint64_t] */
+    SAI_QUEUE_STAT_CURR_OCCUPANCY_CELLS = 0x00000029,
+
+    /** Get watermark queue occupancy in cells [uint64_t] */
+    SAI_QUEUE_STAT_WATERMARK_CELLS = 0x0000002a,
+
+    /** Get current queue shared occupancy in cells [uint64_t] */
+    SAI_QUEUE_STAT_SHARED_CURR_OCCUPANCY_CELLS = 0x0000002b,
+
+    /** Get watermark queue shared occupancy in cells [uint64_t] */
+    SAI_QUEUE_STAT_SHARED_WATERMARK_CELLS = 0x0000002c,
 
     /** Custom range base value */
     SAI_QUEUE_STAT_CUSTOM_RANGE_BASE = 0x10000000
@@ -561,14 +598,15 @@ typedef void (*sai_queue_pfc_deadlock_notification_fn)(
  */
 typedef struct _sai_queue_api_t
 {
-    sai_create_queue_fn          create_queue;
-    sai_remove_queue_fn          remove_queue;
-    sai_set_queue_attribute_fn   set_queue_attribute;
-    sai_get_queue_attribute_fn   get_queue_attribute;
-    sai_get_queue_stats_fn       get_queue_stats;
-    sai_get_queue_stats_ext_fn   get_queue_stats_ext;
-    sai_clear_queue_stats_fn     clear_queue_stats;
-
+    sai_create_queue_fn              create_queue;
+    sai_remove_queue_fn              remove_queue;
+    sai_set_queue_attribute_fn       set_queue_attribute;
+    sai_get_queue_attribute_fn       get_queue_attribute;
+    sai_get_queue_stats_fn           get_queue_stats;
+    sai_get_queue_stats_ext_fn       get_queue_stats_ext;
+    sai_clear_queue_stats_fn         clear_queue_stats;
+    sai_bulk_object_set_attribute_fn set_queues_attribute;
+    sai_bulk_object_get_attribute_fn get_queues_attribute;
 } sai_queue_api_t;
 
 /**

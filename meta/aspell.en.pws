@@ -17,6 +17,7 @@ attrvaluetype
 AUTONEG
 bool
 boolean
+bounceback
 callee
 Callee
 chardata
@@ -127,7 +128,9 @@ netdevs
 netlink
 nexthop
 nexthopgroup
+nextrelease
 NPUs
+NRZ
 objlist
 offsetof
 oid
@@ -143,10 +146,12 @@ PGs
 PHY
 pkts
 policer
+policers
 Policer
 postcursor
 pre
 precursor
+psec
 PVID
 qos
 quantization
@@ -179,6 +184,7 @@ structs
 sublayer
 subnet
 subnets
+switchover
 SysFS
 syslog
 timespec
@@ -200,6 +206,7 @@ Uninitialize
 unordered
 untagged
 Untagged
+uSID
 Utils
 validonly
 validonlys
@@ -256,3 +263,5 @@ LTJ
 TEC
 iscounter
 Backscatter
+config
+sys

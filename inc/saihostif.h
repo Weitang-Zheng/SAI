@@ -251,6 +251,13 @@ typedef enum _sai_hostif_trap_type_t
      */
     SAI_HOSTIF_TRAP_TYPE_DHCPV6_L2 = 0x00000013,
 
+    /**
+     * @brief ITU-T G.8264/Y.1364 Ethernet synchronization messaging channel protocol
+     * (Dst MAC = 01-80-C2-00-00-02 EtherType = 0x8809 Slow Protocol sub-type = 0xA)
+     * (default packet action is drop)
+     */
+    SAI_HOSTIF_TRAP_TYPE_ESMC = 0x00000014,
+
     /** Switch traps custom range start */
     SAI_HOSTIF_TRAP_TYPE_SWITCH_CUSTOM_RANGE_BASE = 0x00001000,
 
@@ -342,6 +349,13 @@ typedef enum _sai_hostif_trap_type_t
      * Default packet action is forward
      */
     SAI_HOSTIF_TRAP_TYPE_ISIS = 0x00002014,
+
+    /**
+     * @brief Packets matching subnet routes with NH pointing to router interface
+     * i.e., no neighbor entry route is present
+     * (default packet action is trap)
+     */
+    SAI_HOSTIF_TRAP_TYPE_NEIGHBOR_MISS = 0x00002015,
 
     /** Router traps custom range start */
     SAI_HOSTIF_TRAP_TYPE_ROUTER_CUSTOM_RANGE_BASE = 0x00003000,
@@ -705,13 +719,13 @@ typedef enum _sai_hostif_user_defined_trap_type_t
     /** Traps to be associated with TAM collector */
     SAI_HOSTIF_USER_DEFINED_TRAP_TYPE_TAM,
 
-    /** Custom range base */
-    SAI_HOSTIF_USER_DEFINED_TRAP_TYPE_CUSTOM_RANGE_BASE = 0x00001000,
-
     /**
      * @brief End of user defined trap types
      */
     SAI_HOSTIF_USER_DEFINED_TRAP_TYPE_END,
+
+    /** Custom range base */
+    SAI_HOSTIF_USER_DEFINED_TRAP_TYPE_CUSTOM_RANGE_BASE = 0x10000000,
 
 } sai_hostif_user_defined_trap_type_t;
 

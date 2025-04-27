@@ -81,6 +81,7 @@
 #include "saiversion.h"
 #include "saipoe.h"
 #include "saiicmpecho.h"
+#include "saisynce.h"
 
 /**
  * @defgroup SAI SAI - Entry point specific API definitions.

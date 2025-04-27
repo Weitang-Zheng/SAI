@@ -295,6 +295,54 @@ typedef enum _sai_router_interface_attr_t
     SAI_ROUTER_INTERFACE_ATTR_ADMIN_MPLS_STATE,
 
     /**
+     * @brief Set router interface statistics counting mode
+     *
+     * @type sai_stats_count_mode_t
+     * @flags CREATE_AND_SET
+     * @default SAI_STATS_COUNT_MODE_PACKET_AND_BYTE
+     */
+    SAI_ROUTER_INTERFACE_ATTR_STATS_COUNT_MODE,
+
+    /**
+     * @brief Attach counter object list
+     *
+     * Counter object should be of type Selective.
+     * Fill (#SAI_COUNTER_ATTR_TYPE with #SAI_COUNTER_TYPE_SELECTIVE).
+     *
+     * @type sai_object_list_t
+     * @flags CREATE_AND_SET
+     * @objects SAI_OBJECT_TYPE_COUNTER
+     * @default empty
+     */
+    SAI_ROUTER_INTERFACE_ATTR_SELECTIVE_COUNTER_LIST,
+
+    /**
+     * @brief Label attribute used to uniquely identify router interface.
+     *
+     * @type char
+     * @flags CREATE_AND_SET
+     * @default ""
+     */
+    SAI_ROUTER_INTERFACE_ATTR_LABEL,
+
+    /**
+     * @brief Attribute used to specify external My MAC entry that will
+     * be used in place of any implicit entry created during RIF processing
+     * for this {port, vlan, MAC address}
+     *
+     * Note that the other matching entries (programmed via RIF and/or My MAC)
+     * can allow the incoming packets to be considered for L3 forwarding.
+     * There is no change in the behavior for packets egressing the RIF.
+     *
+     * @type sai_object_id_t
+     * @flags CREATE_ONLY
+     * @objects SAI_OBJECT_TYPE_MY_MAC
+     * @allownull true
+     * @default SAI_NULL_OBJECT_ID
+     */
+    SAI_ROUTER_INTERFACE_ATTR_MY_MAC,
+
+    /**
      * @brief End of attributes
      */
     SAI_ROUTER_INTERFACE_ATTR_END,

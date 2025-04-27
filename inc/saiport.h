@@ -75,6 +75,58 @@ typedef enum _sai_port_oper_status_t
 } sai_port_oper_status_t;
 
 /**
+ * @brief Attribute data for #SAI_PORT_ATTR_ERROR_STATUS
+ *
+ * Note enum values must be powers of 2 to be used as Bit mask to query multiple errors
+ *
+ * @flags strict
+ */
+typedef enum _sai_port_error_status_t
+{
+    /** No errors */
+    SAI_PORT_ERROR_STATUS_CLEAR = 0,
+
+    /** MAC Local fault asserted */
+    SAI_PORT_ERROR_STATUS_MAC_LOCAL_FAULT = 1 << 0,
+
+    /** MAC Remote fault asserted */
+    SAI_PORT_ERROR_STATUS_MAC_REMOTE_FAULT = 1 << 1,
+
+    /** FEC loss of sync asserted */
+    SAI_PORT_ERROR_STATUS_FEC_SYNC_LOSS = 1 << 2,
+
+    /** FEC loss of alignment marker asserted */
+    SAI_PORT_ERROR_STATUS_FEC_LOSS_ALIGNMENT_MARKER = 1 << 3,
+
+    /** High SER asserted */
+    SAI_PORT_ERROR_STATUS_HIGH_SER = 1 << 4,
+
+    /** High BER asserted */
+    SAI_PORT_ERROR_STATUS_HIGH_BER = 1 << 5,
+
+    /** Rate of data units with CRC errors passed its threshold */
+    SAI_PORT_ERROR_STATUS_CRC_RATE = 1 << 6,
+
+    /** Data Unit CRC Error */
+    SAI_PORT_ERROR_STATUS_DATA_UNIT_CRC_ERROR = 1 << 7,
+
+    /** Data Unit Size Error */
+    SAI_PORT_ERROR_STATUS_DATA_UNIT_SIZE = 1 << 8,
+
+    /** Data Unit Misalignment Error */
+    SAI_PORT_ERROR_STATUS_DATA_UNIT_MISALIGNMENT_ERROR = 1 << 9,
+
+    /** Uncorrectable RS-FEC code word error */
+    SAI_PORT_ERROR_STATUS_CODE_GROUP_ERROR = 1 << 10,
+
+    /** SerDes Signal is out of sync */
+    SAI_PORT_ERROR_STATUS_SIGNAL_LOCAL_ERROR = 1 << 11,
+
+    /** Port is not accepting reachability data units */
+    SAI_PORT_ERROR_STATUS_NO_RX_REACHABILITY = 1 << 12
+} sai_port_error_status_t;
+
+/**
  * @brief Defines the operational status of the port
  */
 typedef struct _sai_port_oper_status_notification_t
@@ -89,7 +141,50 @@ typedef struct _sai_port_oper_status_notification_t
     /** Port operational status */
     sai_port_oper_status_t port_state;
 
+    /** Bitmap of various port error or fault status */
+    sai_port_error_status_t port_error_status;
 } sai_port_oper_status_notification_t;
+
+/**
+ * @brief Defines the extended operational status of the port
+ *
+ * Any additional data will must be passed on attributes list. Usually that
+ * will be port attributes that are READ_ONLY and the value will represent the
+ * state of given attribute for port_id object at the time that notification
+ * was generated.
+ *
+ * @count attr_list[attr_count]
+ */
+typedef struct _sai_extended_port_oper_status_notification_t
+{
+    /**
+     * @brief Port id.
+     *
+     * @objects SAI_OBJECT_TYPE_PORT, SAI_OBJECT_TYPE_BRIDGE_PORT, SAI_OBJECT_TYPE_LAG
+     */
+    sai_object_id_t port_id;
+
+    /** Port operational status */
+    sai_port_oper_status_t port_state;
+
+    /** Bitmap of various port error or fault status */
+    sai_port_error_status_t port_error_status;
+
+    /** Attributes count */
+    uint32_t attr_count;
+
+    /**
+     * @brief Attributes
+     *
+     * Object type NULL specifies that attribute list is for object type
+     * specified in port_id field. For example if port_id field contains LAG
+     * object then list of attributes contains SAI_LAG_ATTR_* attributes.
+     *
+     * @objects SAI_OBJECT_TYPE_NULL
+     */
+    sai_attribute_t *attr_list;
+
+} sai_extended_port_oper_status_notification_t;
 
 /**
  * @brief Attribute data for #SAI_PORT_ATTR_GLOBAL_FLOW_CONTROL_MODE
@@ -302,6 +397,9 @@ typedef enum _sai_port_priority_flow_control_mode_t
 
 /**
  * @brief PTP mode
+ * These modes can be used at the port and switch level.
+ * All ports use the value set at the switch level unless explicitly configured
+ * at the port level to a value other than SAI_PORT_PTP_MODE_NONE.
  */
 typedef enum _sai_port_ptp_mode_t
 {
@@ -1935,6 +2033,7 @@ typedef enum _sai_port_attr_t
      *
      * @type sai_port_err_status_list_t
      * @flags READ_ONLY
+     * @deprecated true
      */
     SAI_PORT_ATTR_ERR_STATUS_LIST,
 
@@ -2527,6 +2626,66 @@ typedef enum _sai_port_attr_t
      * @flags READ_ONLY
      */
     SAI_PORT_ATTR_JSON_FORMATTED_DEBUG_DATA_SIZE,
+
+    /**
+     * @brief Unreliable Loss of Signal
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     * @default false
+     */
+    SAI_PORT_ATTR_UNRELIABLE_LOS,
+
+    /**
+     * @brief Various port error status
+     *
+     * Attribute to query the capability of the Switch to report
+     * various port error and fault status. The attribute can also
+     * be used to query the current port error and fault status.
+     *
+     * @type sai_port_error_status_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_ERROR_STATUS,
+
+    /**
+     * @brief Set port statistics counting mode
+     *
+     * @type sai_stats_count_mode_t
+     * @flags CREATE_AND_SET
+     * @default SAI_STATS_COUNT_MODE_PACKET_AND_BYTE
+     */
+    SAI_PORT_ATTR_STATS_COUNT_MODE,
+
+    /**
+     * @brief Attach counter object list
+     *
+     * Counter object should be of type Selective.
+     * Fill (#SAI_COUNTER_ATTR_TYPE with #SAI_COUNTER_TYPE_SELECTIVE).
+     *
+     * @type sai_object_list_t
+     * @flags CREATE_AND_SET
+     * @objects SAI_OBJECT_TYPE_COUNTER
+     * @default empty
+     */
+    SAI_PORT_ATTR_SELECTIVE_COUNTER_LIST,
+
+    /**
+     * @brief Read supported port stat list
+     *
+     * @type sai_object_list_t
+     * @flags READ_ONLY
+     * @objects SAI_OBJECT_TYPE_COUNTER
+     */
+    SAI_PORT_ATTR_PORT_STAT_EXTENDED,
+
+    /**
+     * @brief List of port's PAM4 lanes eye values
+     *
+     * @type sai_port_pam4_eye_values_list_t
+     * @flags READ_ONLY
+     */
+    SAI_PORT_ATTR_PAM4_EYE_VALUES,
 
     /**
      * @brief End of attributes
@@ -3206,6 +3365,9 @@ typedef enum _sai_port_stat_t
     /** Count of total bits corrected by FEC. Counter will increment monotonically. */
     SAI_PORT_STAT_IF_IN_FEC_CORRECTED_BITS,
 
+    /** Packets trimmed due to failed shared buffer admission [uint64_t] */
+    SAI_PORT_STAT_TRIM_PACKETS,
+
     /** Port stat in drop reasons range start */
     SAI_PORT_STAT_IN_DROP_REASON_RANGE_BASE = 0x00001000,
 
@@ -3263,11 +3425,37 @@ typedef enum _sai_port_stat_t
     /** Get out port packet drops configured by debug counter API at index 7 */
     SAI_PORT_STAT_OUT_CONFIGURED_DROP_REASONS_7_DROPPED_PKTS,
 
+    /** SAI port stat if HW protection switchover events */
+    SAI_PORT_STAT_IF_IN_HW_PROTECTION_SWITCHOVER_EVENTS,
+
+    /** SAI port stat if HW protection switchover related packet drops */
+    SAI_PORT_STAT_IF_IN_HW_PROTECTION_SWITCHOVER_DROP_PKTS,
+
     /** Port stat out drop reasons range end */
     SAI_PORT_STAT_OUT_DROP_REASON_RANGE_END = 0x00002fff,
 
+    /** SAI port stat ether in pkts 1519 to 2500 octets */
+    SAI_PORT_STAT_ETHER_IN_PKTS_1519_TO_2500_OCTETS,
+
+    /** SAI port stat ether in pkts 2501 to 9000 octets */
+    SAI_PORT_STAT_ETHER_IN_PKTS_2501_TO_9000_OCTETS,
+
+    /** SAI port stat ether in pkts 9001 to 16383 octets */
+    SAI_PORT_STAT_ETHER_IN_PKTS_9001_TO_16383_OCTETS,
+
+    /** SAI port stat ether out pkts 1519 to 2500 octets */
+    SAI_PORT_STAT_ETHER_OUT_PKTS_1519_TO_2500_OCTETS,
+
+    /** SAI port stat ether out pkts 2501 to 9000 octets */
+    SAI_PORT_STAT_ETHER_OUT_PKTS_2501_TO_9000_OCTETS,
+
+    /** SAI port stat ether out pkts 9001 to 16383 octets */
+    SAI_PORT_STAT_ETHER_OUT_PKTS_9001_TO_16383_OCTETS,
+
     /** Port stat range end */
     SAI_PORT_STAT_END,
+
+    SAI_PORT_STAT_CUSTOM_RANGE_BASE = 0x10000000,
 
     /** Extensions range base */
     SAI_PORT_STAT_EXTENSIONS_RANGE_BASE = 0x20000000
@@ -3397,6 +3585,20 @@ typedef sai_status_t (*sai_clear_port_all_stats_fn)(
 typedef void (*sai_port_state_change_notification_fn)(
         _In_ uint32_t count,
         _In_ const sai_port_oper_status_notification_t *data);
+
+/**
+ * @brief Extended port state change notification
+ *
+ * Passed as a parameter into sai_initialize_switch()
+ *
+ * @count data[count]
+ *
+ * @param[in] count Number of notifications
+ * @param[in] data Array of port operational status
+ */
+typedef void (*sai_extended_port_state_change_notification_fn)(
+        _In_ uint32_t count,
+        _In_ const sai_extended_port_oper_status_notification_t *data);
 
 /**
  * @brief Port host tx ready notification
@@ -3912,6 +4114,45 @@ typedef enum _sai_port_serdes_attr_t
      * @default internal
      */
     SAI_PORT_SERDES_ATTR_RX_PRECODING,
+
+    /**
+     * @brief A collection of custom serdes attributes
+     *
+     * The value is of type sai_json_t, which can include multiple custom serdes
+     * attributes. This allows vendor-specific serdes attributes to be forwarded
+     * in a JSON string without the sender needing to know the details. The
+     * sender simply passes along the data, vendor-defined rules determine which
+     * attributes and values to include in different situations, and the vendor
+     * SDK interprets the JSON accordingly.
+     *
+     * Example of the JSON object:
+     * {
+     * "attributes": [
+     * {
+     *    "attr_xyz": {
+     *        "sai_metadata": {
+     *        "sai_attr_value_type": "SAI_ATTR_VALUE_TYPE_INT32_LIST"
+     *        },
+     *        "value": [10, 10, 10, 10]
+     *    }
+     * },
+     * {
+     *    "attr_abc": {
+     *        "sai_metadata": {
+     *        "sai_attr_value_type": "SAI_ATTR_VALUE_TYPE_INT32_LIST"
+     *        },
+     *        "value": [20, 20, 20, 20]
+     *    }
+     * },
+     * ...
+     * ]
+     * }
+     *
+     * @type sai_json_t
+     * @flags CREATE_AND_SET
+     * @default internal
+     */
+    SAI_PORT_SERDES_ATTR_CUSTOM_COLLECTION,
 
     /**
      * @brief End of attributes

@@ -495,7 +495,12 @@ typedef enum _sai_attr_value_type_t
      * @brief Attribute value is the POE port consumption data.
      */
     SAI_ATTR_VALUE_TYPE_POE_PORT_POWER_CONSUMPTION,
-	
+
+    /**
+     * @brief Attribute value is port PAM4 eye values list.
+     */
+    SAI_ATTR_VALUE_TYPE_PORT_PAM4_EYE_VALUES_LIST,
+
     /**
      * @brief Attribute value is double.
      */
@@ -1443,21 +1448,44 @@ typedef struct _sai_attr_metadata_t
     bool                                        iscustom;
 
     /**
-     * @brief Determines whether attribute is set only
+     * @brief Specifies API version at which attribute was introduced.
+     *
+     * If no version is available, then this value will be SAI_VERSION(0,0,0).
+     *
+     * This field should be used with nextrelease field.
      */
+    sai_api_version_t                           apiversion;
+
+    /**
+     * @brief Specified whether attribute will be present in next API release.
+     *
+     * It may happen that there are new attributes defined after stable release,
+     * and they will be part of next release. In this case API version will
+     * have value of current API version and nextrelease set to true.
+     *
+     * For example, if attr is defined between v1.14 and v1.15, then API
+     * version will be v1.15 and next release is false. If attr is defined on
+     * top of v1.15 and there is not next release defined, then API version
+     * will be v1.15 and next release set to true.
+     */
+    bool                                        nextrelease;
+    
+    /**
+    * @brief Determines whether attribute is set only
+    */
     bool                                        issetonly;
 
     /**
-     * @brief Specifies kebab name for this object type.
-     */
+    * @brief Specifies kebab name for this object type.
+    */
     const char* const                           attridkebabname;
 
     /**
-     * @brief Indicates whether attribute is recoverable.
-     *
-     * If true, when calling SET API successfully, the value will be saved in local
-     * db for warm-reboot (or cold-reboot) flow to recover this configuration.
-     */
+    * @brief Indicates whether attribute is recoverable.
+    *
+    * If true, when calling SET API successfully, the value will be saved in local
+    * db for warm-reboot (or cold-reboot) flow to recover this configuration.
+    */
     bool                                        isrecoverable;
 } sai_attr_metadata_t;
 
@@ -1793,8 +1821,13 @@ typedef struct _sai_object_type_info_t
     const sai_enum_metadata_t* const                statenum;
 
     /**
-     * @brief Points to enum sai_OBJECT_TYPE_alarm_t if object supports alarms.
+     * @brief Indicates whether object type is custom.
      */
+    bool                                            iscustom;
+
+    /**
+    * @brief Points to enum sai_OBJECT_TYPE_alarm_t if object supports alarms.
+    */
     const sai_enum_metadata_t* const                alarmenum;
 } sai_object_type_info_t;
 

@@ -331,6 +331,7 @@ sub get_api_name
     my $file = "$sai_dir/inc/$location";
 
     $file = "$sai_dir/experimental/$location" if $location =~ /experimental|extension/;
+    $file = "$sai_dir/custom/$location" if $location =~ /custom/;
 
     open(H, '<', $file) or die "Failed to open: $file: $!";
 
@@ -349,6 +350,13 @@ sub get_api_name
     }
 
     if ($location =~ /^sai\w*extensions.h$/)
+    {
+        $api_names{$location} = "common";
+
+        return "common";
+    }
+
+    if ($location =~ /^sai\w*custom.h$/)
     {
         $api_names{$location} = "common";
 
@@ -447,13 +455,14 @@ sub get_attr_type {
 
     # First, check if we have enum
     return 's32' if ( $attr->type->name ~~ $all_enums );
+    return 's32' if ( $attr->type->name eq "sai_object_type_t" ); # special case
 
     # Try to compare types of attribute and attr value otherwise
     for ( @{ $attr_types->members } ) {
         return $_->thrift_name if ( $type eq $_->type->thrift_name );
     }
 
-    carp colored( "Unknown type $type of attribute " . $attr->name, 'red' );
+    croak colored( "Unknown type $type of attribute " . $attr->name, 'red' );
     return;
 }
 

@@ -300,9 +300,17 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_POE_PSE                  = 109,
     SAI_OBJECT_TYPE_POE_PORT                 = 110,
     SAI_OBJECT_TYPE_ICMP_ECHO_SESSION        = 111,
+    SAI_OBJECT_TYPE_PREFIX_COMPRESSION_TABLE = 112,
+    SAI_OBJECT_TYPE_PREFIX_COMPRESSION_ENTRY = 113,
+    SAI_OBJECT_TYPE_SYNCE_CLOCK              = 114,
 
     /** Must remain in last position */
     SAI_OBJECT_TYPE_MAX,
+
+    /**
+     * @brief Custom range base
+     */
+    SAI_OBJECT_TYPE_CUSTOM_RANGE_BASE = 0x10000000,
 
     SAI_OBJECT_TYPE_EXTENSIONS_RANGE_BASE = 0x20000000,
 
@@ -1003,6 +1011,35 @@ typedef enum _sai_tam_bind_point_type_t
 } sai_tam_bind_point_type_t;
 
 /**
+ * @brief Attribute data for SAI_PREFIX_COMPRESSION_TABLE_ATTR_STAGE
+ */
+typedef enum _sai_prefix_compression_stage_t
+{
+    /** Ingress Stage */
+    SAI_PREFIX_COMPRESSION_STAGE_INGRESS,
+
+    /** Egress Stage */
+    SAI_PREFIX_COMPRESSION_STAGE_EGRESS,
+
+} sai_prefix_compression_stage_t;
+
+/**
+ * @brief Attribute data for SAI_PREFIX_COMPRESSION_TABLE_ATTR_TYPE
+ */
+typedef enum _sai_prefix_compression_type_t
+{
+    /** SRC/DST table type */
+    SAI_PREFIX_COMPRESSION_TYPE_BOTH,
+
+    /** SRC table type */
+    SAI_PREFIX_COMPRESSION_TYPE_SRC,
+
+    /** DST table type */
+    SAI_PREFIX_COMPRESSION_TYPE_DST,
+
+} sai_prefix_compression_type_t;
+
+/**
  * @brief Structure for ACL Resource Count
  */
 typedef struct _sai_acl_resource_t
@@ -1178,6 +1215,39 @@ typedef struct _sai_port_eye_values_list_t
     uint32_t count;
     sai_port_lane_eye_values_t *list;
 } sai_port_eye_values_list_t;
+
+/**
+ * @brief Defines the eye height and width for PAM4 SerDes lane
+ * height is in mV
+ * width is in psec. -1 means not available
+ */
+typedef struct _sai_port_pam4_lane_eye_values_t
+{
+    uint32_t lane;
+    int32_t upper_ht;
+    int32_t upper_wd;
+    int32_t middle_ht;
+    int32_t middle_wd;
+    int32_t lower_ht;
+    int32_t lower_wd;
+} sai_port_pam4_lane_eye_values_t;
+
+/**
+ * @brief Defines a port's PAM4 eye values for list of all serdes lanes
+ *
+ * The count defines the number of objects which will be returned to the
+ * caller in the list member. The caller must allocate the buffer for the
+ * list member and set the count member to the size of the allocated objects
+ * in the list member. If the size is not large enough, the callee must set
+ * the count member to the actual number of objects filled in the list member
+ * and return #SAI_STATUS_BUFFER_OVERFLOW. Once the caller gets such a return
+ * code, it may use the returned count member to re-allocate the list and retry.
+ */
+typedef struct _sai_port_pam4_eye_values_list_t
+{
+    uint32_t count;
+    sai_port_pam4_lane_eye_values_t *list;
+} sai_port_pam4_eye_values_list_t;
 
 /**
  * @brief Defines a lane with its frequency offset ppm
@@ -1395,7 +1465,9 @@ typedef struct _sai_fabric_port_reachability_t
 } sai_fabric_port_reachability_t;
 
 /**
- * @brief Port error status
+ * @brief Port error status. This attribute is to be deprecated. Use sai_port_error_status_t instead.
+ *
+ * @deprecated true
  */
 typedef enum _sai_port_err_status_t
 {
@@ -1644,6 +1716,8 @@ typedef union _sai_attribute_value_t
     /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_POE_PORT_POWER_CONSUMPTION */
     sai_poe_port_power_consumption_t portpowerconsumption;
 
+    /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_PORT_PAM4_EYE_VALUES_LIST */
+    sai_port_pam4_eye_values_list_t portpam4eyevalues;
 } sai_attribute_value_t;
 
 /**
@@ -1822,6 +1896,48 @@ typedef struct _sai_stat_capability_list_t
 
 } sai_stat_capability_list_t;
 
+/**
+ * @brief Stat capability under the stream telemetry mode
+ */
+typedef struct _sai_stat_st_capability_t
+{
+    /**
+     * @brief Typical stat capability
+     */
+    sai_stat_capability_t capability;
+
+    /**
+     * @brief Minimal polling interval in nanoseconds
+     *
+     * If polling interval is less than this value, it will be unacceptable.
+     */
+    uint64_t minimal_polling_interval;
+
+} sai_stat_st_capability_t;
+
+typedef struct _sai_stat_st_capability_list_t
+{
+    uint32_t count;
+    sai_stat_st_capability_t *list;
+
+} sai_stat_st_capability_list_t;
+
+typedef enum _sai_stats_count_mode_t
+{
+    /** Count packet and byte */
+    SAI_STATS_COUNT_MODE_PACKET_AND_BYTE,
+
+    /** Count only packet */
+    SAI_STATS_COUNT_MODE_PACKET,
+
+    /** Count only byte */
+    SAI_STATS_COUNT_MODE_BYTE,
+
+    /** Counting is disabled */
+    SAI_STATS_COUNT_MODE_NONE
+
+} sai_stats_count_mode_t;
+
 typedef enum _sai_object_stage_t
 {
     /** Common stage */
@@ -1838,14 +1954,141 @@ typedef enum _sai_object_stage_t
 typedef enum _sai_health_data_type_t
 {
     /** General health data type */
-    SAI_HEALTH_DATA_TYPE_GENERAL
+    SAI_HEALTH_DATA_TYPE_GENERAL,
+
+    /** SER health data type */
+    SAI_HEALTH_DATA_TYPE_SER
 } sai_health_data_type_t;
+
+typedef enum _sai_ser_type_t
+{
+    /**
+     * @brief Unknown error type
+     */
+    SAI_SER_TYPE_UNKNOWN = 0,
+
+    /**
+     * @brief Parity error
+     */
+    SAI_SER_TYPE_PARITY = 1,
+
+    /**
+     * @brief ECC single bit error
+     */
+    SAI_SER_TYPE_ECC_SINGLE_BIT = 2,
+
+    /**
+     * @brief ECC double bit error
+     */
+    SAI_SER_TYPE_ECC_DOUBLE_BIT = 3,
+} sai_ser_type_t;
+
+typedef enum _sai_ser_correction_type_t
+{
+    /**
+     * @brief SW takes no action when error happens
+     */
+    SAI_SER_CORRECTION_TYPE_NO_ACTION = 0,
+
+    /**
+     * @brief SW tries to correct but fails
+     */
+    SAI_SER_CORRECTION_TYPE_FAIL_TO_CORRECT = 1,
+
+    /**
+     * @brief SW writes NULL entry to clear the error
+     */
+    SAI_SER_CORRECTION_TYPE_ENTRY_CLEAR = 2,
+
+    /**
+     * @brief Restore entry from SW cache
+     */
+    SAI_SER_CORRECTION_TYPE_SW_CACHE_RESTORE = 3,
+
+    /**
+     * @brief Restore entry from HW cache
+     */
+    SAI_SER_CORRECTION_TYPE_HW_CACHE_RESTORE = 4,
+
+    /**
+     * @brief Memory needs special correction handling
+     */
+    SAI_SER_CORRECTION_TYPE_SPECIAL = 5,
+} sai_ser_correction_type_t;
+
+/**
+ * @brief SAI SER log information type
+ *
+ * @flags strict
+ */
+typedef enum _sai_ser_log_type_t
+{
+    /**
+     * @brief Error happens on memory
+     */
+    SAI_SER_LOG_TYPE_MEM = 1 << 0,
+
+    /**
+     * @brief Error happens on register
+     */
+    SAI_SER_LOG_TYPE_REG = 1 << 1,
+
+    /**
+     * @brief Parity errors detected more than once
+     */
+    SAI_SER_LOG_TYPE_MULTI = 1 << 2,
+
+    /**
+     * @brief Error corrected by SW
+     */
+    SAI_SER_LOG_TYPE_CORRECTED = 1 << 3,
+
+    /**
+     * @brief Restore entry from HW cache
+     */
+    SAI_SER_LOG_TYPE_ENTRY_INFO = 1 << 4,
+
+    /**
+     * @brief Cache data is valid
+     */
+    SAI_SER_LOG_TYPE_CACHE = 1 << 5,
+} sai_ser_log_type_t;
+
+typedef struct _sai_ser_health_data_t
+{
+    /** SER type specific fields */
+    sai_ser_type_t type;
+
+    /** SER correction type specific fields */
+    sai_ser_correction_type_t correction_type;
+
+    /**
+     * @brief SER correction log info (sai_ser_log_type_t)
+     *
+     * For example, if entry info is present and is coming from cache
+     * SAI_SER_LOG_TYPE_ENTRY_INFO | SAI_SER_LOG_TYPE_CACHE
+     *
+     * @flags sai_ser_log_type_t
+     */
+    uint32_t ser_log_type;
+} sai_ser_health_data_t;
+
+/**
+ * @extraparam sai_health_data_type_t data_type
+ */
+typedef union _sai_health_data_t
+{
+    /** @validonly data_type == SAI_HEALTH_DATA_TYPE_SER */
+    sai_ser_health_data_t ser;
+} sai_health_data_t;
 
 typedef struct _sai_switch_health_data_t
 {
     /** Type of switch health data */
     sai_health_data_type_t data_type;
 
+    /** @passparam data_type */
+    sai_health_data_t data;
 } sai_switch_health_data_t;
 
 /** @brief Operational status */

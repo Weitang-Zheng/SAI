@@ -401,6 +401,28 @@ typedef enum _sai_vlan_attr_t
     SAI_VLAN_ATTR_TAM_OBJECT,
 
     /**
+     * @brief Set vlan statistics counting mode
+     *
+     * @type sai_stats_count_mode_t
+     * @flags CREATE_AND_SET
+     * @default SAI_STATS_COUNT_MODE_PACKET_AND_BYTE
+     */
+    SAI_VLAN_ATTR_STATS_COUNT_MODE,
+
+    /**
+     * @brief Attach counter object list
+     *
+     * Counter object should be of type Selective.
+     * Fill (#SAI_COUNTER_ATTR_TYPE with #SAI_COUNTER_TYPE_SELECTIVE).
+     *
+     * @type sai_object_list_t
+     * @flags CREATE_AND_SET
+     * @objects SAI_OBJECT_TYPE_COUNTER
+     * @default empty
+     */
+    SAI_VLAN_ATTR_SELECTIVE_COUNTER_LIST,
+
+    /**
      * @brief End of attributes
      */
     SAI_VLAN_ATTR_END,
@@ -451,6 +473,47 @@ typedef enum _sai_vlan_member_attr_t
      * @default SAI_VLAN_TAGGING_MODE_UNTAGGED
      */
     SAI_VLAN_MEMBER_ATTR_VLAN_TAGGING_MODE,
+
+    /**
+     * @brief Indicates if the bridge port is set to drop the Tunnel Terminated broadcast, unknown unicast and multicast traffic
+     *
+     * When set to true, egress BUM traffic will be dropped
+     * Valid only when the SAI_VLAN_MEMBER_ATTR_BRIDGE_PORT_ID is of type SAI_BRIDGE_PORT_TYPE_PORT.
+     * Valid only for .1Q bridge ports.
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     * @default false
+     */
+    SAI_VLAN_MEMBER_ATTR_TUNNEL_TERM_BUM_TX_DROP,
+
+    /**
+     * @brief Indicates if the vlan member is set to drop the ingress traffic
+     *
+     * When set to true, ingress traffic will be dropped
+     *
+     * Valid only when the SAI_VLAN_MEMBER_ATTR_BRIDGE_PORT_ID is of type SAI_BRIDGE_PORT_TYPE_PORT.
+     * Valid only for .1Q bridge ports.
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     * @default false
+     */
+    SAI_VLAN_MEMBER_ATTR_RX_DROP,
+
+    /**
+     * @brief Indicates if the vlan member is set to drop the egress traffic
+     *
+     * When set to true, egress traffic will be dropped
+     *
+     * Valid only when the SAI_VLAN_MEMBER_ATTR_BRIDGE_PORT_ID is of type SAI_BRIDGE_PORT_TYPE_PORT.
+     * Valid only for .1Q bridge ports.
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     * @default false
+     */
+    SAI_VLAN_MEMBER_ATTR_TX_DROP,
 
     /**
      * @brief End of attributes

@@ -11,12 +11,14 @@ APSPORT - Automatic Protection Switching Port
 ARP - Address Resolution Protocol
 ARS - Adaptiver Routing and Switching
 ASIC - Application Specific Integrated Circuit
+BER - Bit Error Rate
 BFD - Bidirectional Forwarding Detection
 BFDV6 - Bidirectional Forwarding Detection for IPv6
 BGP - Border Gateway Protocol
 BIP - Bit Interleaved Parity
 BMTOR - Behavioral Model Top-of-Rack
 BOS - Bottom Of Stack
+BTH - Base Transport Header
 BW - Bandwidth
 CAM - Content Addressable Memory
 CAUI - 100 Gigabit Attachment Unit Interface
@@ -88,6 +90,7 @@ IP2ME - IP packets to local router IP
 IPFIX - IP Flow Information Export
 IPG - Inter-Packet Gap
 IPMC - Intelligent Platform Management Controller
+ITU - International Telecommunication Union
 L2 - Layer 2
 L2MC - Layer 2 Multi Cast
 L3 - Layer 3
@@ -137,6 +140,7 @@ OPU - Optical Pickup Unit
 OTU - Optical Transport Unit
 RARP - Reverse Address Resolution Protocol
 RDI - Remote Defect Indication
+RDMA - Remote Direct Memory Access
 RFC - Request For Comment
 RPC - Remote Procedure Call
 RMON - Remote Monitoring
@@ -153,6 +157,7 @@ SDK - Software Development Kit
 SDH - Synchronous Digital Hierarchy
 SNCP - Subnetwork Connection Protection
 SONET - Synchronous Optical Network
+SER - Soft Error Rate
 SFI - SerDes Framer Interface
 SFLOW - Sampled Flow
 SG - (S,G) Source-specific multicast
@@ -174,6 +179,7 @@ ODU - Optical channel Data Unit
 OSC - Optical Supervisory Channel
 OTN - Optical Transport Network
 PMD - Physical Medium Dependent
+SYNCE - Synchronous Ethernet
 TC - Traffic Control
 TCAM - Ternary Content Addressable Memory
 TCP - Transmission Control Protocol
