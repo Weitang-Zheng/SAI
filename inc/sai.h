@@ -316,14 +316,14 @@ sai_object_id_t sai_switch_id_query(
         _In_ sai_object_id_t object_id);
 
 /**
- * @brief Link check.
+ * @brief Check the switch is ready for initialization.
  *
- * @param[out] up Whether link is up or not.
+ * @param[out] is_ready Whether the swith is ready for initialization.
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */
-sai_status_t sai_link_check(
-        _Out_ bool *up);
+sai_status_t sai_switch_is_ready_for_init(
+        _Out_ bool *is_ready);
 
 /**
  * @brief Generate dump file. The dump file may include SAI state information and vendor SDK information.
