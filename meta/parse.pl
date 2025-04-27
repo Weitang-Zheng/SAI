@@ -4347,6 +4347,7 @@ sub ProcessAlarmEnum
 
     return "NULL";
 }
+
 sub CreateObjectInfo
 {
     WriteSectionComment "Object info metadata";
@@ -4679,6 +4680,7 @@ sub CreateListOfAllStatistics
     WriteSource "const size_t sai_metadata_stat_sorted_by_id_name_count = $count;";
     WriteHeader "extern const size_t sai_metadata_stat_sorted_by_id_name_count;";
 }
+
 sub CheckApiStructNames
 {
     #

@@ -152,6 +152,7 @@ typedef enum _sai_api_t
     SAI_API_POE              = 51, /**< sai_poe_api_t */
     SAI_API_ICMP_ECHO        = 52, /**< sai_icmp_echo_api_t */
     SAI_API_PREFIX_COMPRESSION = 53, /**< sai_prefix_compression_api_t */
+    SAI_API_SYNCE            = 54, /**< sai_synce_api_t */
     SAI_API_MAX,                   /**< total number of APIs */
 
     /**
@@ -325,8 +326,7 @@ sai_status_t sai_link_check(
         _Out_ bool *up);
 
 /**
- * @brief Generate dump file. The dump file may include OTAI state information
- *        and vendor SDK information.
+ * @brief Generate dump file. The dump file may include SAI state information and vendor SDK information.
  *
  * @param[in] dump_file_name Full path for dump file
  *
