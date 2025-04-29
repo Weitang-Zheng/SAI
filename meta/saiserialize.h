@@ -336,7 +336,7 @@ int sai_serialize_int64(
 int sai_deserialize_int64(
         _In_ const char *buffer,
         _Out_ int64_t *s64);
-		
+
 /**
  * @brief Serialize double.
  *
@@ -362,7 +362,6 @@ int sai_serialize_double(
 int sai_deserialize_double(
         _In_ const char *buffer,
         _Out_ sai_double_t *d64);
-
 
 /**
  * @brief Serialize sai_size_t.

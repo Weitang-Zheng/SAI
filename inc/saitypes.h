@@ -303,6 +303,24 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_PREFIX_COMPRESSION_TABLE = 112,
     SAI_OBJECT_TYPE_PREFIX_COMPRESSION_ENTRY = 113,
     SAI_OBJECT_TYPE_SYNCE_CLOCK              = 114,
+    SAI_OBJECT_TYPE_TRANSCEIVER              = 115,
+    SAI_OBJECT_TYPE_LOGICAL_CHANNEL          = 116,
+    SAI_OBJECT_TYPE_OTN                      = 117,
+    SAI_OBJECT_TYPE_ETHERNET                 = 118,
+    SAI_OBJECT_TYPE_PHYSICAL_CHANNEL         = 119,
+    SAI_OBJECT_TYPE_OCH                      = 120,
+    SAI_OBJECT_TYPE_LLDP                     = 121,
+    SAI_OBJECT_TYPE_INTERFACE                = 122,
+    SAI_OBJECT_TYPE_OPTICAL_PORT             = 123,
+    SAI_OBJECT_TYPE_OA                       = 124,
+    SAI_OBJECT_TYPE_OSC                      = 125,
+    SAI_OBJECT_TYPE_APS                      = 126,
+    SAI_OBJECT_TYPE_APS_PORT                 = 127,
+    SAI_OBJECT_TYPE_ATTENUATOR               = 128,
+    SAI_OBJECT_TYPE_WSS                      = 129,
+    SAI_OBJECT_TYPE_MEDIA_CHANNEL            = 130,
+    SAI_OBJECT_TYPE_OCM                      = 131,
+    SAI_OBJECT_TYPE_OTDR                     = 132,
 
     /** Must remain in last position */
     SAI_OBJECT_TYPE_MAX,
@@ -313,26 +331,6 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_CUSTOM_RANGE_BASE = 0x10000000,
 
     SAI_OBJECT_TYPE_EXTENSIONS_RANGE_BASE = 0x20000000,
-
-    SAI_OBJECT_TYPE_OTN_RANGE_BASE           = 0x40000000,
-    SAI_OBJECT_TYPE_TRANSCEIVER              = 0x40000001,
-    SAI_OBJECT_TYPE_LOGICAL_CHANNEL           = 0x40000002,
-    SAI_OBJECT_TYPE_OTN                      = 0x40000003,
-    SAI_OBJECT_TYPE_ETHERNET                 = 0x40000004,
-    SAI_OBJECT_TYPE_PHYSICAL_CHANNEL          = 0x40000005,
-    SAI_OBJECT_TYPE_OCH                      = 0x40000006,
-    SAI_OBJECT_TYPE_LLDP                     = 0x40000007,
-    SAI_OBJECT_TYPE_INTERFACE                = 0x40000008,
-    SAI_OBJECT_TYPE_OPTICAL_PORT              = 0x40000009,
-    SAI_OBJECT_TYPE_OA                       = 0x4000000a,
-    SAI_OBJECT_TYPE_OSC                      = 0x4000000b,
-    SAI_OBJECT_TYPE_APS                      = 0x4000000c,
-    SAI_OBJECT_TYPE_APS_PORT                  = 0x4000000d,
-    SAI_OBJECT_TYPE_ATTENUATOR               = 0x4000000e,
-    SAI_OBJECT_TYPE_WSS                      = 0x4000000f,
-    SAI_OBJECT_TYPE_MEDIA_CHANNEL             = 0x40000010,
-    SAI_OBJECT_TYPE_OCM                      = 0x40000011,
-    SAI_OBJECT_TYPE_OTDR                     = 0x40000012,
 } sai_object_type_t;
 
 typedef struct _sai_u8_list_t
@@ -1731,6 +1729,27 @@ typedef struct _sai_attribute_t
     sai_attribute_value_t value;
 } sai_attribute_t;
 
+/**
+ * @extraparam const sai_stat_metadata_t *meta
+ */
+typedef union _sai_stat_value_t
+{
+    /** @validonly meta->statvaluetype == SAI_STAT_VALUE_TYPE_INT32 */
+    sai_int32_t s32;
+
+    /** @validonly meta->statvaluetype == SAI_STAT_VALUE_TYPE_UINT32 */
+    sai_uint32_t u32;
+
+    /** @validonly meta->statvaluetype == SAI_STAT_VALUE_TYPE_INT64 */
+    sai_int64_t s64;
+
+    /** @validonly meta->statvaluetype == SAI_STAT_VALUE_TYPE_UINT64 */
+    sai_uint64_t u64;
+
+    /** @validonly meta->statvaluetype == SAI_STAT_VALUE_TYPE_DOUBLE */
+    sai_double_t d64;
+} sai_stat_value_t;
+
 typedef enum _sai_bulk_op_error_mode_t
 {
     /**
@@ -2107,7 +2126,7 @@ typedef enum _sai_admin_state_t
 } sai_admin_state_t;
 
 typedef enum _sai_optical_port_type_t
- {
+{
     /** Ingress port Port Type */
     SAI_OPTICAL_PORT_TYPE_INGRESS,
 
@@ -2128,8 +2147,8 @@ typedef enum _sai_optical_port_type_t
 
     /** Line-facing port Port Type */
     SAI_OPTICAL_PORT_TYPE_TERMINAL_LINE
- } sai_optical_port_type_t;
- 
+} sai_optical_port_type_t;
+
 /**
  * @brief Led mode
  */

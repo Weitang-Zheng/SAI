@@ -153,6 +153,24 @@ typedef enum _sai_api_t
     SAI_API_ICMP_ECHO        = 52, /**< sai_icmp_echo_api_t */
     SAI_API_PREFIX_COMPRESSION = 53, /**< sai_prefix_compression_api_t */
     SAI_API_SYNCE            = 54, /**< sai_synce_api_t */
+    SAI_API_TRANSCEIVER      = 55, /**< sai_transceiver_api_t */
+    SAI_API_LOGICAL_CHANNEL  = 56, /**< sai_logical_channel_api_t */
+    SAI_API_OTN              = 57, /**< sai_otn_api_t */
+    SAI_API_ETHERNET         = 58, /**< sai_ethernet_api_t */
+    SAI_API_PHYSICAL_CHANNEL = 59, /**< sai_physical_channel_api_t */
+    SAI_API_OCH              = 60, /**< sai_och_api_t */
+    SAI_API_LLDP             = 61, /**< sai_lldp_api_t */
+    SAI_API_INTERFACE        = 62, /**< sai_interface_api_t */
+    SAI_API_OPTICAL_PORT     = 63, /**< sai_optical_port_api_t */
+    SAI_API_OA               = 64, /**< sai_oa_api_t */
+    SAI_API_OSC              = 65, /**< sai_osc_api_t */
+    SAI_API_APS              = 66, /**< sai_aps_api_t */
+    SAI_API_APS_PORT         = 67, /**< sai_aps_port_api_t */
+    SAI_API_ATTENUATOR       = 68, /**< sai_attenuator_api_t */
+    SAI_API_WSS              = 69, /**< sai_wss_api_t */
+    SAI_API_MEDIA_CHANNEL    = 70, /**< sai_media_channel_api_t */
+    SAI_API_OCM              = 71, /**< sai_ocm_api_t */
+    SAI_API_OTDR             = 72, /**< sai_otdr_api_t */
     SAI_API_MAX,                   /**< total number of APIs */
 
     /**
@@ -164,26 +182,6 @@ typedef enum _sai_api_t
      * @brief Extensions range base
      */
     SAI_API_EXTENSIONS_RANGE_BASE = 0x20000000,
-
-    SAI_API_CUSTOM_OTN_RANGE_BASE = 0x30000000,
-    SAI_API_TRANSCEIVER           = 0x30000001, /**< sai_transceiver_api_t */
-    SAI_API_LOGICAL_CHANNEL       = 0x30000002, /**< sai_logical_channel_api_t */
-    SAI_API_OTN                   = 0x30000003, /**< sai_otn_api_t */
-    SAI_API_ETHERNET              = 0x30000004, /**< sai_ethernet_api_t */
-    SAI_API_PHYSICAL_CHANNEL      = 0x30000005, /**< sai_physical_channel_api_t */
-    SAI_API_OCH                   = 0x30000006, /**< sai_och_api_t */
-    SAI_API_LLDP                  = 0x30000007, /**< sai_lldp_api_t */
-    SAI_API_INTERFACE             = 0x30000008, /**< sai_interface_api_t */
-    SAI_API_OPTICAL_PORT          = 0x30000009, /**< sai_optical_port_api_t */
-    SAI_API_OA                    = 0x3000000a, /**< sai_oa_api_t */
-    SAI_API_OSC                   = 0x3000000b, /**< sai_osc_api_t */
-    SAI_API_APS                   = 0x3000000c, /**< sai_aps_api_t */
-    SAI_API_APS_PORT              = 0x3000000d, /**< sai_aps_port_api_t */
-    SAI_API_ATTENUATOR            = 0x3000000e, /**< sai_attenuator_api_t */
-    SAI_API_WSS                   = 0x3000000f, /**< sai_wss_api_t */
-    SAI_API_MEDIA_CHANNEL         = 0x30000010, /**< sai_media_channel_api_t */
-    SAI_API_OCM                   = 0x30000011, /**< sai_ocm_api_t */
-    SAI_API_OTDR                  = 0x30000012, /**< sai_otdr_api_t */
 } sai_api_t;
 
 /**
@@ -318,7 +316,7 @@ sai_object_id_t sai_switch_id_query(
 /**
  * @brief Check the switch is ready for initialization.
  *
- * @param[out] is_ready Whether the swith is ready for initialization.
+ * @param[out] is_ready Whether the switch is ready for initialization.
  *
  * @return #SAI_STATUS_SUCCESS on success, failure status code on error
  */

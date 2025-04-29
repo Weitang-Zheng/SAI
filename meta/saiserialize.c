@@ -686,7 +686,7 @@ int sai_deserialize_double(
         return 3;
     } else if (strcmp(buffer, "Infinity") == 0) {
         *d64 = INFINITY;
-        return 8；
+        return 8;
     } else if (strcmp(buffer, "-Infinity") == 0) {
         *d64 = -INFINITY;
         return 9;

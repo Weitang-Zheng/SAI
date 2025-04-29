@@ -253,6 +253,11 @@ sub GetTypeInfoForSerialize
         $TypeInfo{suffix} = "uint32";
         $TypeInfo{deamp} = "&";
     }
+    elsif ($type =~ m/^sai_double_t$/)
+    {
+        $TypeInfo{suffix} = "double";
+        $TypeInfo{deamp} = "&";
+    }
     elsif ($type =~ /^sai_(cos|queue_index)_t$/)
     {
         $TypeInfo{suffix} = "uint8";
@@ -366,7 +371,7 @@ sub GetTypeInfoForSerialize
         $TypeInfo{amp} = "&";
         $TypeInfo{deamp} = "&";
     }
-    elsif ($type eq "char[32]")
+    elsif ($type eq "char[512]")
     {
         $TypeInfo{needQuote} = 1;
         $TypeInfo{suffix} = "chardata";

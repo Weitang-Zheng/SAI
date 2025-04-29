@@ -1434,7 +1434,7 @@ typedef struct _sai_attr_metadata_t
      * to be passed to create function is condition is not met.
      */
     bool                                        isconditionrelaxed;
-	
+
     /**
      * @brief Indicates whether attribute is custom attribute.
      *
@@ -1464,23 +1464,23 @@ typedef struct _sai_attr_metadata_t
      * will be v1.15 and next release set to true.
      */
     bool                                        nextrelease;
-    
+
     /**
-    * @brief Determines whether attribute is set only
-    */
+     * @brief Determines whether attribute is set only
+     */
     bool                                        issetonly;
 
     /**
-    * @brief Specifies kebab name for this object type.
-    */
+     * @brief Specifies kebab name for this object type.
+     */
     const char* const                           attridkebabname;
 
     /**
-    * @brief Indicates whether attribute is recoverable.
-    *
-    * If true, when calling SET API successfully, the value will be saved in local
-    * db for warm-reboot (or cold-reboot) flow to recover this configuration.
-    */
+     * @brief Indicates whether attribute is recoverable.
+     *
+     * If true, when calling SET API successfully, the value will be saved in local
+     * db for warm-reboot (or cold-reboot) flow to recover this configuration.
+     */
     bool                                        isrecoverable;
 } sai_attr_metadata_t;
 
@@ -1821,8 +1821,8 @@ typedef struct _sai_object_type_info_t
     bool                                            iscustom;
 
     /**
-    * @brief Points to enum sai_OBJECT_TYPE_alarm_t if object supports alarms.
-    */
+     * @brief Points to enum sai_OBJECT_TYPE_alarm_t if object supports alarms.
+     */
     const sai_enum_metadata_t* const                alarmenum;
 } sai_object_type_info_t;
 

@@ -812,7 +812,6 @@ sub ProcessEnumSection
             }
             next;
         }
-		
 
         $SAI_ENUMS{$enumtypename}{values} = \@values;
 
@@ -2747,7 +2746,7 @@ sub ProcessSingleObjectType
         WriteSource ".isextensionattr               = $isextensionattr,";
         WriteSource ".isresourcetype                = $isresourcetype,";
         WriteSource ".isdeprecated                  = $isdeprecated,";
-		WriteSource ".attridkebabname               = $kebabname,";
+        WriteSource ".attridkebabname               = $kebabname,";
         WriteSource ".isconditionrelaxed            = $isrelaxed,";
         WriteSource ".iscustom                      = ($attr >= 0x10000000) && ($attr < 0x20000000),";
         WriteSource ".apiversion                    = $apiversion,";
@@ -5252,8 +5251,9 @@ sub CheckAttributeValueUnion
     {
         my $type = $Union{$key}{type};
 
-        next if $type eq "char[32]";
+        next if $type eq "char[512]";
         next if $type =~ /sai_u?int\d+_t/;
+        next if $type =~ /sai_double_t/;
         next if $type =~ /sai_[su]\d+_list_t/;
 
         next if defined $PRIMITIVE_TYPES{$type};

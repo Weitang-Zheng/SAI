@@ -224,7 +224,7 @@ sub CheckStatsFunction
     my @paramtypes = $fn =~ /_(?:In|Out|Inout)_\s*(.+?)\s*(?:\w+?)\s*[,\)]/gis;
     my $ptypes = "@paramtypes";
 
-    if (not $ptypes =~ /^sai_object_id_t uint32_t const sai_stat_id_t \*( (sai_stats_mode_t )?uint64_t \*)?$/)
+    if (not $ptypes =~ /^sai_object_id_t uint32_t const sai_stat_id_t \*( (sai_stats_mode_t )?(uint64_t|sai_stat_value_t) \*)?$/)
     {
         if (not $ptypes =~ /^const \w+_entry_t \* uint32_t const sai_stat_id_t \*( (sai_stats_mode_t )?uint64_t \*)?$/)
         {
@@ -349,8 +349,8 @@ sub CheckFunctionsParams
         {
             CheckStatsFunction($fname,$fn,$fnparams);
         }
-		
-		if ($fname =~ /^sai_\w+_gauges_/)
+
+        if ($fname =~ /^sai_\w+_gauges_/)
         {
             CheckGaugesFunction($fname,$fn,$fnparams);
         }
@@ -499,7 +499,7 @@ sub CheckFunctionNaming
     {
         LogWarning "not object name $2 in $name" if not IsObjectName($2);
     }
-	elsif ($name =~ /^(get|clear)_(\w+?)_gauges?$/)
+    elsif ($name =~ /^(get|clear)_(\w+?)_gauges?$/)
     {
         LogWarning "not object name $2 in $name" if not IsObjectName($2);
     }

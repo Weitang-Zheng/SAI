@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Alibaba Group.
+ * Copyright (c) 20XX Microsoft Open Technologies, Inc.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -12,6 +12,10 @@
  *
  *    See the Apache Version 2.0 License for specific language governing
  *    permissions and limitations under the License.
+ *
+ *    Microsoft would like to thank the following companies for their review and
+ *    assistance with these files: Intel Corporation, Mellanox Technologies Ltd,
+ *    Dell Products, L.P., Facebook, Inc., Marvell International Ltd.
  *
  * @file    saiotn.h
  * @brief   This module defines the OTN for the SAI
@@ -375,7 +379,7 @@ typedef enum _sai_otn_stat_t
  * Allocates and initializes a OTN.
  *
  * @param[out] otn_id OTN id
- * @param[in] switch_id switch id on which the OTN exists
+ * @param[in] switch_id Switch id on which the OTN exists
  * @param[in] attr_count Number of attributes
  * @param[in] attr_list Array of attributes
  *

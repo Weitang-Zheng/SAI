@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Alibaba Group.
+ * Copyright (c) 20XX Microsoft Open Technologies, Inc.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -12,6 +12,10 @@
  *
  *    See the Apache Version 2.0 License for specific language governing
  *    permissions and limitations under the License.
+ *
+ *    Microsoft would like to thank the following companies for their review and
+ *    assistance with these files: Intel Corporation, Mellanox Technologies Ltd,
+ *    Dell Products, L.P., Facebook, Inc., Marvell International Ltd.
  *
  * @file    saiocm.h
  * @brief   This module defines the OCM for the SAI
@@ -27,7 +31,6 @@
  *
  * @{
  */
-
 typedef struct _sai_spectrum_power_t
 {
     sai_uint64_t lower_frequency;
@@ -164,7 +167,6 @@ typedef enum _sai_ocm_attr_t
      */
     SAI_OCM_ATTR_INSERTION_LOSS_TO_PANEL_PORT,
 
-
     /**
      * @brief Spectrum power notification
      *
@@ -214,7 +216,7 @@ typedef enum _sai_ocm_stat_t
 /**
  * @brief Switch OCM spectrum power notification
  *
- * @param[in] switch_id swith Id
+ * @param[in] switch_id Switch Id
  * @param[in] ocm_id OCM Id
  * @param[in] ocm_result OCM Result
  */
@@ -229,7 +231,7 @@ typedef void (*sai_ocm_spectrum_power_notification_fn)(
  * Allocates and initializes a OCM.
  *
  * @param[out] ocm_id OCM id
- * @param[in] switch_id switch id on which the OCM exists
+ * @param[in] switch_id Switch id on which the OCM exists
  * @param[in] attr_count Number of attributes
  * @param[in] attr_list Array of attributes
  *

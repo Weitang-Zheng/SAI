@@ -3396,9 +3396,6 @@ typedef enum _sai_switch_attr_t
     /** Extensions range base */
     SAI_SWITCH_ATTR_EXTENSIONS_RANGE_BASE = 0x20000000,
 
-    /** OTN range base value */
-    SAI_SWITCH_ATTR_OTN_RANGE_START = 0x30000000,
-
     /**
      * @brief Switch type
      *
@@ -3786,8 +3783,6 @@ typedef enum _sai_switch_attr_t
      * @isrecoverable false
      */
     SAI_SWITCH_ATTR_STOP_CONFIGURATION,
-
-    SAI_SWITCH_ATTR_OTN_RANGE_END
 } sai_switch_attr_t;
 
 /**

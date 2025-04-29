@@ -29,6 +29,7 @@ const
 couldn
 cpp
 cpu
+dBm
 decap
 decapsulation
 Decrement
@@ -90,6 +91,7 @@ isobjectid
 isprimitive
 isprint
 isresourcetype
+isrecoverable
 isvlan
 json
 LAGs

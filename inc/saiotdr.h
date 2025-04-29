@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2021 Alibaba Group.
+ * Copyright (c) 20XX Microsoft Open Technologies, Inc.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -12,6 +12,10 @@
  *
  *    See the Apache Version 2.0 License for specific language governing
  *    permissions and limitations under the License.
+ *
+ *    Microsoft would like to thank the following companies for their review and
+ *    assistance with these files: Intel Corporation, Mellanox Technologies Ltd,
+ *    Dell Products, L.P., Facebook, Inc., Marvell International Ltd.
  *
  * @file    saiotdr.h
  * @brief   This module defines the OTDR for the SAI
@@ -63,7 +67,6 @@ typedef struct _sai_otdr_event_t
 
     /** Accumulated loss at the event point */
     sai_double_t accumulate_loss;
-
 } sai_otdr_event_t;
 
 typedef struct _sai_otdr_event_list_t
@@ -415,7 +418,7 @@ typedef enum _sai_otdr_stat_t
 /**
  * @brief OTDR scan result notification
  *
- * @param[in] switch_id switch Id
+ * @param[in] switch_id Switch Id
  * @param[in] otdr_id OTDR Id
  * @param[in] otdr_result OTDR result
  */
@@ -430,7 +433,7 @@ typedef void (*sai_otdr_scan_result_notification_fn)(
  * Allocates and initializes a OTDR.
  *
  * @param[out] otdr_id OTDR id
- * @param[in] switch_id switch id on which the OTDR exists
+ * @param[in] switch_id Switch id on which the OTDR exists
  * @param[in] attr_count Number of attributes
  * @param[in] attr_list Array of attributes
  *
