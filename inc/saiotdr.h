@@ -370,15 +370,6 @@ typedef enum _sai_otdr_attr_t
     SAI_OTDR_ATTR_FIRMWARE_VERSION,
 
     /**
-     * @brief OTDR scab result notification
-     *
-     * @type sai_pointer_t sai_otdr_scan_result_notification_fn
-     * @flags CREATE_ONLY
-     * @default NULL
-     */
-    SAI_OTDR_ATTR_SCAN_RESULT_NOTIFY,
-
-    /**
      * @brief End of attributes
      */
     SAI_OTDR_ATTR_END,

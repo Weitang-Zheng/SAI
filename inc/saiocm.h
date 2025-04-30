@@ -168,15 +168,6 @@ typedef enum _sai_ocm_attr_t
     SAI_OCM_ATTR_INSERTION_LOSS_TO_PANEL_PORT,
 
     /**
-     * @brief Spectrum power notification
-     *
-     * @type sai_pointer_t sai_ocm_spectrum_power_notification_fn
-     * @flags CREATE_ONLY
-     * @default NULL
-     */
-    SAI_OCM_ATTR_SPECTRUM_POWER_NOTIFY,
-
-    /**
      * @brief End of attributes
      */
     SAI_OCM_ATTR_END,

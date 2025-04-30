@@ -3535,6 +3535,24 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_SWITCH_ALARM_NOTIFY,
 
     /**
+     * @brief OCM spectrum power notification
+     *
+     * @type sai_pointer_t sai_ocm_spectrum_power_notification_fn
+     * @flags CREATE_ONLY
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_OCM_SPECTRUM_POWER_NOTIFY,
+
+    /**
+     * @brief OTDR scab result notification
+     *
+     * @type sai_pointer_t sai_otdr_scan_result_notification_fn
+     * @flags CREATE_ONLY
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_OTDR_SCAN_RESULT_NOTIFY,
+
+    /**
      * @brief Collect switch alarm.
      *
      * @type bool
