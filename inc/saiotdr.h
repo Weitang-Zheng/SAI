@@ -290,84 +290,12 @@ typedef enum _sai_otdr_attr_t
     SAI_OTDR_ATTR_SCANNING_STATUS,
 
     /**
-     * @brief Serial No
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OTDR_ATTR_SERIAL_NO,
-
-    /**
-     * @brief Part no
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OTDR_ATTR_PART_NO,
-
-    /**
-     * @brief Manufacture name
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OTDR_ATTR_MFG_NAME,
-
-    /**
-     * @brief Manufacture date
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OTDR_ATTR_MFG_DATE,
-
-    /**
-     * @brief Hardware version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OTDR_ATTR_HARDWARE_VERSION,
-
-    /**
      * @brief The operational state of the OTDR
      *
      * @type sai_oper_status_t
      * @flags READ_ONLY
      */
     SAI_OTDR_ATTR_OPER_STATUS,
-
-    /**
-     * @brief Whether the OTDR is present or not
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_OTDR_ATTR_EMPTY,
-
-    /**
-     * @brief Whether the OTDR is removable
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_OTDR_ATTR_REMOVABLE,
-
-    /**
-     * @brief Software version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OTDR_ATTR_SOFTWARE_VERSION,
-
-    /**
-     * @brief Firmware version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OTDR_ATTR_FIRMWARE_VERSION,
 
     /**
      * @brief End of attributes

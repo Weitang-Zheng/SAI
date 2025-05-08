@@ -51,76 +51,12 @@ typedef enum _sai_wss_attr_t
     SAI_WSS_ATTR_ID = SAI_WSS_ATTR_START,
 
     /**
-     * @brief Serial No
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_WSS_ATTR_SERIAL_NO,
-
-    /**
-     * @brief Part no
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_WSS_ATTR_PART_NO,
-
-    /**
-     * @brief Manufacture name
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_WSS_ATTR_MFG_NAME,
-
-    /**
-     * @brief Manufacture date
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_WSS_ATTR_MFG_DATE,
-
-    /**
-     * @brief Hardware version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_WSS_ATTR_HARDWARE_VERSION,
-
-    /**
      * @brief The operational state of the WSS
      *
      * @type sai_oper_status_t
      * @flags READ_ONLY
      */
     SAI_WSS_ATTR_OPER_STATUS,
-
-    /**
-     * @brief Whether the WSS is present or not
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_WSS_ATTR_EMPTY,
-
-    /**
-     * @brief Whether the WSS is removable
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_WSS_ATTR_REMOVABLE,
-
-    /**
-     * @brief Software version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_WSS_ATTR_SOFTWARE_VERSION,
 
     /**
      * @brief End of attributes

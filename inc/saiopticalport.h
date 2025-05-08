@@ -125,22 +125,6 @@ typedef enum _sai_optical_port_attr_t
     SAI_OPTICAL_PORT_ATTR_LOS_THRESHOLD,
 
     /**
-     * @brief Empty
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_OPTICAL_PORT_ATTR_EMPTY,
-
-    /**
-     * @brief Removable
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_OPTICAL_PORT_ATTR_REMOVABLE,
-
-    /**
      * @brief Equipment failure
      *
      * @type bool

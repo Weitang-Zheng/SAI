@@ -3421,22 +3421,6 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_BOARD_MODE,
 
     /**
-     * @brief Whether the switch is present or not
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_EMPTY,
-
-    /**
-     * @brief Whether the switch is removable
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_REMOVABLE,
-
-    /**
      * @brief The reset type of the switch
      *
      * @type sai_switch_reset_t
@@ -3462,38 +3446,6 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_HOSTNAME,
 
     /**
-     * @brief Serial number
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_SERIAL_NO,
-
-    /**
-     * @brief Part number
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_PART_NO,
-
-    /**
-     * @brief Hardware version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_HARDWARE_VERSION,
-
-    /**
-     * @brief Software version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_SOFTWARE_VERSION,
-
-    /**
      * @brief CPLD version
      *
      * @type char
@@ -3508,22 +3460,6 @@ typedef enum _sai_switch_attr_t
      * @flags READ_ONLY
      */
     SAI_SWITCH_ATTR_SCRIPT_VERSION,
-
-    /**
-     * @brief Manufacture date
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_MFG_DATE,
-
-    /**
-     * @brief Manufacture name
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_MFG_NAME,
 
     /**
      * @brief Switch alarm notification

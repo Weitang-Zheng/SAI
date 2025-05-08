@@ -304,14 +304,6 @@ typedef enum _sai_transceiver_attr_t
     SAI_TRANSCEIVER_ATTR_VENDOR_PART,
 
     /**
-     * @brief Part no
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_TRANSCEIVER_ATTR_PART_NO,
-
-    /**
      * @brief Vendor revision
      *
      * @type char
@@ -326,38 +318,6 @@ typedef enum _sai_transceiver_attr_t
      * @flags READ_ONLY
      */
     SAI_TRANSCEIVER_ATTR_DATE_CODE,
-
-    /**
-     * @brief Manufacture name
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_TRANSCEIVER_ATTR_MFG_NAME,
-
-    /**
-     * @brief Manufacture date
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_TRANSCEIVER_ATTR_MFG_DATE,
-
-    /**
-     * @brief Hardware version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_TRANSCEIVER_ATTR_HARDWARE_VERSION,
-
-    /**
-     * @brief Firmware version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_TRANSCEIVER_ATTR_FIRMWARE_VERSION,
 
     /**
      * @brief Ethernet PMD (physical medium dependent sublayer) that the
@@ -377,28 +337,12 @@ typedef enum _sai_transceiver_attr_t
     SAI_TRANSCEIVER_ATTR_FAULT_CONDITION,
 
     /**
-     * @brief Removable
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_TRANSCEIVER_ATTR_REMOVABLE,
-
-    /**
      * @brief Connector type
      *
      * @type sai_transceiver_connector_type_t
      * @flags READ_ONLY
      */
     SAI_TRANSCEIVER_ATTR_CONNECTOR_TYPE,
-
-    /**
-     * @brief Serial No
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_TRANSCEIVER_ATTR_SERIAL_NO,
 
     /**
      * @brief Power mode

@@ -51,22 +51,6 @@ typedef enum _sai_osc_attr_t
     SAI_OSC_ATTR_ID = SAI_OSC_ATTR_START,
 
     /**
-     * @brief Removable
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_OSC_ATTR_REMOVABLE,
-
-    /**
-     * @brief Serial no
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OSC_ATTR_SERIAL_NO,
-
-    /**
      * @brief Equipment failure
      *
      * @type bool
@@ -91,14 +75,6 @@ typedef enum _sai_osc_attr_t
     SAI_OSC_ATTR_LOCATION,
 
     /**
-     * @brief Hardware version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OSC_ATTR_HARDWARE_VERSION,
-
-    /**
      * @brief Admin state
      *
      * @type sai_admin_state_t
@@ -113,54 +89,6 @@ typedef enum _sai_osc_attr_t
      * @flags READ_ONLY
      */
     SAI_OSC_ATTR_OPER_STATUS,
-
-    /**
-     * @brief Part no
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OSC_ATTR_PART_NO,
-
-    /**
-     * @brief Mfg name
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OSC_ATTR_MFG_NAME,
-
-    /**
-     * @brief Manufacture date
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OSC_ATTR_MFG_DATE,
-
-    /**
-     * @brief Empty
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_OSC_ATTR_EMPTY,
-
-    /**
-     * @brief Software version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OSC_ATTR_SOFTWARE_VERSION,
-
-    /**
-     * @brief Firmware version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OSC_ATTR_FIRMWARE_VERSION,
 
     /**
      * @brief Output frequency

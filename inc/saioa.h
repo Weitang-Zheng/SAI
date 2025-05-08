@@ -94,29 +94,6 @@ typedef enum _sai_oa_attr_t
      */
     SAI_OA_ATTR_ID = SAI_OA_ATTR_START,
 
-    /**
-     * @brief Empty
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_EMPTY,
-
-    /**
-     * @brief Removable
-     *
-     * @type bool
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_REMOVABLE,
-
-    /**
-     * @brief Serial no
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_SERIAL_NO,
 
     /**
      * @brief Equipment failure
@@ -135,14 +112,6 @@ typedef enum _sai_oa_attr_t
     SAI_OA_ATTR_EQUIPMENT_MISMATCH,
 
     /**
-     * @brief Hardware version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_HARDWARE_VERSION,
-
-    /**
      * @brief Admin state
      *
      * @type sai_admin_state_t
@@ -159,52 +128,12 @@ typedef enum _sai_oa_attr_t
     SAI_OA_ATTR_OPER_STATUS,
 
     /**
-     * @brief Part no
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_PART_NO,
-
-    /**
-     * @brief Mfg name
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_MFG_NAME,
-
-    /**
-     * @brief Manufacture date
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_MFG_DATE,
-
-    /**
      * @brief Type
      *
      * @type sai_oa_type_t
      * @flags READ_ONLY
      */
     SAI_OA_ATTR_TYPE,
-
-    /**
-     * @brief Software version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_SOFTWARE_VERSION,
-
-    /**
-     * @brief Firmware version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_FIRMWARE_VERSION,
 
     /**
      * @brief Target gain
