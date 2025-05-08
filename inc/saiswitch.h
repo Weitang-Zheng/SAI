@@ -3506,41 +3506,6 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_COLLECT_SWITCH_LOG,
 
     /**
-     * @brief Led name
-     *
-     * @type char
-     * @flags CREATE_AND_SET
-     * @isrecoverable false
-     */
-    SAI_SWITCH_ATTR_LED_NAME,
-
-    /**
-     * @brief Led mode
-     *
-     * @type sai_led_mode_t
-     * @flags CREATE_AND_SET
-     * @isrecoverable false
-     */
-    SAI_SWITCH_ATTR_LED_MODE,
-
-    /**
-     * @brief Led flash interval
-     *
-     * @type sai_uint32_t
-     * @flags CREATE_AND_SET
-     * @isrecoverable false
-     */
-    SAI_SWITCH_ATTR_LED_FLASH_INTERVAL,
-
-    /**
-     * @brief Led color
-     *
-     * @type sai_led_color_t
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_LED_COLOR,
-
-    /**
      * @brief Baud rate
      *
      * @type sai_switch_baud_rate_t

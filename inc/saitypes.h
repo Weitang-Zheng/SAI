@@ -2125,31 +2125,6 @@ typedef enum _sai_optical_port_type_t
 } sai_optical_port_type_t;
 
 /**
- * @brief Led mode
- */
-typedef enum _sai_led_mode_t
-{
-    SAI_LED_MODE_AUTO,
-    SAI_LED_MODE_FORCE_FLASH,
-} sai_led_mode_t;
-
-/**
- * @brief Led color
- */
-typedef enum _sai_led_color_t
-{
-    SAI_LED_COLOR_RED,
-    SAI_LED_COLOR_GREEN,
-    SAI_LED_COLOR_YELLOW,
-    SAI_LED_COLOR_RED_FLASH,
-    SAI_LED_COLOR_GREEN_FLASH,
-    SAI_LED_COLOR_RED_GREEN_FLASH,
-    SAI_LED_COLOR_OFF,
-    SAI_LED_COLOR_ABNORMAL,
-    SAI_LED_COLOR_YELLOW_FLASH,
-} sai_led_color_t;
-
-/**
  * @}
  */
 #endif /** __SAITYPES_H_ */

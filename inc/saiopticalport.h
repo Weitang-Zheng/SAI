@@ -91,32 +91,6 @@ typedef enum _sai_optical_port_attr_t
     SAI_OPTICAL_PORT_ATTR_ROLL_OFF,
 
     /**
-     * @brief Led mode
-     *
-     * @type sai_led_mode_t
-     * @flags CREATE_AND_SET
-     * @isrecoverable false
-     */
-    SAI_OPTICAL_PORT_ATTR_LED_MODE,
-
-    /**
-     * @brief Led flash interval
-     *
-     * @type sai_uint32_t
-     * @flags CREATE_AND_SET
-     * @isrecoverable false
-     */
-    SAI_OPTICAL_PORT_ATTR_LED_FLASH_INTERVAL,
-
-    /**
-     * @brief Led color
-     *
-     * @type sai_led_color_t
-     * @flags READ_ONLY
-     */
-    SAI_OPTICAL_PORT_ATTR_LED_COLOR,
-
-    /**
      * @brief Los threshold
      *
      * @type sai_uint64_t
@@ -176,15 +150,6 @@ typedef enum _sai_optical_port_attr_t
      * @flags READ_ONLY
      */
     SAI_OPTICAL_PORT_ATTR_OUTPUT_OFFSET,
-
-    /**
-     * @brief Led name
-     *
-     * @type char
-     * @flags CREATE_AND_SET
-     * @isrecoverable false
-     */
-    SAI_OPTICAL_PORT_ATTR_LED_NAME,
 
     /**
      * @brief End of attributes
