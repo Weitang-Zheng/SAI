@@ -366,7 +366,7 @@ sub GetTypeInfoForSerialize
         $TypeInfo{amp} = "&";
         $TypeInfo{deamp} = "&";
     }
-    elsif ($type eq "char[512]")
+    elsif ($type eq "char[32]")
     {
         $TypeInfo{needQuote} = 1;
         $TypeInfo{suffix} = "chardata";

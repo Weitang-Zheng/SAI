@@ -1520,7 +1520,7 @@ typedef union _sai_attribute_value_t
     bool booldata;
 
     /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_CHARDATA */
-    char chardata[512];
+    char chardata[32];
 
     /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_UINT8 */
     sai_uint8_t u8;

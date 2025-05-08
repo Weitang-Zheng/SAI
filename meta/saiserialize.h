@@ -44,7 +44,7 @@
  *
  * Defines size of char data inside sai_attribute_value_t union.
  */
-#define SAI_CHARDATA_LENGTH 512
+#define SAI_CHARDATA_LENGTH 32
 
 /**
  * @brief Is char allowed.

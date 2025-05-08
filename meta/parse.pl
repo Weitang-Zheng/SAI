@@ -5219,7 +5219,7 @@ sub CheckAttributeValueUnion
     {
         my $type = $Union{$key}{type};
 
-        next if $type eq "char[512]";
+        next if $type eq "char[32]";
         next if $type =~ /sai_u?int\d+_t/;
         next if $type =~ /sai_[su]\d+_list_t/;
 
@@ -5681,7 +5681,7 @@ sub ProcessValues
     {
         my $type = $refUnion->{$key}->{type};
 
-        next if $type eq "char[512]" or $type eq "bool";
+        next if $type eq "char[32]" or $type eq "bool";
 
         if (not $type =~ /^sai_(\w+)_t$/)
         {
