@@ -1068,7 +1068,7 @@ typedef sai_status_t (*sai_get_transceiver_stats_fn)(
         _In_ sai_object_id_t transceiver_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids,
-        _Out_ sai_stat_value_t *counters);
+        _Out_ uint64_t *counters);
 
 /**
  * @brief Get transceiver statistics counters extended.
@@ -1086,7 +1086,7 @@ typedef sai_status_t (*sai_get_transceiver_stats_ext_fn)(
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids,
         _In_ sai_stats_mode_t mode,
-        _Out_ sai_stat_value_t *counters);
+        _Out_ uint64_t *counters);
 
 /**
  * @brief Clear transceiver statistics counters.

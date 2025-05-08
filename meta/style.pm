@@ -224,7 +224,7 @@ sub CheckStatsFunction
     my @paramtypes = $fn =~ /_(?:In|Out|Inout)_\s*(.+?)\s*(?:\w+?)\s*[,\)]/gis;
     my $ptypes = "@paramtypes";
 
-    if (not $ptypes =~ /^sai_object_id_t uint32_t const sai_stat_id_t \*( (sai_stats_mode_t )?(uint64_t|sai_stat_value_t) \*)?$/)
+    if (not $ptypes =~ /^sai_object_id_t uint32_t const sai_stat_id_t \*( (sai_stats_mode_t )?uint64_t \*)?$/)
     {
         if (not $ptypes =~ /^const \w+_entry_t \* uint32_t const sai_stat_id_t \*( (sai_stats_mode_t )?uint64_t \*)?$/)
         {

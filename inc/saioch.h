@@ -333,7 +333,7 @@ typedef sai_status_t (*sai_get_och_stats_fn)(
         _In_ sai_object_id_t och_id,
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids,
-        _Out_ sai_stat_value_t *counters);
+        _Out_ uint64_t *counters);
 
 /**
  * @brief Get optical channel statistics counters extended.
@@ -351,7 +351,7 @@ typedef sai_status_t (*sai_get_och_stats_ext_fn)(
         _In_ uint32_t number_of_counters,
         _In_ const sai_stat_id_t *counter_ids,
         _In_ sai_stats_mode_t mode,
-        _Out_ sai_stat_value_t *counters);
+        _Out_ uint64_t *counters);
 
 /**
  * @brief Clear optical channel statistics counters.

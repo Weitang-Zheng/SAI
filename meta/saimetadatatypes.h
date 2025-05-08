@@ -508,38 +508,6 @@ typedef enum _sai_attr_value_type_t
 } sai_attr_value_type_t;
 
 /**
- * @brief Defines statistics value type.
- */
-typedef enum _sai_stat_value_type_t
-{
-    /**
-     * @brief Statistics value is 32 bit signed integer.
-     */
-    SAI_STAT_VALUE_TYPE_INT32,
-
-    /**
-     * @brief Statistics value is 32 bit unsigned integer.
-     */
-    SAI_STAT_VALUE_TYPE_UINT32,
-
-    /**
-     * @brief Statistics value is 64 bit signed integer.
-     */
-    SAI_STAT_VALUE_TYPE_INT64,
-
-    /**
-     * @brief Statistics value is 64 bit unsigned integer.
-     */
-    SAI_STAT_VALUE_TYPE_UINT64,
-
-    /**
-     * @brief Statistics value is double.
-     */
-    SAI_STAT_VALUE_TYPE_DOUBLE,
-
-} sai_stat_value_type_t;
-
-/**
  * @brief Defines statistics value unit.
  */
 typedef enum _sai_stat_value_unit_t
@@ -1040,11 +1008,6 @@ typedef struct _sai_stat_metadata_t
      * @brief Specifies valid statistics id name of camel case naming style.
      */
     const char* const                           statidcamelname;
-
-    /**
-     * @brief Specifies value type for this statistics.
-     */
-    sai_stat_value_type_t                       statvaluetype;
 
     /**
      * @brief Specifies value unit for this statistics.

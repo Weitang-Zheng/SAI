@@ -1729,27 +1729,6 @@ typedef struct _sai_attribute_t
     sai_attribute_value_t value;
 } sai_attribute_t;
 
-/**
- * @extraparam const sai_stat_metadata_t *meta
- */
-typedef union _sai_stat_value_t
-{
-    /** @validonly meta->statvaluetype == SAI_STAT_VALUE_TYPE_INT32 */
-    sai_int32_t s32;
-
-    /** @validonly meta->statvaluetype == SAI_STAT_VALUE_TYPE_UINT32 */
-    sai_uint32_t u32;
-
-    /** @validonly meta->statvaluetype == SAI_STAT_VALUE_TYPE_INT64 */
-    sai_int64_t s64;
-
-    /** @validonly meta->statvaluetype == SAI_STAT_VALUE_TYPE_UINT64 */
-    sai_uint64_t u64;
-
-    /** @validonly meta->statvaluetype == SAI_STAT_VALUE_TYPE_DOUBLE */
-    sai_double_t d64;
-} sai_stat_value_t;
-
 typedef enum _sai_bulk_op_error_mode_t
 {
     /**
