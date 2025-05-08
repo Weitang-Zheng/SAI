@@ -167,14 +167,6 @@ typedef enum _sai_transceiver_flash_partition_t
     SAI_TRANSCEIVER_FLASH_PARTITION_B,
 } sai_transceiver_flash_partition_t;
 
-typedef enum _sai_transceiver_upgrade_state_t
-{
-    SAI_TRANSCEIVER_UPGRADE_STATE_IDLE,
-    SAI_TRANSCEIVER_UPGRADE_STATE_DOWNLOADING,
-    SAI_TRANSCEIVER_UPGRADE_STATE_SWITCHING,
-    SAI_TRANSCEIVER_UPGRADE_STATE_BACKUPING,
-} sai_transceiver_upgrade_state_t;
-
 typedef enum _sai_transceiver_power_class_t
 {
     SAI_TRANSCEIVER_POWER_CLASS_BELOW_9W,
@@ -368,41 +360,6 @@ typedef enum _sai_transceiver_attr_t
      * @flags READ_ONLY
      */
     SAI_TRANSCEIVER_ATTR_NUM_OF_LANE,
-
-    /**
-     * @brief Upgrade download
-     *
-     * @type bool
-     * @flags SET_ONLY
-     * @isrecoverable false
-     */
-    SAI_TRANSCEIVER_ATTR_UPGRADE_DOWNLOAD,
-
-    /**
-     * @brief Switch flash partition
-     *
-     * @type sai_transceiver_flash_partition_t
-     * @flags SET_ONLY
-     * @isrecoverable false
-     */
-    SAI_TRANSCEIVER_ATTR_SWITCH_FLASH_PARTITION,
-
-    /**
-     * @brief Backup flash partition
-     *
-     * @type sai_transceiver_flash_partition_t
-     * @flags SET_ONLY
-     * @isrecoverable false
-     */
-    SAI_TRANSCEIVER_ATTR_BACKUP_FLASH_PARTITION,
-
-    /**
-     * @brief Upgrade state.
-     *
-     * @type sai_transceiver_upgrade_state_t
-     * @flags READ_ONLY
-     */
-    SAI_TRANSCEIVER_ATTR_UPGRADE_STATE,
 
     /**
      * @brief Laser age
