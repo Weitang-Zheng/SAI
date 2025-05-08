@@ -108,7 +108,8 @@ typedef enum _sai_physical_channel_stat_t
     /**
      * @brief Output power
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */
@@ -117,7 +118,8 @@ typedef enum _sai_physical_channel_stat_t
     /**
      * @brief Input power
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */
@@ -126,7 +128,8 @@ typedef enum _sai_physical_channel_stat_t
     /**
      * @brief Laser bias current
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @iscounter false
      */
     SAI_PHYSICAL_CHANNEL_STAT_LASER_BIAS_CURRENT,

@@ -260,7 +260,8 @@ typedef enum _sai_otn_stat_t
     /**
      * @brief Electrical signal to noise ratio
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dB
      * @iscounter false
      */
@@ -269,7 +270,7 @@ typedef enum _sai_otn_stat_t
     /**
      * @brief Bit error rate before forward error correction
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
      * @precision precision18
      * @iscounter false
      */
@@ -278,7 +279,8 @@ typedef enum _sai_otn_stat_t
     /**
      * @brief Quality value (factor) in dB of a channel
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dB
      * @iscounter false
      */
@@ -287,7 +289,7 @@ typedef enum _sai_otn_stat_t
     /**
      * @brief Bit error rate after forward error correction
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
      * @precision precision18
      * @iscounter false
      */
@@ -320,7 +322,8 @@ typedef enum _sai_otn_stat_t
     /**
      * @brief Q margin
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dB
      * @iscounter false
      */

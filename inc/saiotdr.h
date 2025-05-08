@@ -57,16 +57,16 @@ typedef struct _sai_otdr_event_t
     sai_otdr_event_type_t type;
 
     /** Event distance or fiber section length in km */
-    sai_double_t length;
+    sai_uint64_t length;
 
     /** Event loss in dB */
-    sai_double_t loss;
+    sai_uint64_t loss;
 
     /** Event reflection in dB */
-    sai_double_t reflection;
+    sai_uint64_t reflection;
 
     /** Accumulated loss at the event point */
-    sai_double_t accumulate_loss;
+    sai_uint64_t accumulate_loss;
 } sai_otdr_event_t;
 
 typedef struct _sai_otdr_event_list_t
@@ -78,10 +78,10 @@ typedef struct _sai_otdr_event_list_t
 typedef struct _sai_otdr_events_t
 {
     /** Total length in km */
-    sai_double_t span_distance;
+    sai_uint64_t span_distance;
 
     /** Total loss in dB */
-    sai_double_t span_loss;
+    sai_uint64_t span_loss;
 
     sai_otdr_event_list_t events;
 
@@ -139,7 +139,8 @@ typedef enum _sai_otdr_attr_t
     /**
      * @brief Refractive index
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_OTDR_ATTR_REFRACTIVE_INDEX,
@@ -147,7 +148,8 @@ typedef enum _sai_otdr_attr_t
     /**
      * @brief Backscatter index
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_OTDR_ATTR_BACKSCATTER_INDEX,
@@ -155,7 +157,8 @@ typedef enum _sai_otdr_attr_t
     /**
      * @brief Reflection threshold
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_OTDR_ATTR_REFLECTION_THRESHOLD,
@@ -163,7 +166,8 @@ typedef enum _sai_otdr_attr_t
     /**
      * @brief Splice loss threshold
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_OTDR_ATTR_SPLICE_LOSS_THRESHOLD,
@@ -171,7 +175,8 @@ typedef enum _sai_otdr_attr_t
     /**
      * @brief End of fiber threshold
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_OTDR_ATTR_END_OF_FIBER_THRESHOLD,
@@ -252,7 +257,8 @@ typedef enum _sai_otdr_attr_t
     /**
      * @brief Distance accuracy
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags READ_ONLY
      */
     SAI_OTDR_ATTR_DISTANCE_ACCURACY,
@@ -260,7 +266,8 @@ typedef enum _sai_otdr_attr_t
     /**
      * @brief Sampling resolution
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags READ_ONLY
      */
     SAI_OTDR_ATTR_SAMPLING_RESOLUTION,
@@ -268,7 +275,8 @@ typedef enum _sai_otdr_attr_t
     /**
      * @brief Loss dead zone
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags READ_ONLY
      */
     SAI_OTDR_ATTR_LOSS_DEAD_ZONE,
@@ -276,7 +284,8 @@ typedef enum _sai_otdr_attr_t
     /**
      * @brief Reflection dead zone
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags READ_ONLY
      */
     SAI_OTDR_ATTR_REFLECTION_DEAD_ZONE,

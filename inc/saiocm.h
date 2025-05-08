@@ -35,7 +35,7 @@ typedef struct _sai_spectrum_power_t
 {
     sai_uint64_t lower_frequency;
     sai_uint64_t upper_frequency;
-    sai_double_t power;
+    sai_uint64_t power;
 } sai_spectrum_power_t;
 
 typedef struct _sai_spectrum_power_list_t
@@ -90,7 +90,8 @@ typedef enum _sai_ocm_attr_t
     /**
      * @brief Insertion loss to panel port
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags READ_ONLY
      */
     SAI_OCM_ATTR_INSERTION_LOSS_TO_PANEL_PORT,

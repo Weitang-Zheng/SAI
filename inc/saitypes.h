@@ -127,7 +127,6 @@ typedef uint16_t sai_uint16_t;
 typedef int16_t sai_int16_t;
 typedef uint8_t sai_uint8_t;
 typedef int8_t sai_int8_t;
-typedef double sai_double_t;
 typedef size_t sai_size_t;
 typedef uint64_t sai_object_id_t;
 typedef void *sai_pointer_t;
@@ -1553,9 +1552,6 @@ typedef union _sai_attribute_value_t
 
     /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_POINTER */
     sai_pointer_t ptr;
-
-    /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_DOUBLE */
-    sai_double_t d64;
 
     /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_MAC */
     sai_mac_t mac;

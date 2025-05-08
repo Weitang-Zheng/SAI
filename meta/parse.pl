@@ -1582,36 +1582,6 @@ sub ProcessStatIsCounter
     return $value;
 }
 
-sub ProcessStatType
-{
-    my ($stat, $type) = @_;
-
-    if (not defined $type)
-    {
-        LogError "type is not defined for $stat";
-        return "";
-    }
-
-    if ($type =~ /^(sai_\w+_t)$/)
-    {
-        my $prefix = "SAI_STAT_VALUE_TYPE";
-
-        return "SAI_STAT_VALUE_TYPE_DOUBLE" if $1 eq "sai_double_t";
-        return "${prefix}_$VALUE_TYPES_TO_VT{$1}" if defined $VALUE_TYPES_TO_VT{$1};
-
-        if (not defined $SAI_ENUMS{$1})
-        {
-            LogError "invalid enum specified '$type' on $stat";
-            return "";
-        }
-
-        return "${prefix}_INT32";
-    }
-
-    LogError "invalid type '$type' for $stat";
-    return "";
-}
-
 sub ProcessStatName
 {
     my ($stat, $type) = @_;
@@ -2559,7 +2529,6 @@ sub ProcessSingleObjectTypeStat
 
         $meta{type} = "" if not defined $meta{type};
 
-        my $type            = ProcessStatType($stat, $meta{type});
         my $statname        = ProcessStatName($stat, $meta{type});
         my $unit            = ProcessStatUnit($stat, $meta{unit});
         my $precision       = ProcessStatPrecision($stat, $meta{precision});
@@ -2572,7 +2541,6 @@ sub ProcessSingleObjectTypeStat
         WriteSource ".objecttype                    = $objecttype,";
         WriteSource ".statid                        = $stat,";
         WriteSource ".statidname                    = $statname,";
-        WriteSource ".statvaluetype                 = $type,";
         WriteSource ".statvalueunit                 = $unit,";
         WriteSource ".statvalueprecision            = $precision,";
         WriteSource ".statvalueiscounter            = $iscounter,";
@@ -5253,7 +5221,6 @@ sub CheckAttributeValueUnion
 
         next if $type eq "char[512]";
         next if $type =~ /sai_u?int\d+_t/;
-        next if $type =~ /sai_double_t/;
         next if $type =~ /sai_[su]\d+_list_t/;
 
         next if defined $PRIMITIVE_TYPES{$type};

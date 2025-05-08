@@ -68,7 +68,8 @@ typedef enum _sai_attenuator_attr_t
     /**
      * @brief Target output power
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_ATTENUATOR_ATTR_TARGET_OUTPUT_POWER,
@@ -76,7 +77,8 @@ typedef enum _sai_attenuator_attr_t
     /**
      * @brief Attenuation
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_ATTENUATOR_ATTR_ATTENUATION,
@@ -108,7 +110,8 @@ typedef enum _sai_attenuator_attr_t
     /**
      * @brief Fix attenuation
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags READ_ONLY
      */
     SAI_ATTENUATOR_ATTR_FIX_ATTENUATION,
@@ -139,7 +142,8 @@ typedef enum _sai_attenuator_stat_t
     /**
      * @brief Actual attenuation
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dB
      * @iscounter false
      */
@@ -148,7 +152,8 @@ typedef enum _sai_attenuator_stat_t
     /**
      * @brief Output power total
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */
@@ -157,7 +162,8 @@ typedef enum _sai_attenuator_stat_t
     /**
      * @brief Optical return loss
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */

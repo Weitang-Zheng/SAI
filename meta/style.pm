@@ -233,29 +233,6 @@ sub CheckStatsFunction
     }
 }
 
-sub CheckGaugesFunction
-{
-    my ($fname,$fn,$fnparams) = @_;
-
-    if (not $fname =~ /^sai_(get|clear)_(\w+)_gauges_fn$/)
-    {
-        LogWarning "wrong gauge function name: $fname, expected: sai_(get|clear)_\\w+_gauges_fn";
-    }
-
-    if (not $fnparams =~ /^\w+_id number_of_gauges gauge_ids( gauges)?$/)
-    {
-        LogWarning "invalid gauge function $fname params names: $fnparams";
-    }
-
-    my @paramtypes = $fn =~ /_(?:In|Out|Inout)_\s*(.+?)\s*(?:\w+?)\s*[,\)]/gis;
-    my $ptypes = "@paramtypes";
-
-    if (not $ptypes =~ /^sai_object_id_t uint32_t const sai_gauge_id_t \*( sai_double_t \*)?$/)
-    {
-        LogWarning "invalid gauge function $fname param types: $ptypes";
-    }
-}
-
 sub CheckFunctionsParams
 {
     #
@@ -348,11 +325,6 @@ sub CheckFunctionsParams
         if ($fname =~ /^sai_\w+_stats_/)
         {
             CheckStatsFunction($fname,$fn,$fnparams);
-        }
-
-        if ($fname =~ /^sai_\w+_gauges_/)
-        {
-            CheckGaugesFunction($fname,$fn,$fnparams);
         }
     }
 }
@@ -496,10 +468,6 @@ sub CheckFunctionNaming
         # ok
     }
     elsif ($name =~ /^(get|clear)_(\w+?)_(all_)?stats(_ext)?$/)
-    {
-        LogWarning "not object name $2 in $name" if not IsObjectName($2);
-    }
-    elsif ($name =~ /^(get|clear)_(\w+?)_gauges?$/)
     {
         LogWarning "not object name $2 in $name" if not IsObjectName($2);
     }
@@ -1293,8 +1261,6 @@ sub CheckHeadersStyle
             next if $line =~ /^ {4}[{}]/;           # start or end of union
             next if $line =~ /^ {4}(u?int)/;        # union entries
             next if $line =~ /^ {4}(char|bool)/;    # union entries
-            next if $line =~ /^ {4}double/;          # union entries
-            next if $line =~ /^ {4}void/;           # union entries
             next if $line =~ /^ {8}bool booldata/;  # union bool
             next if $line =~ /^ {4}(true|false)/;   # bool definition
             next if $line =~ /^ {4}(const|size_t|else)/; # const in meta headers

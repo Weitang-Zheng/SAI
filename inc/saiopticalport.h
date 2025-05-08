@@ -119,7 +119,8 @@ typedef enum _sai_optical_port_attr_t
     /**
      * @brief Los threshold
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_OPTICAL_PORT_ATTR_LOS_THRESHOLD,
@@ -143,7 +144,8 @@ typedef enum _sai_optical_port_attr_t
     /**
      * @brief Low threshold
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_OPTICAL_PORT_ATTR_LOW_THRESHOLD,
@@ -151,7 +153,8 @@ typedef enum _sai_optical_port_attr_t
     /**
      * @brief High threshold
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_OPTICAL_PORT_ATTR_HIGH_THRESHOLD,
@@ -159,7 +162,8 @@ typedef enum _sai_optical_port_attr_t
     /**
      * @brief Input offset
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags READ_ONLY
      */
     SAI_OPTICAL_PORT_ATTR_INPUT_OFFSET,
@@ -167,7 +171,8 @@ typedef enum _sai_optical_port_attr_t
     /**
      * @brief Output offset
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags READ_ONLY
      */
     SAI_OPTICAL_PORT_ATTR_OUTPUT_OFFSET,
@@ -207,7 +212,8 @@ typedef enum _sai_optical_port_stat_t
     /**
      * @brief Input power
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */
@@ -216,7 +222,8 @@ typedef enum _sai_optical_port_stat_t
     /**
      * @brief Output power
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */
@@ -225,7 +232,8 @@ typedef enum _sai_optical_port_stat_t
     /**
      * @brief OSC input power
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */
@@ -234,7 +242,8 @@ typedef enum _sai_optical_port_stat_t
     /**
      * @brief OSC output power
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */

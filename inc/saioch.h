@@ -70,7 +70,8 @@ typedef enum _sai_och_attr_t
      * @brief Target output optical power level of the optical channel,
      * expressed in increments of 0.01 dBm
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @flags CREATE_AND_SET
      */
     SAI_OCH_ATTR_TARGET_OUTPUT_POWER,
@@ -120,7 +121,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief Group delay
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_GROUP_DELAY = SAI_OCH_STAT_START,
@@ -128,7 +130,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief Input power
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */
@@ -137,7 +140,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief Chromatic dispersion
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_CHROMATIC_DISPERSION,
@@ -145,7 +149,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief Output power
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */
@@ -154,7 +159,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief Laser bias current
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_LASER_BIAS_CURRENT,
@@ -162,7 +168,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief Second ORDER polarization mode dispersion
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_SECOND_ORDER_POLARIZATION_MODE_DISPERSION,
@@ -170,7 +177,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief Polarization mode dispersion
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_POLARIZATION_MODE_DISPERSION,
@@ -178,7 +186,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief OSNR
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dB
      * @iscounter false
      */
@@ -187,7 +196,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief SOP Vector S1
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_SOP_VECTOR_S1,
@@ -195,7 +205,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief SOP Vector S2
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_SOP_VECTOR_S2,
@@ -203,7 +214,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief SOP Vector S3
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_SOP_VECTOR_S3,
@@ -227,7 +239,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief Polarization dependent loss
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dB
      * @iscounter false
      */
@@ -236,7 +249,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief Input signal power
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @unit dBm
      * @iscounter false
      */
@@ -245,7 +259,8 @@ typedef enum _sai_och_stat_t
     /**
      * @brief EDFA bias current
      *
-     * @type sai_double_t
+     * @type sai_uint64_t
+     * @precision precision2
      * @iscounter false
      */
     SAI_OCH_STAT_EDFA_BIAS_CURRENT,
