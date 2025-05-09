@@ -67,14 +67,6 @@ typedef enum _sai_osc_attr_t
     SAI_OSC_ATTR_EQUIPMENT_MISMATCH,
 
     /**
-     * @brief Location
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OSC_ATTR_LOCATION,
-
-    /**
      * @brief Admin state
      *
      * @type sai_admin_state_t

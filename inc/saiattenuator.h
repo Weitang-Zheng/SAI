@@ -92,22 +92,6 @@ typedef enum _sai_attenuator_attr_t
     SAI_ATTENUATOR_ATTR_ENABLED,
 
     /**
-     * @brief Ingress port
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_ATTENUATOR_ATTR_INGRESS_PORT,
-
-    /**
-     * @brief Egress port
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_ATTENUATOR_ATTR_EGRESS_PORT,
-
-    /**
      * @brief Fix attenuation
      *
      * @type sai_uint64_t

@@ -233,7 +233,7 @@ typedef enum _sai_otdr_attr_t
     /**
      * @brief Start time
      *
-     * @type char
+     * @type sai_uint64_t
      * @flags CREATE_AND_SET
      */
     SAI_OTDR_ATTR_START_TIME,

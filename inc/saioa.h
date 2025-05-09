@@ -222,22 +222,6 @@ typedef enum _sai_oa_attr_t
     SAI_OA_ATTR_FIBER_TYPE_PROFILE,
 
     /**
-     * @brief Ingress port
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_INGRESS_PORT,
-
-    /**
-     * @brief Egress port
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_OA_ATTR_EGRESS_PORT,
-
-    /**
      * @brief Working state
      *
      * @type sai_oa_working_state_t

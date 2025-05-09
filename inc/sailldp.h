@@ -101,7 +101,7 @@ typedef enum _sai_lldp_attr_t
     /**
      * @brief Neighbor system description
      *
-     * @type char
+     * @type sai_s8_list_t
      * @flags READ_ONLY
      */
     SAI_LLDP_ATTR_NEIGHBOR_SYSTEM_DESCRIPTION,
@@ -157,7 +157,7 @@ typedef enum _sai_lldp_attr_t
     /**
      * @brief Neighbor port description
      *
-     * @type char
+     * @type sai_s8_list_t
      * @flags READ_ONLY
      */
     SAI_LLDP_ATTR_NEIGHBOR_PORT_DESCRIPTION,

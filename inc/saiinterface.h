@@ -69,22 +69,6 @@ typedef enum _sai_interface_attr_t
     SAI_INTERFACE_ATTR_INTERFACE_ID,
 
     /**
-     * @brief Transceiver
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_INTERFACE_ATTR_TRANSCEIVER,
-
-    /**
-     * @brief Hardware port
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_INTERFACE_ATTR_HARDWARE_PORT,
-
-    /**
      * @brief End of attributes
      */
     SAI_INTERFACE_ATTR_END,

@@ -272,14 +272,6 @@ typedef enum _sai_transceiver_attr_t
     SAI_TRANSCEIVER_ATTR_FORM_FACTOR,
 
     /**
-     * @brief Vendor expect
-     *
-     * @type char
-     * @flags CREATE_AND_SET
-     */
-    SAI_TRANSCEIVER_ATTR_VENDOR_EXPECT,
-
-    /**
      * @brief Vendor
      *
      * @type char
@@ -711,14 +703,6 @@ typedef enum _sai_transceiver_attr_t
      * @flags READ_ONLY
      */
     SAI_TRANSCEIVER_ATTR_OUI,
-
-    /**
-     * @brief Rn
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_TRANSCEIVER_ATTR_RN,
 
     /**
      * @brief Identifier

@@ -110,22 +110,6 @@ typedef enum _sai_media_channel_attr_t
     SAI_MEDIA_CHANNEL_ATTR_ATTENUATION_CONTROL_MODE,
 
     /**
-     * @brief Source port name
-     *
-     * @type char
-     * @flags CREATE_AND_SET
-     */
-    SAI_MEDIA_CHANNEL_ATTR_SOURCE_PORT_NAME,
-
-    /**
-     * @brief Destination port name
-     *
-     * @type char
-     * @flags CREATE_AND_SET
-     */
-    SAI_MEDIA_CHANNEL_ATTR_DEST_PORT_NAME,
-
-    /**
      * @brief Operational state
      *
      * @type sai_oper_status_t
