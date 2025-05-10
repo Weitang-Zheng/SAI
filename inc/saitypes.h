@@ -302,6 +302,24 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_PREFIX_COMPRESSION_TABLE = 112,
     SAI_OBJECT_TYPE_PREFIX_COMPRESSION_ENTRY = 113,
     SAI_OBJECT_TYPE_SYNCE_CLOCK              = 114,
+    SAI_OBJECT_TYPE_TRANSCEIVER              = 115,
+    SAI_OBJECT_TYPE_LOGICAL_CHANNEL          = 116,
+    SAI_OBJECT_TYPE_OTN                      = 117,
+    SAI_OBJECT_TYPE_ETHERNET                 = 118,
+    SAI_OBJECT_TYPE_PHYSICAL_CHANNEL         = 119,
+    SAI_OBJECT_TYPE_OCH                      = 120,
+    SAI_OBJECT_TYPE_LLDP                     = 121,
+    SAI_OBJECT_TYPE_INTERFACE                = 122,
+    SAI_OBJECT_TYPE_OPTICAL_PORT             = 123,
+    SAI_OBJECT_TYPE_OA                       = 124,
+    SAI_OBJECT_TYPE_OSC                      = 125,
+    SAI_OBJECT_TYPE_APS                      = 126,
+    SAI_OBJECT_TYPE_APS_PORT                 = 127,
+    SAI_OBJECT_TYPE_ATTENUATOR               = 128,
+    SAI_OBJECT_TYPE_WSS                      = 129,
+    SAI_OBJECT_TYPE_MEDIA_CHANNEL            = 130,
+    SAI_OBJECT_TYPE_OCM                      = 131,
+    SAI_OBJECT_TYPE_OTDR                     = 132,
 
     /** Must remain in last position */
     SAI_OBJECT_TYPE_MAX,
@@ -2065,6 +2083,46 @@ typedef struct _sai_switch_health_data_t
     /** @passparam data_type */
     sai_health_data_t data;
 } sai_switch_health_data_t;
+
+/** @brief Operational status */
+typedef enum _sai_oper_status_t
+{
+    SAI_OPER_STATUS_ACTIVE,
+    SAI_OPER_STATUS_INACTIVE,
+    SAI_OPER_STATUS_DISABLED,
+} sai_oper_status_t;
+
+/** @brief Admin state */
+typedef enum _sai_admin_state_t
+{
+    SAI_ADMIN_STATE_ENABLED,
+    SAI_ADMIN_STATE_DISABLED,
+    SAI_ADMIN_STATE_MAINT,
+} sai_admin_state_t;
+
+typedef enum _sai_optical_port_type_t
+{
+    /** Ingress port Port Type */
+    SAI_OPTICAL_PORT_TYPE_INGRESS,
+
+    /** Egress port Port Type */
+    SAI_OPTICAL_PORT_TYPE_EGRESS,
+
+    /** Add port at WSS Port Type */
+    SAI_OPTICAL_PORT_TYPE_ADD,
+
+    /** Drop port at WSS Port Type */
+    SAI_OPTICAL_PORT_TYPE_DROP,
+
+    /** Monitor port at OCM Port Type */
+    SAI_OPTICAL_PORT_TYPE_MONITOR,
+
+    /** Client-facing port Port Type */
+    SAI_OPTICAL_PORT_TYPE_TERMINAL_CLIENT,
+
+    /** Line-facing port Port Type */
+    SAI_OPTICAL_PORT_TYPE_TERMINAL_LINE
+} sai_optical_port_type_t;
 
 /**
  * @}

@@ -1,9 +1,13 @@
 # this file defines acronyms, one acronym per line
 ACL - Access Control List
 AES - Advanced Encryption Standard
+ALS - Automatic Laser Shutdown
 AN - Association Number
 AN - Auto Negotiation
 API - Application Program Interface
+APR - Automatic Power Reduction
+APS - Automatic Protection Switching
+APSPORT - Automatic Protection Switching Port
 ARP - Address Resolution Protocol
 ARS - Adaptiver Routing and Switching
 ASIC - Application Specific Integrated Circuit
@@ -11,6 +15,7 @@ BER - Bit Error Rate
 BFD - Bidirectional Forwarding Detection
 BFDV6 - Bidirectional Forwarding Detection for IPv6
 BGP - Border Gateway Protocol
+BIP - Bit Interleaved Parity
 BMTOR - Behavioral Model Top-of-Rack
 BOS - Bottom Of Stack
 BTH - Base Transport Header
@@ -20,6 +25,7 @@ CAUI - 100 Gigabit Attachment Unit Interface
 CB - Callback
 CBS - Committed Burst Size
 CCITT - Comite Consultatif International de Telegraphique et Telephonique
+CD - Chromatic Dispersion
 CFI - Canonical Format Indicator
 CIDR - Classless Inter Domain Routing
 CIR - Committed Information Rate
@@ -27,6 +33,8 @@ CMIS - Common Management Interface Specification
 CPLD - Complex programmable logic device
 CPU - Central Processing Unit
 CRC - Cyclic Redundancy Code
+DCO - Digital Coherent Optical
+DGD - Differential Group Delay
 DHCP - Dynamic Host Configuration Protocol
 DHCPV6 - Dynamic Host Configuration Protocol for IPv6
 DLD - Dead Lock Detection
@@ -44,6 +52,7 @@ ECD - Enhanced Cable Diagnostics
 ECMP - Equal Cost Multi-Path
 ECN - Explicit Congestion Notification
 ECT - ECN Capable Transport
+EDFA - Erbium Doped Fiber Amplifer
 EEE - Electrical and Electronics Engineering
 EEPROM - Electrically erasable programmable read-only memory
 ENI - Elastic Network Interface
@@ -54,6 +63,7 @@ FCS - Frame Check Sequence
 FD - File Descriptor
 FDB - Forwarding Data Base
 FEC - Forward Error Correction
+FGA - Fixed Gain Amplifier
 FPGA - Field Programmable Gate Array
 FW  - Firmware
 GCM - Galois Counter Mode
@@ -88,6 +98,7 @@ L2MC - Layer 2 Multi Cast
 L3 - Layer 3
 LAG - Link Aggregation Group
 LDP - Label Distribution Protocol
+LLDP - Link Layer Data Protocol
 LPM - Longest Prefix Match
 LSP - Label Switched Path
 MAC - Medium Access Control
@@ -105,7 +116,16 @@ NRZ - Non Return to Zero
 NTPCLIENT - Network Time Protocol Client
 NTPSERVER - Network Time Protocol Server
 NVGRE - Network Virtualization using Generic Routing Encapsulation
+OA - Optical Amplifier
 OAM - Operations Administration and Maintenance
+OCM - Optical Channel Monitor
+ODU - Optical channel Data Unit
+OMD - Optical Mux and Demux
+OPU - Optical Pickup Unit
+OSC - Optical Supervisory Channel
+OTDR - Optical Time Domain Reflectometer
+OTN - Optical Transport Network
+OTU - Optical Transport Unit
 OUI - Organizationally Unique Identifier
 P4RT - Programming Protocol-independent Packet Processors Runtime
 PAM4 - Pulse Amplitude Modulation 4-level
@@ -117,6 +137,7 @@ PFC - Priority Flow Control
 PHP - Penultimate Hop Pop
 PIR - Peak Information Rate
 PMD - Physical Medium Dependent
+PMD - Physical Medium Dependent
 PMOS - P-channel Metal Oxide Semiconductor
 PN - Packet Number
 POE - Power over Ethernet
@@ -127,8 +148,11 @@ PSP - Penultimate Segment Pop
 PTP - Precision time protocol
 QOS - Quality of Service
 RARP - Reverse Address Resolution Protocol
+RDI - Remote Defect Indication
 RDMA - Remote Direct Memory Access
 RFC - Request For Comment
+RMON - Remote Monitoring
+ROADM - Reconfigurable Optical Add-Drop Multiplexer
 RPC - Remote Procedure Call
 RPF - Reverse Path Forwarding
 RPN - Reverse Polish Notation
@@ -138,6 +162,7 @@ SAI - Switch Abstraction Interface
 SAK - Secure Association Key
 SC - Secure Channel
 SCI - Secure Channel Identifier
+SDH - Synchronous Digital Hierarchy
 SDK - Software Development Kit
 SER - Soft Error Rate
 SFI - SerDes Framer Interface
@@ -146,8 +171,10 @@ SG - (S,G) Source-specific multicast
 SGMII - Serial Gigabit Media Independent Interface
 SNAPT - Source Network Address Port Translation
 SNAT - Source Network Address Translation
+SNCP - Subnetwork Connection Protection
 SNMP - Simple Network Management Protocol
 SNR - Signal to Noise Ratio
+SONET - Synchronous Optical Network
 SPAN - Switched Port Analyzer
 SPI - Security Parameter Index
 SQE - Signal Quality Errors
@@ -162,9 +189,11 @@ TC - Traffic Control
 TCAM - Ternary Content Addressable Memory
 TCP - Transmission Control Protocol
 TEK - Traffic Encryption Key
+TFF - Thin Film Filter
 TLS - Transport Layer Security
 TOS - Type Of Service
 TPID - Tag Protocol Identifier
+TTI - Trail Trace Identifier
 TTL - Time to Leave
 TWAMP - Two-Way Active Measurement Protocol
 UART - Universal Asynchronous Receiver/Transmitter
@@ -176,6 +205,7 @@ USXGMII - Universal Serial 10 Gigabit Media Independent Interface
 VNET - Virtual Network
 VNI - Virtual Network Interface
 VNID - Virtual Network Identifier
+VOA - Variable Optical Attenuator
 VOQ - Virtual Output Queue
 VPN - Virtual Private Network
 VR - Virtual Router
@@ -185,6 +215,7 @@ VSID - Virtual Subnet Identifier
 VXLAN - Virtual Extensible LAN
 WCMP - Weighted Cost Multipath
 WRED - Weighted Random Early Detection
+WSS - Wavelength Selective Switch
 WWW - World Wide Web
 XAUI - 10 Gbps Attachment Unit Interface
 XFI - 10 Gbps Chip to Chip Interface
