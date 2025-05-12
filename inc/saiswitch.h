@@ -3426,6 +3426,14 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_HOSTNAME,
 
     /**
+     * @brief FPGA version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_FPGA_VERSION,
+
+    /**
      * @brief CPLD version
      *
      * @type char
@@ -3484,31 +3492,6 @@ typedef enum _sai_switch_attr_t
      * @isrecoverable false
      */
     SAI_SWITCH_ATTR_COLLECT_SWITCH_LOG,
-
-    /**
-     * @brief Baud rate
-     *
-     * @type sai_switch_baud_rate_t
-     * @flags CREATE_AND_SET
-     */
-    SAI_SWITCH_ATTR_BAUD_RATE,
-
-    /**
-     * @brief Host IPv4 address
-     *
-     * @type sai_uint32_t
-     * @flags SET_ONLY
-     * @isrecoverable false
-     */
-    SAI_SWITCH_ATTR_HOST_IP,
-
-    /**
-     * @brief FPGA version
-     *
-     * @type char
-     * @flags READ_ONLY
-     */
-    SAI_SWITCH_ATTR_FPGA_VERSION,
 
     /**
      * @brief Temperature high alarm threshold
