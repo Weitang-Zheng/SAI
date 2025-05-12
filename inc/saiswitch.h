@@ -436,21 +436,8 @@ typedef enum _sai_switch_reset_t
 {
     SAI_SWITCH_RESET_WARM,
     SAI_SWITCH_RESET_COLD,
-    SAI_SWITCH_RESET_FORCE,
     SAI_SWITCH_RESET_MAX,
 } sai_switch_reset_t;
-
-/**
- * @brief Switch baud rate
- */
-typedef enum _sai_switch_baud_rate_t
-{
-    SAI_SWITCH_BAUD_RATE_9600,
-    SAI_SWITCH_BAUD_RATE_19200,
-    SAI_SWITCH_BAUD_RATE_38400,
-    SAI_SWITCH_BAUD_RATE_57600,
-    SAI_SWITCH_BAUD_RATE_115200,
-} sai_switch_baud_rate_t;
 
 /**
  * @brief Switch alarm notification
