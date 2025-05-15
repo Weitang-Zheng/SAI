@@ -397,8 +397,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief New work bit rate
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_NEWWORK_BIT_RATE,
 
@@ -406,8 +406,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Host bit rate
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_HOST_BIT_RATE,
 
@@ -415,8 +415,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Sm fiber length
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_SM_FIBER_LEN,
 
@@ -424,8 +424,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Mm fiber length
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_MM_FIBER_LEN,
 
@@ -433,8 +433,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Copper cable length
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_COPPER_CABLE_LEN,
 
@@ -442,8 +442,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Max wave length
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_MAX_WAVELENGTH,
 
@@ -451,8 +451,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Min wave length
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_MIN_WAVELENGTH,
 
@@ -460,8 +460,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Max tx power
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_MAX_TX_POWER,
 
@@ -469,8 +469,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Max rx power
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_MAX_RX_POWER,
 
@@ -478,8 +478,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Max operational temp
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_MAX_OPER_TEMP,
 
@@ -487,8 +487,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Min operational temp
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_MIN_OPER_TEMP,
 
@@ -496,8 +496,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief VCC high alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_VCC_HIGH_ALARM_THRESHOLD,
 
@@ -505,8 +505,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief VCC high warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_VCC_HIGH_WARN_THRESHOLD,
 
@@ -514,8 +514,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief VCC low alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_VCC_LOW_ALARM_THRESHOLD,
 
@@ -523,8 +523,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief VCC low warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_VCC_LOW_WARN_THRESHOLD,
 
@@ -532,8 +532,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Rx total power high alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_RX_TOTAL_POWER_HIGH_ALARM_THRESHOLD,
 
@@ -541,8 +541,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Rx total power high warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_RX_TOTAL_POWER_HIGH_WARN_THRESHOLD,
 
@@ -550,8 +550,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Rx total power low alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_RX_TOTAL_POWER_LOW_ALARM_THRESHOLD,
 
@@ -559,8 +559,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Rx total power low warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_RX_TOTAL_POWER_LOW_WARN_THRESHOLD,
 
@@ -568,8 +568,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief OA pump current  high alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_OA_PUMP_CURRENT_HIGH_ALARM_THRESHOLD,
 
@@ -577,8 +577,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief OA pump current high warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_OA_PUMP_CURRENT_HIGH_WARN_THRESHOLD,
 
@@ -586,8 +586,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief OA pump current low alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_OA_PUMP_CURRENT_LOW_ALARM_THRESHOLD,
 
@@ -595,8 +595,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief OA pump current low warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_OA_PUMP_CURRENT_LOW_WARN_THRESHOLD,
 
@@ -604,8 +604,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Tx BAIS high alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TX_BAIS_HIGH_ALARM_THRESHOLD,
 
@@ -613,8 +613,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Tx BAIS high warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TX_BAIS_HIGH_WARN_THRESHOLD,
 
@@ -622,8 +622,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Tx BAIS low alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TX_BAIS_LOW_ALARM_THRESHOLD,
 
@@ -631,8 +631,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Tx BAIS low warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TX_BAIS_LOW_WARN_THRESHOLD,
 
@@ -664,8 +664,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Bit rate
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_BITRATE,
 
@@ -673,8 +673,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Extend bit rate
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_EXTEND_BIT_RATE,
 
@@ -682,8 +682,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Wavelength
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_WAVELENGTH,
 
@@ -691,8 +691,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Wavelength tolerance
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_WAVELENGTH_TOLERANCE,
 
@@ -724,8 +724,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Tx power high alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TX_POWER_HIGH_ALARM_THRESHOLD,
 
@@ -733,8 +733,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Tx power low alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TX_POWER_LOW_ALARM_THRESHOLD,
 
@@ -742,8 +742,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Tx power high warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TX_POWER_HIGH_WARN_THRESHOLD,
 
@@ -751,8 +751,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Tx power low warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TX_POWER_LOW_WARN_THRESHOLD,
 
@@ -768,8 +768,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Temperature high alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TEMP_HIGH_ALARM_THRESHOLD,
 
@@ -777,8 +777,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Temperature high warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TEMP_HIGH_WARN_THRESHOLD,
 
@@ -786,8 +786,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Temperature low alarm threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TEMP_LOW_ALARM_THRESHOLD,
 
@@ -795,8 +795,8 @@ typedef enum _sai_transceiver_attr_t
      * @brief Temperature low warn threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_TRANSCEIVER_ATTR_TEMP_LOW_WARN_THRESHOLD,
 
@@ -835,9 +835,9 @@ typedef enum _sai_transceiver_stat_t
      * @brief Input power
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @unit dBm
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_INPUT_POWER,
 
@@ -845,9 +845,9 @@ typedef enum _sai_transceiver_stat_t
      * @brief Output power
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @unit dBm
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_OUTPUT_POWER,
 
@@ -855,8 +855,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Laser bias current
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_LASER_BIAS_CURRENT,
 
@@ -864,9 +864,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Transceiver temperature
      *
      * @type sai_uint64_t
-     * @precision precision2
-     * @precision precision1
      * @iscounter false
+     * @precision precision1
      */
     SAI_TRANSCEIVER_STAT_TEMPERATURE,
 
@@ -874,8 +873,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Bit error rate before forward error correction
      *
      * @type sai_uint64_t
-     * @precision precision18
      * @iscounter false
+     * @precision precision18
      */
     SAI_TRANSCEIVER_STAT_PRE_FEC_BER,
 
@@ -883,8 +882,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Bit error rate after forward error correction
      *
      * @type sai_uint64_t
-     * @precision precision18
      * @iscounter false
+     * @precision precision18
      */
     SAI_TRANSCEIVER_STAT_POST_FEC_BER,
 
@@ -892,8 +891,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief EDFA bias current
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_EDFA_BIAS_CURRENT,
 
@@ -901,8 +900,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Laser bias voltage
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_LASER_BIAS_VOLTAGE,
 
@@ -910,9 +909,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Case temperature
      *
      * @type sai_uint64_t
-     * @precision precision2
-     * @precision precision1
      * @iscounter false
+     * @precision precision1
      */
     SAI_TRANSCEIVER_STAT_CASE_TEMPERATURE,
 
@@ -920,8 +918,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Power consumption
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_POWER_CONSUMPTION,
 
@@ -929,8 +927,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias XI
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_XI,
 
@@ -938,8 +936,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias XQ
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_XQ,
 
@@ -947,8 +945,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias YI
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_YI,
 
@@ -956,8 +954,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias YQ
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_YQ,
 
@@ -965,8 +963,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias XPH
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_XPH,
 
@@ -974,8 +972,8 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias YPH
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @iscounter false
+     * @precision precision2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_YPH,
 

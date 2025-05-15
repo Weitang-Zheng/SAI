@@ -140,8 +140,8 @@ typedef enum _sai_otdr_attr_t
      * @brief Refractive index
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_OTDR_ATTR_REFRACTIVE_INDEX,
 
@@ -149,8 +149,8 @@ typedef enum _sai_otdr_attr_t
      * @brief Backscatter index
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_OTDR_ATTR_BACKSCATTER_INDEX,
 
@@ -158,8 +158,8 @@ typedef enum _sai_otdr_attr_t
      * @brief Reflection threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_OTDR_ATTR_REFLECTION_THRESHOLD,
 
@@ -167,8 +167,8 @@ typedef enum _sai_otdr_attr_t
      * @brief Splice loss threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_OTDR_ATTR_SPLICE_LOSS_THRESHOLD,
 
@@ -176,8 +176,8 @@ typedef enum _sai_otdr_attr_t
      * @brief End of fiber threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_OTDR_ATTR_END_OF_FIBER_THRESHOLD,
 
@@ -258,8 +258,8 @@ typedef enum _sai_otdr_attr_t
      * @brief Distance accuracy
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_OTDR_ATTR_DISTANCE_ACCURACY,
 
@@ -267,8 +267,8 @@ typedef enum _sai_otdr_attr_t
      * @brief Sampling resolution
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_OTDR_ATTR_SAMPLING_RESOLUTION,
 
@@ -276,8 +276,8 @@ typedef enum _sai_otdr_attr_t
      * @brief Loss dead zone
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_OTDR_ATTR_LOSS_DEAD_ZONE,
 
@@ -285,8 +285,8 @@ typedef enum _sai_otdr_attr_t
      * @brief Reflection dead zone
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_OTDR_ATTR_REFLECTION_DEAD_ZONE,
 

@@ -91,8 +91,8 @@ typedef enum _sai_ocm_attr_t
      * @brief Insertion loss to panel port
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags READ_ONLY
+     * @precision precision2
      */
     SAI_OCM_ATTR_INSERTION_LOSS_TO_PANEL_PORT,
 

@@ -121,8 +121,8 @@ typedef enum _sai_media_channel_attr_t
      * @brief Attenuation value
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_MEDIA_CHANNEL_ATTR_ATTENUATION_VALUE,
 
@@ -138,8 +138,8 @@ typedef enum _sai_media_channel_attr_t
      * @brief Target power
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_MEDIA_CHANNEL_ATTR_TARGET_POWER,
 
@@ -170,9 +170,9 @@ typedef enum _sai_media_channel_stat_t
      * @brief Actual attenuation
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @unit dB
      * @iscounter false
+     * @precision precision2
      */
     SAI_MEDIA_CHANNEL_STAT_ACTUAL_ATTENUATION = SAI_MEDIA_CHANNEL_STAT_START,
 
@@ -180,9 +180,9 @@ typedef enum _sai_media_channel_stat_t
      * @brief Input power
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @unit dBm
      * @iscounter false
+     * @precision precision2
      */
     SAI_MEDIA_CHANNEL_STAT_INPUT_POWER,
 
@@ -190,9 +190,9 @@ typedef enum _sai_media_channel_stat_t
      * @brief Output power
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @unit dBm
      * @iscounter false
+     * @precision precision2
      */
     SAI_MEDIA_CHANNEL_STAT_OUTPUT_POWER,
 

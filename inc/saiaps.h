@@ -139,8 +139,8 @@ typedef enum _sai_aps_attr_t
      * @brief Primary switch threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_APS_ATTR_PRIMARY_SWITCH_THRESHOLD,
 
@@ -148,8 +148,8 @@ typedef enum _sai_aps_attr_t
      * @brief Primary switch hysteresis
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_APS_ATTR_PRIMARY_SWITCH_HYSTERESIS,
 
@@ -157,8 +157,8 @@ typedef enum _sai_aps_attr_t
      * @brief Secondary switch threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_APS_ATTR_SECONDARY_SWITCH_THRESHOLD,
 
@@ -166,8 +166,8 @@ typedef enum _sai_aps_attr_t
      * @brief Relative switch threshold
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_APS_ATTR_RELATIVE_SWITCH_THRESHOLD,
 
@@ -175,8 +175,8 @@ typedef enum _sai_aps_attr_t
      * @brief Relative switch threshold offset
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_APS_ATTR_RELATIVE_SWITCH_THRESHOLD_OFFSET,
 
@@ -201,8 +201,8 @@ typedef enum _sai_aps_attr_t
      * @brief Alarm hysteresis
      *
      * @type sai_uint64_t
-     * @precision precision2
      * @flags CREATE_AND_SET
+     * @precision precision2
      */
     SAI_APS_ATTR_ALARM_HYSTERESIS,
 
