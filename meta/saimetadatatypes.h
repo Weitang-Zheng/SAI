@@ -503,6 +503,50 @@ typedef enum _sai_attr_value_type_t
 } sai_attr_value_type_t;
 
 /**
+ * @brief Defines statistics value unit.
+ */
+typedef enum _sai_stat_value_unit_t
+{
+    /**
+     * @brief Value unit is not dBm or dB.
+     */
+    SAI_STAT_VALUE_UNIT_NORMAL,
+
+    /**
+     * @brief Value unit is dBm.
+     */
+    SAI_STAT_VALUE_UNIT_DBM,
+
+    /**
+     * @brief Value unit is dB.
+     */
+    SAI_STAT_VALUE_UNIT_DB,
+
+} sai_stat_value_unit_t;
+
+/**
+ * @brief Defines statistics value precision.
+ */
+typedef enum _sai_stat_value_precision_t
+{
+    /**
+     * @brief Value with 1 decimal precision.
+     */
+    SAI_STAT_VALUE_PRECISION_1,
+
+    /**
+     * @brief Value with 2 decimal precision.
+     */
+    SAI_STAT_VALUE_PRECISION_2,
+
+    /**
+     * @brief Value with 18 decimal precision.
+     */
+    SAI_STAT_VALUE_PRECISION_18,
+
+} sai_stat_value_precision_t;
+
+/**
  * @brief Attribute flags.
  *
  * @flags strict
@@ -583,6 +627,13 @@ typedef enum _sai_attr_flags_t
      */
     SAI_ATTR_FLAGS_SPECIAL             = (1 << 6),
 
+    /**
+     * @brief Set only flag.
+     *
+     * Attribute with this flag can only be wrote using SET API. Read is not
+     * possible.
+     */
+    SAI_ATTR_FLAGS_SET_ONLY           = (1 << 7),
 } sai_attr_flags_t;
 
 /**
@@ -604,6 +655,11 @@ typedef enum _sai_attr_flags_t
  * @def Defines helper to check if read only flag is set.
  */
 #define SAI_HAS_FLAG_READ_ONLY(x)             (((x) & SAI_ATTR_FLAGS_READ_ONLY) == SAI_ATTR_FLAGS_READ_ONLY)
+
+/**
+ * @def Defines helper to check if write only flag is set.
+ */
+#define SAI_HAS_FLAG_SET_ONLY(x)             (((x) & SAI_ATTR_FLAGS_SET_ONLY) == SAI_ATTR_FLAGS_SET_ONLY)
 
 /**
  * @def Defines helper to check if key flag is set.
@@ -917,6 +973,53 @@ typedef struct _sai_attr_capability_metadata_t
     const int* const            enumvalues;
 
 } sai_attr_capability_metadata_t;
+
+/**
+ * @brief Defines statistics metadata.
+ */
+typedef struct _sai_stat_metadata_t
+{
+    /**
+     * @brief Specifies valid SAI object type.
+     */
+    sai_object_type_t                           objecttype;
+
+    /**
+     * @brief Specifies valid statistics id for this object type.
+     */
+    sai_stat_id_t                               statid;
+
+    /**
+     * @brief Specifies valid statistics id name for this object type.
+     */
+    const char* const                           statidname;
+
+    /**
+     * @brief Specifies valid statistics id name of kebab case naming style.
+     */
+    const char* const                           statidkebabname;
+
+    /**
+     * @brief Specifies valid statistics id name of camel case naming style.
+     */
+    const char* const                           statidcamelname;
+
+    /**
+     * @brief Specifies value unit for this statistics.
+     */
+    sai_stat_value_unit_t                       statvalueunit;
+
+    /**
+     * @brief Specifies value precision for this statistics.
+     */
+    sai_stat_value_precision_t                  statvalueprecision;
+
+    /**
+     * @brief Determines whether value is counter.
+     */
+    bool                                        statvalueiscounter;
+
+} sai_stat_metadata_t;
 
 /**
  * @brief Defines attribute metadata.
@@ -1320,6 +1423,23 @@ typedef struct _sai_attr_metadata_t
      */
     bool                                        nextrelease;
 
+    /**
+     * @brief Determines whether attribute is set only
+     */
+    bool                                        issetonly;
+
+    /**
+     * @brief Specifies kebab name for this object type.
+     */
+    const char* const                           attridkebabname;
+
+    /**
+     * @brief Indicates whether attribute is recoverable.
+     *
+     * If true, when calling SET API successfully, the value will be saved in local
+     * db for warm-reboot (or cold-reboot) flow to recover this configuration.
+     */
+    bool                                        isrecoverable;
 } sai_attr_metadata_t;
 
 /*
@@ -1658,6 +1778,10 @@ typedef struct _sai_object_type_info_t
      */
     bool                                            iscustom;
 
+    /**
+     * @brief Points to enum sai_OBJECT_TYPE_alarm_t if object supports alarms.
+     */
+    const sai_enum_metadata_t* const                alarmenum;
 } sai_object_type_info_t;
 
 /**

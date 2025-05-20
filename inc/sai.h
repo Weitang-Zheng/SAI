@@ -82,6 +82,24 @@
 #include "saipoe.h"
 #include "saiicmpecho.h"
 #include "saisynce.h"
+#include "saiaps.h"
+#include "saiapsport.h"
+#include "saiattenuator.h"
+#include "saiethernet.h"
+#include "saiinterface.h"
+#include "sailldp.h"
+#include "sailogicalchannel.h"
+#include "saimediachannel.h"
+#include "saioa.h"
+#include "saioch.h"
+#include "saiocm.h"
+#include "saiopticalport.h"
+#include "saiosc.h"
+#include "saiotdr.h"
+#include "saiotn.h"
+#include "saiphysicalchannel.h"
+#include "saitransceiver.h"
+#include "saiwss.h"
 
 /**
  * @defgroup SAI SAI - Entry point specific API definitions.
@@ -153,6 +171,24 @@ typedef enum _sai_api_t
     SAI_API_ICMP_ECHO        = 52, /**< sai_icmp_echo_api_t */
     SAI_API_PREFIX_COMPRESSION = 53, /**< sai_prefix_compression_api_t */
     SAI_API_SYNCE            = 54, /**< sai_synce_api_t */
+    SAI_API_TRANSCEIVER      = 55, /**< sai_transceiver_api_t */
+    SAI_API_LOGICAL_CHANNEL  = 56, /**< sai_logical_channel_api_t */
+    SAI_API_OTN              = 57, /**< sai_otn_api_t */
+    SAI_API_ETHERNET         = 58, /**< sai_ethernet_api_t */
+    SAI_API_PHYSICAL_CHANNEL = 59, /**< sai_physical_channel_api_t */
+    SAI_API_OCH              = 60, /**< sai_och_api_t */
+    SAI_API_LLDP             = 61, /**< sai_lldp_api_t */
+    SAI_API_INTERFACE        = 62, /**< sai_interface_api_t */
+    SAI_API_OPTICAL_PORT     = 63, /**< sai_optical_port_api_t */
+    SAI_API_OA               = 64, /**< sai_oa_api_t */
+    SAI_API_OSC              = 65, /**< sai_osc_api_t */
+    SAI_API_APS              = 66, /**< sai_aps_api_t */
+    SAI_API_APS_PORT         = 67, /**< sai_aps_port_api_t */
+    SAI_API_ATTENUATOR       = 68, /**< sai_attenuator_api_t */
+    SAI_API_WSS              = 69, /**< sai_wss_api_t */
+    SAI_API_MEDIA_CHANNEL    = 70, /**< sai_media_channel_api_t */
+    SAI_API_OCM              = 71, /**< sai_ocm_api_t */
+    SAI_API_OTDR             = 72, /**< sai_otdr_api_t */
     SAI_API_MAX,                   /**< total number of APIs */
 
     /**

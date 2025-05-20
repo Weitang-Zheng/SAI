@@ -26,6 +26,7 @@
 #define __SAISWITCH_H_
 
 #include <saitypes.h>
+#include <saialarmtypes.h>
 
 /**
  * @defgroup SAISWITCH SAI - Switch specific API definitions
@@ -319,6 +320,9 @@ typedef enum _sai_switch_type_t
     /** Switch type is POE (Power over Ethernet) */
     SAI_SWITCH_TYPE_POE,
 
+    /** Switch type is OTN (Optical Transport Network) */
+    SAI_SWITCH_TYPE_OTN,
+
 } sai_switch_type_t;
 
 /**
@@ -417,6 +421,38 @@ typedef enum _sai_tunnel_decap_ecn_mode_t
     SAI_TUNNEL_DECAP_ECN_MODE_USER_DEFINED
 
 } sai_tunnel_decap_ecn_mode_t;
+
+/**
+ * @brief Power admin state of the switch
+ */
+typedef enum _sai_switch_power_admin_state_t
+{
+    SAI_SWITCH_POWER_ADMIN_STATE_ENABLED,
+    SAI_SWITCH_POWER_ADMIN_STATE_DISABLED,
+    SAI_SWITCH_POWER_ADMIN_STATE_MAX,
+} sai_switch_power_admin_state_t;
+
+/**
+ * @brief The reset type of the switch
+ */
+typedef enum _sai_switch_reset_t
+{
+    SAI_SWITCH_RESET_WARM,
+    SAI_SWITCH_RESET_COLD,
+    SAI_SWITCH_RESET_MAX,
+} sai_switch_reset_t;
+
+/**
+ * @brief Switch alarm notification
+ *
+ * @param[in] switch_id Switch Id
+ * @param[in] alarm_type Alarm type
+ * @param[in] alarm_info Alarm info
+ */
+typedef void (*sai_switch_alarm_notification_fn)(
+        _In_ sai_object_id_t switch_id,
+        _In_ sai_alarm_type_t alarm_type,
+        _In_ sai_alarm_info_t alarm_info);
 
 /**
  * @brief Defines tunnel attributes at switch level.
@@ -3328,8 +3364,195 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_CUSTOM_RANGE_END,
 
     /** Extensions range base */
-    SAI_SWITCH_ATTR_EXTENSIONS_RANGE_BASE = 0x20000000
+    SAI_SWITCH_ATTR_EXTENSIONS_RANGE_BASE = 0x20000000,
 
+    /**
+     * @brief OTN linecard type
+     *
+     * @type char
+     * @flags MANDATORY_ON_CREATE | CREATE_AND_SET
+     * @condition SAI_SWITCH_ATTR_TYPE == SAI_SWITCH_TYPE_OTN
+     */
+    SAI_SWITCH_ATTR_OTN_TYPE,
+
+    /**
+     * @brief The admin state of the switch
+     *
+     * @type sai_admin_state_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_ADMIN_STATE,
+
+    /**
+     * @brief The board mode of the switch
+     *
+     * @type char
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_BOARD_MODE,
+
+    /**
+     * @brief The reset type of the switch
+     *
+     * @type sai_switch_reset_t
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_RESET,
+
+    /**
+     * @brief The power admin state of the switch
+     *
+     * @type sai_switch_power_admin_state_t
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_POWER_ADMIN_STATE,
+
+    /**
+     * @brief Host name
+     *
+     * @type char
+     * @flags CREATE_AND_SET
+     */
+    SAI_SWITCH_ATTR_HOSTNAME,
+
+    /**
+     * @brief FPGA version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_FPGA_VERSION,
+
+    /**
+     * @brief CPLD version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_CPLD_VERSION,
+
+    /**
+     * @brief Script version
+     *
+     * @type char
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_SCRIPT_VERSION,
+
+    /**
+     * @brief Switch alarm notification
+     *
+     * @type sai_pointer_t sai_switch_alarm_notification_fn
+     * @flags CREATE_ONLY
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_SWITCH_ALARM_NOTIFY,
+
+    /**
+     * @brief OCM spectrum power notification
+     *
+     * @type sai_pointer_t sai_ocm_spectrum_power_notification_fn
+     * @flags CREATE_ONLY
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_OCM_SPECTRUM_POWER_NOTIFY,
+
+    /**
+     * @brief OTDR scab result notification
+     *
+     * @type sai_pointer_t sai_otdr_scan_result_notification_fn
+     * @flags CREATE_ONLY
+     * @default NULL
+     */
+    SAI_SWITCH_ATTR_OTDR_SCAN_RESULT_NOTIFY,
+
+    /**
+     * @brief Collect switch alarm.
+     *
+     * @type bool
+     * @flags SET_ONLY
+     */
+    SAI_SWITCH_ATTR_COLLECT_SWITCH_ALARM,
+
+    /**
+     * @brief Collect switch log.
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_COLLECT_SWITCH_LOG,
+
+    /**
+     * @brief Temperature high alarm threshold
+     *
+     * @type sai_uint64_t
+     * @flags CREATE_AND_SET
+     * @precision 2
+     */
+    SAI_SWITCH_ATTR_TEMP_HIGH_ALARM_THRESHOLD,
+
+    /**
+     * @brief Temperature high warn threshold
+     *
+     * @type sai_uint64_t
+     * @flags CREATE_AND_SET
+     * @precision 2
+     */
+    SAI_SWITCH_ATTR_TEMP_HIGH_WARN_THRESHOLD,
+
+    /**
+     * @brief Temperature low alarm threshold
+     *
+     * @type sai_uint64_t
+     * @flags CREATE_AND_SET
+     * @precision 2
+     */
+    SAI_SWITCH_ATTR_TEMP_LOW_ALARM_THRESHOLD,
+
+    /**
+     * @brief Temperature low warn threshold
+     *
+     * @type sai_uint64_t
+     * @flags CREATE_AND_SET
+     * @precision 2
+     */
+    SAI_SWITCH_ATTR_TEMP_LOW_WARN_THRESHOLD,
+
+    /**
+     * @brief Equipment failure
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_EQUIPMENT_FAILURE,
+
+    /**
+     * @brief Equipment mismatch
+     *
+     * @type bool
+     * @flags READ_ONLY
+     */
+    SAI_SWITCH_ATTR_EQUIPMENT_MISMATCH,
+
+    /**
+     * @brief Start configuration
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_START_CONFIGURATION,
+
+    /**
+     * @brief Stop configuration
+     *
+     * @type bool
+     * @flags SET_ONLY
+     * @isrecoverable false
+     */
+    SAI_SWITCH_ATTR_STOP_CONFIGURATION,
 } sai_switch_attr_t;
 
 /**
@@ -3455,6 +3678,30 @@ typedef enum _sai_switch_stat_t
     /** Switch stat fabric drop reasons range end */
     SAI_SWITCH_STAT_FABRIC_DROP_REASON_RANGE_END = 0x00003fff,
 
+    /**
+     * @brief Memory utilized
+     *
+     * @type sai_uint64_t
+     * @iscounter false
+     */
+    SAI_SWITCH_STAT_MEMORY_UTILIZED,
+
+    /**
+     * @brief CPU utilization
+     *
+     * @type sai_uint32_t
+     * @iscounter false
+     */
+    SAI_SWITCH_STAT_CPU_UTILIZATION,
+
+    /**
+     * @brief Temperature
+     *
+     * @type sai_uint64_t
+     * @iscounter false
+     * @precision 2
+     */
+    SAI_SWITCH_STAT_TEMPERATURE,
 } sai_switch_stat_t;
 
 /**
