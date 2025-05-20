@@ -320,6 +320,9 @@ typedef enum _sai_switch_type_t
     /** Switch type is POE (Power over Ethernet) */
     SAI_SWITCH_TYPE_POE,
 
+    /** Switch type is OTN (Optical Transport Network) */
+    SAI_SWITCH_TYPE_OTN,
+
 } sai_switch_type_t;
 
 /**
@@ -3364,12 +3367,13 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_EXTENSIONS_RANGE_BASE = 0x20000000,
 
     /**
-     * @brief Switch type
+     * @brief OTN linecard type
      *
      * @type char
      * @flags MANDATORY_ON_CREATE | CREATE_AND_SET
+     * @condition SAI_SWITCH_ATTR_TYPE == SAI_SWITCH_TYPE_OTN
      */
-    SAI_SWITCH_ATTR_SWITCH_TYPE,
+    SAI_SWITCH_ATTR_OTN_TYPE,
 
     /**
      * @brief The admin state of the switch
