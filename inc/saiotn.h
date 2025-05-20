@@ -263,7 +263,7 @@ typedef enum _sai_otn_stat_t
      * @type sai_uint64_t
      * @unit dB
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OTN_STAT_ESNR,
 
@@ -272,7 +272,7 @@ typedef enum _sai_otn_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision18
+     * @precision 18
      */
     SAI_OTN_STAT_PRE_FEC_BER,
 
@@ -282,7 +282,7 @@ typedef enum _sai_otn_stat_t
      * @type sai_uint64_t
      * @unit dB
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OTN_STAT_Q_VALUE,
 
@@ -291,7 +291,7 @@ typedef enum _sai_otn_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision18
+     * @precision 18
      */
     SAI_OTN_STAT_POST_FEC_BER,
 
@@ -325,7 +325,7 @@ typedef enum _sai_otn_stat_t
      * @type sai_uint64_t
      * @unit dB
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OTN_STAT_Q_MARGIN,
 

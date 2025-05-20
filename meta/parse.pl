@@ -142,9 +142,9 @@ sub ProcessTagUnit
 sub ProcessTagPrecision
 {
     my ($precision, $value, $val) = @_;
-    return $val if $val =~ /^(precision1|precision2|precision18|)$/i;
+    return $val if $val =~ /^(1|2|18|)$/i;
 
-    LogError "precision tag value '$val', expected precision1/precision2/precision18";
+    LogError "precision tag value '$val', expected 1/2/18";
     return undef;
 }
 
@@ -1566,9 +1566,9 @@ sub ProcessStatPrecision
     {
         return "SAI_STAT_VALUE_PRECISION_2";
     }
-    return "SAI_STAT_VALUE_PRECISION_1" if $precision eq "precision1";
-    return "SAI_STAT_VALUE_PRECISION_2" if $precision eq "precision2";
-    return "SAI_STAT_VALUE_PRECISION_18" if $precision eq "precision18";
+    return "SAI_STAT_VALUE_PRECISION_1" if $precision eq "1";
+    return "SAI_STAT_VALUE_PRECISION_2" if $precision eq "2";
+    return "SAI_STAT_VALUE_PRECISION_18" if $precision eq "18";
 
     return "SAI_STAT_VALUE_PRECISION_2";
 }

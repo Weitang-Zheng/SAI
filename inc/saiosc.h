@@ -103,7 +103,7 @@ typedef enum _sai_osc_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_ATTR_RX_LOW_THRESHOLD,
 
@@ -112,7 +112,7 @@ typedef enum _sai_osc_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_ATTR_RX_HIGH_THRESHOLD,
 
@@ -121,7 +121,7 @@ typedef enum _sai_osc_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_ATTR_TX_LOW_THRESHOLD,
 
@@ -154,7 +154,7 @@ typedef enum _sai_osc_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_INPUT_POWER = SAI_OSC_STAT_START,
 
@@ -163,7 +163,7 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision1
+     * @precision 1
      */
     SAI_OSC_STAT_TEMPERATURE,
 
@@ -173,7 +173,7 @@ typedef enum _sai_osc_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_OUTPUT_POWER,
 
@@ -182,7 +182,7 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_INPUT_OFFSET_LINEP_RX,
 
@@ -191,7 +191,7 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_OUTPUT_OFFSET_LINEP_TX,
 
@@ -200,7 +200,7 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_INPUT_OFFSET_LINES_RX,
 
@@ -209,7 +209,7 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_OUTPUT_OFFSET_LINES_TX,
 
@@ -218,7 +218,7 @@ typedef enum _sai_osc_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_LASER_BIAS_CURRENT,
 
@@ -228,7 +228,7 @@ typedef enum _sai_osc_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_PANEL_INPUT_POWER_LINEP_RX,
 
@@ -238,7 +238,7 @@ typedef enum _sai_osc_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_PANEL_OUTPUT_POWER_LINEP_TX,
 
@@ -248,7 +248,7 @@ typedef enum _sai_osc_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_PANEL_INPUT_POWER_LINES_RX,
 
@@ -258,7 +258,7 @@ typedef enum _sai_osc_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OSC_STAT_PANEL_OUTPUT_POWER_LINES_TX,
 

@@ -74,7 +74,7 @@ typedef enum _sai_aps_port_attr_t
      *
      * @type sai_uint64_t
      * @flags READ_ONLY
-     * @precision precision2
+     * @precision 2
      */
     SAI_APS_PORT_ATTR_POWER_LOS_THRESHOLD,
 
@@ -83,7 +83,7 @@ typedef enum _sai_aps_port_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_APS_PORT_ATTR_POWER_LOW_THRESHOLD,
 
@@ -100,7 +100,7 @@ typedef enum _sai_aps_port_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_APS_PORT_ATTR_TARGET_ATTENUATION,
 
@@ -133,7 +133,7 @@ typedef enum _sai_aps_port_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_APS_PORT_STAT_OPTICAL_POWER = SAI_APS_PORT_STAT_START,
 
@@ -143,7 +143,7 @@ typedef enum _sai_aps_port_stat_t
      * @type sai_uint64_t
      * @unit dB
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_APS_PORT_STAT_ATTENUATION,
 

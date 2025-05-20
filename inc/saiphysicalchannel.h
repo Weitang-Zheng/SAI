@@ -111,7 +111,7 @@ typedef enum _sai_physical_channel_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_PHYSICAL_CHANNEL_STAT_OUTPUT_POWER = SAI_PHYSICAL_CHANNEL_STAT_START,
 
@@ -121,7 +121,7 @@ typedef enum _sai_physical_channel_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_PHYSICAL_CHANNEL_STAT_INPUT_POWER,
 
@@ -130,7 +130,7 @@ typedef enum _sai_physical_channel_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_PHYSICAL_CHANNEL_STAT_LASER_BIAS_CURRENT,
 

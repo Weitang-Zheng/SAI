@@ -3485,7 +3485,7 @@ typedef enum _sai_switch_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_SWITCH_ATTR_TEMP_HIGH_ALARM_THRESHOLD,
 
@@ -3494,7 +3494,7 @@ typedef enum _sai_switch_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_SWITCH_ATTR_TEMP_HIGH_WARN_THRESHOLD,
 
@@ -3503,7 +3503,7 @@ typedef enum _sai_switch_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_SWITCH_ATTR_TEMP_LOW_ALARM_THRESHOLD,
 
@@ -3512,7 +3512,7 @@ typedef enum _sai_switch_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_SWITCH_ATTR_TEMP_LOW_WARN_THRESHOLD,
 
@@ -3695,7 +3695,7 @@ typedef enum _sai_switch_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_SWITCH_STAT_TEMPERATURE,
 } sai_switch_stat_t;

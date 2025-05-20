@@ -139,7 +139,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_TARGET_GAIN,
 
@@ -148,7 +148,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags READ_ONLY
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_MIN_GAIN,
 
@@ -157,7 +157,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags READ_ONLY
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_MAX_GAIN,
 
@@ -166,7 +166,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_TARGET_GAIN_TILT,
 
@@ -191,7 +191,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_TARGET_OUTPUT_POWER,
 
@@ -200,7 +200,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_MAX_OUTPUT_POWER,
 
@@ -233,7 +233,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_INPUT_LOS_THRESHOLD,
 
@@ -242,7 +242,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_INPUT_LOS_HYSTERESIS,
 
@@ -251,7 +251,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_OUTPUT_LOS_THRESHOLD,
 
@@ -260,7 +260,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_OUTPUT_LOS_HYSTERESIS,
 
@@ -269,7 +269,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_GAIN_LOW_THRESHOLD,
 
@@ -278,7 +278,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_GAIN_LOW_HYSTERESIS,
 
@@ -287,7 +287,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_INPUT_LOW_THRESHOLD,
 
@@ -296,7 +296,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_OUTPUT_LOW_THRESHOLD,
 
@@ -313,7 +313,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags READ_ONLY
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_INPUT_OFFSET_LINEP_RX,
 
@@ -322,7 +322,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags READ_ONLY
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_OUTPUT_OFFSET_LINEP_TX,
 
@@ -331,7 +331,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags READ_ONLY
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_INPUT_OFFSET_LINES_RX,
 
@@ -340,7 +340,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags READ_ONLY
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_OUTPUT_OFFSET_LINES_TX,
 
@@ -357,7 +357,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_ATTR_APR_NODE_REFLECTION_THRESHOLD,
 
@@ -406,7 +406,7 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision1
+     * @precision 1
      */
     SAI_OA_STAT_TEMPERATURE = SAI_OA_STAT_START,
 
@@ -416,7 +416,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_ACTUAL_GAIN,
 
@@ -426,7 +426,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_ACTUAL_GAIN_TILT,
 
@@ -436,7 +436,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_INPUT_POWER_TOTAL,
 
@@ -446,7 +446,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_INPUT_POWER_C_BAND,
 
@@ -456,7 +456,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_INPUT_POWER_L_BAND,
 
@@ -466,7 +466,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_OUTPUT_POWER_TOTAL,
 
@@ -476,7 +476,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_OUTPUT_POWER_C_BAND,
 
@@ -486,7 +486,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_OUTPUT_POWER_L_BAND,
 
@@ -495,7 +495,7 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_LASER_BIAS_CURRENT,
 
@@ -504,7 +504,7 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_uint64_t
      * @unit dBm
-     * @precision precision2
+     * @precision 2
      * @iscounter false
      */
     SAI_OA_STAT_OPTICAL_RETURN_LOSS,
@@ -514,7 +514,7 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_LASER_TEMPERATURE,
 
@@ -524,7 +524,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_PANEL_INPUT_POWER_LINEP_RX,
 
@@ -534,7 +534,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_PANEL_OUTPUT_POWER_LINEP_TX,
 
@@ -544,7 +544,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_PANEL_INPUT_POWER_LINES_RX,
 
@@ -554,7 +554,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_PANEL_OUTPUT_POWER_LINES_TX,
 
@@ -563,7 +563,7 @@ typedef enum _sai_oa_stat_t
      *
      * @type sai_uint64_t
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_LASER_TEC_CURRENT,
 
@@ -573,7 +573,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dB
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_INGRESS_VOA_ATTEN,
 
@@ -583,7 +583,7 @@ typedef enum _sai_oa_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OA_STAT_MON_OUTPUT_POWER,
 

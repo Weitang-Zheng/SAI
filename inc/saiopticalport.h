@@ -95,7 +95,7 @@ typedef enum _sai_optical_port_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OPTICAL_PORT_ATTR_LOS_THRESHOLD,
 
@@ -120,7 +120,7 @@ typedef enum _sai_optical_port_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OPTICAL_PORT_ATTR_LOW_THRESHOLD,
 
@@ -129,7 +129,7 @@ typedef enum _sai_optical_port_attr_t
      *
      * @type sai_uint64_t
      * @flags CREATE_AND_SET
-     * @precision precision2
+     * @precision 2
      */
     SAI_OPTICAL_PORT_ATTR_HIGH_THRESHOLD,
 
@@ -138,7 +138,7 @@ typedef enum _sai_optical_port_attr_t
      *
      * @type sai_uint64_t
      * @flags READ_ONLY
-     * @precision precision2
+     * @precision 2
      */
     SAI_OPTICAL_PORT_ATTR_INPUT_OFFSET,
 
@@ -147,7 +147,7 @@ typedef enum _sai_optical_port_attr_t
      *
      * @type sai_uint64_t
      * @flags READ_ONLY
-     * @precision precision2
+     * @precision 2
      */
     SAI_OPTICAL_PORT_ATTR_OUTPUT_OFFSET,
 
@@ -180,7 +180,7 @@ typedef enum _sai_optical_port_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OPTICAL_PORT_STAT_INPUT_POWER = SAI_OPTICAL_PORT_STAT_START,
 
@@ -190,7 +190,7 @@ typedef enum _sai_optical_port_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OPTICAL_PORT_STAT_OUTPUT_POWER,
 
@@ -200,7 +200,7 @@ typedef enum _sai_optical_port_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OPTICAL_PORT_STAT_OSC_INPUT_POWER,
 
@@ -210,7 +210,7 @@ typedef enum _sai_optical_port_stat_t
      * @type sai_uint64_t
      * @unit dBm
      * @iscounter false
-     * @precision precision2
+     * @precision 2
      */
     SAI_OPTICAL_PORT_STAT_OSC_OUTPUT_POWER,
 
