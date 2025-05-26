@@ -341,7 +341,7 @@ typedef enum _sai_transceiver_attr_t
      *
      * @type bool
      * @flags CREATE_AND_SET
-     * @isrecoverable false
+     * @isaction true
      */
     SAI_TRANSCEIVER_ATTR_RESET,
 

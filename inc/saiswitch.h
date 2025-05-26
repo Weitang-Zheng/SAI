@@ -3396,7 +3396,7 @@ typedef enum _sai_switch_attr_t
      *
      * @type sai_switch_reset_t
      * @flags CREATE_AND_SET
-     * @isrecoverable false
+     * @isaction true
      */
     SAI_SWITCH_ATTR_RESET,
 
@@ -3480,7 +3480,7 @@ typedef enum _sai_switch_attr_t
      *
      * @type bool
      * @flags CREATE_AND_SET
-     * @isrecoverable false
+     * @isaction true
      */
     SAI_SWITCH_ATTR_COLLECT_SWITCH_LOG,
 
@@ -3541,7 +3541,7 @@ typedef enum _sai_switch_attr_t
      *
      * @type bool
      * @flags CREATE_AND_SET
-     * @isrecoverable false
+     * @isaction true
      */
     SAI_SWITCH_ATTR_START_CONFIGURATION,
 
@@ -3550,7 +3550,7 @@ typedef enum _sai_switch_attr_t
      *
      * @type bool
      * @flags CREATE_AND_SET
-     * @isrecoverable false
+     * @isaction true
      */
     SAI_SWITCH_ATTR_STOP_CONFIGURATION,
 } sai_switch_attr_t;

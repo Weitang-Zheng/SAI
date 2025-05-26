@@ -87,11 +87,11 @@ ip
 ipredriver
 IPsec
 ipv
+isaction
 isobjectid
 isprimitive
 isprint
 isresourcetype
-isrecoverable
 isvlan
 json
 LAGs

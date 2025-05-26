@@ -193,7 +193,7 @@ typedef enum _sai_aps_attr_t
      *
      * @type sai_aps_active_path_t
      * @flags CREATE_AND_SET
-     * @isrecoverable false
+     * @isaction true
      */
     SAI_APS_ATTR_ACTIVE_PATH,
 

@@ -100,7 +100,7 @@ my %ATTR_TAGS = (
         "unit"           , \&ProcessTagUnit,
         "precision"      , \&ProcessTagPrecision,
         "iscounter"      , \&ProcessTagIsCounter,
-        "isrecoverable"  , \&ProcessTagIsRecoverable,
+        "isaction"       , \&ProcessTagIsAction,
         );
 
 my %options = ();
@@ -157,12 +157,12 @@ sub ProcessTagIsCounter
     return undef;
 }
 
-sub ProcessTagIsRecoverable
+sub ProcessTagIsAction
 {
     my ($type, $value, $val) = @_;
     return $val if $val =~ /^(true|false)$/i;
 
-    LogError "isrecoverable tag value '$val', expected true/false";
+    LogError "isaction tag value '$val', expected true/false";
     return undef;
 }
 
@@ -604,7 +604,7 @@ sub ProcessDescription
 
     return if scalar@order == 0;
 
-    my $rightOrder = 'type:flags(:objects)?(:allownull)?(:allowempty)?(:isvlan)?(:default)?(:range)?(:condition|:validonly)?(:relaxed)?(:isresourcetype)?(:deprecated)?(:isrecoverable)?(:precision)?';
+    my $rightOrder = 'type:flags(:objects)?(:allownull)?(:allowempty)?(:isvlan)?(:default)?(:range)?(:condition|:validonly)?(:relaxed)?(:isresourcetype)?(:deprecated)?(:isaction)?(:precision)?';
 
     my $order = join(":",@order);
 
@@ -1750,11 +1750,11 @@ sub ProcessAllowNull
     return "false";
 }
 
-sub ProcessIsRecoverable
+sub ProcessIsAction
 {
-    my ($value,$isrecoverable) = @_;
+    my ($value,$isaction) = @_;
 
-    return $isrecoverable if defined $isrecoverable;
+    return $isaction if defined $isaction;
 
     return "true";
 }
@@ -2614,7 +2614,7 @@ sub ProcessSingleObjectType
         my $type            = ProcessType($attr, $meta{type});
         my $attrname        = ProcessAttrName($attr, $meta{type});
         my $flags           = ProcessFlags($attr, $meta{flags});
-        my $isrecoverable   = ProcessIsRecoverable($attr, $meta{isrecoverable});
+        my $isaction        = ProcessIsAction($attr, $meta{isaction});
         my $allownull       = ProcessAllowNull($attr, $meta{allownull});
         my $objects         = ProcessObjects($attr, $meta{objects});
         my $objectslen      = ProcessObjectsLen($attr, $meta{objects});
@@ -2669,7 +2669,7 @@ sub ProcessSingleObjectType
         WriteSource ".brief                         = $brief,";
         WriteSource ".attrvaluetype                 = $type,";
         WriteSource ".flags                         = $flags,";
-        WriteSource ".isrecoverable                 = $isrecoverable,";
+        WriteSource ".isaction                      = $isaction,";
         WriteSource ".allowedobjecttypes            = $objects,";
         WriteSource ".allowedobjecttypeslength      = $objectslen,";
         WriteSource ".allowrepetitiononlist         = $allowrepeat,";

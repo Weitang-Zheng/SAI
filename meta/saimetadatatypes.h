@@ -1421,12 +1421,12 @@ typedef struct _sai_attr_metadata_t
     const char* const                           attridkebabname;
 
     /**
-     * @brief Indicates whether attribute is recoverable.
+     * @brief Indicates whether attribute is an action.
      *
-     * If true, when calling SET API successfully, the value will be saved in local
+     * If true, when calling SET API successfully, the value will NOT be saved in local
      * db for warm-reboot (or cold-reboot) flow to recover this configuration.
      */
-    bool                                        isrecoverable;
+    bool                                        isaction;
 } sai_attr_metadata_t;
 
 /*

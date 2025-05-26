@@ -374,7 +374,7 @@ typedef enum _sai_oa_attr_t
      *
      * @type bool
      * @flags CREATE_AND_SET
-     * @isrecoverable false
+     * @isaction true
      */
     SAI_OA_ATTR_APR_LINE_VALID_LLDP,
 
