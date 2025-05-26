@@ -3395,7 +3395,7 @@ typedef enum _sai_switch_attr_t
      * @brief The reset type of the switch
      *
      * @type sai_switch_reset_t
-     * @flags SET_ONLY
+     * @flags CREATE_AND_SET
      * @isrecoverable false
      */
     SAI_SWITCH_ATTR_RESET,
@@ -3471,7 +3471,7 @@ typedef enum _sai_switch_attr_t
      * @brief Collect switch alarm.
      *
      * @type bool
-     * @flags SET_ONLY
+     * @flags CREATE_AND_SET
      */
     SAI_SWITCH_ATTR_COLLECT_SWITCH_ALARM,
 
@@ -3479,7 +3479,7 @@ typedef enum _sai_switch_attr_t
      * @brief Collect switch log.
      *
      * @type bool
-     * @flags SET_ONLY
+     * @flags CREATE_AND_SET
      * @isrecoverable false
      */
     SAI_SWITCH_ATTR_COLLECT_SWITCH_LOG,
@@ -3540,7 +3540,7 @@ typedef enum _sai_switch_attr_t
      * @brief Start configuration
      *
      * @type bool
-     * @flags SET_ONLY
+     * @flags CREATE_AND_SET
      * @isrecoverable false
      */
     SAI_SWITCH_ATTR_START_CONFIGURATION,
@@ -3549,7 +3549,7 @@ typedef enum _sai_switch_attr_t
      * @brief Stop configuration
      *
      * @type bool
-     * @flags SET_ONLY
+     * @flags CREATE_AND_SET
      * @isrecoverable false
      */
     SAI_SWITCH_ATTR_STOP_CONFIGURATION,

@@ -626,14 +626,6 @@ typedef enum _sai_attr_flags_t
      * standalone.
      */
     SAI_ATTR_FLAGS_SPECIAL             = (1 << 6),
-
-    /**
-     * @brief Set only flag.
-     *
-     * Attribute with this flag can only be wrote using SET API. Read is not
-     * possible.
-     */
-    SAI_ATTR_FLAGS_SET_ONLY           = (1 << 7),
 } sai_attr_flags_t;
 
 /**
@@ -655,11 +647,6 @@ typedef enum _sai_attr_flags_t
  * @def Defines helper to check if read only flag is set.
  */
 #define SAI_HAS_FLAG_READ_ONLY(x)             (((x) & SAI_ATTR_FLAGS_READ_ONLY) == SAI_ATTR_FLAGS_READ_ONLY)
-
-/**
- * @def Defines helper to check if write only flag is set.
- */
-#define SAI_HAS_FLAG_SET_ONLY(x)             (((x) & SAI_ATTR_FLAGS_SET_ONLY) == SAI_ATTR_FLAGS_SET_ONLY)
 
 /**
  * @def Defines helper to check if key flag is set.

@@ -225,7 +225,7 @@ typedef enum _sai_otdr_attr_t
      * @brief Scan
      *
      * @type bool
-     * @flags SET_ONLY
+     * @flags CREATE_AND_SET
      * @isrecoverable false
      */
     SAI_OTDR_ATTR_SCAN,

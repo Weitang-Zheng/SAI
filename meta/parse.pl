@@ -76,7 +76,7 @@ our %OBJECT_TYPE_BULK_MAP = ();
 our %SAI_ENUMS_CUSTOM_RANGES = ();
 our %ATTR_API_VER = ();
 
-my $FLAGS = "MANDATORY_ON_CREATE|CREATE_ONLY|CREATE_AND_SET|READ_ONLY|SET_ONLY|KEY";
+my $FLAGS = "MANDATORY_ON_CREATE|CREATE_ONLY|CREATE_AND_SET|READ_ONLY|KEY";
 my $ENUM_FLAGS_TYPES = "(none|strict|mixed|ranges|free)";
 
 # TAGS HANDLERS
@@ -2658,7 +2658,6 @@ sub ProcessSingleObjectType
         my $iscreateonly        = ($flags =~ /CREATE_ONLY/)     ? "true" : "false";
         my $iscreateandset      = ($flags =~ /CREATE_AND_SET/)  ? "true" : "false";
         my $isreadonly          = ($flags =~ /READ_ONLY/)       ? "true" : "false";
-        my $issetonly           = ($flags =~ /SET_ONLY/)        ? "true" : "false";
         my $iskey               = ($flags =~ /KEY/)             ? "true" : "false";
 
         my $kebabname           = ProcessAttrKebabName($attr, $meta{type});
@@ -2703,7 +2702,6 @@ sub ProcessSingleObjectType
         WriteSource ".iscreateonly                  = $iscreateonly,";
         WriteSource ".iscreateandset                = $iscreateandset,";
         WriteSource ".isreadonly                    = $isreadonly,";
-        WriteSource ".issetonly                     = $issetonly,";
         WriteSource ".iskey                         = $iskey,";
         WriteSource ".isprimitive                   = $isprimitive,";
         WriteSource ".notificationtype              = $ntftype,";

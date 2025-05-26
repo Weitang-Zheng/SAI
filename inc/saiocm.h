@@ -66,7 +66,7 @@ typedef enum _sai_ocm_attr_t
      * @brief Scan
      *
      * @type bool
-     * @flags SET_ONLY
+     * @flags CREATE_AND_SET
      * @isrecoverable false
      */
     SAI_OCM_ATTR_SCAN,

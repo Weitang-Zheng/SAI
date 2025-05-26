@@ -132,7 +132,7 @@ typedef enum _sai_ethernet_attr_t
      * @brief Clear RMON
      *
      * @type bool
-     * @flags SET_ONLY
+     * @flags CREATE_AND_SET
      * @isrecoverable false
      */
     SAI_ETHERNET_ATTR_CLEAR_RMON,
