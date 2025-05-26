@@ -95,7 +95,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out multicast pkts
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_MULTICAST_PKTS = SAI_INTERFACE_STAT_START,
 
@@ -103,7 +102,6 @@ typedef enum _sai_interface_stat_t
      * @brief In octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_OCTETS,
 
@@ -111,7 +109,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out pkts
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_PKTS,
 
@@ -119,7 +116,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out broadcast pkts
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_BROADCAST_PKTS,
 
@@ -127,7 +123,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_OCTETS,
 
@@ -135,7 +130,6 @@ typedef enum _sai_interface_stat_t
      * @brief Last clear
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_LAST_CLEAR,
 
@@ -143,7 +137,6 @@ typedef enum _sai_interface_stat_t
      * @brief In pkts
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_PKTS,
 
@@ -151,7 +144,6 @@ typedef enum _sai_interface_stat_t
      * @brief In multicast pkts
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_MULTICAST_PKTS,
 
@@ -159,7 +151,6 @@ typedef enum _sai_interface_stat_t
      * @brief In errors
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_ERRORS,
 
@@ -167,7 +158,6 @@ typedef enum _sai_interface_stat_t
      * @brief In broadcast pkts
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_BROADCAST_PKTS,
 
@@ -175,7 +165,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out errors
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_ERRORS,
 
@@ -183,7 +172,6 @@ typedef enum _sai_interface_stat_t
      * @brief In CRC errors
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_CRC_ERRORS,
 
@@ -191,7 +179,6 @@ typedef enum _sai_interface_stat_t
      * @brief In under size frames
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_UNDERSIZE_FRAMES,
 
@@ -199,7 +186,6 @@ typedef enum _sai_interface_stat_t
      * @brief In frames 1024 to 1518 octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_FRAMES_1024_1518_OCTETS,
 
@@ -207,7 +193,6 @@ typedef enum _sai_interface_stat_t
      * @brief In frames 256 to 511 octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_FRAMES_256_511_OCTETS,
 
@@ -215,7 +200,6 @@ typedef enum _sai_interface_stat_t
      * @brief In frames 65 to 127 octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_FRAMES_65_127_OCTETS,
 
@@ -223,7 +207,6 @@ typedef enum _sai_interface_stat_t
      * @brief In frames 128 to 255 octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_FRAMES_128_255_OCTETS,
 
@@ -231,7 +214,6 @@ typedef enum _sai_interface_stat_t
      * @brief In frames 512 to 1023 octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_FRAMES_512_1023_OCTETS,
 
@@ -239,7 +221,6 @@ typedef enum _sai_interface_stat_t
      * @brief In frames 64 octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_FRAMES_64_OCTETS,
 
@@ -247,7 +228,6 @@ typedef enum _sai_interface_stat_t
      * @brief In oversize frames
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_OVERSIZE_FRAMES,
 
@@ -255,7 +235,6 @@ typedef enum _sai_interface_stat_t
      * @brief In jabber frames
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_JABBER_FRAMES,
 
@@ -263,7 +242,6 @@ typedef enum _sai_interface_stat_t
      * @brief Carrier transitions
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_CARRIER_TRANSITIONS,
 
@@ -271,7 +249,6 @@ typedef enum _sai_interface_stat_t
      * @brief In 8021q frames
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_8021Q_FRAMES,
 
@@ -279,7 +256,6 @@ typedef enum _sai_interface_stat_t
      * @brief In block errors
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_BLOCK_ERRORS,
 
@@ -287,7 +263,6 @@ typedef enum _sai_interface_stat_t
      * @brief In carrier errors
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_CARRIER_ERRORS,
 
@@ -295,7 +270,6 @@ typedef enum _sai_interface_stat_t
      * @brief In discards
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_DISCARDS,
 
@@ -303,7 +277,6 @@ typedef enum _sai_interface_stat_t
      * @brief In FCS errors
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_FCS_ERRORS,
 
@@ -311,7 +284,6 @@ typedef enum _sai_interface_stat_t
      * @brief In fragment frames
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_FRAGMENT_FRAMES,
 
@@ -319,7 +291,6 @@ typedef enum _sai_interface_stat_t
      * @brief In interrupted tx
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_INTERRUPTED_TX,
 
@@ -327,7 +298,6 @@ typedef enum _sai_interface_stat_t
      * @brief In late collision
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_LATE_COLLISION,
 
@@ -335,7 +305,6 @@ typedef enum _sai_interface_stat_t
      * @brief In MAC control frames
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_MAC_CONTROL_FRAMES,
 
@@ -343,7 +312,6 @@ typedef enum _sai_interface_stat_t
      * @brief In MAC errors rx
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_MAC_ERRORS_RX,
 
@@ -351,7 +319,6 @@ typedef enum _sai_interface_stat_t
      * @brief In MAC pause frames
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_MAC_PAUSE_FRAMES,
 
@@ -359,7 +326,6 @@ typedef enum _sai_interface_stat_t
      * @brief In max size exceeded
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_MAXSIZE_EXCEEDED,
 
@@ -367,7 +333,6 @@ typedef enum _sai_interface_stat_t
      * @brief In single collision
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_SINGLE_COLLISION,
 
@@ -375,7 +340,6 @@ typedef enum _sai_interface_stat_t
      * @brief In symbol error
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_SYMBOL_ERROR,
 
@@ -383,7 +347,6 @@ typedef enum _sai_interface_stat_t
      * @brief In unicast pkts
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_UNICAST_PKTS,
 
@@ -391,7 +354,6 @@ typedef enum _sai_interface_stat_t
      * @brief In unknown protocol
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_IN_UNKNOWN_PROTOS,
 
@@ -399,7 +361,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out 8021q frames
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_8021Q_FRAMES,
 
@@ -407,7 +368,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out discards
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_DISCARDS,
 
@@ -415,7 +375,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out MAC control frames
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_MAC_CONTROL_FRAMES,
 
@@ -423,7 +382,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out MAC errors tx
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_MAC_ERRORS_TX,
 
@@ -431,7 +389,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out MAC pause frames
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_MAC_PAUSE_FRAMES,
 
@@ -439,7 +396,6 @@ typedef enum _sai_interface_stat_t
      * @brief Out unicast pkts
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_INTERFACE_STAT_OUT_UNICAST_PKTS,
 

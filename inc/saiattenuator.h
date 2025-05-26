@@ -127,8 +127,6 @@ typedef enum _sai_attenuator_stat_t
      * @brief Actual attenuation
      *
      * @type sai_uint64_t
-     * @unit dB
-     * @iscounter false
      * @precision 2
      */
     SAI_ATTENUATOR_STAT_ACTUAL_ATTENUATION = SAI_ATTENUATOR_STAT_START,
@@ -137,8 +135,6 @@ typedef enum _sai_attenuator_stat_t
      * @brief Output power total
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_ATTENUATOR_STAT_OUTPUT_POWER_TOTAL,
@@ -147,8 +143,6 @@ typedef enum _sai_attenuator_stat_t
      * @brief Optical return loss
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_ATTENUATOR_STAT_OPTICAL_RETURN_LOSS,

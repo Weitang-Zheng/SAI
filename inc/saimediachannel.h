@@ -170,8 +170,6 @@ typedef enum _sai_media_channel_stat_t
      * @brief Actual attenuation
      *
      * @type sai_uint64_t
-     * @unit dB
-     * @iscounter false
      * @precision 2
      */
     SAI_MEDIA_CHANNEL_STAT_ACTUAL_ATTENUATION = SAI_MEDIA_CHANNEL_STAT_START,
@@ -180,8 +178,6 @@ typedef enum _sai_media_channel_stat_t
      * @brief Input power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_MEDIA_CHANNEL_STAT_INPUT_POWER,
@@ -190,8 +186,6 @@ typedef enum _sai_media_channel_stat_t
      * @brief Output power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_MEDIA_CHANNEL_STAT_OUTPUT_POWER,

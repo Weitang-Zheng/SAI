@@ -97,9 +97,7 @@ my %ATTR_TAGS = (
         "relaxed"        , \&ProcessTagRelaxed,
         "isresourcetype" , \&ProcessTagIsRecourceType,
         "deprecated"     , \&ProcessTagDeprecated,
-        "unit"           , \&ProcessTagUnit,
         "precision"      , \&ProcessTagPrecision,
-        "iscounter"      , \&ProcessTagIsCounter,
         "isaction"       , \&ProcessTagIsAction,
         );
 
@@ -130,30 +128,12 @@ my %VALUE_TYPES_TO_VT = ();
 
 my %CAPABILITIES = ();
 
-sub ProcessTagUnit
-{
-    my ($unit, $value, $val) = @_;
-    return $val if $val =~ /^(dBm|dB)$/i;
-
-    LogError "unit tag value '$val', expected dBm/dB";
-    return undef;
-}
-
 sub ProcessTagPrecision
 {
     my ($precision, $value, $val) = @_;
     return $val if $val =~ /^(1|2|18|)$/i;
 
     LogError "precision tag value '$val', expected 1/2/18";
-    return undef;
-}
-
-sub ProcessTagIsCounter
-{
-    my ($type, $value, $val) = @_;
-    return $val if $val =~ /^(true|false)$/i;
-
-    LogError "iscounter tag value '$val', expected true/false";
     return undef;
 }
 
@@ -1546,19 +1526,6 @@ sub CreateMetadataHeaderAndSource
     WriteSource "};";
 }
 
-sub ProcessStatUnit
-{
-    my ($stat, $unit) = @_;
-    if (not defined $unit)
-    {
-        return "SAI_STAT_VALUE_UNIT_NORMAL";
-    }
-    return "SAI_STAT_VALUE_UNIT_DBM" if $unit eq "dBm";
-    return "SAI_STAT_VALUE_UNIT_DB" if $unit eq "dB";
-
-    return "SAI_STAT_VALUE_UNIT_NORMAL";
-}
-
 sub ProcessStatPrecision
 {
     my ($stat, $precision) = @_;
@@ -1571,15 +1538,6 @@ sub ProcessStatPrecision
     return "SAI_STAT_VALUE_PRECISION_18" if $precision eq "18";
 
     return "SAI_STAT_VALUE_PRECISION_2";
-}
-
-sub ProcessStatIsCounter
-{
-    my ($stat, $value) = @_;
-
-    return "false" if not defined $value;
-
-    return $value;
 }
 
 sub ProcessStatName
@@ -2530,9 +2488,7 @@ sub ProcessSingleObjectTypeStat
         $meta{type} = "" if not defined $meta{type};
 
         my $statname        = ProcessStatName($stat, $meta{type});
-        my $unit            = ProcessStatUnit($stat, $meta{unit});
         my $precision       = ProcessStatPrecision($stat, $meta{precision});
-        my $iscounter       = ProcessStatIsCounter($stat, $meta{iscounter});
         my $kebabname       = ProcessStatKebabName($stat, $meta{type});
         my $camelname       = ProcessStatCamelName($stat, $meta{type});
 
@@ -2541,9 +2497,7 @@ sub ProcessSingleObjectTypeStat
         WriteSource ".objecttype                    = $objecttype,";
         WriteSource ".statid                        = $stat,";
         WriteSource ".statidname                    = $statname,";
-        WriteSource ".statvalueunit                 = $unit,";
         WriteSource ".statvalueprecision            = $precision,";
-        WriteSource ".statvalueiscounter            = $iscounter,";
         WriteSource ".statidkebabname               = $kebabname,";
         WriteSource ".statidcamelname               = $camelname,";
         WriteSource "};";

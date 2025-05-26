@@ -405,7 +405,6 @@ typedef enum _sai_oa_stat_t
      * @brief Temperature
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 1
      */
     SAI_OA_STAT_TEMPERATURE = SAI_OA_STAT_START,
@@ -414,8 +413,6 @@ typedef enum _sai_oa_stat_t
      * @brief Actual gain
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_ACTUAL_GAIN,
@@ -424,8 +421,6 @@ typedef enum _sai_oa_stat_t
      * @brief Actual gain tilt
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_ACTUAL_GAIN_TILT,
@@ -434,8 +429,6 @@ typedef enum _sai_oa_stat_t
      * @brief Input power total
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_INPUT_POWER_TOTAL,
@@ -444,8 +437,6 @@ typedef enum _sai_oa_stat_t
      * @brief Input power C band
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_INPUT_POWER_C_BAND,
@@ -454,8 +445,6 @@ typedef enum _sai_oa_stat_t
      * @brief Input power L band
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_INPUT_POWER_L_BAND,
@@ -464,8 +453,6 @@ typedef enum _sai_oa_stat_t
      * @brief Output power total
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_OUTPUT_POWER_TOTAL,
@@ -474,8 +461,6 @@ typedef enum _sai_oa_stat_t
      * @brief Output power C band
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_OUTPUT_POWER_C_BAND,
@@ -484,8 +469,6 @@ typedef enum _sai_oa_stat_t
      * @brief Output power L band
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_OUTPUT_POWER_L_BAND,
@@ -494,7 +477,6 @@ typedef enum _sai_oa_stat_t
      * @brief Laser bias current
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_LASER_BIAS_CURRENT,
@@ -503,9 +485,7 @@ typedef enum _sai_oa_stat_t
      * @brief Optical return loss
      *
      * @type sai_uint64_t
-     * @unit dBm
      * @precision 2
-     * @iscounter false
      */
     SAI_OA_STAT_OPTICAL_RETURN_LOSS,
 
@@ -513,7 +493,6 @@ typedef enum _sai_oa_stat_t
      * @brief Laser temperature
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_LASER_TEMPERATURE,
@@ -522,8 +501,6 @@ typedef enum _sai_oa_stat_t
      * @brief Panel input power primary-line rx
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_PANEL_INPUT_POWER_LINEP_RX,
@@ -532,8 +509,6 @@ typedef enum _sai_oa_stat_t
      * @brief Panel output power primary-line tx
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_PANEL_OUTPUT_POWER_LINEP_TX,
@@ -542,8 +517,6 @@ typedef enum _sai_oa_stat_t
      * @brief Panel input power secondary-line rx
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_PANEL_INPUT_POWER_LINES_RX,
@@ -552,8 +525,6 @@ typedef enum _sai_oa_stat_t
      * @brief Panel output power secondary-line tx
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_PANEL_OUTPUT_POWER_LINES_TX,
@@ -562,7 +533,6 @@ typedef enum _sai_oa_stat_t
      * @brief Laser TEC current
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_LASER_TEC_CURRENT,
@@ -571,8 +541,6 @@ typedef enum _sai_oa_stat_t
      * @brief Ingress VOA attenuation
      *
      * @type sai_uint64_t
-     * @unit dB
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_INGRESS_VOA_ATTEN,
@@ -581,8 +549,6 @@ typedef enum _sai_oa_stat_t
      * @brief Monitor port output power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OA_STAT_MON_OUTPUT_POWER,

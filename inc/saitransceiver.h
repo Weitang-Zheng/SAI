@@ -827,7 +827,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief FEC uncorrectable words
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_TRANSCEIVER_STAT_FEC_UNCORRECTABLE_WORDS = SAI_TRANSCEIVER_STAT_START,
 
@@ -835,8 +834,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Input power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_INPUT_POWER,
@@ -845,8 +842,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Output power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_OUTPUT_POWER,
@@ -855,7 +850,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Laser bias current
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_LASER_BIAS_CURRENT,
@@ -864,7 +858,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Transceiver temperature
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 1
      */
     SAI_TRANSCEIVER_STAT_TEMPERATURE,
@@ -873,7 +866,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Bit error rate before forward error correction
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 18
      */
     SAI_TRANSCEIVER_STAT_PRE_FEC_BER,
@@ -882,7 +874,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Bit error rate after forward error correction
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 18
      */
     SAI_TRANSCEIVER_STAT_POST_FEC_BER,
@@ -891,7 +882,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief EDFA bias current
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_EDFA_BIAS_CURRENT,
@@ -900,7 +890,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Laser bias voltage
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_LASER_BIAS_VOLTAGE,
@@ -909,7 +898,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Case temperature
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 1
      */
     SAI_TRANSCEIVER_STAT_CASE_TEMPERATURE,
@@ -918,7 +906,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Power consumption
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_POWER_CONSUMPTION,
@@ -927,7 +914,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias XI
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_XI,
@@ -936,7 +922,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias XQ
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_XQ,
@@ -945,7 +930,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias YI
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_YI,
@@ -954,7 +938,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias YQ
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_YQ,
@@ -963,7 +946,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias XPH
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_XPH,
@@ -972,7 +954,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Tx mod bias YPH
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_TRANSCEIVER_STAT_TX_MOD_BIAS_YPH,
@@ -981,7 +962,6 @@ typedef enum _sai_transceiver_stat_t
      * @brief Loss time
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_TRANSCEIVER_STAT_LOSS_TIME,
 

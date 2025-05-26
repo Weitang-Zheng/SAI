@@ -236,9 +236,7 @@ ALIASES                += "suffix         =@par Serialize suffix:\n       @xmlon
 ALIASES                += "isresourcetype =@par IsResourceType:\n         @xmlonly @@isresourcetype @endxmlonly"
 ALIASES                += "relaxed        =@par Condition Relaxed:\n      @xmlonly @@relaxed        @endxmlonly"
 ALIASES                += "deprecated     =@par Deprecated:\n             @xmlonly @@deprecated     @endxmlonly"
-ALIASES                += "unit           =@par Value Unit:\n             @xmlonly @@unit           @endxmlonly"
 ALIASES                += "precision      =@par Value Precision:\n        @xmlonly @@precision      @endxmlonly"
-ALIASES                += "iscounter      =@par Value IsCounter:\n        @xmlonly @@iscounter      @endxmlonly"
 ALIASES                += "isaction       =@par Value IsAction:\n         @xmlonly @@isaction       @endxmlonly"
 
 # This tag can be used to specify a number of word-keyword mappings (TCL only).

@@ -503,28 +503,6 @@ typedef enum _sai_attr_value_type_t
 } sai_attr_value_type_t;
 
 /**
- * @brief Defines statistics value unit.
- */
-typedef enum _sai_stat_value_unit_t
-{
-    /**
-     * @brief Value unit is not dBm or dB.
-     */
-    SAI_STAT_VALUE_UNIT_NORMAL,
-
-    /**
-     * @brief Value unit is dBm.
-     */
-    SAI_STAT_VALUE_UNIT_DBM,
-
-    /**
-     * @brief Value unit is dB.
-     */
-    SAI_STAT_VALUE_UNIT_DB,
-
-} sai_stat_value_unit_t;
-
-/**
  * @brief Defines statistics value precision.
  */
 typedef enum _sai_stat_value_precision_t
@@ -992,20 +970,9 @@ typedef struct _sai_stat_metadata_t
     const char* const                           statidcamelname;
 
     /**
-     * @brief Specifies value unit for this statistics.
-     */
-    sai_stat_value_unit_t                       statvalueunit;
-
-    /**
      * @brief Specifies value precision for this statistics.
      */
     sai_stat_value_precision_t                  statvalueprecision;
-
-    /**
-     * @brief Determines whether value is counter.
-     */
-    bool                                        statvalueiscounter;
-
 } sai_stat_metadata_t;
 
 /**

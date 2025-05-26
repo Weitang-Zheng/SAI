@@ -178,7 +178,6 @@ typedef enum _sai_otn_stat_t
      * detected or loss of signal is detected.
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_ERRORED_SECONDS = SAI_OTN_STAT_START,
 
@@ -191,7 +190,6 @@ typedef enum _sai_otn_stat_t
      * threshold.
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_SEVERELY_ERRORED_SECONDS,
 
@@ -201,7 +199,6 @@ typedef enum _sai_otn_stat_t
      * The number of seconds during which the link is unavailable
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_UNAVAILABLE_SECONDS,
 
@@ -213,7 +210,6 @@ typedef enum _sai_otn_stat_t
      * in a given sequence of bits.
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_ERRORED_BLOCKS,
 
@@ -223,7 +219,6 @@ typedef enum _sai_otn_stat_t
      * The number of blocks that were uncorrected by the FEC
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_FEC_UNCORRECTABLE_BLOCKS,
 
@@ -233,7 +228,6 @@ typedef enum _sai_otn_stat_t
      * The number of bytes that were corrected by the FEC
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_FEC_CORRECTED_BYTES,
 
@@ -243,7 +237,6 @@ typedef enum _sai_otn_stat_t
      * The number of bits that were corrected by the FEC
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_FEC_CORRECTED_BITS,
 
@@ -253,7 +246,6 @@ typedef enum _sai_otn_stat_t
      * The number of background block errors
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_BACKGROUND_BLOCK_ERRORS,
 
@@ -261,8 +253,6 @@ typedef enum _sai_otn_stat_t
      * @brief Electrical signal to noise ratio
      *
      * @type sai_uint64_t
-     * @unit dB
-     * @iscounter false
      * @precision 2
      */
     SAI_OTN_STAT_ESNR,
@@ -271,7 +261,6 @@ typedef enum _sai_otn_stat_t
      * @brief Bit error rate before forward error correction
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 18
      */
     SAI_OTN_STAT_PRE_FEC_BER,
@@ -280,8 +269,6 @@ typedef enum _sai_otn_stat_t
      * @brief Quality value (factor) in dB of a channel
      *
      * @type sai_uint64_t
-     * @unit dB
-     * @iscounter false
      * @precision 2
      */
     SAI_OTN_STAT_Q_VALUE,
@@ -290,7 +277,6 @@ typedef enum _sai_otn_stat_t
      * @brief Bit error rate after forward error correction
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 18
      */
     SAI_OTN_STAT_POST_FEC_BER,
@@ -299,7 +285,6 @@ typedef enum _sai_otn_stat_t
      * @brief Delay
      *
      * @type sai_uint64_t
-     * @iscounter false
      */
     SAI_OTN_STAT_DELAY,
 
@@ -307,7 +292,6 @@ typedef enum _sai_otn_stat_t
      * @brief SM BIP8
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_SM_BIP8,
 
@@ -315,7 +299,6 @@ typedef enum _sai_otn_stat_t
      * @brief SM BEI
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_SM_BEI,
 
@@ -323,8 +306,6 @@ typedef enum _sai_otn_stat_t
      * @brief Q margin
      *
      * @type sai_uint64_t
-     * @unit dB
-     * @iscounter false
      * @precision 2
      */
     SAI_OTN_STAT_Q_MARGIN,
@@ -333,7 +314,6 @@ typedef enum _sai_otn_stat_t
      * @brief Input FEC corrected bits
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_INPUT_FEC_CORRECTED_BITS,
 
@@ -341,7 +321,6 @@ typedef enum _sai_otn_stat_t
      * @brief Input FEC uncorrectable block
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_INPUT_FEC_UNCORRECTABLE_BLOCKS,
 
@@ -349,7 +328,6 @@ typedef enum _sai_otn_stat_t
      * @brief Input SM BIP8
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_INPUT_SM_BIP8,
 
@@ -357,7 +335,6 @@ typedef enum _sai_otn_stat_t
      * @brief Input SM BEI
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_INPUT_SM_BEI,
 
@@ -365,7 +342,6 @@ typedef enum _sai_otn_stat_t
      * @brief Code violations
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_OTN_STAT_CODE_VIOLATIONS,
 

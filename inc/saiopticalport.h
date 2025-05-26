@@ -178,8 +178,6 @@ typedef enum _sai_optical_port_stat_t
      * @brief Input power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OPTICAL_PORT_STAT_INPUT_POWER = SAI_OPTICAL_PORT_STAT_START,
@@ -188,8 +186,6 @@ typedef enum _sai_optical_port_stat_t
      * @brief Output power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OPTICAL_PORT_STAT_OUTPUT_POWER,
@@ -198,8 +194,6 @@ typedef enum _sai_optical_port_stat_t
      * @brief OSC input power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OPTICAL_PORT_STAT_OSC_INPUT_POWER,
@@ -208,8 +202,6 @@ typedef enum _sai_optical_port_stat_t
      * @brief OSC output power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OPTICAL_PORT_STAT_OSC_OUTPUT_POWER,

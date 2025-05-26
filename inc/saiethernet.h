@@ -166,7 +166,6 @@ typedef enum _sai_ethernet_stat_t
      * MAC layer control frames received on the interface
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_MAC_CONTROL_FRAMES = SAI_ETHERNET_STAT_START,
 
@@ -176,7 +175,6 @@ typedef enum _sai_ethernet_stat_t
      * MAC layer PAUSE frames received on the interface
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_MAC_PAUSE_FRAMES,
 
@@ -189,7 +187,6 @@ typedef enum _sai_ethernet_stat_t
      * well formed.
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_OVERSIZE_FRAMES,
 
@@ -202,7 +199,6 @@ typedef enum _sai_ethernet_stat_t
      * formed.
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_UNDERSIZE_FRAMES,
 
@@ -212,7 +208,6 @@ typedef enum _sai_ethernet_stat_t
      * Number of jabber frames received on the interface.
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_JABBER_FRAMES,
 
@@ -227,7 +222,6 @@ typedef enum _sai_ethernet_stat_t
      * Error).
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_FRAGMENT_FRAMES,
 
@@ -237,7 +231,6 @@ typedef enum _sai_ethernet_stat_t
      * Number of 802.1q tagged frames received on the interface
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_8021Q_FRAMES,
 
@@ -253,7 +246,6 @@ typedef enum _sai_ethernet_stat_t
      * a non-integral number of octets (Alignment Error)
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_CRC_ERRORS,
 
@@ -263,7 +255,6 @@ typedef enum _sai_ethernet_stat_t
      * The number of received error-ed blocks.
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_BLOCK_ERRORS,
 
@@ -273,7 +264,6 @@ typedef enum _sai_ethernet_stat_t
      * MAC layer control frames sent on the interface
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_OUT_MAC_CONTROL_FRAMES,
 
@@ -283,7 +273,6 @@ typedef enum _sai_ethernet_stat_t
      * MAC layer PAUSE frames sent on the interface
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_OUT_MAC_PAUSE_FRAMES,
 
@@ -293,7 +282,6 @@ typedef enum _sai_ethernet_stat_t
      * Number of 802.1q tagged frames sent on the interface
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_OUT_8021Q_FRAMES,
 
@@ -306,7 +294,6 @@ typedef enum _sai_ethernet_stat_t
      * errors on the lane
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_PCS_BIP_ERRORS,
 
@@ -318,7 +305,6 @@ typedef enum _sai_ethernet_stat_t
      * link is error
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_PCS_ERRORED_SECONDS,
 
@@ -330,7 +316,6 @@ typedef enum _sai_ethernet_stat_t
      * link is severely error
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_PCS_SEVERELY_ERRORED_SECONDS,
 
@@ -342,7 +327,6 @@ typedef enum _sai_ethernet_stat_t
      * link is unavailable
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_IN_PCS_UNAVAILABLE_SECONDS,
 
@@ -355,7 +339,6 @@ typedef enum _sai_ethernet_stat_t
      * errors on the lane
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_OUT_PCS_BIP_ERRORS,
 
@@ -365,7 +348,6 @@ typedef enum _sai_ethernet_stat_t
      * Number of FCS/CRC error check failures sent on the interface
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_OUT_CRC_ERRORS,
 
@@ -375,7 +357,6 @@ typedef enum _sai_ethernet_stat_t
      * The number of transmitted error-ed blocks.
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_OUT_BLOCK_ERRORS,
 
@@ -383,7 +364,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good frame
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_FRAME,
 
@@ -391,7 +371,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_OCTETS,
 
@@ -399,7 +378,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good multicast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_MULTICAST,
 
@@ -407,7 +385,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good broadcast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_BROADCAST,
 
@@ -415,7 +392,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good 64b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_64B,
 
@@ -423,7 +399,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good 65b 127b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_65B_127B,
 
@@ -431,7 +406,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good 128b 255b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_128B_255B,
 
@@ -439,7 +413,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good 256b 511b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_256B_511B,
 
@@ -447,7 +420,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good 512b 1023b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_512B_1023B,
 
@@ -455,7 +427,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good 1024b 1518b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_1024B_1518B,
 
@@ -463,7 +434,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good 1519b LTJ
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_1519B_LTJ,
 
@@ -471,7 +441,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx good jumbo
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_GOOD_JUMBO,
 
@@ -479,7 +448,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad frame
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_FRAME,
 
@@ -487,7 +455,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_OCTETS,
 
@@ -495,7 +462,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad multicast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_MULTICAST,
 
@@ -503,7 +469,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad broadcast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_BROADCAST,
 
@@ -511,7 +476,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad LT 64b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_LT_64B,
 
@@ -519,7 +483,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad 64b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_64B,
 
@@ -527,7 +490,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad 65b 127b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_65B_127B,
 
@@ -535,7 +497,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad 128b 255b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_128B_255B,
 
@@ -543,7 +504,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad 256b 511b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_256B_511B,
 
@@ -551,7 +511,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad 512b 1023b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_512B_1023B,
 
@@ -559,7 +518,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad 1024b 1518b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_1024B_1518B,
 
@@ -567,7 +525,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad 1519b LTJ
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_1519B_LTJ,
 
@@ -575,7 +532,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx bad jumbo
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BAD_JUMBO,
 
@@ -583,7 +539,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_OCTETS,
 
@@ -591,7 +546,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx frame
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_FRAME,
 
@@ -599,7 +553,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx broadcast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_BROADCAST,
 
@@ -607,7 +560,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx multicast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_MULTICAST,
 
@@ -615,7 +567,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx CRC align
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_CRC_ALIGN,
 
@@ -623,7 +574,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx under size
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_UNDER_SIZE,
 
@@ -631,7 +581,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx over size
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_OVER_SIZE,
 
@@ -639,7 +588,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx fragment
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_FRAGMENT,
 
@@ -647,7 +595,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx jabber
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_JABBER,
 
@@ -655,7 +602,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx 64b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_64B,
 
@@ -663,7 +609,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx 65b 127b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_65B_127B,
 
@@ -671,7 +616,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx 128b 255b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_128B_255B,
 
@@ -679,7 +623,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx 256b 511b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_256B_511B,
 
@@ -687,7 +630,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx 512b 1023b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_512B_1023B,
 
@@ -695,7 +637,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx 1024b 1518b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_1024B_1518B,
 
@@ -703,7 +644,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Tx 1519b max
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_TX_1519B_MAX,
 
@@ -711,7 +651,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good frame
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_FRAME,
 
@@ -719,7 +658,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_OCTETS,
 
@@ -727,7 +665,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good multicast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_MULTICAST,
 
@@ -735,7 +672,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good broadcast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_BROADCAST,
 
@@ -743,7 +679,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good 64b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_64B,
 
@@ -751,7 +686,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good 65b 127b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_65B_127B,
 
@@ -759,7 +693,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good 128b 255b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_128B_255B,
 
@@ -767,7 +700,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good 256b 511b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_256B_511B,
 
@@ -775,7 +707,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good 512b 1023b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_512B_1023B,
 
@@ -783,7 +714,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good 1024b 1518b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_1024B_1518B,
 
@@ -791,7 +721,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good 1519b LTJ
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_1519B_LTJ,
 
@@ -799,7 +728,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx good jumbo
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_GOOD_JUMBO,
 
@@ -807,7 +735,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad frame
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_FRAME,
 
@@ -815,7 +742,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_OCTETS,
 
@@ -823,7 +749,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad multicast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_MULTICAST,
 
@@ -831,7 +756,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad broadcast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_BROADCAST,
 
@@ -839,7 +763,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad LT 64b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_LT_64B,
 
@@ -847,7 +770,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad 64b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_64B,
 
@@ -855,7 +777,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad 65b 127b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_65B_127B,
 
@@ -863,7 +784,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad 128b 255b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_128B_255B,
 
@@ -871,7 +791,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad 256b 511b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_256B_511B,
 
@@ -879,7 +798,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad 512b 1023b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_512B_1023B,
 
@@ -887,7 +805,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad 1024b 1518b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_1024B_1518B,
 
@@ -895,7 +812,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad 1519b LTJ
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_1519B_LTJ,
 
@@ -903,7 +819,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx bad jumbo
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BAD_JUMBO,
 
@@ -911,7 +826,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx octets
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_OCTETS,
 
@@ -919,7 +833,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx frame
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_FRAME,
 
@@ -927,7 +840,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx broadcast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_BROADCAST,
 
@@ -935,7 +847,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx multicast
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_MULTICAST,
 
@@ -943,7 +854,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx CRC align
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_CRC_ALIGN,
 
@@ -951,7 +861,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx 64b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_64B,
 
@@ -959,7 +868,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx 65b 127b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_65B_127B,
 
@@ -967,7 +875,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx 128b 255b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_128B_255B,
 
@@ -975,7 +882,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx 256b 511b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_256B_511B,
 
@@ -983,7 +889,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx 512b 1023b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_512B_1023B,
 
@@ -991,7 +896,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx 1024b 1518b
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_1024B_1518B,
 
@@ -999,7 +903,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Rx 1519b max
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_RX_1519B_MAX,
 
@@ -1007,7 +910,6 @@ typedef enum _sai_ethernet_stat_t
      * @brief Last clean up
      *
      * @type sai_uint64_t
-     * @iscounter true
      */
     SAI_ETHERNET_STAT_LAST_CLEAN_UP,
 

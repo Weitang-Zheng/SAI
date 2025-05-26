@@ -122,7 +122,6 @@ typedef enum _sai_och_stat_t
      * @brief Group delay
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_GROUP_DELAY = SAI_OCH_STAT_START,
@@ -131,8 +130,6 @@ typedef enum _sai_och_stat_t
      * @brief Input power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_INPUT_POWER,
@@ -141,7 +138,6 @@ typedef enum _sai_och_stat_t
      * @brief Chromatic dispersion
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_CHROMATIC_DISPERSION,
@@ -150,8 +146,6 @@ typedef enum _sai_och_stat_t
      * @brief Output power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_OUTPUT_POWER,
@@ -160,7 +154,6 @@ typedef enum _sai_och_stat_t
      * @brief Laser bias current
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_LASER_BIAS_CURRENT,
@@ -169,7 +162,6 @@ typedef enum _sai_och_stat_t
      * @brief Second ORDER polarization mode dispersion
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_SECOND_ORDER_POLARIZATION_MODE_DISPERSION,
@@ -178,7 +170,6 @@ typedef enum _sai_och_stat_t
      * @brief Polarization mode dispersion
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_POLARIZATION_MODE_DISPERSION,
@@ -187,8 +178,6 @@ typedef enum _sai_och_stat_t
      * @brief OSNR
      *
      * @type sai_uint64_t
-     * @unit dB
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_OSNR,
@@ -197,7 +186,6 @@ typedef enum _sai_och_stat_t
      * @brief SOP Vector S1
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_SOP_VECTOR_S1,
@@ -206,7 +194,6 @@ typedef enum _sai_och_stat_t
      * @brief SOP Vector S2
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_SOP_VECTOR_S2,
@@ -215,7 +202,6 @@ typedef enum _sai_och_stat_t
      * @brief SOP Vector S3
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_SOP_VECTOR_S3,
@@ -224,7 +210,6 @@ typedef enum _sai_och_stat_t
      * @brief SOP change rate
      *
      * @type sai_uint32_t
-     * @iscounter false
      */
     SAI_OCH_STAT_SOP_CHANGE_RATE,
 
@@ -232,7 +217,6 @@ typedef enum _sai_och_stat_t
      * @brief Tx laser age
      *
      * @type sai_uint32_t
-     * @iscounter false
      */
     SAI_OCH_STAT_TX_LASER_AGE,
 
@@ -240,8 +224,6 @@ typedef enum _sai_och_stat_t
      * @brief Polarization dependent loss
      *
      * @type sai_uint64_t
-     * @unit dB
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_POLARIZATION_DEPENDENT_LOSS,
@@ -250,8 +232,6 @@ typedef enum _sai_och_stat_t
      * @brief Input signal power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_INPUT_SIGNAL_POWER,
@@ -260,7 +240,6 @@ typedef enum _sai_och_stat_t
      * @brief EDFA bias current
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_OCH_STAT_EDFA_BIAS_CURRENT,
@@ -269,7 +248,6 @@ typedef enum _sai_och_stat_t
      * @brief Actual received frequency offset. unit: MHz
      *
      * @type sai_int32_t
-     * @iscounter false
      */
     SAI_OCH_STAT_ACTUAL_FREQUENCY_OFFSET,
 

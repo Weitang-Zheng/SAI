@@ -3682,7 +3682,6 @@ typedef enum _sai_switch_stat_t
      * @brief Memory utilized
      *
      * @type sai_uint64_t
-     * @iscounter false
      */
     SAI_SWITCH_STAT_MEMORY_UTILIZED,
 
@@ -3690,7 +3689,6 @@ typedef enum _sai_switch_stat_t
      * @brief CPU utilization
      *
      * @type sai_uint32_t
-     * @iscounter false
      */
     SAI_SWITCH_STAT_CPU_UTILIZATION,
 
@@ -3698,7 +3696,6 @@ typedef enum _sai_switch_stat_t
      * @brief Temperature
      *
      * @type sai_uint64_t
-     * @iscounter false
      * @precision 2
      */
     SAI_SWITCH_STAT_TEMPERATURE,

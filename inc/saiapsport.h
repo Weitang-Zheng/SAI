@@ -131,8 +131,6 @@ typedef enum _sai_aps_port_stat_t
      * @brief Optical power
      *
      * @type sai_uint64_t
-     * @unit dBm
-     * @iscounter false
      * @precision 2
      */
     SAI_APS_PORT_STAT_OPTICAL_POWER = SAI_APS_PORT_STAT_START,
@@ -141,8 +139,6 @@ typedef enum _sai_aps_port_stat_t
      * @brief Attenuation
      *
      * @type sai_uint64_t
-     * @unit dB
-     * @iscounter false
      * @precision 2
      */
     SAI_APS_PORT_STAT_ATTENUATION,
