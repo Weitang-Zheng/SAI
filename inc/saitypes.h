@@ -308,18 +308,17 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_ETHERNET                 = 118,
     SAI_OBJECT_TYPE_PHYSICAL_CHANNEL         = 119,
     SAI_OBJECT_TYPE_OCH                      = 120,
-    SAI_OBJECT_TYPE_LLDP                     = 121,
-    SAI_OBJECT_TYPE_INTERFACE                = 122,
-    SAI_OBJECT_TYPE_OPTICAL_PORT             = 123,
-    SAI_OBJECT_TYPE_OA                       = 124,
-    SAI_OBJECT_TYPE_OSC                      = 125,
-    SAI_OBJECT_TYPE_APS                      = 126,
-    SAI_OBJECT_TYPE_APS_PORT                 = 127,
-    SAI_OBJECT_TYPE_ATTENUATOR               = 128,
-    SAI_OBJECT_TYPE_WSS                      = 129,
-    SAI_OBJECT_TYPE_MEDIA_CHANNEL            = 130,
-    SAI_OBJECT_TYPE_OCM                      = 131,
-    SAI_OBJECT_TYPE_OTDR                     = 132,
+    SAI_OBJECT_TYPE_INTERFACE                = 121,
+    SAI_OBJECT_TYPE_OPTICAL_PORT             = 122,
+    SAI_OBJECT_TYPE_OA                       = 123,
+    SAI_OBJECT_TYPE_OSC                      = 124,
+    SAI_OBJECT_TYPE_APS                      = 125,
+    SAI_OBJECT_TYPE_APS_PORT                 = 126,
+    SAI_OBJECT_TYPE_ATTENUATOR               = 127,
+    SAI_OBJECT_TYPE_WSS                      = 128,
+    SAI_OBJECT_TYPE_MEDIA_CHANNEL            = 129,
+    SAI_OBJECT_TYPE_OCM                      = 130,
+    SAI_OBJECT_TYPE_OTDR                     = 131,
 
     /** Must remain in last position */
     SAI_OBJECT_TYPE_MAX,
@@ -1283,6 +1282,52 @@ typedef struct _sai_port_snr_list_t
     uint32_t count;
     sai_port_snr_values_t *list;
 } sai_port_snr_list_t;
+
+/**
+ * @brief Opticalport LLDP neighbor chassis ID type
+ */
+typedef enum _sai_opticalport_chassis_id_type_t
+{
+    SAI_OPTICAL_PORT_CHASSIS_ID_TYPE_CHASSIS_COMPONENT,
+    SAI_OPTICAL_PORT_CHASSIS_ID_TYPE_INTERFACE_ALIAS,
+    SAI_OPTICAL_PORT_CHASSIS_ID_TYPE_PORT_COMPONENT,
+    SAI_OPTICAL_PORT_CHASSIS_ID_TYPE_MAC_ADDRESS,
+    SAI_OPTICAL_PORT_CHASSIS_ID_TYPE_NETWORK_ADDRESS,
+    SAI_OPTICAL_PORT_CHASSIS_ID_TYPE_INTERFACE_NAME,
+    SAI_OPTICAL_PORT_CHASSIS_ID_TYPE_LOCAL,
+} sai_opticalport_chassis_id_type_t;
+
+/**
+ * @brief Opticalport LLDP neighbor port ID type
+ */
+typedef enum _sai_opticalport_port_id_type_t
+{
+    SAI_OPTICAL_PORT_ID_TYPE_INTERFACE_ALIAS,
+    SAI_OPTICAL_PORT_ID_TYPE_PORT_COMPONENT,
+    SAI_OPTICAL_PORT_ID_TYPE_MAC_ADDRESS,
+    SAI_OPTICAL_PORT_ID_TYPE_NETWORK_ADDRESS,
+    SAI_OPTICAL_PORT_ID_TYPE_INTERFACE_NAME,
+    SAI_OPTICAL_PORT_ID_TYPE_AGENT_CIRCUIT_ID,
+    SAI_OPTICAL_PORT_ID_TYPE_LOCAL,
+} sai_opticalport_port_id_type_t;
+
+/**
+ * @brief Defines an optical port's LLDP neighbor information
+ */
+typedef struct _sai_opticalport_lldp_neighbor_t
+{
+    sai_s8_list_t system_name;
+    sai_s8_list_t system_description;
+    sai_s8_list_t chassis_id;
+    sai_opticalport_chassis_id_type_t chassis_id_type;
+    sai_s8_list_t neighbor_id;
+    sai_int64_t last_update;
+    sai_s8_list_t port_id;
+    sai_opticalport_port_id_type_t port_id_type;
+    sai_s8_list_t port_description;
+    sai_s8_list_t management_address;
+    sai_s8_list_t management_address_type;
+} sai_opticalport_lldp_neighbor_t;
 
 /**
  * @brief POE port active channel (when delivering power)

@@ -87,7 +87,6 @@
 #include "saiattenuator.h"
 #include "saiethernet.h"
 #include "saiinterface.h"
-#include "sailldp.h"
 #include "sailogicalchannel.h"
 #include "saimediachannel.h"
 #include "saioa.h"
@@ -177,18 +176,17 @@ typedef enum _sai_api_t
     SAI_API_ETHERNET         = 58, /**< sai_ethernet_api_t */
     SAI_API_PHYSICAL_CHANNEL = 59, /**< sai_physical_channel_api_t */
     SAI_API_OCH              = 60, /**< sai_och_api_t */
-    SAI_API_LLDP             = 61, /**< sai_lldp_api_t */
-    SAI_API_INTERFACE        = 62, /**< sai_interface_api_t */
-    SAI_API_OPTICAL_PORT     = 63, /**< sai_optical_port_api_t */
-    SAI_API_OA               = 64, /**< sai_oa_api_t */
-    SAI_API_OSC              = 65, /**< sai_osc_api_t */
-    SAI_API_APS              = 66, /**< sai_aps_api_t */
-    SAI_API_APS_PORT         = 67, /**< sai_aps_port_api_t */
-    SAI_API_ATTENUATOR       = 68, /**< sai_attenuator_api_t */
-    SAI_API_WSS              = 69, /**< sai_wss_api_t */
-    SAI_API_MEDIA_CHANNEL    = 70, /**< sai_media_channel_api_t */
-    SAI_API_OCM              = 71, /**< sai_ocm_api_t */
-    SAI_API_OTDR             = 72, /**< sai_otdr_api_t */
+    SAI_API_INTERFACE        = 61, /**< sai_interface_api_t */
+    SAI_API_OPTICAL_PORT     = 62, /**< sai_optical_port_api_t */
+    SAI_API_OA               = 63, /**< sai_oa_api_t */
+    SAI_API_OSC              = 64, /**< sai_osc_api_t */
+    SAI_API_APS              = 65, /**< sai_aps_api_t */
+    SAI_API_APS_PORT         = 66, /**< sai_aps_port_api_t */
+    SAI_API_ATTENUATOR       = 67, /**< sai_attenuator_api_t */
+    SAI_API_WSS              = 68, /**< sai_wss_api_t */
+    SAI_API_MEDIA_CHANNEL    = 69, /**< sai_media_channel_api_t */
+    SAI_API_OCM              = 70, /**< sai_ocm_api_t */
+    SAI_API_OTDR             = 71, /**< sai_otdr_api_t */
     SAI_API_MAX,                   /**< total number of APIs */
 
     /**

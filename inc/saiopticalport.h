@@ -152,6 +152,38 @@ typedef enum _sai_optical_port_attr_t
     SAI_OPTICAL_PORT_ATTR_OUTPUT_OFFSET,
 
     /**
+     * @brief LLDP Enabled 
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     */
+    SAI_OPTICAL_PORT_ATTR_LLDP_ENABLED,
+
+    /**
+     * @brief LLDP Snooping
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     */
+    SAI_OPTICAL_PORT_ATTR_LLDP_SNOOPING,
+
+    /**
+     * @brief LLDP neighbor information
+     *
+     * @type sai_opticalport_lldp_neighbor_t
+     * @flags READ_ONLY
+     */
+    SAI_OPTICAL_PORT_ATTR_RX_LLDP_NEIGHBOR,
+
+    /**
+     * @brief LLDP neighbor information
+     *
+     * @type sai_opticalport_lldp_neighbor_t
+     * @flags READ_ONLY
+     */
+    SAI_OPTICAL_PORT_ATTR_TX_LLDP_NEIGHBOR,
+
+    /**
      * @brief End of attributes
      */
     SAI_OPTICAL_PORT_ATTR_END,
