@@ -66,7 +66,6 @@ our %CUSTOM_ENUMS = ();
 our %CUSTOM_ATTRS = ();
 our %CUSTOM_OBJECTS = ();
 our %OBJECT_TYPE_TO_STATS_MAP = ();
-our %OBJECT_TYPE_TO_ALARMS_MAP = ();
 our %ATTR_TO_CALLBACK = ();
 our %PRIMITIVE_TYPES = ();
 our %FUNCTION_DEF = ();
@@ -1539,7 +1538,8 @@ sub ProcessStatKebabName
     my ($stat, $type) = @_;
     my $kebab;
 
-    if ($stat =~ /^(SAI_\w+_STAT_)(\w+)$/) {
+    if ($stat =~ /^(SAI_\w+_STAT_)(\w+)$/)
+    {
         $kebab = lc $2;
         $kebab =~ s/_/-/g;
     }
@@ -2463,9 +2463,9 @@ sub ProcessSingleObjectTypeStat
         $meta{type} = "" if not defined $meta{type};
 
         my $statname        = ProcessStatName($stat, $meta{type});
-        my $precision       = ProcessPrecision($stat, $meta{precision});
         my $kebabname       = ProcessStatKebabName($stat, $meta{type});
         my $camelname       = ProcessStatCamelName($stat, $meta{type});
+        my $precision       = ProcessPrecision($stat, $meta{precision});
 
         WriteSource "const sai_stat_metadata_t sai_metadata_stat_$stat = {";
 
@@ -2690,12 +2690,20 @@ sub CreateMetadata
 {
     for my $key (sort keys %SAI_ENUMS)
     {
-        next if not $key =~ /^(sai_(\w+)_attr_t)$/;
+        if ($key =~ /^(sai_(\w+)_attr_t)$/)
+        {
+            my $typedef = $1;
+            my $objtype = "SAI_OBJECT_TYPE_" . uc($2);
 
-        my $typedef = $1;
-        my $objtype = "SAI_OBJECT_TYPE_" . uc($2);
+            ProcessSingleObjectType($typedef, $objtype);
+        }
+        elsif ($key =~ /^(sai_(\w+)_stat_t)$/)
+        {
+            my $typedef = $1;
+            my $objtype = "SAI_OBJECT_TYPE_" . uc($2);
 
-        ProcessSingleObjectType($typedef, $objtype);
+            ProcessSingleObjectTypeStat($typedef, $objtype);
+        }
     }
 }
 
@@ -6018,6 +6026,8 @@ CreateMetadata();
 
 CreateMetadataForAttributes();
 
+CreateMetadataForStatistics();
+
 CreateDefineMaxConditionsLen();
 
 CreateEnumHelperMethods();
@@ -6049,6 +6059,8 @@ CreateGlobalApisQuery();
 CreateObjectInfo();
 
 CreateListOfAllAttributes();
+
+CreateListOfAllStatistics();
 
 CheckCapabilities();
 
