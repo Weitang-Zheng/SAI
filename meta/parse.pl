@@ -2222,19 +2222,6 @@ sub ProcessAttrName
     return "\"$attr\"";
 }
 
-sub ProcessAttrKebabName
-{
-    my ($attr, $type) = @_;
-    my $kebabname;
-
-    if ($attr =~ /^(SAI_\w+_ATTR_)(\w+)$/) {
-        $kebabname = lc $2;
-        $kebabname =~ s/_/-/g;
-    }
-
-    return "\"$kebabname\"";
-}
-
 sub ProcessIsCallback
 {
     my ($attr, $type) = @_;
@@ -2555,7 +2542,6 @@ sub ProcessSingleObjectType
         my $type            = ProcessType($attr, $meta{type});
         my $attrname        = ProcessAttrName($attr, $meta{type});
         my $flags           = ProcessFlags($attr, $meta{flags});
-        my $isaction        = ProcessIsAction($attr, $meta{isaction});
         my $allownull       = ProcessAllowNull($attr, $meta{allownull});
         my $objects         = ProcessObjects($attr, $meta{objects});
         my $objectslen      = ProcessObjectsLen($attr, $meta{objects});
@@ -2594,6 +2580,8 @@ sub ProcessSingleObjectType
         my $isrelaxed       = ProcessRelaxedType($attr, $meta{relaxed});
         my $apiversion      = ProcessApiVersion($attr);
         my $nextrelease     = ProcessNextRelease($attr);
+        my $isaction        = ProcessIsAction($attr, $meta{isaction});
+        my $precision       = ProcessPrecision($attr, $meta{precision});
 
         my $ismandatoryoncreate = ($flags =~ /MANDATORY/)       ? "true" : "false";
         my $iscreateonly        = ($flags =~ /CREATE_ONLY/)     ? "true" : "false";
@@ -2601,7 +2589,6 @@ sub ProcessSingleObjectType
         my $isreadonly          = ($flags =~ /READ_ONLY/)       ? "true" : "false";
         my $iskey               = ($flags =~ /KEY/)             ? "true" : "false";
 
-        my $kebabname           = ProcessAttrKebabName($attr, $meta{type});
         WriteSource "const sai_attr_metadata_t sai_metadata_attr_$attr = {";
 
         WriteSource ".objecttype                    = (sai_object_type_t)$objecttype,";
@@ -2610,7 +2597,6 @@ sub ProcessSingleObjectType
         WriteSource ".brief                         = $brief,";
         WriteSource ".attrvaluetype                 = $type,";
         WriteSource ".flags                         = $flags,";
-        WriteSource ".isaction                      = $isaction,";
         WriteSource ".allowedobjecttypes            = $objects,";
         WriteSource ".allowedobjecttypeslength      = $objectslen,";
         WriteSource ".allowrepetitiononlist         = $allowrepeat,";
@@ -2653,11 +2639,12 @@ sub ProcessSingleObjectType
         WriteSource ".isextensionattr               = $isextensionattr,";
         WriteSource ".isresourcetype                = $isresourcetype,";
         WriteSource ".isdeprecated                  = $isdeprecated,";
-        WriteSource ".attridkebabname               = $kebabname,";
         WriteSource ".isconditionrelaxed            = $isrelaxed,";
         WriteSource ".iscustom                      = ($attr >= 0x10000000) && ($attr < 0x20000000),";
         WriteSource ".apiversion                    = $apiversion,";
         WriteSource ".nextrelease                   = $nextrelease,";
+        WriteSource ".isaction                      = $isaction,";
+        WriteSource ".valueprecision                = $precision,";
 
         WriteSource "};";
 

@@ -609,6 +609,7 @@ typedef enum _sai_attr_flags_t
      * standalone.
      */
     SAI_ATTR_FLAGS_SPECIAL             = (1 << 6),
+
 } sai_attr_flags_t;
 
 /**
@@ -975,9 +976,9 @@ typedef struct _sai_stat_metadata_t
     const char* const                           statidcamelname;
 
     /**
-     * @brief Specifies value precision for this statistics.
+     * @brief Specifies value decimal precision for this statistics.
      */
-    sai_value_precision_t                  statvalueprecision;
+    sai_value_precision_t                       statvalueprecision;
 } sai_stat_metadata_t;
 
 /**
@@ -1383,22 +1384,17 @@ typedef struct _sai_attr_metadata_t
     bool                                        nextrelease;
 
     /**
-     * @brief Determines whether attribute is set only
-     */
-    bool                                        issetonly;
-
-    /**
-     * @brief Specifies kebab name for this object type.
-     */
-    const char* const                           attridkebabname;
-
-    /**
      * @brief Indicates whether attribute is an action.
      *
      * If true, when calling SET API successfully, the value will NOT be saved in local
      * db for warm-reboot (or cold-reboot) flow to recover this configuration.
      */
     bool                                        isaction;
+
+    /**
+     * @brief Specifies value decimal precision for this attribute.
+     */
+    sai_value_precision_t                       valueprecision;
 } sai_attr_metadata_t;
 
 /*
