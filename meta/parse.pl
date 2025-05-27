@@ -4242,17 +4242,6 @@ sub ProcessStatEnum
     return "NULL";
 }
 
-sub ProcessAlarmEnum
-{
-    my $shortot = shift;
-
-    my $alarmenumname = "sai_${shortot}_alarm_type_t";
-
-    return "&sai_metadata_enum_$alarmenumname" if defined $SAI_ENUMS{$alarmenumname};
-
-    return "NULL";
-}
-
 sub CreateObjectInfo
 {
     WriteSectionComment "Object info metadata";

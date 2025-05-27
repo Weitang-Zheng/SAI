@@ -1737,10 +1737,6 @@ typedef struct _sai_object_type_info_t
      */
     bool                                            iscustom;
 
-    /**
-     * @brief Points to enum sai_OBJECT_TYPE_alarm_t if object supports alarms.
-     */
-    const sai_enum_metadata_t* const                alarmenum;
 } sai_object_type_info_t;
 
 /**
