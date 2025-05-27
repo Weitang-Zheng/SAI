@@ -503,27 +503,32 @@ typedef enum _sai_attr_value_type_t
 } sai_attr_value_type_t;
 
 /**
- * @brief Defines statistics value precision.
+ * @brief Defines attribute and statistics value precision.
  */
 typedef enum _sai_value_precision_t
 {
     /**
-     * @brief Value with 0 decimal precision.
+     * @brief Value with 0 decimal places.
      */
     SAI_VALUE_PRECISION_0,
 
     /**
-     * @brief Value with 1 decimal precision.
+     * @brief Value with 1 decimal places.
      */
     SAI_VALUE_PRECISION_1,
 
     /**
-     * @brief Value with 2 decimal precision.
+     * @brief Value with 2 decimal places.
      */
     SAI_VALUE_PRECISION_2,
 
     /**
-     * @brief Value with 18 decimal precision.
+     * @brief Value with 3 decimal places.
+     */
+    SAI_VALUE_PRECISION_3,
+
+    /**
+     * @brief Value with 18 decimal places.
      */
     SAI_VALUE_PRECISION_18,
 
@@ -978,7 +983,7 @@ typedef struct _sai_stat_metadata_t
     /**
      * @brief Specifies value decimal precision for this statistics.
      */
-    sai_value_precision_t                       statvalueprecision;
+    sai_value_precision_t                       valueprecision;
 } sai_stat_metadata_t;
 
 /**

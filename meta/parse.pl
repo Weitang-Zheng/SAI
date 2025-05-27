@@ -131,9 +131,9 @@ my %CAPABILITIES = ();
 sub ProcessTagPrecision
 {
     my ($precision, $value, $val) = @_;
-    return $val if $val =~ /^(0|1|2|18|)$/i;
+    return $val if $val =~ /^(0|1|2|3|18|)$/i;
 
-    LogError "precision tag value '$val', expected 0/1/2/18";
+    LogError "precision tag value '$val', expected 0/1/2/3/18";
     return undef;
 }
 
@@ -1521,6 +1521,7 @@ sub ProcessPrecision
     return "SAI_VALUE_PRECISION_0" if $precision eq "0";
     return "SAI_VALUE_PRECISION_1" if $precision eq "1";
     return "SAI_VALUE_PRECISION_2" if $precision eq "2";
+    return "SAI_VALUE_PRECISION_3" if $precision eq "3";
     return "SAI_VALUE_PRECISION_18" if $precision eq "18";
 
     return "SAI_VALUE_PRECISION_0";
@@ -2471,9 +2472,9 @@ sub ProcessSingleObjectTypeStat
         WriteSource ".objecttype                    = $objecttype,";
         WriteSource ".statid                        = $stat,";
         WriteSource ".statidname                    = $statname,";
-        WriteSource ".statvalueprecision            = $precision,";
         WriteSource ".statidkebabname               = $kebabname,";
         WriteSource ".statidcamelname               = $camelname,";
+        WriteSource ".valueprecision                = $precision,";
         WriteSource "};";
     }
 }
