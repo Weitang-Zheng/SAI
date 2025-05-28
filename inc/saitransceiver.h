@@ -161,12 +161,6 @@ typedef enum _sai_transceiver_power_mode_t
     SAI_TRANSCEIVER_POWER_MODE_LOW_POWER,
 } sai_transceiver_power_mode_t;
 
-typedef enum _sai_transceiver_flash_partition_t
-{
-    SAI_TRANSCEIVER_FLASH_PARTITION_A,
-    SAI_TRANSCEIVER_FLASH_PARTITION_B,
-} sai_transceiver_flash_partition_t;
-
 typedef enum _sai_transceiver_power_class_t
 {
     SAI_TRANSCEIVER_POWER_CLASS_BELOW_9W,

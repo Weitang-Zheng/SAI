@@ -85,6 +85,7 @@
 #include "saiaps.h"
 #include "saiapsport.h"
 #include "saiattenuator.h"
+#include "saiassignment.h"
 #include "saiethernet.h"
 #include "saiinterface.h"
 #include "sailogicalchannel.h"
@@ -182,11 +183,12 @@ typedef enum _sai_api_t
     SAI_API_OSC              = 64, /**< sai_osc_api_t */
     SAI_API_APS              = 65, /**< sai_aps_api_t */
     SAI_API_APS_PORT         = 66, /**< sai_aps_port_api_t */
-    SAI_API_ATTENUATOR       = 67, /**< sai_attenuator_api_t */
-    SAI_API_WSS              = 68, /**< sai_wss_api_t */
-    SAI_API_MEDIA_CHANNEL    = 69, /**< sai_media_channel_api_t */
-    SAI_API_OCM              = 70, /**< sai_ocm_api_t */
-    SAI_API_OTDR             = 71, /**< sai_otdr_api_t */
+    SAI_API_ASSIGNMENT       = 67, /**< sai_attenuator_api_t */
+    SAI_API_ATTENUATOR       = 68, /**< sai_attenuator_api_t */
+    SAI_API_WSS              = 69, /**< sai_wss_api_t */
+    SAI_API_MEDIA_CHANNEL    = 70, /**< sai_media_channel_api_t */
+    SAI_API_OCM              = 71, /**< sai_ocm_api_t */
+    SAI_API_OTDR             = 72, /**< sai_otdr_api_t */
     SAI_API_MAX,                   /**< total number of APIs */
 
     /**

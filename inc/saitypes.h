@@ -314,11 +314,12 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_OSC                      = 124,
     SAI_OBJECT_TYPE_APS                      = 125,
     SAI_OBJECT_TYPE_APS_PORT                 = 126,
-    SAI_OBJECT_TYPE_ATTENUATOR               = 127,
-    SAI_OBJECT_TYPE_WSS                      = 128,
-    SAI_OBJECT_TYPE_MEDIA_CHANNEL            = 129,
-    SAI_OBJECT_TYPE_OCM                      = 130,
-    SAI_OBJECT_TYPE_OTDR                     = 131,
+    SAI_OBJECT_TYPE_ASSIGNMENT               = 127,
+    SAI_OBJECT_TYPE_ATTENUATOR               = 128,
+    SAI_OBJECT_TYPE_WSS                      = 129,
+    SAI_OBJECT_TYPE_MEDIA_CHANNEL            = 130,
+    SAI_OBJECT_TYPE_OCM                      = 131,
+    SAI_OBJECT_TYPE_OTDR                     = 132,
 
     /** Must remain in last position */
     SAI_OBJECT_TYPE_MAX,
