@@ -152,7 +152,7 @@ typedef enum _sai_optical_port_attr_t
     SAI_OPTICAL_PORT_ATTR_OUTPUT_OFFSET,
 
     /**
-     * @brief LLDP Enabled 
+     * @brief LLDP Enabled
      *
      * @type bool
      * @flags CREATE_AND_SET

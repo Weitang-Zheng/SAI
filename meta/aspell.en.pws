@@ -96,6 +96,7 @@ isvlan
 json
 LAGs
 libsai
+linecard
 linklocal
 Linux
 lookup

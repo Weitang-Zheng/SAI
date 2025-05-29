@@ -50,6 +50,7 @@ our $MAX_CONDITIONS_LEN = 1;
 our %SAI_ENUMS = ();
 our %SAI_UNIONS = ();
 our %METADATA = ();
+our %STAT_METADATA = ();
 our %NON_OBJECT_ID_STRUCTS = ();
 our %NOTIFICATIONS = ();
 our %OBJTOAPIMAP = ();
@@ -505,6 +506,14 @@ sub ProcessStatDescription
     my @order = ();
 
     $desc =~ s/@@/\n@@/g;
+
+    unless ($desc =~ /\n?@@\w+/) {
+        # if there is no precision tag, then set the value to 0 by default
+        $STAT_METADATA{$type}{$value}{'precision'}   = 0;
+        $STAT_METADATA{$type}{$value}{objecttype}    = $type;
+        $STAT_METADATA{$type}{$value}{attrid}        = $value;
+    }
+
     while ($desc =~ /@@(\w+)(.*)/g)
     {
         my $tag = $1;
@@ -520,14 +529,14 @@ sub ProcessStatDescription
 
         $val = $ATTR_TAGS{$tag}->($type, $value, $val);
 
-        $METADATA{$type}{$value}{$tag}          = $val;
-        $METADATA{$type}{$value}{objecttype}    = $type;
-        $METADATA{$type}{$value}{attrid}        = $value;
+        $STAT_METADATA{$type}{$value}{$tag}          = $val;
+        $STAT_METADATA{$type}{$value}{objecttype}    = $type;
+        $STAT_METADATA{$type}{$value}{attrid}        = $value;
     }
 
     $brief = Trim $brief;
 
-    $METADATA{$type}{$value}{brief} = $brief if $brief ne "";
+    $STAT_METADATA{$type}{$value}{brief} = $brief if $brief ne "";
 }
 
 sub ProcessDescription
@@ -2452,13 +2461,13 @@ sub ProcessSingleObjectTypeStat
 
     for my $stat (@values)
     {
-        if (not defined $METADATA{$typedef} or not defined $METADATA{$typedef}{$stat})
+        if (not defined $STAT_METADATA{$typedef} or not defined $STAT_METADATA{$typedef}{$stat})
         {
-            LogError "metadata is missing for $stat";
+            LogError "stat_metadata is missing for $stat";
             next;
         }
 
-        my %meta = %{ $METADATA{$typedef}{$stat} };
+        my %meta = %{ $STAT_METADATA{$typedef}{$stat} };
 
         $meta{type} = "" if not defined $meta{type};
 
@@ -4533,9 +4542,9 @@ sub GetHashOfAllStatistics
 
         for my $stat (@values)
         {
-            if (not defined $METADATA{$typedef} or not defined $METADATA{$typedef}{$stat})
+            if (not defined $STAT_METADATA{$typedef} or not defined $STAT_METADATA{$typedef}{$stat})
             {
-                LogError "metadata is missing for $stat";
+                LogError "stat_metadata is missing for $stat";
                 next;
             }
 
