@@ -771,9 +771,14 @@ sub ProcessEnumSection
 
         $SAI_ENUMS{$enumtypename}{values} = \@values;
 
-        if ($enumtypename =~ /^(sai_(\w+)_stat_)t$/)
+        if ($enumtypename =~ /^(sai_(\w+)_stat_(extensions_)?)t$/)
         {
-            my $prefix = uc$1;
+            if ($enumtypename =~ /_extensions_t$/)
+            {
+                # remove extensions suffix on all extensions since they were merged together
+                $enumtypename =~ s/_extensions_t$/_t/;
+            }
+
             for my $ev (@{ $memberdef->{enumvalue} })
             {
                 my $enumvaluename = $ev->{name}[0];
@@ -2789,9 +2794,8 @@ sub CreateMetadataForStatistics
 
         if (not defined $SAI_ENUMS{$type})
         {
-            my @empty = ();
-
-            $SAI_ENUMS{$type}{values} = \@empty;
+            # skip this object type of no stat_t defined
+            next;
         }
 
         WriteSource "const sai_stat_metadata_t* const sai_metadata_stat_object_type_$type\[\] = {";
