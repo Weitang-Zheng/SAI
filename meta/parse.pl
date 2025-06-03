@@ -2826,6 +2826,12 @@ sub CreateMetadataForStatistics
 
         my $type = "sai_" . lc($1) . "_stat_t";
 
+        if (not defined $SAI_ENUMS{$type})
+        {
+            # skip this object type of no stat_t defined
+            next;
+        }
+
         WriteSource "sai_metadata_stat_object_type_$type,";
     }
 
