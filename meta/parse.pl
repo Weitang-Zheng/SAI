@@ -1537,7 +1537,8 @@ sub ProcessPrecision
     return "SAI_VALUE_PRECISION_3" if $precision eq "3";
     return "SAI_VALUE_PRECISION_18" if $precision eq "18";
 
-    return "SAI_VALUE_PRECISION_0";
+    LogError "wrong precision value $precision";
+    return undef;
 }
 
 sub ProcessStatName
