@@ -302,6 +302,23 @@ typedef enum _sai_object_type_t
     SAI_OBJECT_TYPE_PREFIX_COMPRESSION_TABLE = 112,
     SAI_OBJECT_TYPE_PREFIX_COMPRESSION_ENTRY = 113,
     SAI_OBJECT_TYPE_SYNCE_CLOCK              = 114,
+    SAI_OBJECT_TYPE_LOGICAL_CHANNEL          = 115,
+    SAI_OBJECT_TYPE_OTN                      = 116,
+    SAI_OBJECT_TYPE_ETHERNET                 = 117,
+    SAI_OBJECT_TYPE_PHYSICAL_CHANNEL         = 118,
+    SAI_OBJECT_TYPE_OCH                      = 119,
+    SAI_OBJECT_TYPE_INTERFACE                = 120,
+    SAI_OBJECT_TYPE_OPTICAL_PORT             = 121,
+    SAI_OBJECT_TYPE_OA                       = 122,
+    SAI_OBJECT_TYPE_OSC                      = 123,
+    SAI_OBJECT_TYPE_APS                      = 124,
+    SAI_OBJECT_TYPE_APS_PORT                 = 125,
+    SAI_OBJECT_TYPE_ASSIGNMENT               = 126,
+    SAI_OBJECT_TYPE_ATTENUATOR               = 127,
+    SAI_OBJECT_TYPE_WSS                      = 128,
+    SAI_OBJECT_TYPE_MEDIA_CHANNEL            = 129,
+    SAI_OBJECT_TYPE_OCM                      = 130,
+    SAI_OBJECT_TYPE_OTDR                     = 131,
 
     /** Must remain in last position */
     SAI_OBJECT_TYPE_MAX,
@@ -1267,6 +1284,52 @@ typedef struct _sai_port_snr_list_t
 } sai_port_snr_list_t;
 
 /**
+ * @brief Optical port LLDP neighbor chassis ID type
+ */
+typedef enum _sai_opticalport_chassis_id_type_t
+{
+    SAI_OPTICALPORT_CHASSIS_ID_TYPE_CHASSIS_COMPONENT,
+    SAI_OPTICALPORT_CHASSIS_ID_TYPE_INTERFACE_ALIAS,
+    SAI_OPTICALPORT_CHASSIS_ID_TYPE_PORT_COMPONENT,
+    SAI_OPTICALPORT_CHASSIS_ID_TYPE_MAC_ADDRESS,
+    SAI_OPTICALPORT_CHASSIS_ID_TYPE_NETWORK_ADDRESS,
+    SAI_OPTICALPORT_CHASSIS_ID_TYPE_INTERFACE_NAME,
+    SAI_OPTICALPORT_CHASSIS_ID_TYPE_LOCAL,
+} sai_opticalport_chassis_id_type_t;
+
+/**
+ * @brief Optical port LLDP neighbor port ID type
+ */
+typedef enum _sai_opticalport_port_id_type_t
+{
+    SAI_OPTICALPORT_PORT_ID_TYPE_INTERFACE_ALIAS,
+    SAI_OPTICALPORT_PORT_ID_TYPE_PORT_COMPONENT,
+    SAI_OPTICALPORT_PORT_ID_TYPE_MAC_ADDRESS,
+    SAI_OPTICALPORT_PORT_ID_TYPE_NETWORK_ADDRESS,
+    SAI_OPTICALPORT_PORT_ID_TYPE_INTERFACE_NAME,
+    SAI_OPTICALPORT_PORT_ID_TYPE_AGENT_CIRCUIT_ID,
+    SAI_OPTICALPORT_PORT_ID_TYPE_LOCAL,
+} sai_opticalport_port_id_type_t;
+
+/**
+ * @brief Defines an optical port's LLDP neighbor information
+ */
+typedef struct _sai_opticalport_lldp_neighbor_t
+{
+    sai_s8_list_t system_name;
+    sai_s8_list_t system_description;
+    sai_s8_list_t chassis_id;
+    sai_opticalport_chassis_id_type_t chassis_id_type;
+    sai_s8_list_t neighbor_id;
+    sai_int64_t last_update;
+    sai_s8_list_t port_id;
+    sai_opticalport_port_id_type_t port_id_type;
+    sai_s8_list_t port_description;
+    sai_s8_list_t management_address;
+    sai_s8_list_t management_address_type;
+} sai_opticalport_lldp_neighbor_t;
+
+/**
  * @brief POE port active channel (when delivering power)
  */
 typedef enum _sai_poe_port_active_channel_type_t
@@ -1693,6 +1756,9 @@ typedef union _sai_attribute_value_t
 
     /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_PORT_PAM4_EYE_VALUES_LIST */
     sai_port_pam4_eye_values_list_t portpam4eyevalues;
+
+    /** @validonly meta->attrvaluetype == SAI_ATTR_VALUE_TYPE_OPTICALPORT_LLDP_NEIGHBOR */
+    sai_opticalport_lldp_neighbor_t opticalportlldpneighbor;
 } sai_attribute_value_t;
 
 /**
@@ -2065,6 +2131,46 @@ typedef struct _sai_switch_health_data_t
     /** @passparam data_type */
     sai_health_data_t data;
 } sai_switch_health_data_t;
+
+/** @brief Operational status */
+typedef enum _sai_oper_status_t
+{
+    SAI_OPER_STATUS_ACTIVE,
+    SAI_OPER_STATUS_INACTIVE,
+    SAI_OPER_STATUS_DISABLED,
+} sai_oper_status_t;
+
+/** @brief Admin state */
+typedef enum _sai_admin_state_t
+{
+    SAI_ADMIN_STATE_ENABLED,
+    SAI_ADMIN_STATE_DISABLED,
+    SAI_ADMIN_STATE_MAINT,
+} sai_admin_state_t;
+
+typedef enum _sai_optical_port_type_t
+{
+    /** Ingress port Port Type */
+    SAI_OPTICAL_PORT_TYPE_INGRESS,
+
+    /** Egress port Port Type */
+    SAI_OPTICAL_PORT_TYPE_EGRESS,
+
+    /** Add port at WSS Port Type */
+    SAI_OPTICAL_PORT_TYPE_ADD,
+
+    /** Drop port at WSS Port Type */
+    SAI_OPTICAL_PORT_TYPE_DROP,
+
+    /** Monitor port at OCM Port Type */
+    SAI_OPTICAL_PORT_TYPE_MONITOR,
+
+    /** Client-facing port Port Type */
+    SAI_OPTICAL_PORT_TYPE_TERMINAL_CLIENT,
+
+    /** Line-facing port Port Type */
+    SAI_OPTICAL_PORT_TYPE_TERMINAL_LINE
+} sai_optical_port_type_t;
 
 /**
  * @}

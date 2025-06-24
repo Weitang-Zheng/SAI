@@ -50,6 +50,7 @@ our $MAX_CONDITIONS_LEN = 1;
 our %SAI_ENUMS = ();
 our %SAI_UNIONS = ();
 our %METADATA = ();
+our %STAT_METADATA = ();
 our %NON_OBJECT_ID_STRUCTS = ();
 our %NOTIFICATIONS = ();
 our %OBJTOAPIMAP = ();
@@ -96,6 +97,8 @@ my %ATTR_TAGS = (
         "relaxed"        , \&ProcessTagRelaxed,
         "isresourcetype" , \&ProcessTagIsRecourceType,
         "deprecated"     , \&ProcessTagDeprecated,
+        "precision"      , \&ProcessTagPrecision,
+        "isaction"       , \&ProcessTagIsAction,
         );
 
 my %options = ();
@@ -124,6 +127,24 @@ my %VALUE_TYPES = ();
 my %VALUE_TYPES_TO_VT = ();
 
 my %CAPABILITIES = ();
+
+sub ProcessTagPrecision
+{
+    my ($precision, $value, $val) = @_;
+    return $val if $val =~ /^(0|1|2|3|18|)$/i;
+
+    LogError "precision tag value '$val', expected 0/1/2/3/18";
+    return undef;
+}
+
+sub ProcessTagIsAction
+{
+    my ($type, $value, $val) = @_;
+    return $val if $val =~ /^(true|false)$/i;
+
+    LogError "isaction tag value '$val', expected true/false";
+    return undef;
+}
 
 sub ProcessTagType
 {
@@ -478,6 +499,46 @@ sub ProcessEnumItemDescription
     }
 }
 
+sub ProcessStatDescription
+{
+    my ($type, $value, $desc, $brief) = @_;
+
+    my @order = ();
+
+    $desc =~ s/@@/\n@@/g;
+
+    unless ($desc =~ /\n?@@\w+/) {
+        # if there is no precision tag, then set the value to 0 by default
+        $STAT_METADATA{$type}{$value}{'precision'}   = 0;
+        $STAT_METADATA{$type}{$value}{objecttype}    = $type;
+        $STAT_METADATA{$type}{$value}{attrid}        = $value;
+    }
+
+    while ($desc =~ /@@(\w+)(.*)/g)
+    {
+        my $tag = $1;
+        my $val = $2;
+
+        $val = Trim $val;
+
+        if (not defined $ATTR_TAGS{$tag})
+        {
+            LogError "unrecognized tag '$tag' on $type $value";
+            next;
+        }
+
+        $val = $ATTR_TAGS{$tag}->($type, $value, $val);
+
+        $STAT_METADATA{$type}{$value}{$tag}          = $val;
+        $STAT_METADATA{$type}{$value}{objecttype}    = $type;
+        $STAT_METADATA{$type}{$value}{attrid}        = $value;
+    }
+
+    $brief = Trim $brief;
+
+    $STAT_METADATA{$type}{$value}{brief} = $brief if $brief ne "";
+}
+
 sub ProcessDescription
 {
     my ($type, $value, $desc, $brief) = @_;
@@ -514,7 +575,7 @@ sub ProcessDescription
 
     return if scalar@order == 0;
 
-    my $rightOrder = 'type:flags(:objects)?(:allownull)?(:allowempty)?(:isvlan)?(:default)?(:range)?(:condition|:validonly)?(:relaxed)?(:isresourcetype)?(:deprecated)?';
+    my $rightOrder = 'type:flags(:objects)?(:allownull)?(:allowempty)?(:isvlan)?(:default)?(:range)?(:condition|:validonly)?(:relaxed)?(:isresourcetype)?(:deprecated)?(:isaction)?(:precision)?';
 
     my $order = join(":",@order);
 
@@ -706,6 +767,26 @@ sub ProcessEnumSection
         else
         {
             LogError "NON sai Enum $enumtypename";
+        }
+
+        $SAI_ENUMS{$enumtypename}{values} = \@values;
+
+        if ($enumtypename =~ /^(sai_(\w+)_stat_(extensions_)?)t$/)
+        {
+            if ($enumtypename =~ /_extensions_t$/)
+            {
+                # remove extensions suffix on all extensions since they were merged together
+                $enumtypename =~ s/_extensions_t$/_t/;
+            }
+
+            for my $ev (@{ $memberdef->{enumvalue} })
+            {
+                my $enumvaluename = $ev->{name}[0];
+                my $desc = ExtractDescription($enumtypename, $enumvaluename, $ev->{detaileddescription}[0]);
+                my $brief = ExtractDescription($enumtypename, $enumvaluename, $ev->{briefdescription}[0]);
+                ProcessStatDescription($enumtypename, $enumvaluename, $desc, $brief);
+            }
+            next;
         }
 
         $SAI_ENUMS{$enumtypename}{values} = \@values;
@@ -1441,6 +1522,60 @@ sub CreateMetadataHeaderAndSource
     WriteSource "};";
 }
 
+sub ProcessPrecision
+{
+    my ($stat, $precision) = @_;
+
+    if (not defined $precision)
+    {
+        return "SAI_VALUE_PRECISION_0";
+    }
+
+    return "SAI_VALUE_PRECISION_0" if $precision eq "0";
+    return "SAI_VALUE_PRECISION_1" if $precision eq "1";
+    return "SAI_VALUE_PRECISION_2" if $precision eq "2";
+    return "SAI_VALUE_PRECISION_3" if $precision eq "3";
+    return "SAI_VALUE_PRECISION_18" if $precision eq "18";
+
+    LogError "wrong precision value $precision";
+    return undef;
+}
+
+sub ProcessStatName
+{
+    my ($stat, $type) = @_;
+
+    return "\"$stat\"";
+}
+
+sub ProcessStatKebabName
+{
+    my ($stat, $type) = @_;
+    my $kebab;
+
+    if ($stat =~ /^(SAI_\w+_STAT_)(\w+)$/)
+    {
+        $kebab = lc $2;
+        $kebab =~ s/_/-/g;
+    }
+
+    return "\"$kebab\"";
+}
+
+sub ProcessStatCamelName
+{
+    my ($stat, $type) = @_;
+    my $camel;
+
+    if ($stat =~ /^(SAI_\w+_STAT_)(\w+)$/)
+    {
+        $camel = lc $2;
+        $camel =~ s/(_|^)(.)/\u$2/g;
+    }
+
+    return "\"$camel\"";
+}
+
 sub ProcessType
 {
     my ($attr, $type) = @_;
@@ -1574,6 +1709,15 @@ sub ProcessAllowNull
     return $allownull if defined $allownull;
 
     return "false";
+}
+
+sub ProcessIsAction
+{
+    my ($value,$isaction) = @_;
+
+    return $isaction if defined $isaction;
+
+    return "true";
 }
 
 sub ProcessIsResourceType
@@ -2313,6 +2457,42 @@ sub ProcessIsExtensionAttr
     return "false";
 }
 
+sub ProcessSingleObjectTypeStat
+{
+    my ($typedef, $objecttype) = @_;
+
+    my $enum = $SAI_ENUMS{$typedef};
+
+    my @values = @{ $enum->{values} };
+
+    for my $stat (@values)
+    {
+        if (not defined $STAT_METADATA{$typedef} or not defined $STAT_METADATA{$typedef}{$stat})
+        {
+            LogError "stat_metadata is missing for $stat";
+            next;
+        }
+
+        my %meta = %{ $STAT_METADATA{$typedef}{$stat} };
+
+        $meta{type} = "" if not defined $meta{type};
+
+        my $statname        = ProcessStatName($stat, $meta{type});
+        my $kebabname       = ProcessStatKebabName($stat, $meta{type});
+        my $camelname       = ProcessStatCamelName($stat, $meta{type});
+        my $precision       = ProcessPrecision($stat, $meta{precision});
+
+        WriteSource "const sai_stat_metadata_t sai_metadata_stat_$stat = {";
+
+        WriteSource ".objecttype                    = $objecttype,";
+        WriteSource ".statid                        = $stat,";
+        WriteSource ".statidname                    = $statname,";
+        WriteSource ".statidkebabname               = $kebabname,";
+        WriteSource ".statidcamelname               = $camelname,";
+        WriteSource ".valueprecision                = $precision,";
+        WriteSource "};";
+    }
+}
 sub ProcessApiVersion
 {
     my ($attr, $type) = @_;
@@ -2416,6 +2596,8 @@ sub ProcessSingleObjectType
         my $isrelaxed       = ProcessRelaxedType($attr, $meta{relaxed});
         my $apiversion      = ProcessApiVersion($attr);
         my $nextrelease     = ProcessNextRelease($attr);
+        my $isaction        = ProcessIsAction($attr, $meta{isaction});
+        my $precision       = ProcessPrecision($attr, $meta{precision});
 
         my $ismandatoryoncreate = ($flags =~ /MANDATORY/)       ? "true" : "false";
         my $iscreateonly        = ($flags =~ /CREATE_ONLY/)     ? "true" : "false";
@@ -2477,6 +2659,8 @@ sub ProcessSingleObjectType
         WriteSource ".iscustom                      = ($attr >= 0x10000000) && ($attr < 0x20000000),";
         WriteSource ".apiversion                    = $apiversion,";
         WriteSource ".nextrelease                   = $nextrelease,";
+        WriteSource ".isaction                      = $isaction,";
+        WriteSource ".valueprecision                = $precision,";
 
         WriteSource "};";
 
@@ -2521,12 +2705,20 @@ sub CreateMetadata
 {
     for my $key (sort keys %SAI_ENUMS)
     {
-        next if not $key =~ /^(sai_(\w+)_attr_t)$/;
+        if ($key =~ /^(sai_(\w+)_attr_t)$/)
+        {
+            my $typedef = $1;
+            my $objtype = "SAI_OBJECT_TYPE_" . uc($2);
 
-        my $typedef = $1;
-        my $objtype = "SAI_OBJECT_TYPE_" . uc($2);
+            ProcessSingleObjectType($typedef, $objtype);
+        }
+        elsif ($key =~ /^(sai_(\w+)_stat_t)$/)
+        {
+            my $typedef = $1;
+            my $objtype = "SAI_OBJECT_TYPE_" . uc($2);
 
-        ProcessSingleObjectType($typedef, $objtype);
+            ProcessSingleObjectTypeStat($typedef, $objtype);
+        }
     }
 }
 
@@ -2584,6 +2776,73 @@ sub ProcessSaiStatus
     $SAI_ENUMS{"sai_status_t"}{values} = \@values;
     $SAI_ENUMS{"sai_status_t"}{flagsenum} = "true";
     $SAI_ENUMS{"sai_status_t"}{flagstype} = "free";
+}
+
+sub CreateMetadataForStatistics
+{
+    my @objects = @{ $SAI_ENUMS{sai_object_type_t}{values} };
+
+    for my $ot (@objects)
+    {
+
+        if (not $ot =~ /^SAI_OBJECT_TYPE_(\w+)$/)
+        {
+            LogError "invalid obejct type '$ot'";
+            next;
+        }
+
+        my $type = "sai_" . lc($1) . "_stat_t";
+
+        if (not defined $SAI_ENUMS{$type})
+        {
+            # skip this object type of no stat_t defined
+            next;
+        }
+
+        WriteSource "const sai_stat_metadata_t* const sai_metadata_stat_object_type_$type\[\] = {";
+
+        my @values = @{ $SAI_ENUMS{$type}{values} };
+
+        for my $value (@values)
+        {
+            next if defined $METADATA{$type}{$value}{ignore};
+
+            WriteSource "&sai_metadata_stat_$value,";
+        }
+
+        WriteSource "NULL";
+        WriteSource "};";
+    }
+
+    WriteHeader "extern const sai_stat_metadata_t* const* const sai_metadata_stat_by_object_type[];";
+    WriteSource "const sai_stat_metadata_t* const* const sai_metadata_stat_by_object_type[] = {";
+
+    for my $ot (@objects)
+    {
+        if (not $ot =~ /^SAI_OBJECT_TYPE_(\w+)$/)
+        {
+            LogError "invalid obejct type '$ot'";
+            next;
+        }
+
+        my $type = "sai_" . lc($1) . "_stat_t";
+
+        if (not defined $SAI_ENUMS{$type})
+        {
+            # skip this object type of no stat_t defined
+            next;
+        }
+
+        WriteSource "sai_metadata_stat_object_type_$type,";
+    }
+
+    WriteSource "NULL";
+    WriteSource "};";
+
+    my $count = @objects;
+
+    WriteHeader "extern const size_t sai_metadata_stat_by_object_type_count;";
+    WriteSource "const size_t sai_metadata_stat_by_object_type_count = $count;";
 }
 
 sub CreateMetadataForAttributes
@@ -4278,6 +4537,60 @@ sub CreateListOfAllAttributes
     WriteHeader "extern const size_t sai_metadata_attr_sorted_by_id_name_count;";
 }
 
+sub GetHashOfAllStatistics
+{
+    my %STATISTICS = ();
+
+    for my $key (sort keys %SAI_ENUMS)
+    {
+        next if not $key =~ /^(sai_(\w+)_stat_t)$/;
+
+        my $typedef = $1;
+
+        my $enum = $SAI_ENUMS{$typedef};
+
+        my @values = @{ $enum->{values} };
+
+        for my $stat (@values)
+        {
+            if (not defined $STAT_METADATA{$typedef} or not defined $STAT_METADATA{$typedef}{$stat})
+            {
+                LogError "stat_metadata is missing for $stat";
+                next;
+            }
+
+            $STATISTICS{$stat} = 1;
+        }
+    }
+
+    return %STATISTICS;
+}
+
+sub CreateListOfAllStatistics
+{
+    WriteSectionComment "List of all statistics";
+
+    my %STATISTICS = GetHashOfAllStatistics();
+
+    WriteHeader "extern const sai_stat_metadata_t* const sai_metadata_stat_sorted_by_id_name[];";
+    WriteSource "const sai_stat_metadata_t* const sai_metadata_stat_sorted_by_id_name[] = {";
+
+    my @keys = sort keys %STATISTICS;
+
+    for my $stat (@keys)
+    {
+        WriteSource "&sai_metadata_stat_$stat,"
+    }
+
+    my $count = @keys;
+
+    WriteSource "NULL";
+    WriteSource "};";
+
+    WriteSource "const size_t sai_metadata_stat_sorted_by_id_name_count = $count;";
+    WriteHeader "extern const size_t sai_metadata_stat_sorted_by_id_name_count;";
+}
+
 sub CheckApiStructNames
 {
     #
@@ -5733,6 +6046,8 @@ CreateMetadata();
 
 CreateMetadataForAttributes();
 
+CreateMetadataForStatistics();
+
 CreateDefineMaxConditionsLen();
 
 CreateEnumHelperMethods();
@@ -5764,6 +6079,8 @@ CreateGlobalApisQuery();
 CreateObjectInfo();
 
 CreateListOfAllAttributes();
+
+CreateListOfAllStatistics();
 
 CheckCapabilities();
 

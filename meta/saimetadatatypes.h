@@ -500,7 +500,44 @@ typedef enum _sai_attr_value_type_t
      * @brief Attribute value is port PAM4 eye values list.
      */
     SAI_ATTR_VALUE_TYPE_PORT_PAM4_EYE_VALUES_LIST,
+
+    /**
+     * @brief Attribute value is the optical port LLDP information data.
+     */
+    SAI_ATTR_VALUE_TYPE_OPTICALPORT_LLDP_NEIGHBOR,
 } sai_attr_value_type_t;
+
+/**
+ * @brief Defines attribute and statistics value precision.
+ */
+typedef enum _sai_value_precision_t
+{
+    /**
+     * @brief Value with 0 decimal places.
+     */
+    SAI_VALUE_PRECISION_0,
+
+    /**
+     * @brief Value with 1 decimal places.
+     */
+    SAI_VALUE_PRECISION_1,
+
+    /**
+     * @brief Value with 2 decimal places.
+     */
+    SAI_VALUE_PRECISION_2,
+
+    /**
+     * @brief Value with 3 decimal places.
+     */
+    SAI_VALUE_PRECISION_3,
+
+    /**
+     * @brief Value with 18 decimal places.
+     */
+    SAI_VALUE_PRECISION_18,
+
+} sai_value_precision_t;
 
 /**
  * @brief Attribute flags.
@@ -919,6 +956,42 @@ typedef struct _sai_attr_capability_metadata_t
 } sai_attr_capability_metadata_t;
 
 /**
+ * @brief Defines statistics metadata.
+ */
+typedef struct _sai_stat_metadata_t
+{
+    /**
+     * @brief Specifies valid SAI object type.
+     */
+    sai_object_type_t                           objecttype;
+
+    /**
+     * @brief Specifies valid statistics id for this object type.
+     */
+    sai_stat_id_t                               statid;
+
+    /**
+     * @brief Specifies valid statistics id name for this object type.
+     */
+    const char* const                           statidname;
+
+    /**
+     * @brief Specifies valid statistics id name of kebab case naming style.
+     */
+    const char* const                           statidkebabname;
+
+    /**
+     * @brief Specifies valid statistics id name of camel case naming style.
+     */
+    const char* const                           statidcamelname;
+
+    /**
+     * @brief Specifies value decimal precision for this statistics.
+     */
+    sai_value_precision_t                       valueprecision;
+} sai_stat_metadata_t;
+
+/**
  * @brief Defines attribute metadata.
  */
 typedef struct _sai_attr_metadata_t
@@ -1320,6 +1393,18 @@ typedef struct _sai_attr_metadata_t
      */
     bool                                        nextrelease;
 
+    /**
+     * @brief Indicates whether attribute is an action.
+     *
+     * If true, when calling SET API successfully, the value will NOT be saved in local
+     * db for warm-reboot (or cold-reboot) flow to recover this configuration.
+     */
+    bool                                        isaction;
+
+    /**
+     * @brief Specifies value decimal precision for this attribute.
+     */
+    sai_value_precision_t                       valueprecision;
 } sai_attr_metadata_t;
 
 /*
