@@ -98,7 +98,6 @@
 #include "saiotdr.h"
 #include "saiotn.h"
 #include "saiphysicalchannel.h"
-#include "saitransceiver.h"
 #include "saiwss.h"
 
 /**
@@ -171,24 +170,23 @@ typedef enum _sai_api_t
     SAI_API_ICMP_ECHO        = 52, /**< sai_icmp_echo_api_t */
     SAI_API_PREFIX_COMPRESSION = 53, /**< sai_prefix_compression_api_t */
     SAI_API_SYNCE            = 54, /**< sai_synce_api_t */
-    SAI_API_TRANSCEIVER      = 55, /**< sai_transceiver_api_t */
-    SAI_API_LOGICAL_CHANNEL  = 56, /**< sai_logical_channel_api_t */
-    SAI_API_OTN              = 57, /**< sai_otn_api_t */
-    SAI_API_ETHERNET         = 58, /**< sai_ethernet_api_t */
-    SAI_API_PHYSICAL_CHANNEL = 59, /**< sai_physical_channel_api_t */
-    SAI_API_OCH              = 60, /**< sai_och_api_t */
-    SAI_API_INTERFACE        = 61, /**< sai_interface_api_t */
-    SAI_API_OPTICAL_PORT     = 62, /**< sai_optical_port_api_t */
-    SAI_API_OA               = 63, /**< sai_oa_api_t */
-    SAI_API_OSC              = 64, /**< sai_osc_api_t */
-    SAI_API_APS              = 65, /**< sai_aps_api_t */
-    SAI_API_APS_PORT         = 66, /**< sai_aps_port_api_t */
-    SAI_API_ASSIGNMENT       = 67, /**< sai_attenuator_api_t */
-    SAI_API_ATTENUATOR       = 68, /**< sai_attenuator_api_t */
-    SAI_API_WSS              = 69, /**< sai_wss_api_t */
-    SAI_API_MEDIA_CHANNEL    = 70, /**< sai_media_channel_api_t */
-    SAI_API_OCM              = 71, /**< sai_ocm_api_t */
-    SAI_API_OTDR             = 72, /**< sai_otdr_api_t */
+    SAI_API_LOGICAL_CHANNEL  = 55, /**< sai_logical_channel_api_t */
+    SAI_API_OTN              = 56, /**< sai_otn_api_t */
+    SAI_API_ETHERNET         = 57, /**< sai_ethernet_api_t */
+    SAI_API_PHYSICAL_CHANNEL = 58, /**< sai_physical_channel_api_t */
+    SAI_API_OCH              = 59, /**< sai_och_api_t */
+    SAI_API_INTERFACE        = 60, /**< sai_interface_api_t */
+    SAI_API_OPTICAL_PORT     = 61, /**< sai_optical_port_api_t */
+    SAI_API_OA               = 62, /**< sai_oa_api_t */
+    SAI_API_OSC              = 63, /**< sai_osc_api_t */
+    SAI_API_APS              = 64, /**< sai_aps_api_t */
+    SAI_API_APS_PORT         = 65, /**< sai_aps_port_api_t */
+    SAI_API_ASSIGNMENT       = 66, /**< sai_attenuator_api_t */
+    SAI_API_ATTENUATOR       = 67, /**< sai_attenuator_api_t */
+    SAI_API_WSS              = 68, /**< sai_wss_api_t */
+    SAI_API_MEDIA_CHANNEL    = 79, /**< sai_media_channel_api_t */
+    SAI_API_OCM              = 70, /**< sai_ocm_api_t */
+    SAI_API_OTDR             = 71, /**< sai_otdr_api_t */
     SAI_API_MAX,                   /**< total number of APIs */
 
     /**
